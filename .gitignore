@@ -1,0 +1,5 @@
+*.pdb
+system/Game_bin.exe
+rebuild-exe.bat
+pack-pk-files.bat
+generate-bin.bat
