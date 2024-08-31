@@ -440,3 +440,69 @@ UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230,
 id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
 UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
 UI_SetSize( id, 13, 43 )
+
+
+
+-----------------------------------------------------------------------
+-- Death recap
+-----------------------------------------------------------------------
+frmDeathRecap = UI_CreateForm( "frmDeathRecap", FALSE, 600, 500, 100, 200, TRUE, FALSE )
+UI_ShowForm( frmDeathRecap, FALSE )
+UI_SetIsDrag( frmDeathRecap, TRUE )
+
+imgBackGround = UI_CreateCompent( frmDeathRecap, IMAGE_TYPE, "imgBackGround", 600, 500, 0, 0 )
+UI_LoadImage( imgBackGround, "texture/gui/rating.png", NORMAL, 600, 300, 100, 200 )
+
+
+for pos = 1, 3, 1 do
+	local szIcon = string.format("Icon%d", pos)
+	local szName = string.format("Name%d", pos)
+	local szJob = string.format("Job%d", pos)
+	local szDamage = string.format("Damage%d", pos)
+	
+	-- Avatar
+	szIcon = UI_CreateCompent( frmDeathRecap, IMAGE_TYPE, szIcon, 64, 64, (pos * 120), 15 )
+	UI_LoadImage(szIcon, "texture/icon/error.png", NORMAL, 32, 32, 0, 0 )
+	
+	-- Lv# cha_name
+	szName = UI_CreateCompent( frmDeathRecap, LABELEX_TYPE, szName, 0, 0, (pos * 122), 83 )
+	UI_SetTextColor(szName, COLOR_FFEDCF )
+	UI_SetLabelExFont(szName, ARIAL_FONT_MINI, FALSE, COLOR_WHITE )
+	
+	-- Job
+	szJob = UI_CreateCompent( frmDeathRecap, LABELEX_TYPE, szJob, 0, 0, (pos * 122), 93 )
+	UI_SetTextColor(szJob, COLOR_FFEDCF )
+	UI_SetLabelExFont(szJob, ARIAL_FONT_MINI, FALSE, COLOR_WHITE )
+	
+	-- Damage
+	szDamage = UI_CreateCompent( frmDeathRecap, LABELEX_TYPE, szDamage, 0, 0, (pos * 122), 103 )
+	UI_SetTextColor(szDamage, COLOR_FFEDCF )
+	UI_SetLabelExFont(szDamage, ARIAL_FONT_MINI, FALSE, COLOR_WHITE )
+	
+	for ipos = 1, 10, 1 do
+		local szItem = string.format("Item-%d-%d", pos, ipos)
+		szItem = UI_CreateCompent( frmDeathRecap, IMAGE_TYPE, szItem, 20, 20, (pos * 120), 113 + (25 * ipos) )
+		UI_LoadImage(szItem, "texture/icon/error.png", NORMAL, 32, 32, 0, 0 )
+	end
+	
+	for ipos = 1, 10, 1 do
+		local szItemName = string.format("ItemName-%d-%d", pos, ipos)
+		
+		szItemName = UI_CreateCompent( frmDeathRecap, LABELEX_TYPE, szItemName, 0, 0, 25 + (pos * 120), 113 + (25 * ipos) )
+		UI_SetTextColor(szItemName, COLOR_FFEDCF )
+		UI_SetLabelExFont(szItemName, ARIAL_FONT_MINI, FALSE, COLOR_WHITE )
+		
+	end
+	
+	for ipos = 1, 10, 1 do
+		local szItemDesc = string.format("ItemDesc-%d-%d", pos, ipos)
+		szItemDesc = UI_CreateCompent( frmDeathRecap, LABELEX_TYPE, szItemDesc, 0, 0, 25 + (pos * 120), 123 + (25 * ipos) )
+		UI_SetTextColor(szItemDesc, COLOR_FFEDCF )
+		UI_SetLabelExFont(szItemDesc, ARIAL_FONT_MINI, FALSE, COLOR_WHITE )
+	end
+end
+
+btnClose = UI_CreateCompent( frmDeathRecap, BUTTON_TYPE, "btnClose", 32, 32, 568, 0 )
+UI_LoadButtonImage( btnClose, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
