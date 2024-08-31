@@ -4,3 +4,7 @@ rebuild-exe.bat
 pack-pk-files.bat
 generate-bin.bat
 scripts/table/*.txt
+user/system.ini
+user/account/*
+user/block/*
+user/flag.txt
