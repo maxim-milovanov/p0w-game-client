@@ -1,0 +1,243 @@
+function GetPreviouName( lEnergy, hEnergy, sex )
+local a = "0,0,0"
+local b= "称号百变"
+	if lEnergy==6001 then 
+	a = "255,0,0"---红色
+	elseif  lEnergy==6002 then
+		a = "255,255,0"---黄色
+	elseif  lEnergy==6003 then
+		a = "0,255,0"---绿色
+	elseif  lEnergy==6004 then
+		a = "0,0,255"--蓝色
+	elseif  lEnergy==6005 then
+		a = "0,0,0"--黑色
+	elseif  lEnergy==6006 then
+		a = "255,255,255"--白色
+	elseif  lEnergy==6007 then
+		a = "255,0,255"--紫色
+	elseif  lEnergy==6008 then
+		a = "128,128,128"--灰色
+	elseif  lEnergy==6009 then
+		a = "255,128,128"--淡粉
+	elseif  lEnergy==6010 then
+		a = "255,128,0"--泥黄
+	elseif  lEnergy==6011 then
+		a = "0,128,128"--靛青
+	elseif  lEnergy==6012 then
+		a = "0,128,0"--墨绿
+	elseif  lEnergy==6013 then
+		a = "255,0,128"--桃红
+	elseif  lEnergy==6014 then
+		a = "0,255,255"--天蓝
+	elseif  lEnergy==6015 then
+		a = "0,128,255"--海蓝
+	else 
+		a = "0,0,0"--黑色
+	end
+	if hEnergy==6100 then
+		b="称号百变无常"
+	elseif hEnergy==6101 then
+		b= "狙击王"
+	elseif hEnergy==6102 then
+		b="俺是打酱油滴"
+	elseif hEnergy==6103 then
+		b="俯卧撑达人"
+	elseif hEnergy==6104 then
+		b="很黄很暴力"
+	elseif hEnergy==6105 then
+		b="哥只是个传说"
+	elseif hEnergy==6106 then
+		b="妹只是个神话"
+	elseif hEnergy==6107 then
+		b="对月独酌"
+	elseif hEnergy==6108 then
+		b="十步杀一人"
+	elseif hEnergy==6109 then
+		b="一步杀十人"
+	elseif hEnergy==6110 then
+		b= "电光火石"
+	elseif hEnergy==6111 then
+		b= "绝快无双"
+	elseif hEnergy==6112 then
+		b= "乱世枭雄"
+	elseif hEnergy==6113 then
+		b="形只影单"
+	elseif hEnergy==6114 then
+		b="等爱上线"
+	elseif hEnergy==6115 then
+		b="孤单的海盗"
+	elseif hEnergy==6116 then
+		b="向前冲"
+	elseif hEnergy==6117 then
+		b="小囡孓"
+	elseif hEnergy==6118 then
+		b="壞侽囚"
+	elseif hEnergy==6119 then
+		b="鈈嘚鈈愛"
+	elseif hEnergy==6120 then
+		b="沙漠之鹰"
+	elseif hEnergy==6121 then
+		b="阳光宅男"
+	elseif hEnergy==6122 then
+		b="月光腐女"
+	elseif hEnergy==6123 then
+		b= "骄傲公主"
+	elseif hEnergy==6124 then
+		b= "娇蛮小公主"
+	elseif hEnergy==6125 then
+		b= "越狱在逃的"
+	elseif hEnergy==6126 then
+		b= "跪求一败"
+	elseif hEnergy==6127 then
+		b=  "穷鬼"
+	elseif hEnergy==6128 then
+		b="被通缉的"
+	elseif hEnergy==6129 then
+		b="小号杀手"
+	elseif hEnergy==6130 then
+		b="魔方霸主"
+	elseif hEnergy==6131 then
+		b="单刷废灵无敌手"
+	elseif hEnergy==6132 then
+		b="我的海盗我的团"
+	elseif hEnergy==6133 then
+		b="疯狂的砖头"
+	elseif hEnergy==6134 then
+		b="道哥"
+	elseif hEnergy==6135 then
+		b= "皮糙肉厚的"
+	elseif hEnergy==6136 then
+		b="神医"
+	elseif hEnergy==6137 then
+		b="举世无双的"
+	elseif hEnergy==6138 then
+		b="海贼王"
+	elseif hEnergy==6139 then
+		b="高手高手高高手"
+	elseif hEnergy==6140 then
+		b="路人甲"
+	elseif hEnergy==6141 then
+		b="一刀放倒三"
+	elseif hEnergy==6142 then
+		b="穷开心"
+	elseif hEnergy==6143 then
+		b="情圣"
+	elseif hEnergy==6144 then
+		b="圣阶"
+	elseif hEnergy==6145 then
+		b="赏金猎人"
+	elseif hEnergy==6146 then  
+		b="屠龙英雄"
+	elseif hEnergy==6147 then  
+		b="痴心绝对"
+	elseif hEnergy==6148 then  
+		b="绝地武士"
+	elseif hEnergy==6149 then  
+		b="被女神眷顾的"
+	elseif hEnergy==6150 then  
+		b="两小无猜"
+	elseif hEnergy==6151 then  
+		b="天外飞仙"
+	elseif hEnergy==6152 then  
+		b="无人可挡"
+	elseif hEnergy==6153 then  
+		b="练级狂人"
+	elseif hEnergy==6154 then  
+		b="挂机是致富之路"
+	elseif hEnergy==6155 then  
+		b="海誓山盟"
+	elseif hEnergy==6156 then  
+		b="浪漫舞者"
+	elseif hEnergy==6157 then  
+		b="江湖小虾米"
+	elseif hEnergy==6158 then  
+		b="白挖不如空挖"
+	elseif hEnergy==6159 then  
+		b="沙岚城守护者"
+	elseif hEnergy==6160 then  
+		b="冰狼堡守护者"
+	elseif hEnergy==6161 then  
+		b="白银城守护者"
+	elseif hEnergy==6162 then  
+		b="魔女之海弄潮儿"
+	elseif hEnergy==6163 then  
+		b="命犯桃花"
+	elseif hEnergy==6164 then  
+		b="三刀流剑客"
+	elseif hEnergy==6165 then  
+		b="金刚"
+	elseif hEnergy==6166 then  
+		b="蜘蛛侠"
+	elseif hEnergy==6167 then  
+		b="蝙蝠侠"
+	elseif hEnergy==6168 then  
+		b="绿巨人"
+	elseif hEnergy==6169 then  
+		b="流浪剑客"
+	elseif hEnergy==6170 then  
+		b="撼地神牛"
+	elseif hEnergy==6171 then  
+		b="地狱男爵"
+	elseif hEnergy==6172 then  
+		b="极品家丁"
+	elseif hEnergy==6173 then  
+		b="小家碧玉"
+	elseif hEnergy==6174 then  
+		b="大家闺秀"
+	elseif hEnergy==6175 then  
+		b="塞外神龙"
+	elseif hEnergy==6176 then  
+		b="知生死知祸福"
+	elseif hEnergy==6177 then  
+		b="一切随缘"
+	elseif hEnergy==6178 then  
+		b="海上霸主"
+	elseif hEnergy==6179 then  
+		b="医死人不偿命"
+	elseif hEnergy==6180 then  
+		b="笑看风云"
+	elseif hEnergy==6181 then  
+		b="被传诵之名"
+	elseif hEnergy==6182 then  
+		b="邻家小妹"
+	elseif hEnergy==6183 then  
+		b="大大大明星"
+	elseif hEnergy==6184 then  
+		b="圣域来使"
+	elseif hEnergy==6185 then  
+		b="天工开物"
+	elseif hEnergy==6186 then  
+		b="游戏人生"
+	elseif hEnergy==6187 then  
+		b="浪迹天涯"
+	elseif hEnergy==6188 then  
+		b="往事如风"
+	elseif hEnergy==6189 then  
+		b="无所不能"		
+	elseif hEnergy==6190 then  
+		b="生不逢时的"
+	elseif hEnergy==6191 then  
+		b="不死小强"
+	elseif hEnergy==6192 then  
+		b="数钱数到手抽筋"
+	elseif hEnergy==6193 then  
+		b="睡觉睡到自然醒"
+	elseif hEnergy==6194 then  
+		b="坐怀不乱"
+	elseif hEnergy==6195 then  
+		b="灭团光环"
+	elseif hEnergy==6196 then  
+		b="灵魂人物"
+	elseif hEnergy==6197 then  
+		b="乱斗之王"
+	elseif hEnergy==6198 then  
+		b="四海游龙"
+	elseif hEnergy==6199 then  
+		b="刚从地狱回来"
+	elseif hEnergy==6200 then  
+		b="天地任逍遥"	
+	else
+		b="称号百变"
+	end
+	return a,b
+end

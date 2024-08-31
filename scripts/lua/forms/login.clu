@@ -1,0 +1,391 @@
+-----------------------------------------------------------------------
+-- Selete gate
+-----------------------------------------------------------------------	
+frmServer = UI_CreateForm( "frmServer", FALSE, 441, 281, 396, 225, FALSE, FALSE )
+UI_SetFormStyle( frmServer , 2 )
+UI_AddFormToTemplete( frmServer, FORM_LOGIN )
+UI_FormSetIsEscClose( frmServer, FALSE )
+
+imgBakTop = UI_CreateCompent( frmServer, IMAGE_TYPE, "imgBakTop", 441, 280, 0, 0 )
+UI_LoadImage( imgBakTop, "texture/gui/region.png", NORMAL, 441, 281, 456, 0 )
+
+btnNo = UI_CreateCompent( frmServer, BUTTON_TYPE, "btnNo", 32, 32, 416-20, 13 )
+UI_LoadButtonImage( btnNo, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+UI_SetAlpha(btnNo,210)
+
+imgServerIcon = UI_CreateCompent( frmServer, IMAGE_TYPE, "imgServerIcon", 16, 11, 0, 0 )
+UI_LoadImage( imgServerIcon, "texture/gui/old_gui/forge3.tga", NORMAL, 16, 11, 164, 76 )
+
+lvServer = UI_CreateListView( frmServer, "lvServer", 210, 200, 16, 35, 3, 2 )
+UI_SetMargin( lvServer, 19, 20, 15, 0 )
+UI_ListViewSetTitle( lvServer, 0, 20, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lvServer, 1, 75, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lvServer, 2, 30, "", 0, 0, 0, 0 )
+UI_ListSetItemMargin( lvServer, 20, 15 )
+UI_SetListRowHeight( lvServer, 45 )
+UI_SetListIsMouseFollow( lvServer, TRUE)
+UI_ListLoadSelectImage( lvServer, "texture/gui/region.png", 130, 22, 155, 292 )
+UI_SetImageAlpha( lvServer, 134 )
+UI_SetListFontColor( lvServer, 4286213985, 4291467848 )
+
+-----------------------------------------------------------------------
+-- Updater
+-----------------------------------------------------------------------
+frmUpdater = UI_CreateForm( "frmUpdater", FALSE, 710, 360, 396, 225+50, FALSE, FALSE )
+UI_SetFormStyle( frmUpdater , 2 )
+UI_AddFormToTemplete( frmUpdater, FORM_LOGIN )
+UI_FormSetIsEscClose( frmUpdater, FALSE )
+
+-- Восстановление клиента до оригинальных файлов
+btnVersionCheck = UI_CreateCompent( frmUpdater, BUTTON_TYPE, "btnVersionCheck", 180, 50, 0, 300)
+UI_LoadButtonImage( btnVersionCheck, "texture/gui/updater.png", 180, 50, 310, 0, FALSE )
+
+-- Кнопка обновления клиента
+btnUpdate = UI_CreateCompent( frmUpdater, BUTTON_TYPE, "btnUpdate", 310, 70, 180+20, 290)
+UI_LoadButtonImage( btnUpdate, "texture/gui/updater.png", 310, 70, 0, 0, FALSE )
+
+-- Кнопка скипа обновления
+btnPlay = UI_CreateCompent( frmUpdater, BUTTON_TYPE, "btnPlay", 180, 50, 180+20+310+20, 300)
+UI_LoadButtonImage( btnPlay, "texture/gui/updater.png", 180, 50, 310, 200, FALSE )
+
+
+-----------------------------------------------------------------------
+-- Login Form
+-----------------------------------------------------------------------
+frmAccount = UI_CreateForm( "frmAccount", FALSE, 501, 330, 310, 340, FALSE, FALSE )
+UI_AddFormToTemplete( frmAccount, FORM_LOGIN )
+UI_SetFormStyle( frmAccount, 2 )
+UI_FormSetIsEscClose( frmAccount, FALSE )
+
+imgBackground = UI_CreateCompent( frmAccount, IMAGE_TYPE, "imgBackground", 501, 330, 0, -150 )
+UI_LoadImage( imgBackground, "texture/gui/region.png", NORMAL, 501, 330, 0, 324 )
+
+chkID = UI_CreateCompent( frmAccount, CHECK_TYPE, "chkID", 28, 28, 180+41, 25+4 )
+UI_LoadImage( chkID, "texture/gui/region.png", UNCHECKED, 28, 28, 312, 295 )
+UI_LoadImage( chkID, "texture/gui/region.png", CHECKED, 28, 28, 341, 295 )
+UI_SetHint( chkID, "Remember ID" )
+
+btnYes = UI_CreateCompent( frmAccount, BUTTON_TYPE, "btnYes", 151, 44, 84+140, 70 )
+UI_LoadButtonImage( btnYes, "texture/gui/region.png", 151, 44, 666, 339, FALSE )
+
+btnNo = UI_CreateCompent( frmAccount, BUTTON_TYPE, "btnNo", 151, 44, 84+140, 70+44+10 )
+UI_LoadButtonImage( btnNo, "texture/gui/region.png", 151, 44, 514, 339, FALSE )
+
+labYes = UI_CreateCompent( frmAccount, LABELEX_TYPE, "labYes", 42, 10, 107, 155 )
+UI_SetCaption( labYes, "" )
+UI_SetTextColor( labYes, COLOR_WHITE )
+UI_SetLabelExFont( labYes, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+labNo = UI_CreateCompent( frmAccount, LABELEX_TYPE, "labNo", 42, 10, 152, 155 )
+UI_SetCaption( labNo, "" )
+UI_SetTextColor( labNo, COLOR_WHITE )
+UI_SetLabelExFont( labNo, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+edtID = UI_CreateCompent( frmAccount, EDIT_TYPE, "edtID", 120, 12, 240, -30 )
+UI_SetTextColor( edtID, COLOR_B1A58E )
+UI_SetEditMaxNum( edtID, 32 )
+UI_SetEditMaxNumVisible( edtID, 32 )
+UI_SetEditCursorColor( edtID, COLOR_WHITE )
+
+edtPassword = UI_CreateCompent( frmAccount, EDIT_TYPE, "edtPassword", 120, 12, 240, -2 )
+UI_SetTextColor( edtPassword, COLOR_B1A58E )
+UI_SetEditMaxNum( edtPassword, 20 )
+UI_SetEditMaxNumVisible( edtPassword, 12 )
+UI_SetEditCursorColor( edtPassword, COLOR_WHITE )
+
+imgAccountList = UI_CreateCompent(frmAccount, IMAGE_TYPE, "imgAccountList", 19, 12, 350, -30)
+UI_LoadImage(imgAccountList, "texture/gui/region.png", NORMAL, 19, 12, 372, 302)
+
+AccountList  = UI_CreateCompent( frmAccount, COMBO_TYPE, "AccountList", 98, 12, 350, -33 )
+UI_ComboSetStyle( AccountList, TRUE )
+UI_ComboSetTextColor( AccountList, COLOR_WHITE )
+
+lstAccountList = UI_GetList( AccountList )
+UI_SetListFontColor( lstAccountList, COLOR_WHITE, COLOR_WHITE )
+UI_SetSize( lstAccountList, 81, 100 )
+UI_SetMargin( lstAccountList, 16,6,16,0 )
+UI_SetListRowHeight( lstAccountList, 18 )
+UI_LoadImage( lstAccountList, "texture/gui/select-map.png", COMPENT_BACK, 81, 68, 4, 114 )
+UI_SetListIsMouseFollow( lstAccountList, TRUE)
+UI_ComboSetTextColor( lstAccountList, COLOR_WHITE )
+
+scrollid = UI_GetScroll(lstAccountList)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
+UI_SetSize( id, 13, 43 )
+
+btnRemoveAccount = UI_CreateCompent( frmAccount, BUTTON_TYPE, "btnRemoveAccount", 34, 40, 390, 72)
+UI_LoadButtonImage( btnRemoveAccount, "texture/gui/region.png", 34, 40, 408+110, 289, TRUE )
+UI_SetHint(btnRemoveAccount, "Delete saved account")
+
+-----------------------------------------------------------------------
+-- Login Form Support
+-----------------------------------------------------------------------
+frmAccountSupport = UI_CreateForm( "frmAccountSupport", FALSE, 456, 32, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmAccountSupport, TRUE )
+UI_AddFormToTemplete( frmAccountSupport, FORM_LOGIN )
+UI_FormSetIsEscClose( frmAccountSupport, FALSE )
+
+bntCreateAccount = UI_CreateCompent( frmAccountSupport, BUTTON_TYPE, "bntCreateAccount", 228, 32, 7, 7 )
+UI_LoadButtonImage( bntCreateAccount, "texture/gui/select-cha-panel.png", 228, 32, 686, 0, FALSE )
+
+bntForgot = UI_CreateCompent( frmAccountSupport, BUTTON_TYPE, "bntForgot", 188, 32, 228+40, 7 )
+UI_LoadButtonImage( bntForgot, "texture/gui/select-cha-panel.png", 188, 32, 686, 96, FALSE )
+
+-----------------------------------------------------------------------
+-- 定义健康通告
+-----------------------------------------------------------------------	
+-- 创建健康通告表单
+frmAnnounce = UI_CreateForm( "frmAnnounce", FALSE, 198, 207, 396, 190, FALSE, FALSE )
+UI_LoadFormImage( frmAnnounce, "texture/gui/old_gui/game.dds", 198, 207, 0, 0, "", 0, 0 )
+UI_AddFormToTemplete( frmAnnounce, FORM_LOGIN )
+UI_SetFormStyle( frmAnnounce, 2 )
+--UI_SetAlpha( frmAnnounce, 200 )
+UI_FormSetIsEscClose( frmAnnounce, FALSE )
+
+
+-- 加载界面title
+imgAnnTitle = UI_CreateCompent( frmAnnounce, IMAGE_TYPE, "imgAnnTitle", 73, 13, 10, 4 )
+UI_LoadImage( imgAnnTitle, "texture/gui/old_gui/Word.dds", NORMAL, 73, 13, 0, 58 )
+
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmAnnounce, BUTTON_TYPE, "btnYes", 41, 19, 100, 180 )
+UI_LoadButtonImage( btnYes, "texture/gui/old_gui/PublicC.tga", 41, 19, 0, 0, TRUE )
+UI_SetAlign( btnYes, caWidthCenter )
+
+labYes = UI_CreateCompent( frmAnnounce, LABELEX_TYPE, "labYes", 24, 10, 109, 324 )
+UI_SetCaption( labYes, "" )
+UI_SetTextColor( labYes, COLOR_WHITE )
+UI_SetLabelExFont( labYes, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+-----------------------------------------------------------------------
+-- Create security code
+-----------------------------------------------------------------------	
+frmDoublePwdCreate = UI_CreateForm("frmDoublePwdCreate", FALSE, 263, 133, 200, 200, FALSE, FALSE)
+UI_AddFormToTemplete( frmDoublePwdCreate, FORM_SELECT )
+UI_FormSetIsEscClose( frmDoublePwdCreate, FALSE)
+UI_SetIsDrag( frmDoublePwdCreate, FALSE)
+UI_ShowForm( frmDoublePwdCreate, FALSE)
+UI_FormSetEnterButton(frmDoublePwdCreate,btnYes)
+
+-- background
+imgDoublePwdCreate = UI_CreateCompent( frmDoublePwdCreate, IMAGE_TYPE,"imgDoublePwdCreate" ,263, 133, 0, 0)
+UI_LoadImage(imgDoublePwdCreate, "texture/gui/window-01.png", NORMAL, 263, 133, 0, 0)
+
+-- label
+imgDoublePwdCreate = UI_CreateCompent( frmDoublePwdCreate, IMAGE_TYPE,"imgDoublePwdCreate", 224, 56, 20, 20)
+UI_LoadImage(imgDoublePwdCreate, "texture/gui/window-01.png", NORMAL, 224, 56, 0, 166)
+
+-- botton "ok"
+btnYes = UI_CreateCompent( frmDoublePwdCreate, BUTTON_TYPE, "btnYes", 102, 35, 29, 106 )
+UI_LoadButtonImage( btnYes, "texture/gui/window-01.png", 102, 35, 0, 269, TRUE )
+
+--botton "cancel"
+btnClear = UI_CreateCompent( frmDoublePwdCreate, BUTTON_TYPE, "btnClear", 102, 35, 134, 106 )
+UI_LoadButtonImage( btnClear, "texture/gui/window-01.png", 102, 35, 0, 304, TRUE )
+
+-- enter security code
+edtDoublePwdCreate = UI_CreateCompent(frmDoublePwdCreate, EDIT_TYPE,"edtDoublePwdCreate" ,66, 14, 137, 27)
+UI_SetEditCursorColor(edtDoublePwdCreate, COLOR_968774 )
+UI_SetTextColor(edtDoublePwdCreate, COLOR_968774 )
+UI_SetEditMaxNum(edtDoublePwdCreate, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwdCreate,12)
+
+-- re-enter
+edtDoublePwdCreateRetry = UI_CreateCompent(frmDoublePwdCreate, EDIT_TYPE,"edtDoublePwdCreateRetry", 66, 14, 137, 54)
+UI_SetEditCursorColor(edtDoublePwdCreateRetry, COLOR_968774 )
+UI_SetTextColor(edtDoublePwdCreateRetry, COLOR_968774 )
+UI_SetEditMaxNum(edtDoublePwdCreateRetry, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwdCreateRetry,12)
+
+-----------------------------------------------------------------------
+-- Change secret code
+-----------------------------------------------------------------------	
+frmDoublePwdAlter = UI_CreateForm("frmDoublePwdAlter", TRUE, 263, 133, 200, 200, TRUE, TRUE)
+UI_ShowForm(frmDoublePwdAlter, FALSE)
+--UI_SetFormStyle( frmDoublePwdAlter, 2 )
+UI_SetIsDrag(frmDoublePwdAlter, FALSE)
+UI_AddFormToTemplete(frmDoublePwdAlter, FORM_SELECT )
+UI_FormSetIsEscClose(frmDoublePwdAlter, TRUE)
+
+UI_FormSetEnterButton(frmDoublePwdAlter,btnYes)
+--UI_FormSetHotKey( frmDoublePwdAlter, ALT_KEY, HOTKEY_C )
+
+-- background
+imgDoublePwdAlter = UI_CreateCompent(frmDoublePwdAlter, IMAGE_TYPE,"imgDoublePwdAlter", 263, 133, 0, 0)
+UI_LoadImage( imgDoublePwdAlter, "texture/gui/window-01.png", NORMAL, 263, 133, 0, 0)
+
+imgDoublePwdAlter = UI_CreateCompent(frmDoublePwdAlter, IMAGE_TYPE,"imgDoublePwdAlter", 228, 95, 20, 14)
+UI_LoadImage( imgDoublePwdAlter, "texture/gui/window-01.png", NORMAL, 228, 95, 0, 133)
+
+-- botton "ok"
+btnYes = UI_CreateCompent( frmDoublePwdAlter, BUTTON_TYPE, "btnYes", 102, 35, 29, 106 )
+UI_LoadButtonImage( btnYes, "texture/gui/window-01.png", 102, 35, 0, 269, TRUE )
+
+--botton "cancel"
+btnClear = UI_CreateCompent( frmDoublePwdAlter, BUTTON_TYPE, "btnClear", 102, 35, 134, 106 )
+UI_LoadButtonImage( btnClear, "texture/gui/window-01.png", 102, 35, 0, 304, TRUE )
+
+-- old code
+edtDoublePwdAlterOld = UI_CreateCompent(frmDoublePwdAlter, EDIT_TYPE,"edtDoublePwdAlterOld", 66, 14, 137, 26)
+UI_SetEditCursorColor( edtDoublePwdAlterOld, COLOR_968774 )
+UI_SetTextColor(edtDoublePwdAlterOld, COLOR_968774 )
+UI_SetEditMaxNum( edtDoublePwdAlterOld, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwdAlterOld,12)
+
+-- new code
+edtDoublePwdAlterNew = UI_CreateCompent(frmDoublePwdAlter, EDIT_TYPE,"edtDoublePwdAlterNew", 66, 14, 137, 54)
+UI_SetEditCursorColor( edtDoublePwdAlterNew, COLOR_968774 )
+UI_SetTextColor(edtDoublePwdAlterNew, COLOR_968774 )
+UI_SetEditMaxNum( edtDoublePwdAlterNew, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwdAlterNew,12)
+
+-- re-enter
+edtDoublePwdAlterNewRetry = UI_CreateCompent(frmDoublePwdAlter, EDIT_TYPE,"edtDoublePwdAlterNewRetry" ,66, 14, 137, 82)
+UI_SetEditCursorColor( edtDoublePwdAlterNewRetry, COLOR_968774 )
+UI_SetTextColor(edtDoublePwdAlterNewRetry, COLOR_968774 )
+UI_SetEditMaxNum( edtDoublePwdAlterNewRetry, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwdAlterNewRetry,12)
+
+-----------------------------------------------------------------------
+-- Delete character
+-----------------------------------------------------------------------	
+frmDoublePwd = UI_CreateForm("frmDoublePwd", TRUE, 263, 133, 200, 200, TRUE, TRUE)
+UI_ShowForm( frmDoublePwd, FALSE )
+--UI_SetFormStyle( frmDoublePwd, 2 )
+UI_AddFormToTemplete( frmDoublePwd, FORM_SELECT )
+UI_SetIsDrag(frmDoublePwd, FALSE)
+UI_FormSetIsEscClose( frmDoublePwd, TRUE)
+
+UI_FormSetEnterButton(frmDoublePwd,btnYes)
+--UI_FormSetHotKey( frmDoublePwd, ALT_KEY, HOTKEY_Z )
+
+-- Background
+imgDoublePwd = UI_CreateCompent(frmDoublePwd, IMAGE_TYPE,"imgDoublePwd", 263, 133, 0, 0)
+UI_LoadImage( imgDoublePwd, "texture/gui/window-01.png", NORMAL, 263, 133, 0, 0)
+
+-- Label
+imgDoublePwd = UI_CreateCompent(frmDoublePwd, IMAGE_TYPE,"imgDoublePwd", 228, 41, 20, 46)
+UI_LoadImage( imgDoublePwd, "texture/gui/window-01.png", NORMAL, 228, 41, 0, 228)
+
+-- Enter code
+edtDoublePwd = UI_CreateCompent(frmDoublePwd, EDIT_TYPE,"edtDoublePwd", 66, 14, 137, 60)
+UI_SetIsKeyFocus(edtDoublePwd,FALSE)
+UI_SetEditCursorColor(edtDoublePwd, COLOR_968774 )
+UI_SetTextColor(edtDoublePwd, COLOR_968774 )
+UI_SetEditMaxNum(edtDoublePwd, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwd,12)
+
+-- botton "ok"
+btnYes = UI_CreateCompent( frmDoublePwd, BUTTON_TYPE, "btnYes", 102, 35, 29, 106 )
+UI_LoadButtonImage( btnYes, "texture/gui/window-01.png", 102, 35, 0, 269, TRUE )
+
+--botton "cancel"
+btnClear = UI_CreateCompent( frmDoublePwd, BUTTON_TYPE, "btnClear", 102, 35, 134, 106 )
+UI_LoadButtonImage( btnClear, "texture/gui/window-01.png", 102, 35, 0, 304, TRUE )
+
+-----------------------------------------------------------------------
+-- create security code: keyboard
+-----------------------------------------------------------------------	
+frmDoublePwdInput = UI_CreateForm("frmDoublePwdInput", TRUE, 131, 129, 392, 300, TRUE,TRUE)
+UI_ShowForm(frmDoublePwdInput, FALSE )
+UI_AddAllFormTemplete( frmDoublePwdInput)
+UI_SetIsDrag(frmDoublePwdInput, FALSE)
+UI_FormSetIsEscClose(frmDoublePwdInput, TRUE)
+
+imgDoublePwdInput = UI_CreateCompent(frmDoublePwdInput, IMAGE_TYPE,"imgDoublePwdInput", 80, 80, 0, 0)
+UI_LoadImage( imgDoublePwdInput, "texture/gui/window-01.png", NORMAL, 80, 80, 0, 0)
+
+imgDoublePwdInput = UI_CreateCompent(frmDoublePwdInput, IMAGE_TYPE,"imgDoublePwdInput", 80, 80, 80, 0)
+UI_LoadImage( imgDoublePwdInput, "texture/gui/window-01.png", NORMAL, 80, 80, 208, 0)
+
+imgDoublePwdInput = UI_CreateCompent(frmDoublePwdInput, IMAGE_TYPE,"imgDoublePwdInput", 98, 80, 0, 80)
+UI_LoadImage( imgDoublePwdInput, "texture/gui/window-01.png", NORMAL, 98, 80, 0, 45)
+
+imgDoublePwdInput = UI_CreateCompent(frmDoublePwdInput, IMAGE_TYPE,"imgDoublePwdInput", 98, 80, 80, 80)
+UI_LoadImage( imgDoublePwdInput, "texture/gui/window-01.png", NORMAL, 98, 80, 208, 45)
+
+btnNum1 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum1", 32, 32, 17, 17 )
+UI_LoadButtonImage( btnNum1, "texture/gui/keyboard.png", 32, 32, 0, 0, TRUE )
+
+btnNum2 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum2", 32, 32, 51, 17 )
+UI_LoadButtonImage( btnNum2, "texture/gui/keyboard.png", 32, 32, 0, 32, TRUE )
+
+btnNum3 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum3", 32, 32, 85, 17 )
+UI_LoadButtonImage( btnNum3, "texture/gui/keyboard.png", 32, 32, 0, 64, TRUE )
+
+btnNum4 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum4", 32, 32, 17, 51 )
+UI_LoadButtonImage( btnNum4, "texture/gui/keyboard.png", 32, 32, 0, 96, TRUE )
+
+btnNum5 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum5", 32, 32, 51, 51 )
+UI_LoadButtonImage( btnNum5, "texture/gui/keyboard.png", 32, 32, 0, 128, TRUE )
+
+btnNum6 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum6", 32, 32, 85, 51 )
+UI_LoadButtonImage( btnNum6, "texture/gui/keyboard.png", 32, 32, 0, 160, TRUE )
+
+btnNum7 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum7", 32, 32, 17, 85 )
+UI_LoadButtonImage( btnNum7, "texture/gui/keyboard.png", 32, 32, 0, 192, TRUE )
+
+btnNum8 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum8", 32, 32, 51, 85 )
+UI_LoadButtonImage( btnNum8, "texture/gui/keyboard.png", 32, 32, 0, 224, TRUE )
+
+btnNum9 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum9", 32, 32, 85, 85 )
+UI_LoadButtonImage( btnNum9, "texture/gui/keyboard.png", 32, 32, 0, 256, TRUE )
+
+btnNum0 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum0", 32, 32, 17, 119 )
+UI_LoadButtonImage( btnNum0, "texture/gui/keyboard.png", 32, 32, 0, 288, TRUE )
+
+btnClear = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnClear", 66, 32, 51, 119 )
+UI_LoadButtonImage( btnClear, "texture/gui/keyboard.png", 68, 32, 0, 320, TRUE )
+
+-----------------------------------------------------------------------
+-- create security code: Welcome notification 
+-----------------------------------------------------------------------	
+frmDoublePwdInfo =  UI_CreateForm("frmDoublePwdInfo", TRUE, 378, 129, 200, 329, TRUE,TRUE)
+UI_ShowForm(frmDoublePwdInfo, TRUE )
+UI_AddFormToTemplete( frmDoublePwdInfo, FORM_SELECT )
+UI_SetIsDrag(frmDoublePwdInfo, FALSE)
+
+-- notification
+imgWelcomeNotice1 = UI_CreateCompent(frmDoublePwdInfo, IMAGE_TYPE,"imgWelcomeNotice1", 494, 184, 0, 20)
+UI_LoadImage( imgWelcomeNotice1, "texture/gui/welcome-notification-01.png", NORMAL, 494, 184, 0, 0)
+
+-----------------------------------------------------------------------
+-- Welcome notification 02
+-----------------------------------------------------------------------	
+frmWelcomeNotice = UI_CreateForm("frmWelcomeNotice", TRUE, 606, 270, 0 , 0, TRUE,TRUE)
+UI_ShowForm(frmWelcomeNotice, FALSE )
+UI_SetIsDrag(frmWelcomeNotice, FALSE)
+UI_FormSetIsEscClose(frmWelcomeNotice, FALSE)
+UI_SetFormStyle(frmWelcomeNotice,1)
+UI_AddFormToTemplete( frmWelcomeNotice, FORM_SELECT )
+
+--UI_FormSetHotKey( frmWelcomeNotice, ALT_KEY, HOTKEY_Z ) 
+
+imgWelcomeNotice1 = UI_CreateCompent(frmWelcomeNotice, IMAGE_TYPE,"imgWelcomeNotice1", 606, 270, 0, 0)
+UI_LoadImage( imgWelcomeNotice1, "texture/gui/welcome-notification-02.png", NORMAL, 606, 270, 0, 0)
+UI_SetImageAlpha(imgWelcomeNotice1,220)
+
+btnYes = UI_CreateCompent( frmWelcomeNotice, BUTTON_TYPE, "btnYes", 204, 70, 196, 230 )
+UI_LoadButtonImage( btnYes, "texture/gui/welcome-notification-02.png", 204, 70, 0, 270, TRUE )
+
+-----------------------------------------------------------------------
+-- Before create one chars
+-----------------------------------------------------------------------	
+frmCreateOKNotice = UI_CreateForm("frmCreateOKNotice", TRUE, 606, 270, 0, 0, TRUE,TRUE)
+UI_ShowForm(frmCreateOKNotice, FALSE )
+UI_SetIsDrag(frmCreateOKNotice, FALSE)
+UI_FormSetIsEscClose(frmCreateOKNotice, FALSE)
+UI_SetFormStyle(frmCreateOKNotice,1)
+UI_AddFormToTemplete( frmCreateOKNotice, FORM_SELECT )
+
+imgWelcomeNotice1 = UI_CreateCompent(frmCreateOKNotice, IMAGE_TYPE,"imgWelcomeNotice1", 606, 270, 0, 0)
+UI_LoadImage( imgWelcomeNotice1, "texture/gui/welcome-notification-03.png", NORMAL, 606, 270, 0, 0)
+UI_SetImageAlpha(imgWelcomeNotice1,220)
+
+btnYes = UI_CreateCompent( frmCreateOKNotice, BUTTON_TYPE, "btnYes", 204, 70, 196, 230 )
+UI_LoadButtonImage( btnYes, "texture/gui/welcome-notification-03.png", 204, 70, 0, 270, TRUE )

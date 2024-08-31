@@ -1,0 +1,442 @@
+function addSystemOption(frm, compName, show_x, show_y, hide_x, hide_y)	
+	chkHelpmodel1 = UI_CreateCompent( frm, CHECK_TYPE, "chkHelpmodel1", 13, 14, hide_x, hide_y )
+	UI_LoadImage( chkHelpmodel1, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+	UI_LoadImage( chkHelpmodel1, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+	chkHelpmodel2 = UI_CreateCompent( frm, CHECK_TYPE, "chkHelpmodel2", 13, 14, show_x, show_y )
+	UI_LoadImage( chkHelpmodel2, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+	UI_LoadImage( chkHelpmodel2, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+	cbxEffmodel = UI_CreateCompent( frm, CHECK_GROUP_TYPE, compName, 0, 0, 0, 0 )
+	UI_AddGroupBox( cbxEffmodel, chkHelpmodel1 )
+	UI_AddGroupBox( cbxEffmodel, chkHelpmodel2 )
+end
+
+function addCheckBox(frm, compName, cap, hint, x, y, distance)
+	labGame = UI_CreateCompent( frm, LABELEX_TYPE, "labGame", 30, 10, x, y )
+	UI_SetCaption( labGame, cap )
+	UI_SetTextColor( labGame, COLOR_BLACK )
+	UI_SetLabelExFont( labGame, DEFAULT_FONT, TRUE, COLOR_WHITE )
+	UI_SetHint(labGame,hint)
+	
+	chkHelpmodel1 = UI_CreateCompent( frm, CHECK_TYPE, compName, 10, 10, x + distance, y )
+	UI_LoadImage( chkHelpmodel1, "texture/gui/old_gui/QQ2.tga", UNCHECKED, 10, 10, 40, 231 )
+	UI_LoadImage( chkHelpmodel1, "texture/gui/old_gui/QQ2.tga", CHECKED, 10, 10, 52, 231 )
+end
+
+-----------------------------------------------------------------------
+-- ESC
+-----------------------------------------------------------------------
+frmSystem = UI_CreateForm( "frmSystem", FALSE, 190, 274, 0, 0, TRUE, FALSE )
+UI_FormSetHotKey( frmSystem, ALT_KEY, HOTKEY_O )
+UI_ShowForm( frmSystem, TRUE )
+UI_SetIsDrag( frmSystem, FALSE )
+UI_SetBackground(frmSystem)
+
+imgBackground = UI_CreateCompent( frmSystem, IMAGE_TYPE, "imgBackground", 278, 433, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/system.png", NORMAL, 278, 433, 0, 0 )
+
+btnVideo = UI_CreateCompent( frmSystem, BUTTON_TYPE, "btnVideo", 205, 52, 36, 33 )
+UI_LoadButtonImage( btnVideo, "texture/gui/system.png", 205, 52, 290, 9, FALSE )
+
+btnAudio = UI_CreateCompent( frmSystem, BUTTON_TYPE, "btnAudio", 205, 52, 36, 92 )
+UI_LoadButtonImage( btnAudio, "texture/gui/system.png", 205, 52, 495, 9, FALSE )
+
+btnGame = UI_CreateCompent( frmSystem, BUTTON_TYPE, "btnGame", 205, 52, 36, 152 )
+UI_LoadButtonImage( btnGame, "texture/gui/system.png", 205, 52, 700, 9, FALSE )
+
+btnChange = UI_CreateCompent( frmSystem, BUTTON_TYPE, "btnChange", 205, 52, 36, 222 )
+UI_LoadButtonImage( btnChange, "texture/gui/system.png", 205, 52, 290, 217, FALSE )
+
+btnRelogin = UI_CreateCompent( frmSystem, BUTTON_TYPE, "btnRelogin", 205, 52, 36, 282 )
+UI_LoadButtonImage( btnRelogin, "texture/gui/system.png", 205, 52, 495, 217, FALSE )
+
+btnExit = UI_CreateCompent( frmSystem, BUTTON_TYPE, "btnExit", 205, 52, 36, 347 )
+UI_LoadButtonImage( btnExit, "texture/gui/system.png", 205, 52, 700, 217, FALSE )
+
+-----------------------------------------------------------------------
+-- Volume Settings
+-----------------------------------------------------------------------
+frmAudio = UI_CreateForm( "frmAudio",  FALSE, 251, 220, 397, 500, FALSE, FALSE )
+UI_ShowForm( frmAudio, FALSE )
+UI_AddFormToTemplete( frmAudio, FORM_MAIN )
+UI_SetFormStyle( frmAudio, 0 )
+UI_SetIsDrag( frmAudio, FALSE )
+UI_SetBackground(frmAudio)
+
+imgBackground = UI_CreateCompent( frmAudio, IMAGE_TYPE, "imgBackground", 251, 220, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/volume-settings.png", NORMAL, 251, 220, 0, 0 )
+
+btnClose = UI_CreateCompent( frmAudio, BUTTON_TYPE, "btnClose", 32, 32, 215, 8 )
+UI_LoadButtonImage( btnClose, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+proAudioMusic = UI_CreateCompent( frmAudio, PROGRESS_TYPE, "proAudioMusic", 198, 10, 27, 91 )
+UI_LoadScaleImage( proAudioMusic, "texture/gui/volume-settings.png", PROGRESS_PROGRESS, 198, 10, 0, 229, 1.0, 1.0 )
+UI_SetProgressActiveMouse( proAudioMusic, 1 )
+
+proAudioMidi = UI_CreateCompent( frmAudio, PROGRESS_TYPE, "proAudioMidi", 198, 10, 27, 159 )
+UI_LoadScaleImage( proAudioMidi, "texture/gui/volume-settings.png", PROGRESS_PROGRESS, 198, 10, 0, 229, 1.0, 1.0 )
+UI_SetProgressActiveMouse( proAudioMidi, 1 )
+
+btnYes = UI_CreateCompent( frmAudio, BUTTON_TYPE, "btnYes", 127, 39, 63, 198 )
+UI_LoadButtonImage( btnYes, "texture/gui/volume-settings.png", 127, 39, 260, 0, FALSE )
+
+-----------------------------------------------------------------------
+-- Display Settings
+-----------------------------------------------------------------------
+frmVideo = UI_CreateForm( "frmVideo", FALSE, 251, 368, 150, 150, FALSE, FALSE )
+UI_ShowForm( frmVideo, FALSE )
+UI_AddFormToTemplete( frmVideo, 1 )
+UI_SetIsDrag( frmVideo, FALSE )
+UI_SetBackground(frmVideo)
+
+imgBackground = UI_CreateCompent( frmVideo, IMAGE_TYPE, "imgBackground", 251, 368, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/display-settings.png", NORMAL, 251, 368, 0, 0 )
+
+btnClose = UI_CreateCompent( frmVideo, BUTTON_TYPE, "btnClose", 32, 32, 215, 8 )
+UI_LoadButtonImage( btnClose, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+btnYes = UI_CreateCompent( frmVideo, BUTTON_TYPE, "btnYes", 127, 39, 63, 346 )
+UI_LoadButtonImage( btnYes, "texture/gui/volume-settings.png", 127, 39, 260, 0, FALSE )
+
+-- Texture
+chkTextureHigh = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkTextureHigh", 13, 14, 141, 74 )
+UI_LoadImage( chkTextureHigh, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkTextureHigh, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+chkTextureNormal = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkTextureNormal", 13, 14, 181, 74 )
+UI_LoadImage( chkTextureNormal, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkTextureNormal, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+chkTextureLow = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkTextureLow", 13, 14, 218, 74 )
+UI_LoadImage( chkTextureLow, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkTextureLow, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+cbxTexture = UI_CreateCompent( frmVideo, CHECK_GROUP_TYPE, "cbxTexture", 0, 0, 0, 0 )
+UI_AddGroupBox( cbxTexture, chkTextureHigh )
+UI_AddGroupBox( cbxTexture, chkTextureNormal )
+UI_AddGroupBox( cbxTexture, chkTextureLow )
+
+-- Effect
+chkMovieOn = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkMovieOn", 13, 14, 181, 108 )
+UI_LoadImage( chkMovieOn, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkMovieOn, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+chkMovieOff = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkMovieOff", 13, 14, 218, 108 )
+UI_LoadImage( chkMovieOff, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkMovieOff, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+cbxMovie = UI_CreateCompent( frmVideo, CHECK_GROUP_TYPE, "cbxMovie", 0, 0, 0, 0 )
+UI_AddGroupBox( cbxMovie, chkMovieOn )
+UI_AddGroupBox( cbxMovie, chkMovieOff )
+
+--------------视野      远   近
+--创建视野远
+chkViewFar = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkViewFar", 10, 10, 102, 106 )
+--UI_LoadImage( chkViewFar, "texture/gui/old_gui/QQ2.tga", UNCHECKED, 10, 10, 40, 231 )
+--UI_LoadImage( chkViewFar, "texture/gui/old_gui/QQ2.tga", CHECKED, 10, 10, 52, 231 )
+
+--创建视野近
+chkViewNear = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkViewNear", 10, 10, 134, 106 )
+--UI_LoadImage( chkViewNear, "texture/gui/old_gui/QQ2.tga", UNCHECKED, 10, 10, 40, 231 )
+--UI_LoadImage( chkViewNear, "texture/gui/old_gui/QQ2.tga", CHECKED, 10, 10, 52, 231 )
+
+--创建CHKGROUP
+cbxView = UI_CreateCompent( frmVideo, CHECK_GROUP_TYPE, "cbxView", 0, 0, 0, 0 )
+UI_AddGroupBox( cbxView, chkViewFar )
+UI_AddGroupBox( cbxView, chkViewNear )
+
+-- Camera
+chkCameraOn = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkCameraOn", 13, 14, 181, 142)
+UI_LoadImage( chkCameraOn, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkCameraOn, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+chkCameraOff = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkCameraOff", 13, 14, 218, 142 )
+UI_LoadImage( chkCameraOff, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkCameraOff, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+cbxCamera = UI_CreateCompent( frmVideo, CHECK_GROUP_TYPE, "cbxCamera", 0, 0, 0, 0 )
+UI_AddGroupBox( cbxCamera, chkCameraOn )
+UI_AddGroupBox( cbxCamera, chkCameraOff )
+
+-- Shadow
+chkTrailOn = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkTrailOn", 13, 14, 181, 176 )
+UI_LoadImage( chkTrailOn, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkTrailOn, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+chkTrailOff = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkTrailOff", 13, 14, 218, 176 )
+UI_LoadImage( chkTrailOff, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkTrailOff, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+cbxTrail = UI_CreateCompent( frmVideo, CHECK_GROUP_TYPE, "cbxTrail", 0, 0, 0, 0 )
+UI_AddGroupBox( cbxTrail, chkTrailOn )
+UI_AddGroupBox( cbxTrail, chkTrailOff )
+
+-- Color
+chkColor32 = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkColor32", 13, 14, 181, 211 )
+UI_LoadImage( chkColor32, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkColor32, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+chkColor16 = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkColor16", 13, 14, 218, 211 )
+UI_LoadImage( chkColor16, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkColor16, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+cbxColor = UI_CreateCompent( frmVideo, CHECK_GROUP_TYPE, "cbxColor", 0, 0, 0, 0 )
+UI_AddGroupBox( cbxColor, chkColor32 )
+UI_AddGroupBox( cbxColor, chkColor16 )
+
+-- Quality
+chkHigh = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkHigh", 13, 14, 141, 246 )
+UI_LoadImage( chkHigh, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkHigh, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+chkNormal = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkNormal", 13, 14, 181, 246 )
+UI_LoadImage( chkNormal, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkNormal, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+chkLow = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkLow", 13, 14, 218, 246 )
+UI_LoadImage( chkLow, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkLow, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+cbxQuality = UI_CreateCompent( frmVideo, CHECK_GROUP_TYPE, "cbxQuality", 0, 0, 0, 0 )
+UI_AddGroupBox( cbxQuality, chkHigh )
+UI_AddGroupBox( cbxQuality, chkNormal )
+UI_AddGroupBox( cbxQuality, chkLow )
+
+-- full screen
+chkFull = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkFull", 13, 14, 181, 281 )
+UI_LoadImage( chkFull, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkFull, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+chkWindow = UI_CreateCompent( frmVideo, CHECK_TYPE, "chkWindow", 13, 14, 218, 281 )
+UI_LoadImage( chkWindow, "texture/gui/display-settings.png", UNCHECKED, 30, 30, 266, 31 )
+UI_LoadImage( chkWindow, "texture/gui/display-settings.png", CHECKED, 30, 30, 266, 0 )
+
+cbxModel = UI_CreateCompent( frmVideo, CHECK_GROUP_TYPE, "cbxModel", 0, 0, 0, 0 )
+UI_AddGroupBox( cbxModel, chkFull )
+UI_AddGroupBox( cbxModel, chkWindow )
+
+-----------------------------------------------------------------------
+-- esc -> game setting
+-----------------------------------------------------------------------
+frmGame = UI_CreateForm( "frmGame", FALSE, 550, 336, 150, 150, FALSE, FALSE )
+UI_ShowForm(frmGame, FALSE )
+UI_AddFormToTemplete(frmGame, 1)
+UI_SetIsDrag(frmGame, FALSE )
+UI_SetBackground(frmGame)
+
+imgBackground = UI_CreateCompent( frmGame, IMAGE_TYPE, "imgBackground", 550, 336, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/game-settings.png", NORMAL, 550, 336, 0, 0 )
+
+btnClose = UI_CreateCompent( frmGame, BUTTON_TYPE, "btnClose", 32, 32, 507, 11 )
+UI_LoadButtonImage( btnClose, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+btnYes = UI_CreateCompent( frmGame, BUTTON_TYPE, "btnYes", 127, 39, 212, 315 )
+UI_LoadButtonImage( btnYes, "texture/gui/volume-settings.png", 127, 39, 260, 0, FALSE )
+UI_SetButtonModalResult( btnYes, BUTTON_CLOSE )
+
+-------------
+-- simplified game options
+-------------
+-- Movement
+addSystemOption(frmGame,"cbxRunmodel", 181, 78, 218, 78)
+-- Auto-Lock
+addSystemOption(frmGame,"cbxLockmodel", 181, 112, 218, 112)
+-- Camera
+addSystemOption(frmGame,"cbxIsTop1CamMode", 181, 146, 218, 146)
+-- Effects panel
+addSystemOption(frmGame,"cbxStatemodel", 181, 180, 218, 180)
+
+-- Item name (earth)
+addSystemOption(frmGame,"cbxIsItemNameShow", 218, 214, 181, 214)
+-- Player name
+addSystemOption(frmGame,"cbxIsChaNameShow", 218, 248, 180, 248)
+-- Monster name
+addSystemOption(frmGame,"cbxIsMobNameShow", 218, 282, 181, 282)
+
+-- Weapon glow
+addSystemOption(frmGame,"cbxIsWeaponGlowMode", 516, 78, 479, 78)
+-- Character auras
+addSystemOption(frmGame,"cbxIsAurasShow", 516, 112, 479, 112)
+-- Fairies
+addSystemOption(frmGame,"cbxIsFairyShow", 516, 146, 479, 146)
+-- Wings
+addSystemOption(frmGame,"cbxIsWingShow", 516, 180, 479, 180)
+-- Mount system
+addSystemOption(frmGame,"cbxIsMountsShow", 516, 214, 479, 214)
+-- Character apparels
+addSystemOption(frmGame,"cbxIsApparelShow", 516, 248, 479, 248)
+
+-----------------------------------------------------------------------
+-- 
+-----------------------------------------------------------------------
+frmAskChange = UI_CreateForm( "frmAskChange",  FALSE, 248, 130, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmAskChange, "texture/gui/window-02.png", 248, 118, 0, 0, "", 0, 0 )
+UI_ShowForm( frmAskChange, FALSE )
+UI_AddFormToTemplete( frmAskChange, FORM_MAIN )
+UI_SetFormStyle( frmAskChange, 0 )
+--UI_SetAlpha( frmAskChange, 200 )
+UI_SetBackground(frmAskChange)
+
+labLogin = UI_CreateCompent( frmAskChange, LABELEX_TYPE, "labLogin", 59, 11, 35, 40 )
+UI_SetCaption( labLogin, "Confirm to switch \ncharacter?" )
+UI_SetTextColor( labLogin, COLOR_FFEDCF )
+UI_SetLabelExFont( labLogin, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+btnYes = UI_CreateCompent( frmAskChange, BUTTON_TYPE, "btnYes", 93, 32, 23+10, 43+55 )
+UI_LoadButtonImage( btnYes, "texture/gui/friends.png", 93, 32, 0, 494, FALSE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_FormSetEnterButton( frmAskChange, btnYes )
+
+btnNo = UI_CreateCompent( frmAskChange, BUTTON_TYPE, "btnNo", 93, 32, 119+10, 43+55 )
+UI_LoadButtonImage( btnNo, "texture/gui/friends.png", 93, 32, 93, 494, FALSE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 
+-----------------------------------------------------------------------
+frmAskRelogin = UI_CreateForm( "frmAskRelogin",  FALSE, 248, 130, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmAskRelogin, "texture/gui/window-02.png", 248, 118, 0, 0, "", 0, 0 )
+UI_ShowForm( frmAskRelogin, FALSE )
+UI_AddFormToTemplete( frmAskRelogin, FORM_MAIN )
+UI_SetFormStyle( frmAskRelogin, 0 )
+--UI_SetAlpha( frmAskRelogin, 200 )
+UI_SetBackground(frmAskRelogin)
+
+labLogin = UI_CreateCompent( frmAskRelogin, LABELEX_TYPE, "labLogin", 59, 11, 35, 40 )
+UI_SetCaption( labLogin, "Confirm to log out?" )
+UI_SetTextColor( labLogin, COLOR_FFEDCF )
+UI_SetLabelExFont( labLogin, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+btnYes = UI_CreateCompent( frmAskRelogin, BUTTON_TYPE, "btnYes", 93, 32, 23+10, 43+55 )
+UI_LoadButtonImage( btnYes, "texture/gui/friends.png", 93, 32, 0, 494, FALSE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_FormSetEnterButton( frmAskRelogin, btnYes )
+
+btnNo = UI_CreateCompent( frmAskRelogin, BUTTON_TYPE, "btnNo", 93, 32, 119+10, 43+55 )
+UI_LoadButtonImage( btnNo, "texture/gui/friends.png", 93, 32, 93, 494, FALSE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 
+-----------------------------------------------------------------------
+frmAskExit = UI_CreateForm( "frmAskExit",  FALSE, 248, 130, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmAskExit, "texture/gui/window-02.png", 248, 118, 0, 0, "", 0, 0 )
+
+UI_ShowForm( frmAskExit, FALSE )
+UI_AddFormToTemplete( frmAskExit, FORM_MAIN )
+--UI_FormSetHotKey( frmAskExit, ALT_KEY, HOTKEY_X )
+UI_SetFormStyle( frmAskExit, 0 )
+--UI_SetAlpha( frmAskExit, 200 )
+UI_SetBackground(frmAskExit)
+
+labLogin = UI_CreateCompent( frmAskExit, LABELEX_TYPE, "labLogin", 63, 5, 11, 45 )
+UI_SetCaption( labLogin, "Do you wish to exit the game?" )
+UI_SetTextColor( labLogin, COLOR_FFEDCF )
+UI_SetLabelExFont( labLogin, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+btnYes = UI_CreateCompent( frmAskExit, BUTTON_TYPE, "btnYes", 93, 32, 23+10, 43+55 )
+UI_LoadButtonImage( btnYes, "texture/gui/friends.png", 93, 32, 0, 494, FALSE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_FormSetEnterButton( frmAskExit, btnYes )
+
+btnNo = UI_CreateCompent( frmAskExit, BUTTON_TYPE, "btnNo", 93, 32, 119+10, 43+55 )
+UI_LoadButtonImage( btnNo, "texture/gui/friends.png", 93, 32, 93, 494, FALSE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- Rating
+-----------------------------------------------------------------------	
+frmRanking = UI_CreateForm( "frmRanking", FALSE, 897, 569, 100, 200, TRUE, FALSE )
+UI_ShowForm( frmRanking, FALSE )
+UI_SetIsDrag( frmRanking, FALSE )
+UI_SetBackground(frmRanking)
+--UI_SetAlpha(imgBlackBackground, 150)
+
+imgBackGround = UI_CreateCompent( frmRanking, IMAGE_TYPE, "imgBackGround", 897, 569, 0, 0 )
+UI_LoadImage( imgBackGround, "texture/gui/rating.png", NORMAL, 897, 569, 0, 0 )
+
+btnClose = UI_CreateCompent( frmRanking, BUTTON_TYPE, "btnClose", 32, 32, 727, 50 )
+UI_LoadButtonImage( btnClose, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+pgePublic = UI_CreateCompent( frmRanking, PAGE_TYPE, "pgePublic", 185, 275, 0, 0 )
+UI_SetPageButton( pgePublic, PAGE_BUTTON_CUSTOM, 48, 16 )
+
+------
+rating_kda = UI_CreatePageItem( pgePublic )
+ttlKda = UI_GetPageItemObj( rating_kda, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlKda, "texture/gui/rating.png", PAGE_ITEM_TITLE_NORMAL, 116, 29, 16, 619 )
+UI_LoadImage( ttlKda, "texture/gui/rating.png", PAGE_ITEM_TITLE_ACTIVE, 116, 29, 17, 582 )
+UI_SetPos( ttlKda, 261, 127 )
+UI_SetSize( ttlKda, 116, 29 )
+UI_AddCompent( rating_kda, lstKda )
+
+lstKda = UI_CreateListView( frmRanking, "lstKda", 600, 360, 152, 169, 6, 2 )
+UI_ListViewSetTitle( lstKda, 0, 50, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstKda, 1, 135, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstKda, 2, 67, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstKda, 3, 70, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstKda, 4, 85, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstKda, 5, 10, "", 0, 0, 0, 0 )
+
+scrollid = UI_GetScroll( lstKda)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
+UI_SetSize( id, 13, 43 )
+------
+
+rating_equipment = UI_CreatePageItem( pgePublic )
+ttlEquipment = UI_GetPageItemObj( rating_equipment, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlEquipment, "texture/gui/rating.png", PAGE_ITEM_TITLE_NORMAL, 116, 29, 143, 619 )
+UI_LoadImage( ttlEquipment, "texture/gui/rating.png", PAGE_ITEM_TITLE_ACTIVE, 116, 29, 144, 582 )
+UI_SetPos( ttlEquipment, 390, 127 )
+UI_SetSize( ttlEquipment, 116, 29 )
+UI_AddCompent( rating_equipment, lstEquipment )
+
+lstEquipment = UI_CreateListView( frmRanking, "lstEquipment", 600, 360, 152, 169, 6, 2 )
+UI_ListViewSetTitle( lstEquipment, 0, 50, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstEquipment, 1, 135, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstEquipment, 2, 67, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstEquipment, 3, 70, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstEquipment, 4, 85, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstEquipment, 5, 10, "", 0, 0, 0, 0 )
+
+scrollid = UI_GetScroll( lstEquipment)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
+UI_SetSize( id, 13, 43 )
+------
+
+rating_exp = UI_CreatePageItem( pgePublic )
+ttlExp = UI_GetPageItemObj( rating_exp, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlExp, "texture/gui/rating.png", PAGE_ITEM_TITLE_NORMAL, 116, 29, 262, 619 )
+UI_LoadImage( ttlExp, "texture/gui/rating.png", PAGE_ITEM_TITLE_ACTIVE, 116, 29, 263, 582 )
+UI_SetPos( ttlExp, 518, 127 )
+UI_SetSize( ttlExp, 116, 29 )
+UI_AddCompent( rating_exp, lstExp )
+
+lstExp = UI_CreateListView( frmRanking, "lstExp", 600, 360, 152, 169, 6, 2 )
+UI_ListViewSetTitle( lstExp, 0, 50, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstExp, 1, 135, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstExp, 2, 67, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstExp, 3, 70, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstExp, 4, 85, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstExp, 5, 10, "", 0, 0, 0, 0 )
+
+scrollid = UI_GetScroll( lstExp)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
+UI_SetSize( id, 13, 43 )

@@ -1,0 +1,124 @@
+-----------------------------------------------------------------------
+-- 定义loading表单
+-----------------------------------------------------------------------	
+-- 创建loading表单
+frmLoading = UI_CreateForm( "frmLoading", FALSE, 1198, 768, 0, 0, FALSE, FALSE )
+UI_SetFormStyle( frmLoading , 8 )
+UI_ShowForm( frmLoading, TRUE )
+UI_AddFormToTemplete( frmLoading, FORM_SWITCH_SCENE )
+UI_FormSetIsEscClose( frmLoading, FALSE )
+
+imgLoading1 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading1", 300, 256, 0, 0 )
+UI_LoadImage( imgLoading1, "texture/gui/loading/l1.tga", NORMAL, 300, 256, 0, 0 )
+
+imgLoading2 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading2", 300, 256, 300, 0 )
+UI_LoadImage( imgLoading2, "texture/gui/loading/l2.tga", NORMAL, 300, 256, 0, 0 )
+
+imgLoading3 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading3", 300, 256, 600, 0 )
+UI_LoadImage( imgLoading3, "texture/gui/loading/l3.tga", NORMAL, 300, 256, 0, 0 )
+
+imgLoading4 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading4", 300, 256, 900, 0 )
+UI_LoadImage( imgLoading4, "texture/gui/loading/l4.tga", NORMAL, 300, 256, 0, 0 )
+
+imgLoading5 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading5", 300, 256, 0, 256 )
+UI_LoadImage( imgLoading5, "texture/gui/loading/l5.tga", NORMAL, 300, 256, 0, 0 )
+
+imgLoading6 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading6", 300, 256, 300, 256  )
+UI_LoadImage( imgLoading6, "texture/gui/loading/l6.tga", NORMAL, 300, 256, 0, 0 )
+
+imgLoading7 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading7", 300, 256, 600, 256 )
+UI_LoadImage( imgLoading7, "texture/gui/loading/l7.tga", NORMAL, 300, 256, 0, 0 )
+
+imgLoading8 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading8", 300, 256, 900, 256 )
+UI_LoadImage( imgLoading8, "texture/gui/loading/l8.tga", NORMAL, 300, 256, 0, 0 )
+
+imgLoading9 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading9", 300, 256, 0, 512 )
+UI_LoadImage( imgLoading9, "texture/gui/loading/l9.tga", NORMAL, 300, 256, 0, 0 )
+
+imgLoading10 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading10", 300, 256, 300, 512 )
+UI_LoadImage( imgLoading10, "texture/gui/loading/l10.tga", NORMAL, 300, 256, 0, 0 )
+
+imgLoading11 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading11", 300, 256, 600, 512 )
+UI_LoadImage( imgLoading11, "texture/gui/loading/l11.tga", NORMAL, 300, 256, 0, 0 )
+
+imgLoading12 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading12", 300, 256, 900, 512 )
+UI_LoadImage( imgLoading12, "texture/gui/loading/l12.tga", NORMAL, 300, 256, 0, 0 )
+
+--定义进度条
+imgLoading = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading", 120,123, 132, 418)
+UI_LoadImage( imgLoading, "texture/gui/old_gui/LoadProgress.tga", NORMAL, 120,23, 0, 0 )
+
+--定义说明
+labLoad= UI_CreateCompent( frmLoading, LABELEX_TYPE, "labLoad", 52, 13, 450, 523 )
+UI_SetCaption( labLoad, "Loading..." )
+UI_SetTextColor( labLoad, COLOR_WHITE )
+--UI_SetLabelExFont( labLoad, DEFAULT_FONT, TRUE, COLOR_WHITE)
+-----------------------------------------------------------------------
+-- Loading
+-----------------------------------------------------------------------	
+frmConnect = UI_CreateForm( "frmConnect", FALSE, 502, 21, 396, 80, FALSE, FALSE )
+UI_SetBackground(frmConnect)
+UI_LoadFormImage( frmConnect, "texture/gui/loading.png", 502, 21, 0, 0, "", 0, 0 )
+--UI_FormSetHotKey( frmConnect, ALT_KEY, HOTKEY_L ) 
+UI_SetFormStyle( frmConnect, 1 )
+UI_AddFormToTemplete( frmConnect, FORM_SWITCH_SCENE )
+UI_FormSetIsEscClose( frmConnect, FALSE )
+
+imgLoading = UI_CreateCompent( frmConnect, IMAGE_FLASH_TYPE, "imgLoading", 483, 7, 14, 7 )
+UI_LoadScaleImage( imgLoading, "texture/gui/loading.png", COMPENT_BACK, 150, 7, 14, 30, 1.0, 1.0 )
+-----------------------------------------------------------------------
+-- 定义界面说明表单
+-----------------------------------------------------------------------	
+-- 创建界面说明表单
+frmVHelp = UI_CreateForm( "frmVHelp", FALSE, 936, 600, 0, 0, TRUE, FALSE )
+UI_AddFormToTemplete( frmVHelp, FORM_MAIN )
+UI_ShowForm( frmVHelp, TRUE )
+UI_FormSetIsEscClose( frmVHelp, FALSE )
+--UI_FormSetHotKey( frmVHelp, ALT_KEY, HOTKEY_U )
+
+
+imgLoading1 = UI_CreateCompent( frmVHelp, IMAGE_TYPE, "imgLoading1", 256, 256, 0, 0 )
+UI_LoadImage( imgLoading1, "texture/gui/old_gui/f1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgLoading2 = UI_CreateCompent( frmVHelp, IMAGE_TYPE, "imgLoading2", 256, 256, 256, 0 )
+UI_LoadImage( imgLoading2, "texture/gui/old_gui/f2.tga", NORMAL, 256, 256, 0, 0 )
+
+imgLoading3 = UI_CreateCompent( frmVHelp, IMAGE_TYPE, "imgLoading3", 256, 256, 512, 0 )
+UI_LoadImage( imgLoading3, "texture/gui/old_gui/f3.tga", NORMAL, 256, 256, 0, 0 )
+
+imgLoading4 = UI_CreateCompent( frmVHelp, IMAGE_TYPE, "imgLoading4", 32, 256, 768, 0 )
+UI_LoadImage( imgLoading4, "texture/gui/old_gui/f9.tga", NORMAL, 32, 256, 224, 0 )
+
+imgLoading5 = UI_CreateCompent( frmVHelp, IMAGE_TYPE, "imgLoading5", 256, 256, 0, 256 )
+UI_LoadImage( imgLoading5, "texture/gui/old_gui/f4.tga", NORMAL, 256, 256, 0, 0 )
+
+imgLoading6 = UI_CreateCompent( frmVHelp, IMAGE_TYPE, "imgLoading6", 256, 256, 256, 256  )
+UI_LoadImage( imgLoading6, "texture/gui/old_gui/f5.tga", NORMAL, 256, 256, 0, 0 )
+
+imgLoading7 = UI_CreateCompent( frmVHelp, IMAGE_TYPE, "imgLoading7", 256, 256, 512, 256 )
+UI_LoadImage( imgLoading7, "texture/gui/old_gui/f6.tga", NORMAL, 256, 256, 0, 0 )
+
+imgLoading8 = UI_CreateCompent( frmVHelp, IMAGE_TYPE, "imgLoading8", 32, 256, 768, 256 )
+UI_LoadImage( imgLoading8, "texture/gui/old_gui/f9.tga", NORMAL, 32, 256, 192, 0 )
+
+imgLoading9 = UI_CreateCompent( frmVHelp, IMAGE_TYPE, "imgLoading9", 256, 88, 0, 512 )
+UI_LoadImage( imgLoading9, "texture/gui/old_gui/f7.tga", NORMAL, 256, 88, 0, 168 )
+
+imgLoading10 = UI_CreateCompent( frmVHelp, IMAGE_TYPE, "imgLoading10", 256, 88, 256, 512 )
+UI_LoadImage( imgLoading10, "texture/gui/old_gui/f7.tga", NORMAL, 256, 88, 0, 80 )
+
+imgLoading11 = UI_CreateCompent( frmVHelp, IMAGE_TYPE, "imgLoading11", 128, 88, 512, 512 )
+UI_LoadImage( imgLoading11, "texture/gui/old_gui/f9.tga", NORMAL, 128, 88, 0, 88 )
+
+imgLoading13 = UI_CreateCompent( frmVHelp, IMAGE_TYPE, "imgLoading13", 128, 88, 640, 512 )
+UI_LoadImage( imgLoading13, "texture/gui/old_gui/f9.tga", NORMAL, 128, 88, 0, 0 )
+
+imgLoading12 = UI_CreateCompent( frmVHelp, IMAGE_TYPE, "imgLoading12", 32, 88, 768, 512 )
+UI_LoadImage( imgLoading12, "texture/gui/old_gui/f9.tga", NORMAL, 32, 88, 160, 168 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmVHelp, BUTTON_TYPE, "btnClose", 222, 78, 50, 400 )
+UI_LoadButtonImage( btnClose, "texture/gui/old_gui/f10.tga", 222, 78, 0, 0, FALSE )
+
+
+

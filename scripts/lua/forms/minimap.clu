@@ -1,0 +1,143 @@
+-----------------------------------------------------------------------
+-- Minimap
+-----------------------------------------------------------------------	
+frmMinimap = UI_CreateForm( "frmMinimap", FALSE, 162, 183, 656, 15, TRUE, FALSE )
+UI_ShowForm( frmMinimap, TRUE )
+UI_AddFormToTemplete( frmMinimap, FORM_MAIN )
+UI_SetFormStyle( frmMinimap, 9 )
+UI_FormSetIsEscClose( frmMinimap, FALSE )
+
+-- Background radar
+imgBackground = UI_CreateCompent( frmMinimap, IMAGE_TYPE, "imgBackground", 162, 183, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/minimap-background.png", NORMAL, 162, 183, 0, 0 )
+
+-- radar
+imgMinimapRect = UI_CreateCompent( frmMinimap, IMAGE_TYPE, "imgMinimapRect", 128, 128, 17, 26 )
+
+-- Map name
+labMapName = UI_CreateCompent( frmMinimap, LABELEX_TYPE, "labMapName", 51, 12, 63, 7 )
+UI_SetCaption( labMapName, "0" )
+UI_SetTextColor( labMapName, COLOR_WHITE )
+--UI_SetLabelExFont( labMapName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-- posx, posy
+n  = 0
+while 1 do
+	local name = "labMapPos"..n
+	labMapPos = UI_CreateCompent( frmMinimap, LABELEX_TYPE, name, 79, 12, 50, 30 )
+	UI_SetCaption( labMapPos, "2200, 2200" )
+	UI_SetTextColor( labMapPos, COLOR_WHITE )
+	--UI_SetLabelExFont( labMapPos, DEFAULT_FONT, TRUE, COLOR_WHITE )
+	
+	if n ~= 0 then 
+		UI_SetIsShow( labMapPos, FALSE ) 
+	end
+	
+	n = n + 1
+	if n == 10 then 
+		break 
+	end	
+end
+
+-- 妊快把志快把扶抉快 志把快技攸
+labServerTime = UI_CreateCompent( frmMinimap, LABELEX_TYPE, "labServerTime", 65, 23, 53, 147 )
+UI_SetCaption( labServerTime, "-----" )
+UI_SetTextColor(labServerTime, COLOR_WHITE)
+--UI_SetLabelExFont(labServerTime, DEFAULT_FONT, TRUE, COLOR_BLACK)
+
+imgBackground = UI_CreateCompent( frmMinimap, IMAGE_TYPE, "imgBackground", 25, 25, 3, 50 )
+UI_LoadImage( imgBackground, "texture/gui/minimap-background.png", NORMAL, 25, 25, 0, 185 )
+
+btnOpen = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnOpen", 19, 19, 3+3, 50+3 )
+UI_LoadButtonImage( btnOpen, "texture/gui/minimap-background.png", 19, 19, 30, 188, TRUE )
+--UI_SetHint( btnOpen, "World Map" )
+
+imgBackground = UI_CreateCompent( frmMinimap, IMAGE_TYPE, "imgBackground", 19, 19, 6, 80 )
+UI_LoadImage( imgBackground, "texture/gui/minimap-background.png", NORMAL, 19, 19, 0, 211 )
+
+btnSearch = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnSearch", 15, 15, 8, 82 )
+UI_LoadButtonImage( btnSearch, "texture/gui/minimap-background.png", 14, 14, 21, 213, TRUE )
+UI_SetHint( btnSearch, "Radar" )
+
+imgBackground = UI_CreateCompent( frmMinimap, IMAGE_TYPE, "imgBackground", 19, 19, 6, 104 )
+UI_LoadImage( imgBackground, "texture/gui/minimap-background.png", NORMAL, 19, 19, 0, 211 )
+
+btnteam = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnteam", 15, 15, 8, 106 )
+UI_LoadButtonImage( btnteam, "texture/gui/minimap-background.png", 14, 14, 64, 213, TRUE )
+UI_SetHint( btnteam, "Search party" )
+
+btnOpenStore = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnOpenStore", 87, 23, 62, 178 )
+UI_LoadButtonImage( btnOpenStore, "texture/gui/minimap-background.png", 87, 23, 135, 188, FALSE )
+UI_SetHint( btnOpenStore, "Accessing Item Mall" )
+
+btnWikipedia = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnWikipedia", 87, 23, 62, 178+23+5 )
+UI_LoadButtonImage( btnWikipedia, "texture/gui/select-cha-panel.png", 87, 23, 508, 0, FALSE )
+UI_SetHint( btnWikipedia, "Server guides" )
+
+imgBackground = UI_CreateCompent( frmMinimap, IMAGE_TYPE, "imgBackground", 25, 25, 134, 50 )
+UI_LoadImage( imgBackground, "texture/gui/minimap-background.png", NORMAL, 25, 25, 0, 185 )
+
+btnRogerRaid = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnRogerRaid", 19, 19, 134+3, 53 )
+UI_LoadButtonImage( btnRogerRaid, "texture/gui/minimap-background.png", 19, 19, 30, 231, TRUE )
+--UI_SetHint( btnRogerRaid, "Golden Roger (Purchase for IMPs!)" )
+
+imgBackground = UI_CreateCompent( frmMinimap, IMAGE_TYPE, "imgBackground", 25, 25, 134 , 50 + 10 + 25 )
+UI_LoadImage( imgBackground, "texture/gui/minimap-background.png", NORMAL, 25, 25, 0, 185 )
+
+cbxYellowBag = UI_CreateCompent( frmMinimap, CHECK_TYPE, "cbxYellowBag", 19, 19, 134+3 , 53 + 10 + 25 )
+UI_LoadImage( cbxYellowBag, "texture/gui/minimap-background.png", UNCHECKED, 19, 19, 58, 254 )
+UI_LoadImage( cbxYellowBag, "texture/gui/minimap-background.png", CHECKED, 19, 19, 30, 254 )
+
+cbxShowGuildCircle = UI_CreateCompent( frmMinimap, CHECK_TYPE, "cbxShowGuildCircle", 36, 36, -45, 15 )
+UI_LoadImage( cbxShowGuildCircle, "texture/gui/old_gui//btnCircle.tga", UNCHECKED, 36, 36, 0, 0 )
+UI_LoadImage( cbxShowGuildCircle, "texture/gui/old_gui/btnCircle.tga", CHECKED, 36, 36, 36, 0 )
+
+-----------------------------------------------------------------------
+-- Select map
+-----------------------------------------------------------------------	
+frmSearch = UI_CreateForm( "frmSearch", FALSE, 231, 109, 300, 200, TRUE, FALSE )
+UI_ShowForm( frmSearch, FALSE )
+UI_AddFormToTemplete( frmSearch, FORM_MAIN )
+UI_FormSetIsEscClose( frmSearch, FALSE )
+UI_FormSetHotKey( frmSearch, ALT_KEY, HOTKEY_R )
+UI_SetIsDrag( frmSearch, TRUE )
+
+imgSearch = UI_CreateCompent( frmSearch, IMAGE_TYPE, "imgSearch", 231, 109, 0, 0 )
+UI_LoadImage( imgSearch, "texture/gui/select-map.png", NORMAL, 231, 109, 8, 1 )
+
+edtLeft = UI_CreateCompent( frmSearch, EDIT_TYPE, "edtLeft", 45, 11, 107, 54 )
+UI_SetTextColor( edtLeft, COLOR_FFEDCF )
+UI_SetLabelExFont( edtLeft, DEFAULT_FONT, FALSE, COLOR_WHITE )
+UI_SetEditMaxNum( edtLeft, 4 )
+UI_SetEditMaxNumVisible( edtLeft, 4 )
+UI_SetEditCursorColor( edtLeft, COLOR_WHITE )
+
+edtRight = UI_CreateCompent( frmSearch, EDIT_TYPE, "edtRight", 28, 11, 180, 54 )
+UI_SetTextColor( edtRight, COLOR_FFEDCF )
+UI_SetLabelExFont( edtRight, DEFAULT_FONT, FALSE, COLOR_WHITE )
+UI_SetEditMaxNum( edtRight, 4 )
+UI_SetEditMaxNumVisible( edtRight, 4 )
+UI_SetEditCursorColor( edtRight, COLOR_WHITE )
+
+btnYes = UI_CreateCompent( frmSearch, BUTTON_TYPE, "btnYes", 93, 32, 23, 92 )
+UI_LoadButtonImage( btnYes, "texture/gui/friends.png", 93, 32, 0, 494, FALSE )
+UI_SetEditEnterButton( edtTradeGold, btnYes )
+
+btnNo = UI_CreateCompent( frmSearch, BUTTON_TYPE, "btnNo", 93, 32, 119, 92 )
+UI_LoadButtonImage( btnNo, "texture/gui/friends.png", 93, 32, 93, 494, FALSE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+cboMap  = UI_CreateCompent( frmSearch, COMBO_TYPE, "cboMap", 98, 20, 100, 20-4 )
+UI_ComboSetStyle( cboMap, TRUE )
+UI_ComboSetTextColor( cboMap, COLOR_WHITE )
+lstMap = UI_GetList( cboMap )
+UI_SetListFontColor( lstMap, COLOR_WHITE, COLOR_WHITE )
+UI_SetSize( lstMap, 81, 64 )
+UI_SetMargin( lstMap, 16,6,16,0 )
+UI_SetListRowHeight( lstMap, 18 )
+UI_LoadImage( lstMap, "texture/gui/select-map.png", COMPENT_BACK, 81, 68, 4, 114 )
+UI_AddListText( lstMap, "Ascaron" )
+UI_AddListText( lstMap, "Magical Ocean" )
+UI_AddListText( lstMap, "Deep Blue" )
+UI_SetListIsMouseFollow( lstMap, TRUE)
+UI_ComboSetTextColor( lstMap, COLOR_WHITE )

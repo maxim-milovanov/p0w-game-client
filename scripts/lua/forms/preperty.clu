@@ -1,0 +1,234 @@
+-----------------------------------------------------------------------
+-- 定义角色属性
+-----------------------------------------------------------------------
+frmState = UI_CreateForm( "frmState", FALSE, 190, 400, 150, 200, TRUE, FALSE )
+UI_FormSetHotKey( frmState, ALT_KEY, HOTKEY_A )
+UI_ShowForm( frmState, TRUE )
+UI_AddFormToTemplete( frmState, 1 )
+UI_SetIsDrag( frmState, FALSE )
+UI_SetFormStyle( frmState, 0 )
+
+imgNotification = UI_CreateCompent( frmState, IMAGE_TYPE, "imgNotification", 720, 535, -255, -100 )
+UI_LoadImage( imgNotification, "texture/gui/detail-02.png", NORMAL, 720, 535, 0, 0 )
+
+-- Lv$d $cha_name ($job) | exp
+labStateName = UI_CreateCompent( frmState, LABELEX_TYPE, "labStateName", 100, 11, 0, 26 )
+UI_SetTextColor( labStateName, COLOR_FFEDCF )
+UI_SetLabelExFont( labStateName, FONT18, FALSE, COLOR_A29688 )
+
+-- Guild
+labStateGuid = UI_CreateCompent( frmState, LABELEX_TYPE, "labStateGuid", 100, 11, 0, 50 )
+UI_SetTextColor( labStateGuid, COLOR_FFEDCF )
+UI_SetLabelExFont( labStateGuid, FONT18, FALSE, COLOR_WHITE )
+
+-- Health %d\%d \ Mana %d\%d
+labStateEXP = UI_CreateCompent( frmState, LABELEX_TYPE, "labStateEXP", 100, 11, 0, 74 )
+UI_SetTextColor( labStateEXP, COLOR_FFEDCF )
+UI_SetLabelExFont( labStateEXP, FONT016, FALSE, COLOR_WHITE )
+
+local stats_heitgh = 10
+local stat_block = -30
+
+labStats = UI_CreateCompent( frmState, LABELEX_TYPE, "labStats", 100, 11, -10+stat_block, 105+stats_heitgh )
+UI_SetCaption( labStats, "Strength:")
+UI_SetTextColor( labStats, COLOR_FFEDCF )
+UI_SetLabelExFont( labStats, FONT016, FALSE, COLOR_WHITE )
+
+labStrshow = UI_CreateCompent( frmState, LABELEX_TYPE, "labStrshow", 24, 11, 50, 115 )
+UI_SetCaption( labStrshow, "0" )
+UI_SetTextColor( labStrshow, COLOR_FFF4E2 )
+UI_SetLabelExFont( labStrshow, FONT016, FALSE, COLOR_WHITE )
+
+btnStr = UI_CreateCompent( frmState, BUTTON_TYPE, "btnStr", 17, 17, 85, 114 )
+UI_LoadButtonImage( btnStr, "texture/gui/skill-panel.png", 17, 17, 233, 60, TRUE )
+UI_SetHint( btnStr, "Strength increases Melee attack power" )
+
+labStats = UI_CreateCompent( frmState, LABELEX_TYPE, "labStats", 100, 11, -50+stat_block, 129+stats_heitgh )
+UI_SetCaption( labStats, "Constitution:")
+UI_SetTextColor( labStats, COLOR_FFEDCF )
+UI_SetLabelExFont( labStats, FONT016, FALSE, COLOR_WHITE )
+
+labConshow = UI_CreateCompent( frmState, LABELEX_TYPE, "labConshow", 24, 11, 50, 139 )
+UI_SetCaption( labConshow, "0" )
+UI_SetTextColor( labConshow, COLOR_FFEDCF )
+UI_SetLabelExFont( labConshow, FONT016, FALSE, COLOR_WHITE )
+
+btnCon = UI_CreateCompent( frmState, BUTTON_TYPE, "btnCon", 17, 17, 85, 138 )
+UI_LoadButtonImage( btnCon, "texture/gui/skill-panel.png", 17, 17, 233, 60, TRUE )
+UI_SetHint( btnCon, "Constitution increases Defense, Max HP and HP recovery rate" )
+
+labStats = UI_CreateCompent( frmState, LABELEX_TYPE, "labStats", 100, 11, -10+stat_block, 153+stats_heitgh )
+UI_SetCaption( labStats, "Accuracy:")
+UI_SetTextColor( labStats, COLOR_FFEDCF )
+UI_SetLabelExFont( labStats, FONT016, FALSE, COLOR_WHITE )
+
+labDexshow = UI_CreateCompent( frmState, LABELEX_TYPE, "labDexshow", 24, 11, 50, 163 )
+UI_SetCaption( labDexshow, "0" )
+UI_SetTextColor( labDexshow, COLOR_FFEDCF )
+UI_SetLabelExFont( labDexshow, FONT016, FALSE, COLOR_WHITE )
+
+btnDex = UI_CreateCompent( frmState, BUTTON_TYPE, "btnDex", 17, 17, 85, 162 )
+UI_LoadButtonImage( btnDex, "texture/gui/skill-panel.png", 17, 17, 233, 60, TRUE )
+UI_SetHint( btnDex, "Accuracy increases Range attack power and Hit Rate" )
+
+labStats = UI_CreateCompent( frmState, LABELEX_TYPE, "labStats", 100, 11, 150+stat_block, 115 )
+UI_SetCaption( labStats, "Agility:")
+UI_SetTextColor( labStats, COLOR_FFEDCF )
+UI_SetLabelExFont( labStats, FONT016, FALSE, COLOR_WHITE )
+
+labAgishow = UI_CreateCompent( frmState, LABELEX_TYPE, "labAgishow", 24, 11, 201, 115 )
+UI_SetCaption( labAgishow, "0" )
+UI_SetTextColor( labAgishow, COLOR_FFEDCF )
+UI_SetLabelExFont( labAgishow, FONT016, FALSE, COLOR_WHITE )
+
+btnAgi = UI_CreateCompent( frmState, BUTTON_TYPE, "btnAgi", 17, 17, 236, 114 )
+UI_LoadButtonImage( btnAgi, "texture/gui/skill-panel.png", 17, 17, 233, 60, TRUE )
+UI_SetHint( btnAgi, "Agility increases Attack speed and Dodge rate" )
+
+labStats = UI_CreateCompent( frmState, LABELEX_TYPE, "labStats", 100, 11, 130, 139 )
+UI_SetCaption( labStats, "Spirit:")
+UI_SetTextColor( labStats, COLOR_FFEDCF )
+UI_SetLabelExFont( labStats, FONT016, FALSE, COLOR_WHITE )
+
+labStashow = UI_CreateCompent( frmState, LABELEX_TYPE, "labStashow", 24, 11, 201, 139 )
+UI_SetCaption( labStashow, "0" )
+UI_SetTextColor( labStashow, COLOR_FFEDCF )
+UI_SetLabelExFont( labStashow, FONT016, FALSE, COLOR_WHITE )
+
+btnSta = UI_CreateCompent( frmState, BUTTON_TYPE, "btnSta", 17, 17, 236, 138 )
+UI_LoadButtonImage( btnSta, "texture/gui/skill-panel.png", 17, 17, 233, 60, TRUE )
+UI_SetHint( btnSta, "Spirit increases Max SP and SP recovery rate" )
+
+labStats = UI_CreateCompent( frmState, LABELEX_TYPE, "labStats", 100, 11, 130, 153+stats_heitgh )
+UI_SetCaption( labStats, "Points:")
+UI_SetTextColor( labStats, COLOR_FFEDCF )
+UI_SetLabelExFont( labStats, FONT016, FALSE, COLOR_WHITE )
+
+labStatePoint  = UI_CreateCompent( frmState, LABELEX_TYPE, "labStatePoint", 21, 11, 201, 153+stats_heitgh )
+UI_SetCaption( labStatePoint, "1500" )
+UI_SetTextColor( labStatePoint, COLOR_FFEDCF )
+UI_SetLabelExFont( labStatePoint, FONT016, FALSE, COLOR_WHITE )
+
+imgAttack = UI_CreateCompent( frmState, IMAGE_TYPE, "imgAttack", 32, 32, -90, 203 )
+UI_LoadImage( imgAttack, "texture/gui/detail-02.png", NORMAL, 32, 32, 0, 577 )
+
+labMinAtackShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labMinAtackShow", 35, 11, -48, 212 )
+UI_SetCaption( labMinAtackShow, "95278" )
+UI_SetTextColor( labMinAtackShow, COLOR_FFEDCF )
+UI_SetLabelExFont( labMinAtackShow, FONT016, FALSE, COLOR_WHITE )
+
+imgHitrate = UI_CreateCompent( frmState, IMAGE_TYPE, "imgHitrate", 32, 32, 77, 203 )
+UI_LoadImage( imgHitrate, "texture/gui/detail-02.png", NORMAL, 32, 32, 96, 577 )
+
+labHitShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labHitShow", 28, 11, 118, 212 )
+UI_SetCaption( labHitShow, "400" )
+UI_SetTextColor( labHitShow, COLOR_FFEDCF )
+UI_SetLabelExFont( labHitShow, FONT016, FALSE, COLOR_WHITE )
+
+imgAspd = UI_CreateCompent( frmState, IMAGE_TYPE, "imgAspd", 32, 32, 200, 203 )
+UI_LoadImage( imgAspd, "texture/gui/detail-02.png", NORMAL, 32, 32, 160, 577 )
+
+labAspeedShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labAspeedShow", 21, 11, 242, 212 )
+UI_SetCaption( labAspeedShow, "400" )
+UI_SetTextColor( labAspeedShow, COLOR_FFEDCF )
+UI_SetLabelExFont( labAspeedShow, FONT016, FALSE, COLOR_WHITE )
+
+imgDef = UI_CreateCompent( frmState, IMAGE_TYPE, "imgDef", 32, 32, -90, 245 )
+UI_LoadImage( imgDef, "texture/gui/detail-02.png", NORMAL, 32, 32, 64, 577 )
+
+labDefenceShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labDefenceShow", 21, 11, -48, 254 )
+UI_SetCaption( labDefenceShow, "4000" )
+UI_SetTextColor( labDefenceShow, COLOR_FFEDCF )
+UI_SetLabelExFont( labDefenceShow, FONT016, FALSE, COLOR_WHITE )
+
+imgDodge = UI_CreateCompent( frmState, IMAGE_TYPE, "imgDodge", 32, 32, 77, 245 )
+UI_LoadImage( imgDodge, "texture/gui/detail-02.png", NORMAL, 32, 32, 192, 577 )
+
+labFleeShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labFleeShow", 28, 11, 119, 254 )
+UI_SetCaption( labFleeShow, "400" )
+UI_SetTextColor( labFleeShow, COLOR_FFEDCF )
+UI_SetLabelExFont( labFleeShow, FONT016, FALSE, COLOR_WHITE )
+
+imgPr = UI_CreateCompent( frmState, IMAGE_TYPE, "imgPr", 32, 32, 200, 245 )
+UI_LoadImage( imgPr, "texture/gui/detail-02.png", NORMAL, 32, 32, 32, 577 )
+
+labPhysDefineShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labPhysDefineShow", 22, 8, 242, 254 )
+UI_SetCaption( labPhysDefineShow, "400" )
+UI_SetTextColor( labPhysDefineShow, COLOR_FFEDCF )
+UI_SetLabelExFont( labPhysDefineShow, FONT016, FALSE, COLOR_WHITE )
+
+imgMspd = UI_CreateCompent( frmState, IMAGE_TYPE, "imgMspd", 32, 32, 77, 287 )
+UI_LoadImage( imgMspd, "texture/gui/detail-02.png", NORMAL, 32, 32, 128, 577 )
+
+labMspeedShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labMspeedShow", 22, 8, 119, 296 )
+UI_SetCaption( labMspeedShow, "400" )
+UI_SetTextColor( labMspeedShow, COLOR_FFEDCF )
+UI_SetLabelExFont( labMspeedShow, FONT016, FALSE, COLOR_WHITE )
+
+imgCritical = UI_CreateCompent( frmState, IMAGE_TYPE, "imgCritical", 32, 32, 200, 287 )
+UI_LoadImage( imgCritical, "texture/gui/detail-02.png", NORMAL, 32, 32, 225, 577 )
+
+labCriticalShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labCriticalShow", 22, 8, 242, 296 )
+UI_SetCaption( labCriticalShow, "400" )
+UI_SetTextColor( labCriticalShow, COLOR_FFEDCF )
+UI_SetLabelExFont( labCriticalShow, FONT016, FALSE, COLOR_WHITE )
+
+labStats = UI_CreateCompent( frmState, LABELEX_TYPE, "labStats", 100, 11, -10+stat_block, 340 )
+UI_SetCaption( labStats, "Honor:")
+UI_SetTextColor( labStats, COLOR_FFEDCF )
+UI_SetLabelExFont( labStats, FONT016, FALSE, COLOR_WHITE )
+
+labHonorPointShow = UI_CreateCompent(frmState, LABELEX_TYPE, "labHonorPointShow", 26, 8, -10+stat_block+60, 340)
+UI_SetCaption(labHonorPointShow, "0")
+UI_SetTextColor( labHonorPointShow, COLOR_FFEDCF )
+UI_SetLabelExFont(labHonorPointShow, FONT016, FALSE, COLOR_WHITE)
+
+labStats = UI_CreateCompent( frmState, LABELEX_TYPE, "labStats", 100, 11, -10+stat_block+170, 340 )
+UI_SetCaption( labStats, "Rep.:")
+UI_SetTextColor( labStats, COLOR_FFEDCF )
+UI_SetLabelExFont( labStats, FONT016, FALSE, COLOR_WHITE )
+
+labFameShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labFameShow", 26, 8, -10+stat_block+170+50, 340 )
+UI_SetCaption( labFameShow, "0" )
+UI_SetTextColor( labFameShow, COLOR_FFEDCF )
+UI_SetLabelExFont( labFameShow, FONT016, FALSE, COLOR_WHITE )
+
+labStats = UI_CreateCompent( frmState, LABELEX_TYPE, "labStats", 100, 11, -68, 364 )
+UI_SetCaption( labStats, "CA Kills:")
+UI_SetTextColor( labStats, COLOR_FFEDCF )
+UI_SetLabelExFont( labStats, FONT016, FALSE, COLOR_WHITE )
+
+labChaosFragsShow = UI_CreateCompent(frmState, LABELEX_TYPE, "labChaosFragsShow", 26, 8, 20, 364)
+UI_SetCaption(labChaosFragsShow, "0")
+UI_SetTextColor( labChaosFragsShow, COLOR_FFEDCF )
+UI_SetLabelExFont(labChaosFragsShow, FONT016, FALSE, COLOR_WHITE)
+
+labStats = UI_CreateCompent( frmState, LABELEX_TYPE, "labStats", 100, 11, 96-12-2, 364 )
+UI_SetCaption( labStats, "CA Deaths:")
+UI_SetTextColor( labStats, COLOR_FFEDCF )
+UI_SetLabelExFont( labStats, FONT016, FALSE, COLOR_WHITE )
+
+labChaosDeathsShow = UI_CreateCompent(frmState, LABELEX_TYPE, "labChaosDeathsShow", 26, 8, -10+stat_block+170+50, 364)
+UI_SetCaption(labChaosDeathsShow, "0")
+UI_SetTextColor( labChaosDeathsShow, COLOR_FFEDCF )
+UI_SetLabelExFont(labChaosDeathsShow, FONT016, FALSE, COLOR_WHITE)
+
+labStats = UI_CreateCompent( frmState, LABELEX_TYPE, "labStats", 100, 11, -78, 364+24 )
+UI_SetCaption( labStats, "CA Points:")
+UI_SetTextColor( labStats, COLOR_FFEDCF )
+UI_SetLabelExFont( labStats, FONT016, FALSE, COLOR_WHITE )
+
+labChaosPointShow = UI_CreateCompent(frmState, LABELEX_TYPE, "labChaosPointShow", 26, 8, 20, 364+24)
+UI_SetCaption(labChaosPointShow, "0")
+UI_SetTextColor( labChaosPointShow, COLOR_FFEDCF )
+UI_SetLabelExFont(labChaosPointShow, FONT016, FALSE, COLOR_WHITE)
+
+labStats = UI_CreateCompent( frmState, LABELEX_TYPE, "labStats", 100, 11, 100, 364+24 )
+UI_SetCaption( labStats, "Premium:")
+UI_SetTextColor( labStats, COLOR_FFEDCF )
+UI_SetLabelExFont( labStats, FONT016, FALSE, COLOR_WHITE )
+
+labPremium = UI_CreateCompent(frmState, LABELEX_TYPE, "labPremium", 26, 8, -10+stat_block+170+50, 364+24)
+UI_SetCaption(labPremium, "0")
+UI_SetTextColor( labPremium, COLOR_FFEDCF )
+UI_SetLabelExFont(labPremium, FONT016, FALSE, COLOR_WHITE)

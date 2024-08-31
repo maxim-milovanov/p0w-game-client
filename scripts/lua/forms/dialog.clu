@@ -1,0 +1,217 @@
+-----------------------------------------------------------------------
+-- Define Quantity Price Dialog
+-----------------------------------------------------------------------	
+frmTrade = UI_CreateForm( "frmTrade",  FALSE, 248, 130, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmTrade, "texture/gui/window-02.png", 248, 118, 0, 0, "", 0, 0 )
+
+UI_ShowForm( frmTrade, FALSE )
+UI_AddFormToTemplete( frmTrade, FORM_DIALOG )
+UI_SetIsDrag( frmTrade, TRUE )
+UI_SetFormStyle( frmTrade, 2 )
+UI_SetAlpha( frmTrade, 255 )
+
+labName = UI_CreateCompent( frmTrade, LABELEX_TYPE, "labName", 95, 13, 44, 20 )
+UI_SetCaption( labName, "Item name" )
+UI_SetTextColor( labName, COLOR_FFEDCF )
+UI_SetLabelExFont( labName, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labNumber = UI_CreateCompent( frmTrade, LABELEX_TYPE, "labNumber", 23, 11, 44, 40 )
+UI_SetCaption( labNumber, "Quantity" )
+UI_SetTextColor( labNumber, COLOR_FFEDCF )
+UI_SetLabelExFont( labNumber, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labSum = UI_CreateCompent( frmTrade, LABELEX_TYPE, "labSum", 23, 11, 44, 60 )
+UI_SetCaption( labSum, "Total Price" )
+UI_SetTextColor( labSum, COLOR_FFEDCF )
+UI_SetLabelExFont( labSum, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+imgNumber = UI_CreateCompent( frmTrade, IMAGE_TYPE, "imgNumber", 87, 18, 126, 38 )
+UI_LoadImage( imgNumber, "texture/gui/window-02.png", NORMAL, 87, 18, 0, 127 )
+
+edtNumber = UI_CreateCompent( frmTrade, EDIT_TYPE, "edtNumber", 87, 11, 130, 40 )
+UI_SetTextColor( edtNumber, COLOR_FFEDCF )
+UI_SetEditCursorColor( edtNumber, COLOR_WHITE )
+UI_SetEditMaxNum( edtNumber, 3 )
+UI_SetEditMaxNumVisible( edtNumber, 3 )
+
+labPrice = UI_CreateCompent( frmTrade, LABELEX_TYPE, "labPrice", 87, 11, 130, 60 )
+UI_SetCaption( labPrice, "0" )
+UI_SetTextColor( labPrice, COLOR_FFEDCF )
+UI_SetEditCursorColor( labPrice, COLOR_WHITE )
+UI_SetLabelExFont( labPrice, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+btnYes = UI_CreateCompent( frmTrade, BUTTON_TYPE, "btnYes", 93, 32, 23+10, 43+55 )
+UI_LoadButtonImage( btnYes, "texture/gui/friends.png", 93, 32, 0, 494, FALSE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_SetEditEnterButton( edtNumber, btnYes )
+
+btnNo = UI_CreateCompent( frmTrade, BUTTON_TYPE, "btnNo", 93, 32, 119+10, 43+55 )
+UI_LoadButtonImage( btnNo, "texture/gui/friends.png", 93, 32, 93, 494, FALSE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- Define a select yes/no dialog
+-----------------------------------------------------------------------
+frmSelect = UI_CreateForm( "frmSelect",  FALSE, 248, 130, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmSelect, "texture/gui/window-02.png", 248, 118, 0, 0, "", 0, 0 )
+UI_ShowForm( frmSelect, FALSE )
+UI_AddFormToTemplete( frmSelect, FORM_DIALOG )
+UI_SetFormStyle( frmSelect, 0 )
+UI_SetIsDrag( frmSelect, TRUE )
+
+labInfo = UI_CreateCompent( frmSelect, LABELEX_TYPE, "labInfo", 23, 11, 44, 32 )
+UI_SetCaption( labInfo, "Search ID\n\n Search Content" )
+UI_SetTextColor( labInfo, COLOR_FFEDCF )
+UI_SetLabelExFont( labInfo, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+btnYes = UI_CreateCompent( frmSelect, BUTTON_TYPE, "btnYes", 93, 32, 23+10, 43+55 )
+UI_LoadButtonImage( btnYes, "texture/gui/friends.png", 93, 32, 0, 494, FALSE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_FormSetEnterButton( frmSelect, btnYes )
+
+btnNo = UI_CreateCompent( frmSelect, BUTTON_TYPE, "btnNo", 93, 32, 119+10, 43+55 )
+UI_LoadButtonImage( btnNo, "texture/gui/friends.png", 93, 32, 93, 494, FALSE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- Define Input Quantity Dialog
+-----------------------------------------------------------------------
+frmNumber = UI_CreateForm( "frmNumber",  FALSE, 248, 130, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmNumber, "texture/gui/window-02.png", 248, 118, 0, 0, "", 0, 0 )
+UI_ShowForm( frmNumber, FALSE )
+UI_AddFormToTemplete( frmNumber, FORM_DIALOG )
+UI_SetFormStyle( frmNumber, 0 )
+UI_SetIsDrag( frmNumber, TRUE )
+
+labInfo = UI_CreateCompent( frmNumber, LABELEX_TYPE, "labInfo", 23, 11, 50, 30 )
+UI_SetCaption( labInfo, "Please Input Quantity" )
+UI_SetTextColor( labInfo, COLOR_FFEDCF )
+UI_SetLabelExFont( labInfo, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+imgNumber = UI_CreateCompent( frmNumber, IMAGE_TYPE, "imgNumber", 87, 18, 50, 50 )
+UI_LoadImage( imgNumber, "texture/gui/window-02.png", NORMAL, 87, 18, 0, 127 )
+
+edtNumber = UI_CreateCompent( frmNumber, EDIT_TYPE, "edtNumber", 71, 11, 58, 54 )
+UI_SetTextColor( edtNumber, COLOR_FFEDCF )
+UI_SetEditCursorColor( edtNumber, COLOR_WHITE )
+UI_SetEditMaxNum( edtNumber, 32 )
+UI_SetEditMaxNumVisible( edtNumber, 32 )
+
+btnYes = UI_CreateCompent( frmNumber, BUTTON_TYPE, "btnYes", 93, 32, 23+10, 43+55 )
+UI_LoadButtonImage( btnYes, "texture/gui/friends.png", 93, 32, 0, 494, FALSE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_SetEditEnterButton( edtNumber, btnYes )
+
+btnNo = UI_CreateCompent( frmNumber, BUTTON_TYPE, "btnNo", 93, 32, 119+10, 43+55 )
+UI_LoadButtonImage( btnNo, "texture/gui/friends.png", 93, 32, 93, 494, FALSE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 定义信息提示
+-----------------------------------------------------------------------
+frmError = UI_CreateForm( "frmError",  TRUE, 185, 101, 397, 500, FALSE, TRUE )
+UI_LoadFormImage( frmError, "texture/gui/error-message.png", 32, 32, 64, 64, "texture/gui/error-message.png", 32, 32 )
+
+UI_SetFormStyle( frmError, 1 )
+UI_ShowForm( frmError, FALSE )
+UI_AddFormToTemplete( frmError, FORM_DIALOG )
+UI_SetIsDrag( frmError, TRUE )
+
+--创建询问内容
+labError = UI_CreateCompent( frmError, LABELEX_TYPE, "labError", 59, 11, 35, 40 )
+UI_SetCaption( labError, "" )
+UI_SetTextColor( labError, COLOR_968774 )
+UI_SetLabelExFont( labError, DEFAULT_FONT, FALSE, COLOR_968774 )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmError, BUTTON_TYPE, "btnYes", 100, 30, 80, 78 )
+UI_LoadButtonImage( btnYes, "texture/gui/error-message.png", 100, 30, 0, 96, FALSE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_SetAlign( btnYes, caWidthCenter )
+UI_FormSetEnterButton( frmError, btnYes )
+
+-----------------------------------------------------------------------
+-- Password
+-----------------------------------------------------------------------
+frmPass = UI_CreateForm( "frmPass", FALSE, 231, 109, 310, 410, FALSE, FALSE )
+UI_AddFormToTemplete( frmPass, FORM_DIALOG )
+UI_SetFormStyle( frmPass, 2 )
+UI_FormSetIsEscClose( frmPass, FALSE )
+
+imgAccout = UI_CreateCompent( frmPass, IMAGE_TYPE, "imgAccout", 231, 109, 0, 0 )
+UI_LoadImage( imgAccout, "texture/gui/guild.png", NORMAL, 231, 109, 678, 479 )
+
+labTitle = UI_CreateCompent( frmPass, LABELEX_TYPE, "labTitle", 49, 11, 13, 20 )
+UI_SetCaption( labTitle, "Input password" )
+UI_SetTextColor( labTitle, COLOR_C9C2B4 )
+UI_SetLabelExFont( labTitle, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+btnYes = UI_CreateCompent( frmPass, BUTTON_TYPE, "btnYes", 93, 32, 23, 92 )
+UI_LoadButtonImage( btnYes, "texture/gui/friends.png", 93, 32, 0, 494, FALSE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+
+btnNo = UI_CreateCompent( frmPass, BUTTON_TYPE, "btnNo", 93, 32, 119, 92 )
+UI_LoadButtonImage( btnNo, "texture/gui/friends.png", 93, 32, 93, 494, FALSE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+edtPassword = UI_CreateCompent( frmPass, EDIT_TYPE, "edtPassword", 95, 11, 90, 50 )
+UI_SetEditCursorColor( edtPassword, COLOR_WHITE )
+UI_SetTextColor( edtPassword, COLOR_FFEDCF )
+UI_SetEditMaxNum( edtPassword, 12 )
+UI_SetEditMaxNumVisible( edtPassword, 12 )
+UI_SetEditEnterButton( edtPassword, btnYes )
+
+-----------------------------------------------------------------------
+-- 定义防外挂答题框
+-----------------------------------------------------------------------
+frmWGAnswer = UI_CreateForm( "frmWGAnswer",  FALSE, 185, 101, 397, 500, TRUE, FALSE )
+UI_ShowForm( frmWGAnswer, FALSE )
+UI_SetIsDrag( frmWGAnswer, TRUE )
+UI_AddFormToTemplete( frmWGAnswer, FORM_MAIN )
+UI_FormSetIsEscClose( frmWGAnswer, FALSE )
+
+--UI_FormSetHotKey( frmWGAnswer, ALT_KEY, HOTKEY_Z) 
+
+-- 加载背景图片
+imgBackGround = UI_CreateCompent( frmWGAnswer, IMAGE_TYPE, "imgBackGround", 185, 101, 0, 0 )
+UI_LoadImage( imgBackGround, "texture/gui/old_gui/sure.dds", NORMAL, 185, 101, 0, 0 )
+
+--设置提示label
+	labNotice = UI_CreateCompent( frmWGAnswer, LABELEX_TYPE, "labNotice", 400, 150, 7, 3 )
+	UI_SetCaption( labNotice, "Enter 4 letter code")
+	UI_SetTextColor( labNotice, COLOR_BLUE)
+	UI_SetLabelExFont( labNotice, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载验证码
+ui3dCheckCode = UI_CreateCompent( frmWGAnswer, UI3D_COMPENT, "ui3dCheckCode", 110, 240, 73,24 )
+
+--加载输入框背景
+imgSum = UI_CreateCompent( frmWGAnswer, IMAGE_TYPE, "imgSum", 57, 18, 116, 54 )
+UI_LoadImage( imgSum, "texture/gui/old_gui/PublicC.tga", NORMAL, 87, 18, 99, 235 )
+
+--加载输入框
+edtUserInput = UI_CreateCompent( frmWGAnswer, EDIT_TYPE, "edtUserInput", 87, 12, 120, 57 )
+UI_SetTextColor( edtUserInput, COLOR_BLACK )
+UI_SetEditMaxNum( edtUserInput, 4 )
+UI_SetEditMaxNumVisible( edtUserInput, 4 )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_SetButtonModalResult( btnNo, BUTTON_NO )
+
+UI_SetEditEnterButton( edtPassword, btnYes )
+
+--加载倒计时label
+labNotice = UI_CreateCompent( frmWGAnswer, LABELEX_TYPE, "labNotice", 23, 11, 12,57 )
+UI_SetCaption( labNotice, "Time" )
+UI_SetTextColor( labNotice, COLOR_BLACK )
+UI_SetLabelExFont( labNotice, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labTimeLeft = UI_CreateCompent( frmWGAnswer, LABELEX_TYPE, "labTimeLeft", 23, 11, 88, 56 )
+UI_SetCaption( labTimeLeft, "Password" )
+UI_SetTextColor( labTimeLeft, COLOR_RED )
+UI_SetLabelExFont( labTimeLeft, FONT16, FALSE, COLOR_WHITE )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmWGAnswer, BUTTON_TYPE, "btnYes", 41, 19, 74, 78 )
+UI_LoadButtonImage( btnYes, "texture/gui/old_gui/PublicC.tga", 41, 19, 0, 0, TRUE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_SetEditEnterButton( edtUserInput, btnYes )

@@ -1,0 +1,850 @@
+-----------------------------------------------------------------------
+-- Player Item Trade
+-----------------------------------------------------------------------	
+frmPlayertrade = UI_CreateForm( "frmPlayertrade", FALSE, 251, 331, 240, 468, TRUE, FALSE )
+--UI_FormSetHotKey( frmPlayertrade, ALT_KEY, HOTKEY_T )
+UI_ShowForm( frmPlayertrade, TRUE )
+UI_SetIsDrag( frmPlayertrade, TRUE )
+UI_AddFormToTemplete( frmPlayertrade, FORM_MAIN )
+UI_SetFormStyle( frmPlayertrade, 1 )---左右居中
+UI_FormSetIsEscClose( frmPlayertrade, FALSE )
+
+imgBackground = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgBackground", 251, 331, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/trade.png", NORMAL, 251, 331, 0, 0 )
+
+-- from \ to
+labPlayertradeName = UI_CreateCompent( frmPlayertrade, LABELEX_TYPE, "labPlayertradeName", 95, 11, 15, 15 )
+UI_SetCaption( labPlayertradeName, "Wuwuwuw...Ah...Tatatata" )
+UI_SetTextColor( labPlayertradeName, COLOR_968774 )
+UI_SetLabelExFont( labPlayertradeName, FONT016, FALSE, COLOR_WHITE )
+
+chkYes = UI_CreateCompent( frmPlayertrade, CHECK_TYPE, "chkYes", 62, 19, 185, 6)
+UI_LoadImage( chkYes, "texture/gui/trade.png", UNCHECKED, 62, 19, 257, 6 )
+UI_LoadImage( chkYes, "texture/gui/trade.png", CHECKED, 62, 19, 257, 42 )
+UI_SetIsEnabled( chkYes, FALSE )
+
+chkTrade = UI_CreateCompent( frmPlayertrade, CHECK_TYPE, "chkTrade", 62, 19, 185, 24)
+UI_LoadImage( chkTrade, "texture/gui/trade.png", UNCHECKED, 62, 19, 257, 24 )
+UI_LoadImage( chkTrade, "texture/gui/trade.png", CHECKED, 62, 19, 257, 60 )
+UI_SetIsEnabled( chkTrade, FALSE )
+
+grdBuy = UI_CreateCompent( frmPlayertrade, GOODS_GRID_TYPE, "grdBuy", 231, 80, 10, 52 ) 
+UI_LoadImage( grdBuy,  "texture/gui/trade.png", NORMAL, 231, 80, 259, 82 )
+UI_SetGridSpace( grdBuy, 7, 7 )
+UI_SetGridContent( grdBuy, 2, 6 )
+UI_SetGridUnitSize( grdBuy, 32, 32 )
+UI_SetMargin( grdBuy, 2, 2, 0, 0 )
+UI_SetIsEnabled( grdBuy, FALSE )
+
+imgBackgroundGI = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgBackgroundGI", 222, 15, 14, 136 )
+UI_LoadImage( imgBackgroundGI, "texture/gui/trade.png", NORMAL, 222, 16, 261, 163 )
+
+labOtherGold = UI_CreateCompent( frmPlayertrade, LABELEX_TYPE, "labOtherGold", 47, 11, 40, 136 )
+UI_SetCaption( labOtherGold, "0" )
+UI_SetTextColor( labOtherGold, 4292790446 )
+UI_SetLabelExFont( labOtherGold, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+labOtherIMP = UI_CreateCompent( frmPlayertrade, LABELEX_TYPE, "labOtherIMP", 47, 11, 159, 136 )
+UI_SetCaption( labOtherIMP, "0" )
+UI_SetTextColor( labOtherIMP, 4292790446 )
+UI_SetLabelExFont( labOtherIMP, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+grdSale = UI_CreateCompent( frmPlayertrade, GOODS_GRID_TYPE, "grdSale", 231, 80, 10, 163 ) 
+UI_LoadImage( grdSale,  "texture/gui/trade.png", NORMAL, 231, 80, 259, 82 )
+UI_SetGridSpace( grdSale, 7, 7 )
+UI_SetGridContent( grdSale, 2, 6 )
+UI_SetGridUnitSize( grdSale, 32, 32 )
+UI_SetMargin( grdSale, 2, 2, 0, 0 )
+
+imgBackground = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgBackground", 222, 15, 14, 247 )
+UI_LoadImage( imgBackground, "texture/gui/trade.png", NORMAL, 222, 16, 261, 163 )
+
+labSelfGold = UI_CreateCompent( frmPlayertrade, LABELEX_TYPE, "labSelfGold", 47, 11, 40, 247 )
+UI_SetCaption( labSelfGold, "0" )
+UI_SetTextColor( labSelfGold, 4292790446 )
+UI_SetLabelExFont( labSelfGold, DEFAULT_FONT, FALSE, COLOR_BLACK )
+
+btnGold = UI_CreateCompent( frmPlayertrade, BUTTON_TYPE, "btnGold", 24, 20, 12, 246 )
+UI_LoadButtonImage( btnGold, "texture/gui/trade.png", 24, 20, 259, 187, TRUE )
+UI_SetHint( btnGold, "Click here to input gold for trade" )
+
+labSelfIMP = UI_CreateCompent( frmPlayertrade, LABELEX_TYPE, "labSelfIMP", 47, 11, 159, 247 )
+UI_SetCaption( labSelfIMP, "0" )
+UI_SetTextColor( labSelfIMP, 4292790446 )
+UI_SetLabelExFont( labSelfIMP, DEFAULT_FONT, FALSE, COLOR_BLACK )
+
+btnIMP = UI_CreateCompent( frmPlayertrade, BUTTON_TYPE, "btnIMP", 25, 20, 131, 246 )
+UI_LoadButtonImage( btnIMP, "texture/gui/trade.png", 24, 20, 259, 187, TRUE )
+UI_SetHint( btnIMP, "Click here to input Piastres for trade" )
+
+-- Confirm Button
+btnYes = UI_CreateCompent( frmPlayertrade, BUTTON_TYPE, "btnYes", 72, 37, 12, 280 )
+UI_LoadButtonImage( btnYes, "texture/gui/trade.png", 72, 37, 259, 209, FALSE )
+
+-- Trade Button
+btnTrade = UI_CreateCompent( frmPlayertrade, BUTTON_TYPE, "btnTrade", 72, 37, 89, 280 )
+UI_LoadButtonImage( btnTrade, "texture/gui/trade.png", 72, 37, 331, 209, FALSE )
+
+-- Cancel Button
+btnNo = UI_CreateCompent( frmPlayertrade, BUTTON_TYPE, "btnNo", 72, 37, 167, 280 )
+UI_LoadButtonImage( btnNo, "texture/gui/trade.png", 72, 37, 403, 209, FALSE )
+
+-----------------------------------------------------------------------
+-- add to friends
+-----------------------------------------------------------------------
+frmAcceptFrnd = UI_CreateForm( "frmAcceptFrnd",  FALSE, 248, 130, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmAcceptFrnd, "texture/gui/window-02.png", 248, 118, 0, 0, "", 0, 0 )
+
+UI_ShowForm( frmAcceptFrnd, FALSE )
+UI_AddFormToTemplete( frmAcceptFrnd, FORM_MAIN )
+UI_SetFormStyle( frmAcceptFrnd, 0 )
+UI_SetIsDrag( frmAcceptFrnd, TRUE )
+UI_FormSetIsEscClose( frmAcceptFrnd, FALSE )
+
+labFrndName = UI_CreateCompent( frmAcceptFrnd, LABELEX_TYPE, "labFrndName", 23, 11, 44, 32 )
+UI_SetCaption( labFrndName, "" )
+UI_SetTextColor( labFrndName, COLOR_FFEDCF )
+UI_SetLabelExFont( labFrndName, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labFrnd = UI_CreateCompent( frmAcceptFrnd, LABELEX_TYPE, "labFrnd", 23, 11, 44, 54 )
+UI_SetCaption( labFrnd, "" )
+UI_SetTextColor( labFrnd, COLOR_FFEDCF )
+UI_SetLabelExFont( labFrnd, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+btnYes = UI_CreateCompent( frmAcceptFrnd, BUTTON_TYPE, "btnYes", 93, 32, 23+10, 43+55 )
+UI_LoadButtonImage( btnYes, "texture/gui/friends.png", 93, 32, 0, 494, FALSE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_FormSetEnterButton( frmAcceptFrnd, btnYes )
+
+btnNo = UI_CreateCompent( frmAcceptFrnd, BUTTON_TYPE, "btnNo", 93, 32, 119+10, 43+55 )
+UI_LoadButtonImage( btnNo, "texture/gui/friends.png", 93, 32, 93, 494, FALSE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 
+-----------------------------------------------------------------------
+frmAcceptGroup = UI_CreateForm( "frmAcceptGroup",  FALSE, 248, 130, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmAcceptGroup, "texture/gui/window-02.png", 248, 118, 0, 0, "", 0, 0 )
+
+UI_ShowForm( frmAcceptGroup, FALSE )
+UI_AddFormToTemplete( frmAcceptGroup, FORM_MAIN )
+UI_SetFormStyle( frmAcceptGroup, 0 )
+UI_SetIsDrag( frmAcceptGroup, TRUE )
+UI_FormSetIsEscClose( frmAcceptGroup, FALSE )
+
+labGroupName = UI_CreateCompent( frmAcceptGroup, LABELEX_TYPE, "labGroupName", 23, 11, 44, 32 )
+UI_SetCaption( labGroupName, "" )
+UI_SetTextColor( labGroupName, COLOR_FFEDCF )
+UI_SetLabelExFont( labGroupName, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labGroup = UI_CreateCompent( frmAcceptGroup, LABELEX_TYPE, "labGroup", 23, 11, 44, 54 )
+UI_SetCaption( labGroup, "" )
+UI_SetTextColor( labGroup, COLOR_FFEDCF )
+UI_SetLabelExFont( labGroup, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+btnYes = UI_CreateCompent( frmAcceptGroup, BUTTON_TYPE, "btnYes", 93, 32, 23+10, 43+55 )
+UI_LoadButtonImage( btnYes, "texture/gui/friends.png", 93, 32, 0, 494, FALSE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_FormSetEnterButton( frmAcceptGroup, btnYes )
+
+btnNo = UI_CreateCompent( frmAcceptGroup, BUTTON_TYPE, "btnNo", 93, 32, 119+10, 43+55 )
+UI_LoadButtonImage( btnNo, "texture/gui/friends.png", 93, 32, 93, 494, FALSE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+------
+-- Party
+------
+for pos = 1, 4, 1 do
+	local label = string.format("frmTeamMenber%d", pos)
+	local labelname = string.format("labMenber%dName", pos)
+	local labelbackground = string.format("proTeamMenber%dBackground", pos)
+	local labeldead = string.format("proTeamMenber%dDead", pos)
+	local labelhp = string.format("proTeamMenber%dHP", pos)
+	local labelsp = string.format("proTeamMenber%dSP", pos)
+	
+	label = UI_CreateForm( label, FALSE, 167, 40, 15, 70 + (pos * 58), TRUE, FALSE )
+	UI_ShowForm( label, FLASE )
+	UI_SetIsDrag( label, FLASE )
+	UI_AddFormToTemplete( label, FORM_MAIN )
+	UI_FormSetIsEscClose( label, FALSE )
+	
+	labelbackground = UI_CreateCompent( label, IMAGE_TYPE, labelbackground, 128, 37, 31, 5 )
+	UI_LoadImage( labelbackground, "texture/gui/detail-01.png", NORMAL, 221, 64, 96, 6 )
+	
+	labelhp = UI_CreateCompent( label, PROGRESS_TYPE, labelhp, 145, 15, 38, 13 )
+	UI_LoadScaleImage( labelhp, "texture/gui/detail-01.png", PROGRESS_PROGRESS, 145, 15, 389, 75, 0.8, 0.8 )
+	UI_SetHint( labelhp, "HP" )
+	UI_SetProgressHintStyle( labelhp, PROGRESS_HINT_NUM )
+	
+	percenthp = UI_CreateCompent( label, LABELEX_TYPE, "percenthp", 14, 9, 61, 14 )
+	UI_SetCaption( percenthp, "100%")
+	UI_SetTextColor( percenthp, COLOR_C9C2B4 )
+	UI_SetLabelExFont( percenthp, FONT11, FALSE, COLOR_WHITE )
+
+	labelsp = UI_CreateCompent( label, PROGRESS_TYPE, labelsp, 139, 14, 39, 28 )
+	UI_LoadScaleImage( labelsp, "texture/gui/detail-01.png", PROGRESS_PROGRESS, 139, 14, 394, 95, 0.8, 0.8 )
+	UI_SetHint( labelsp, "SP" )
+	UI_SetProgressHintStyle( labelsp, PROGRESS_HINT_NUM )
+	
+	percentsp = UI_CreateCompent( label, LABELEX_TYPE, "percentsp", 14, 9, 61, 28 )
+	UI_SetCaption( percentsp, "100%")
+	UI_SetTextColor( percentsp, COLOR_C9C2B4 )
+	UI_SetLabelExFont( percentsp, FONT11, FALSE, COLOR_WHITE )
+	
+	avatarBackground = UI_CreateCompent( label, IMAGE_TYPE, "avatarBackground", 57, 57, 0, 0 )
+	UI_LoadImage( avatarBackground, "texture/gui/detail-01.png", NORMAL, 80, 81, 15, 3 )
+	
+	d3dHead = UI_CreateCompent( label, UI3D_COMPENT_TYPE, "d3dHead", 24, 24, 10+6, 10+7 )
+	d3dDown = UI_CreateCompent( label, UI3D_COMPENT_TYPE, "d3dDown", 166, 33, 0, 0 )
+	
+	frameAvatar = UI_CreateCompent( label, IMAGE_TYPE, "frameAvatar", 57, 57, 1, 0 )
+	UI_LoadImage( frameAvatar, "texture/gui/detail-01.png", NORMAL, 80, 81, 15, 86 )
+	
+	levelBackground = UI_CreateCompent( label, IMAGE_TYPE, "levelBackground", 30, 30, -2, 25 )
+	UI_LoadImage( levelBackground, "texture/gui/detail-01.png", NORMAL, 30, 30, 93, 82 )
+	
+	labFLv = UI_CreateCompent( label, LABELEX_TYPE, "labFLv", 14, 9, 7, 35 )
+	UI_SetTextColor( labFLv, COLOR_WHITE )
+	UI_SetLabelExFont( labFLv, DEFAULT_FONT, TRUE, COLOR_BLACK )
+	UI_SetCaption( labLv, "99" )
+	
+	labelname = UI_CreateCompent( label, LABELEX_TYPE, labelname, 1, 1, 61, -1 )
+	UI_SetCaption( labelname, "-" )
+	UI_SetTextColor( labelname, COLOR_WHITE )
+	UI_SetLabelExFont( labelname, DEFAULT_FONT, TRUE, COLOR_BLACK )
+	
+	imgobj = UI_CreateCompent( label, IMAGE_TYPE, "imgobj", 9, 9, 23, 21 )
+	UI_SetMaxImage( imgobj, 19 )
+	
+	imgLeader = UI_CreateCompent( label, IMAGE_TYPE, "imgLeader", 30, 30, -2, 1 )
+	UI_LoadImage( imgLeader, "texture/gui/detail-01.png", NORMAL, 30, 30, 93, 111 )
+	
+	labeldead = UI_CreateCompent( label, IMAGE_TYPE, labeldead, 57, 57, 1, 0 )
+	UI_LoadImage( labeldead, "texture/gui/detail-01.png", NORMAL, 80, 81, 362, 128 )
+end
+
+------------------------------------------------------------------------------
+mainMouseRight = UI_CreateCompent( frmMain800, MENU_TYPE, "mainMouseRight", 105, 100, 240, 468 )
+UI_MenuLoadImage( mainMouseRight, TRUE, FALSE, "texture/gui/right.png", 5, 5, 3, 17, "texture/gui/right-off.png", 5, 5 )
+UI_SetMargin( mainMouseRight, 10, 5, 5, 5 )
+
+UI_MenuLoadSelect( mainMouseRight, "texture/gui/right.png", 15, 6, 17, 26  )
+
+-----------------------------------------------------------------------
+-- Relive
+-----------------------------------------------------------------------
+frmRelive = UI_CreateForm( "frmRelive",  FALSE, 500, 187, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmRelive, FALSE )
+UI_SetIsDrag( frmRelive, FALSE )
+UI_FormSetIsEscClose( frmRelive, FALSE )
+UI_SetBackground(frmRelive)
+
+imgWasted = UI_CreateCompent( frmRelive, IMAGE_TYPE, "imgWasted", 500, 187, 0, 0 )
+UI_LoadImage( imgWasted, "texture/gui/wasted.png", NORMAL, 715, 268, 0, 0 )
+
+btnReCity = UI_CreateCompent( frmRelive, BUTTON_TYPE, "btnReCity", 105, 32, 197, 155 )
+UI_LoadButtonImage( btnReCity, "texture/gui/wasted.png", 150, 46, 25, 300, TRUE )
+--UI_FormSetEnterButton( frmRelive, btnReCity )
+
+-----------------------------------------------------------------------
+-- 定义倒计时框
+-----------------------------------------------------------------------
+frmTime = UI_CreateForm( "frmTime",  FALSE, 185, 101, 397, 500, TRUE, FALSE )
+UI_LoadFormImage( frmTime, "texture/gui/old_gui/sure.dds", 185, 101, 0, 0, "", 0, 0 )
+UI_ShowForm( frmTime, FALSE )
+UI_AddFormToTemplete( frmTime, FORM_MAIN )
+UI_SetFormStyle( frmTime, 0 )
+UI_SetIsDrag( frmTime, TRUE )
+--UI_SetAlpha( frmTime, 200 )
+--UI_FormSetHotKey( frmTime, ALT_KEY, HOTKEY_X ) 
+
+--创建询问显示
+labTime = UI_CreateCompent( frmTime, LABELEX_TYPE, "labTime", 1, 1, 58, 40 )
+--UI_SetCaption( labTime, "Do you want to Revive in town" )
+UI_SetTextColor( labTime, COLOR_BLACK)
+UI_SetLabelExFont( labTime, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-- 加载界面title
+imgTime = UI_CreateCompent( frmTime, IMAGE_TYPE, "imgTime", 36, 13, 8, 4 )
+UI_LoadImage( imgTime, "texture/gui/old_gui/Word.dds", NORMAL, 36, 13, 211, 161 )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmTime, BUTTON_TYPE, "btnNo", 41, 19, 74, 78 )
+UI_LoadButtonImage( btnNo, "texture/gui/old_gui/PublicC.tga", 41, 19, 0, 20, TRUE )
+
+
+-----------------------------------------------------------------------
+-- Baitan
+-----------------------------------------------------------------------	
+frmBooth = UI_CreateForm( "frmBooth", FALSE, 342, 270, 100, 100, TRUE, FALSE )
+UI_ShowForm( frmBooth, FALSE )
+UI_AddFormToTemplete( frmBooth, FORM_MAIN )
+--UI_FormSetHotKey( frmBooth, ALT_KEY, HOTKEY_T )
+UI_SetIsDrag( frmBooth, TRUE )
+UI_FormSetIsEscClose( frmFound, FALSE )
+
+imgBackground = UI_CreateCompent( frmBooth, IMAGE_TYPE, "imgBackground", 342, 270, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/booth.png", NORMAL, 342, 270, 0, 0 )
+
+btnClose = UI_CreateCompent( frmBooth, BUTTON_TYPE, "btnClose", 32, 32, 303, 10 )
+UI_LoadButtonImage( btnClose, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+lblOwnerName = UI_CreateCompent( frmBooth, LABELEX_TYPE, "lblOwnerName", 94, 31, 20, 12 )
+UI_SetTextColor( lblOwnerName, COLOR_FFEDCF )
+UI_SetLabelExFont( lblOwnerName, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+edtBoothName = UI_CreateCompent( frmBooth, EDIT_TYPE, "edtBoothName", 264, 13, 20, 27 )
+UI_SetCaption( edtBoothName, "Baitan name" )
+UI_SetTextColor( edtBoothName, COLOR_A29688 )
+UI_SetLabelExFont( edtBoothName, DEFAULT_FONT, FALSE, COLOR_WHITE )
+UI_SetEditCursorColor( edtBoothName, COLOR_WHITE )
+
+grdBoothItem = UI_CreateCompent( frmBooth, GOODS_GRID_TYPE, "grdBoothItem", 320, 178, 11, 75 ) 
+UI_SetGridSpace( grdBoothItem, 7, 7 )
+UI_SetGridContent( grdBoothItem, 4, 3 )
+UI_SetGridUnitSize( grdBoothItem, 100, 80 )
+UI_SetMargin( grdBoothItem, 0, 0, 0, 0 )
+
+scrollid = UI_GetScroll( grdBoothItem)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
+UI_SetSize( id, 13, 43 )
+
+
+--加载确定，取消按钮
+btnSetupBooth = UI_CreateCompent( frmBooth, BUTTON_TYPE, "btnSetupBooth", 93, 32, 124, 253 )
+UI_LoadButtonImage( btnSetupBooth, "texture/gui/friends.png", 93, 32, 0, 494, FALSE )
+
+btnPullStakes = UI_CreateCompent( frmBooth, BUTTON_TYPE, "btnPullStakes", 93, 32, 124, 253 )
+UI_LoadButtonImage( btnPullStakes, "texture/gui/friends.png", 93, 32, 93, 494, FALSE )
+
+-----------------------------------------------------------------------
+-- 定义理发界面
+-----------------------------------------------------------------------	
+-- 创建玩家理发表单
+frmHead = UI_CreateForm( "frmHead", FALSE, 454, 373, 100, 100, TRUE, FALSE )
+UI_ShowForm( frmHead, FALSE )
+UI_AddFormToTemplete( frmHead, FORM_MAIN )
+--UI_FormSetHotKey( frmHead, ALT_KEY, HOTKEY_T )
+UI_FormSetIsEscClose( frmHead, FALSE )
+
+-- 加载图片
+imgFoundTop = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgFoundTop", 256, 256, 0, 0 )
+UI_LoadImage( imgFoundTop, "texture/gui/old_gui/head1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgFoundDown = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgFoundDown", 256, 117, 0, 256 )
+UI_LoadImage( imgFoundDown, "texture/gui/old_gui/head3.tga", NORMAL, 256, 117, 0, 0 )
+
+imgFoundTopR = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgFoundTopR", 198, 256, 256, 0 )
+UI_LoadImage( imgFoundTopR, "texture/gui/old_gui/head2.tga", NORMAL, 198, 256, 0, 0 )
+
+imgFoundDownR = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgFoundDownR", 198, 117, 256, 256 )
+UI_LoadImage( imgFoundDownR, "texture/gui/old_gui/head3.tga", NORMAL, 198, 117, 0, 117 )
+
+--创建发型
+labHairColor = UI_CreateCompent( frmHead, LABELEX_TYPE, "labHairColor", 61, 12, 330, 200 )
+UI_SetCaption( labHairColor, "Long Hair" )
+UI_SetTextColor( labHairColor, COLOR_BLACK )
+UI_SetLabelExFont( labHairColor, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建发色
+labHair = UI_CreateCompent( frmHead, LABELEX_TYPE, "labHair", 61, 12, 330, 243 )
+UI_SetCaption( labHair, "1 1 Golden" )
+UI_SetTextColor( labHair, COLOR_BLACK )
+UI_SetLabelExFont( labHair, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载向左按钮
+btnLeftColor = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnLeftColor", 40, 24, 283, 191 )
+UI_LoadButtonImage( btnLeftColor, "texture/gui/old_gui/select4.tga", 40, 24, 110, 24, TRUE )
+
+btnLeftHair = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnLeftHair", 40, 24, 283, 234 )
+UI_LoadButtonImage( btnLeftHair, "texture/gui/old_gui/select4.tga", 40, 24, 110, 24, TRUE )
+
+--加载向右按钮
+btnRightColor = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnRightColor", 40, 24, 392, 191 )
+UI_LoadButtonImage( btnRightColor, "texture/gui/old_gui/select4.tga", 40, 24, 110, 0, TRUE )
+
+btnRightHair = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnRightHair", 40, 24, 392, 234 )
+UI_LoadButtonImage( btnRightHair, "texture/gui/old_gui/select4.tga", 40, 24, 110, 0, TRUE )
+
+--创建3D角色
+ui3dCreateCha = UI_CreateCompent( frmHead, UI3D_COMPENT, "ui3dCreateCha", 160, 300, 52, 35 )
+
+btnLeft3d = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnLeft3d", 32, 38, 28, 291 )
+UI_LoadButtonImage( btnLeft3d, "texture/gui/old_gui/select4.tga", 32, 38, 0, 38, TRUE )
+
+btnRight3d = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnRight3d", 32, 38, 204, 291 )
+UI_LoadButtonImage( btnRight3d, "texture/gui/old_gui/select4.tga",  32, 38, 0, 0, TRUE )
+
+--创建金钱
+labHairMoney = UI_CreateCompent( frmHead, LABELEX_TYPE, "labHairMoney", 65, 12, 335, 287 )
+UI_SetCaption( labHairMoney, "99999999" )
+UI_SetTextColor( labHairMoney, COLOR_BLACK )
+UI_SetLabelExFont( labHairMoney, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载接受按钮
+btnYes = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnYes", 41, 19, 293, 321 )
+UI_LoadButtonImage( btnYes, "texture/gui/old_gui/PublicC.tga", 41, 19, 0, 0, TRUE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnNo", 41, 19, 379, 321 )
+UI_LoadButtonImage( btnNo, "texture/gui/old_gui/PublicC.tga", 41, 19, 0, 20, TRUE )
+UI_SetButtonModalResult( btnNo, BUTTON_NO )
+
+-- 理发道具(程序显示)
+cmdHead1 = UI_CreateCompent( frmHead, COMMAND_ONE_TYPE, "cmdHead1", 32, 32, 0, 0 )
+UI_SetIsShow( cmdHead1, FALSE )
+
+UI_CreateCompent( frmHead, COMMAND_ONE_TYPE, "cmdHead2", 32, 32, 298, 78 )
+UI_CreateCompent( frmHead, COMMAND_ONE_TYPE, "cmdHead3", 32, 32, 344, 78 )
+UI_CreateCompent( frmHead, COMMAND_ONE_TYPE, "cmdHead4", 32, 32, 390, 78 )
+
+labTicket = UI_CreateCompent( frmHead, LABELEX_TYPE, "labTicket", 65, 12, 298, 138 )
+UI_SetCaption( labTicket, "Hairstyling Voucher required" )
+UI_SetTextColor( labTicket, COLOR_BLACK )
+UI_SetLabelExFont( labTicket, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-----------------------------------------------------------------------
+-- 定义玩家间PK申请
+-----------------------------------------------------------------------	
+-- 创建玩家间交易表单
+frmTeamPK = UI_CreateForm( "frmTeamPK", FALSE, 376, 431, 159, 468, TRUE, FALSE )
+--UI_FormSetHotKey( frmTeamPK, ALT_KEY, HOTKEY_Z )
+UI_ShowForm( frmTeamPK, TRUE )
+UI_SetIsDrag( frmTeamPK, TRUE )
+UI_AddFormToTemplete( frmTeamPK, FORM_MAIN )
+UI_SetFormStyle( frmTeamPK, 1 )---左右居中
+UI_FormSetIsEscClose( frmTeamPK, TRUE )
+
+-- 加载背景图片
+imgBakTop1 = UI_CreateCompent( frmTeamPK, IMAGE_TYPE, "imgBakTop1", 256, 256, 0, 0 )
+UI_LoadImage( imgBakTop1, "texture/gui/old_gui/PK1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakTop2 = UI_CreateCompent( frmTeamPK, IMAGE_TYPE, "imgBakTop2", 120, 256, 256, 0 )
+UI_LoadImage( imgBakTop2, "texture/gui/old_gui/PK2.tga", NORMAL, 120, 256, 0, 0 )
+
+--imgBakTop3 = UI_CreateCompent( frmTeamPK, IMAGE_TYPE, "imgBakTop3", 46, 256, 512, 0 )
+--UI_LoadImage( imgBakTop3, "texture/gui/old_gui/PK4.tga", NORMAL, 46, 256, 0, 0 )
+
+imgBakDown1 = UI_CreateCompent( frmTeamPK, IMAGE_TYPE, "imgBakDown1", 256, 175, 0, 256 )
+UI_LoadImage( imgBakDown1, "texture/gui/old_gui/PK3.tga", NORMAL, 256, 175, 0, 0 )
+
+imgBakDown2 = UI_CreateCompent( frmTeamPK, IMAGE_TYPE, "imgBakDown2", 120, 175, 256, 256 )
+UI_LoadImage( imgBakDown2, "texture/gui/old_gui/PK4.tga", NORMAL, 120, 175, 0, 0 )
+
+--imgBakDown3 = UI_CreateCompent( frmTeamPK, IMAGE_TYPE, "imgBakDown3", 46, 26, 512, 256 )
+--UI_LoadImage( imgBakDown3, "texture/gui/old_gui/PK3.tga", NORMAL, 46, 26, 210, 52 )
+
+--创建PK地图title
+labPKtitle = UI_CreateCompent( frmTeamPK, LABELEX_TYPE, "labPKtitle", 207, 12, 87, 7 )
+UI_SetCaption( labPKtitle, "" )
+UI_SetTextColor( labPKtitle, COLOR_BLACK )
+UI_SetLabelExFont( labPKtitle, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmTeamPK, BUTTON_TYPE, "btnClose", 14, 14, 340, 3 )
+UI_LoadButtonImage( btnClose, "texture/gui/old_gui/PublicC.tga", 14, 14, 116, 175, TRUE )
+
+--创建PK地图名称lab
+labPKmap = UI_CreateCompent( frmTeamPK, LABELEX_TYPE, "labPKmap", 100, 12, 256, 31 )
+UI_SetCaption( labPKmap, "" )
+UI_SetTextColor( labPKmap, COLOR_BLACK )
+UI_SetLabelExFont( labPKmap, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+
+----------team1队员列表
+lstTeam0 = UI_CreateListView( frmTeamPK, "lstTeam0", 296, 115, 44, 87, 5, 2 )
+UI_SetListRowHeight( lstTeam0, 21 )
+UI_SetListFontColor( lstTeam0, COLOR_BLACK, COLOR_BLACK )
+UI_SetListIsMouseFollow( lstTeam0, TRUE)
+--UI_SetMargin( lstTeam0, 2,2,2,2 )
+UI_SetIsShow( lstTeam0, TRUE )
+id = UI_GetScroll( lstTeam0 )
+UI_SetIsEnabled( id, FALSE )
+UI_ListViewSetTitle( lstTeam0, 0, 105, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam0, 1, 76, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam0, 2, 39, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam0, 3, 34, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam0, 4, 12, "", 0, 0, 0, 0 )
+UI_AddListText( lstTeam0, "Eight characters or therefore" )
+UI_AddListText( lstTeam0, "Eight characters or therefore" )
+UI_AddListText( lstTeam0, "Eight characters or therefore" )
+UI_AddListText( lstTeam0, "Eight characters or therefore" )
+UI_AddListText( lstTeam0, "Eight characters or therefore" )
+
+----------team2队员列表
+lstTeam1 = UI_CreateListView( frmTeamPK, "lstTeam1", 296, 115, 44, 264, 5, 2 )
+UI_SetListRowHeight( lstTeam1, 21 )
+UI_SetListFontColor( lstTeam1, COLOR_BLACK, COLOR_BLACK )
+UI_SetListIsMouseFollow( lstTeam1, TRUE)
+--UI_SetMargin( lstTeam1, 2,2,2,2 )
+UI_SetIsShow( lstTeam1, TRUE )
+id = UI_GetScroll( lstTeam1 )
+UI_SetIsEnabled( id, FALSE )
+UI_ListViewSetTitle( lstTeam1, 0, 105, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam1, 1, 76, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam1, 2, 39, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam1, 3, 34, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam1, 4, 12, "", 0, 0, 0, 0 )
+UI_AddListText( lstTeam1, "Eight characters or therefore" )
+UI_AddListText( lstTeam1, "Eight characters or therefore" )
+UI_AddListText( lstTeam1, "Eight characters or therefore" )
+UI_AddListText( lstTeam1, "Eight characters or therefore" )
+UI_AddListText( lstTeam1, "Eight characters or therefore" )
+
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmTeamPK, BUTTON_TYPE, "btnYes", 41, 19, 224, 382 )
+UI_LoadButtonImage( btnYes, "texture/gui/old_gui/PublicC.tga", 41, 19, 0, 0, TRUE )
+
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmTeamPK, BUTTON_TYPE, "btnNo", 41, 19, 279, 382 )
+UI_LoadButtonImage( btnNo, "texture/gui/old_gui/PublicC.tga", 41, 19, 0, 20, TRUE )
+
+------
+-- Target panel
+------
+frmTargetInfo = UI_CreateForm( "frmTargetInfo", FALSE, 465, 80, 380, 557, TRUE, FALSE )
+UI_ShowForm( frmTargetInfo, TRUE )
+UI_SetFormStyleEx( frmTargetInfo, FORM_BOTTOM, 0, 70)
+UI_AddFormToTemplete( frmTargetInfo, FORM_MAIN )
+UI_SetIsDrag( frmTargetInfo, FALSE )
+UI_FormSetIsEscClose( frmTargetInfo, TRUE )
+
+imgTargetInfo = UI_CreateCompent( frmTargetInfo, IMAGE_TYPE, "imgTargetInfo", 465, 80, 0, 0 )
+UI_LoadImage( imgTargetInfo, "texture/gui/detail-01.png", NORMAL, 465, 80, 0, 251 )
+
+imgTargetName = UI_CreateCompent( frmTargetInfo, IMAGE_TYPE, "imgTargetName", 208, 21, 13, 42 )
+UI_LoadImage( imgTargetName, "texture/gui/detail-01.png", NORMAL, 208, 21, 13, 344 )
+
+frmTargetInfoHP = UI_CreateCompent( frmTargetInfo, PROGRESS_TYPE, "frmTargetInfoHP", 208, 21, 247, 42 )
+UI_LoadScaleImage( frmTargetInfoHP, "texture/gui/detail-01.png", PROGRESS_PROGRESS, 208, 21, 246, 344, 1.0, 1.0 )
+UI_SetHint( frmTargetInfoHP, "HP" )
+
+--d3dTarget = UI_CreateCompent( frmTargetInfo, UI3D_COMPENT_TYPE, "d3dTarget",  35, 35, 215, 25 )
+--Target3dSelfDown = UI_CreateCompent( frmTargetInfo, UI3D_COMPENT_TYPE, "Target3dSelfDown", 35, 35, 215, 25 )
+
+--imgTargetFrame = UI_CreateCompent( frmTargetInfo, IMAGE_TYPE, "imgTargetFrame", 80, 81, 192, 0 )
+--UI_LoadImage( imgTargetFrame, "texture/gui/detail-01.png", NORMAL, 80, 81, 14, 86 )
+
+frmTargetInfoName = UI_CreateCompent( frmTargetInfo, LABELEX_TYPE, "frmTargetInfoName", 95, 11, 68, 45 )
+UI_SetTextColor( frmTargetInfoName, COLOR_C9C2B4 )
+UI_SetLabelExFont( frmTargetInfoName, FONT_16, TRUE, COLOR_BLACK )
+
+imgTargetLv = UI_CreateCompent( frmTargetInfo, IMAGE_TYPE, "imgTargetLv", 28, 26, 190, 38 )
+UI_LoadImage( imgTargetLv, "texture/gui/detail-01.png", NORMAL, 28, 26, 94, 85 )
+
+labTargetLv = UI_CreateCompent( frmTargetInfo, LABELEX_TYPE, "labTargetLv", 14, 9, 200, 45 )
+UI_SetTextColor( labTargetLv, COLOR_C9C2B4 )
+UI_SetLabelExFont( labTargetLv, DEFAULT_FONT, TRUE, COLOR_BLACK )
+UI_SetCaption( labLv, "99" )
+
+labTargetHP = UI_CreateCompent( frmTargetInfo, LABELEX_TYPE, "labTargetHP", 14, 9, 360, 45 )
+UI_SetTextColor( labTargetHP, COLOR_C9C2B4 )
+UI_SetLabelExFont( labTargetHP, DEFAULT_FONT, TRUE, COLOR_BLACK )
+UI_SetCaption( labLv, "99" )
+
+btnTargetInfo = UI_CreateCompent( frmTargetInfo, BUTTON_TYPE, "btnTargetInfo", 16, 18, 247, 42 )
+UI_LoadButtonImage( btnTargetInfo, "texture/gui/fun-panel.png", 16, 18, 52, 28, TRUE )
+UI_SetHint( btnTargetInfo, "Show monster info" )
+UI_SetIsShow(btnTargetInfo, TRUE)
+
+------
+-- Drop Form
+------
+frmTargetDrop = UI_CreateForm( "frmTargetDrop", FALSE, 470, 19, 0, 0, TRUE, FALSE )
+UI_SetIsDrag( frmTargetDrop, FALSE )
+UI_FormSetIsEscClose( frmTargetDrop, TRUE )
+
+for pos = 0, 9, 1 do
+	local collum = 0
+	
+	if (pos > 4) then collum = 86 end
+	
+	imgSlot = UI_CreateCompent( frmTargetDrop, IMAGE_TYPE, "imgSlot", 35, 35, 7 + collum + (pos * 37), 0 )
+	UI_LoadImage(imgSlot, "texture/gui/detail-01.png", NORMAL, 35, 34, 336, 19 )
+	
+	local j0 = pos + 1
+	local j1 = "infoDrop" .. j0
+	--local j2 = "infoDropName" .. j0
+	local j3 = "infoDropRate" .. j0
+	
+	j1 = UI_CreateCompent( frmTargetDrop, COMMAND_ONE_TYPE, j1, 32, 32, 8 + collum + (pos * 37), 1)
+	UI_SetIsDrag(j1, FALSE )
+		
+	--j2 = UI_CreateCompent( frmTargetDrop, LABELEX_TYPE, j2, 85, 9, 63, 35 )
+	--UI_SetTextColor( j2, COLOR_BLACK )
+	--UI_SetLabelExFont(j2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+	
+	imgSlotBackground = UI_CreateCompent( frmTargetDrop, IMAGE_TYPE, "imgSlotBackground", 33, 11, 8 + collum + (pos * 37), 24 )
+	UI_LoadImage(imgSlotBackground, "texture/gui/detail-01.png", NORMAL, 10, 10, 336, 57 )
+	
+	j3 = UI_CreateCompent( frmTargetDrop, LABELEX_TYPE, j3, 30, 10, 14 + collum + (pos * 37), 25 )
+	UI_SetTextColor(j3, COLOR_958273 )
+	UI_SetLabelExFont(j3, ARIAL_FONT_MINI, FALSE, COLOR_WHITE )
+end
+
+------
+-- Casting
+-----
+frmCasting = UI_CreateForm( "frmCasting", FALSE, 0, 0, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmCasting, TRUE )
+UI_SetIsDrag( frmCasting, FALSE )
+UI_FormSetIsEscClose( frmCasting, FALSE )
+
+imgCasting = UI_CreateCompent( frmCasting, IMAGE_TYPE, "imgCasting", 370, 25, 0, 0 )
+UI_LoadImage( imgCasting, "texture/gui/detail-01.png", NORMAL, 370, 25, 2, 381 )
+
+proCasting = UI_CreateCompent( frmCasting, PROGRESS_TYPE, "proCasting", 343, 21, 25, 2 )
+UI_LoadScaleImage( proCasting, "texture/gui/detail-01.png", PROGRESS_PROGRESS, 343, 21, 27, 407, 1.0, 1.0 )
+
+labCasting = UI_CreateCompent( frmCasting, LABELEX_TYPE, "labCasting", 120, 9, 30, 6 )
+UI_SetTextColor( labCasting, COLOR_C9C2B4 )
+UI_SetLabelExFont( labCasting, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+labCastingTime = UI_CreateCompent( frmCasting, LABELEX_TYPE, "labCastingTime", 120, 9, 280, 6 )
+UI_SetTextColor( labCastingTime, COLOR_C9C2B4 )
+UI_SetLabelExFont( labCastingTime, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+imgEffectIcon = UI_CreateCompent( frmCasting, IMAGE_TYPE, "imgEffectIcon", 25, 25, 0, 0 )
+
+-----------------------------------------------------------------------
+-- Positive panel
+-----------------------------------------------------------------------
+frmPositiveEffects = UI_CreateForm( "frmPositiveEffects", FALSE, 34, 34, 280, 30, TRUE, FALSE )
+UI_ShowForm( frmPositiveEffects, FALSE )
+UI_SetIsDrag( frmPositiveEffects, TRUE )
+UI_AddFormToTemplete( frmPositiveEffects, FORM_MAIN )
+UI_FormSetIsEscClose( frmPositiveEffects, FALSE )
+
+local td = 7
+local now_td = 1
+
+local margin = 45
+local EffectItem = 0
+
+for pos = 0, 20, 1 do
+	local slot = pos + 1
+	EffectItem = EffectItem + 1
+	
+	local get_td = math.ceil(slot / td)
+	if (now_td ~= get_td) then
+		now_td = get_td
+		
+		if (EffectItem > td) then
+			EffectItem = 1
+		end
+	end
+	
+	local margin_top = 0
+	if (slot > td) then
+		margin_top = (now_td * margin) - margin
+	end
+	
+	local margin_left = 34
+	if (EffectItem > 1) then
+		margin_left = 34 * EffectItem
+	end
+	
+	margin_left = margin_left - 34
+	
+	local szBackground = string.format("frmPositiveBackground%d", slot)
+	local szIcon = string.format("frmPositiveIcon%d", slot)
+	local szBackgroundTime = string.format("imgPositiveTime%d", slot)
+	local szStatetime = string.format("frmPositiveStatetime%d", slot)
+	local szBackgroundLv = string.format("imgPositiveLevel%d", slot)
+	local szStateLv = string.format("frmPositiveLevel%d", slot)
+	
+	szBackground = UI_CreateCompent( frmPositiveEffects, IMAGE_TYPE, szBackground, 27, 27, margin_left, margin_top )
+	UI_LoadImage(szBackground, "texture/gui/panel-effects.png", NORMAL, 34, 34, 0, 0 )
+	
+	szIcon = UI_CreateCompent( frmPositiveEffects, IMAGE_TYPE, szIcon, 25, 25, margin_left + 1, 1 + margin_top )
+	UI_LoadImage(szIcon, "texture/icon/error.png", NORMAL, 32, 32, 0, 0 )
+	
+	szBackgroundTime = UI_CreateCompent( frmPositiveEffects, IMAGE_TYPE, szBackgroundTime, 34, 13, margin_left - 4, margin_top + 27 )
+	UI_LoadImage(szBackgroundTime, "texture/gui/panel-effects.png", NORMAL, 34, 13, 0, 43 )
+	
+	szStatetime = UI_CreateCompent( frmPositiveEffects, LABELEX_TYPE, szStatetime, 0, 0, margin_left + 17, margin_top + 29 )
+	UI_SetTextColor(szStatetime, COLOR_FFEDCF )
+	UI_SetLabelExFont(szStatetime, ARIAL_FONT_MINI, FALSE, COLOR_WHITE )
+	
+	szBackgroundLv = UI_CreateCompent( frmPositiveEffects, IMAGE_TYPE, szBackgroundLv, 25, 10, margin_left, margin_top + 18 )
+	UI_LoadImage(szBackgroundLv, "texture/gui/panel-effects.png", NORMAL, 22, 8, 0, 35 )
+	UI_SetAlpha( szBackgroundLv, 180 )
+	
+	szStateLv = UI_CreateCompent( frmPositiveEffects, LABELEX_TYPE, szStateLv, 30, 10, margin_left + 1, margin_top + 18 )
+	UI_SetTextColor(szStateLv, COLOR_FFEDCF )
+	UI_SetLabelExFont(szStateLv, ARIAL_FONT_MINI, FALSE, COLOR_WHITE )
+end
+
+imgResize = UI_CreateCompent( frmPositiveEffects, IMAGE_TYPE, "imgResize", 12, 12, 0, 0 )
+UI_LoadImage( imgResize, "texture/gui/panel-effects.png", NORMAL, 20, 20, 1, 58 )
+
+-----------------------------------------------------------------------
+-- Negative panel
+-----------------------------------------------------------------------
+frmNegativeEffects = UI_CreateForm( "frmNegativeEffects", FALSE, 34, 34, 280 + 50 + 231, 30, TRUE, FALSE )
+UI_ShowForm( frmNegativeEffects, FALSE )
+UI_SetIsDrag( frmNegativeEffects, TRUE )
+UI_AddFormToTemplete( frmNegativeEffects, FORM_MAIN )
+UI_FormSetIsEscClose( frmNegativeEffects, FALSE )
+
+local td = 7
+local now_td = 1
+
+local margin = 45
+local EffectItem = 0
+
+for pos = 0, 20, 1 do
+	local slot = pos + 1
+	EffectItem = EffectItem + 1
+	
+	local get_td = math.ceil(slot / td)
+	if (now_td ~= get_td) then
+		now_td = get_td
+		
+		if (EffectItem > td) then
+			EffectItem = 1
+		end
+	end
+	
+	local margin_top = 0
+	if (slot > td) then
+		margin_top = (now_td * margin) - margin
+	end
+	
+	local margin_left = 34
+	if (EffectItem > 1) then
+		margin_left = 34 * EffectItem
+	end
+	
+	margin_left = margin_left - 34
+	
+	local szBackground = string.format("frmNegativeBackground%d", slot)
+	local szIcon = string.format("frmNegativeIcon%d", slot)
+	local szBackgroundTime = string.format("imgNegativeTime%d", slot)
+	local szStatetime = string.format("frmNegativeStatetime%d", slot)
+	local szBackgroundLv = string.format("imgNegativeLevel%d", slot)
+	local szStateLv = string.format("frmNegativeLevel%d", slot)
+	
+	szBackground = UI_CreateCompent( frmNegativeEffects, IMAGE_TYPE, szBackground, 27, 27, margin_left, margin_top )
+	UI_LoadImage(szBackground, "texture/gui/panel-effects.png", NORMAL, 34, 34, 0, 0 )
+	
+	szIcon = UI_CreateCompent( frmNegativeEffects, IMAGE_TYPE, szIcon, 25, 25, margin_left + 1, 1 + margin_top )
+	UI_LoadImage(szIcon, "texture/icon/error.png", NORMAL, 32, 32, 0, 0 )
+	
+	szBackgroundTime = UI_CreateCompent( frmNegativeEffects, IMAGE_TYPE, szBackgroundTime, 34, 13, margin_left - 4, margin_top + 27 )
+	UI_LoadImage(szBackgroundTime, "texture/gui/panel-effects.png", NORMAL, 34, 13, 0, 43 )
+	
+	szStatetime = UI_CreateCompent( frmNegativeEffects, LABELEX_TYPE, szStatetime, 0, 0, margin_left + 17, margin_top + 29 )
+	UI_SetTextColor(szStatetime, COLOR_FFEDCF )
+	UI_SetLabelExFont(szStatetime, ARIAL_FONT_MINI, FALSE, COLOR_WHITE )
+	
+	szBackgroundLv = UI_CreateCompent( frmNegativeEffects, IMAGE_TYPE, szBackgroundLv, 25, 10, margin_left, margin_top + 18 )
+	UI_LoadImage(szBackgroundLv, "texture/gui/panel-effects.png", NORMAL, 22, 8, 0, 35 )
+	UI_SetAlpha( szBackgroundLv, 180 )
+	
+	szStateLv = UI_CreateCompent( frmNegativeEffects, LABELEX_TYPE, szStateLv, 30, 10, margin_left + 1, margin_top + 18 )
+	UI_SetTextColor(szStateLv, COLOR_FFEDCF )
+	UI_SetLabelExFont(szStateLv, ARIAL_FONT_MINI, FALSE, COLOR_WHITE )
+end
+
+imgResize = UI_CreateCompent( frmNegativeEffects, IMAGE_TYPE, "imgResize", 12, 12, 0, 0 )
+UI_LoadImage( imgResize, "texture/gui/panel-effects.png", NORMAL, 20, 20, 1, 58 )
+
+-----------------------------------------------------------------------
+-- Cooking panel
+-----------------------------------------------------------------------
+frmCookingEffects = UI_CreateForm( "frmCookingEffects", FALSE, 34, 34, 280 + 50 + 231 + 50 + 231, 30, TRUE, FALSE )
+UI_ShowForm( frmCookingEffects, FALSE )
+UI_SetIsDrag( frmCookingEffects, TRUE )
+UI_AddFormToTemplete( frmCookingEffects, FORM_MAIN )
+UI_FormSetIsEscClose( frmCookingEffects, FALSE )
+
+local td = 7
+local now_td = 1
+
+local margin = 45
+local EffectItem = 0
+
+for pos = 0, 20, 1 do
+	local slot = pos + 1
+	EffectItem = EffectItem + 1
+	
+	local get_td = math.ceil(slot / td)
+	if (now_td ~= get_td) then
+		now_td = get_td
+		
+		if (EffectItem > td) then
+			EffectItem = 1
+		end
+	end
+	
+	local margin_top = 0
+	if (slot > td) then
+		margin_top = (now_td * margin) - margin
+	end
+	
+	local margin_left = 34
+	if (EffectItem > 1) then
+		margin_left = 34 * EffectItem
+	end
+	
+	margin_left = margin_left - 34
+	
+	local szBackground = string.format("frmCookingBackground%d", slot)
+	local szIcon = string.format("frmCookingIcon%d", slot)
+	local szBackgroundTime = string.format("imgCookingTime%d", slot)
+	local szStatetime = string.format("frmCookingStatetime%d", slot)
+	local szBackgroundLv = string.format("imgCookingLevel%d", slot)
+	local szStateLv = string.format("frmCookingLevel%d", slot)
+	
+	szBackground = UI_CreateCompent( frmCookingEffects, IMAGE_TYPE, szBackground, 27, 27, margin_left, margin_top )
+	UI_LoadImage(szBackground, "texture/gui/panel-effects.png", NORMAL, 34, 34, 0, 0 )
+	
+	szIcon = UI_CreateCompent( frmCookingEffects, IMAGE_TYPE, szIcon, 25, 25, margin_left + 1, 1 + margin_top )
+	UI_LoadImage(szIcon, "texture/icon/error.png", NORMAL, 32, 32, 0, 0 )
+	
+	szBackgroundTime = UI_CreateCompent( frmCookingEffects, IMAGE_TYPE, szBackgroundTime, 34, 13, margin_left - 4, margin_top + 27 )
+	UI_LoadImage(szBackgroundTime, "texture/gui/panel-effects.png", NORMAL, 34, 13, 0, 43 )
+	
+	szStatetime = UI_CreateCompent( frmCookingEffects, LABELEX_TYPE, szStatetime, 0, 0, margin_left + 17, margin_top + 29 )
+	UI_SetTextColor(szStatetime, COLOR_FFEDCF )
+	UI_SetLabelExFont(szStatetime, ARIAL_FONT_MINI, FALSE, COLOR_WHITE )
+	
+	szBackgroundLv = UI_CreateCompent( frmCookingEffects, IMAGE_TYPE, szBackgroundLv, 25, 10, margin_left, margin_top + 18 )
+	UI_LoadImage(szBackgroundLv, "texture/gui/panel-effects.png", NORMAL, 22, 8, 0, 35 )
+	UI_SetAlpha( szBackgroundLv, 180 )
+	
+	szStateLv = UI_CreateCompent( frmCookingEffects, LABELEX_TYPE, szStateLv, 30, 10, margin_left + 1, margin_top + 18 )
+	UI_SetTextColor(szStateLv, COLOR_FFEDCF )
+	UI_SetLabelExFont(szStateLv, ARIAL_FONT_MINI, FALSE, COLOR_WHITE )
+end
+
+imgResize = UI_CreateCompent( frmCookingEffects, IMAGE_TYPE, "imgResize", 12, 12, 0, 0 )
+UI_LoadImage( imgResize, "texture/gui/panel-effects.png", NORMAL, 20, 20, 1, 58 )
+
+------
+-- Imporant && Warning message
+------
+iwMessage = UI_CreateForm( "iwMessage", FALSE, 314, 63, 100, 50, TRUE, FALSE )
+UI_FormSetHotKey( iwMessage, ALT_KEY, HOTKEY_G )
+UI_ShowForm( iwMessage, TRUE )
+UI_SetIsDrag( iwMessage, TRUE )
+UI_AddFormToTemplete( iwMessage, FORM_MAIN )
+UI_FormSetIsEscClose( iwMessage, FALSE )
+UI_SetAlpha( iwMessage, 155 )
+
+iwMessageImg = UI_CreateCompent( iwMessage, IMAGE_TYPE, "iwMessageImg", 314, 63, 0, 0 )
+UI_LoadImage( iwMessageImg, "texture/gui/iwMessage.png", NORMAL, 524, 105, 0, 0 )
+
+labIwMessageTitle = UI_CreateCompent( iwMessage, LABELEX_TYPE, "labIwMessageTitle", 95, 11, 10, 10 )
+UI_SetCaption( labIwMessageTitle, "Important" )
+UI_SetTextColor( labIwMessageTitle, 4285847922 )
+UI_SetLabelExFont( labIwMessageTitle, FONT18, FALSE, COLOR_WHITE )

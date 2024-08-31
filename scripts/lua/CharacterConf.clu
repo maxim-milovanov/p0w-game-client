@@ -1,0 +1,4 @@
+CLU_Call("CHA_SetClientAttr",1,   10,   1.7,   0.5)
+CLU_Call("CHA_SetClientAttr",2,   10,   2.4,   0.4)
+CLU_Call("CHA_SetClientAttr",3,   10,   1.7,   0.3)
+CLU_Call("CHA_SetClientAttr",4,   10,   1.6,   0.50)

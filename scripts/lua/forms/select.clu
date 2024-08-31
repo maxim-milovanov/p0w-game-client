@@ -1,0 +1,181 @@
+-----------------------------------------------------------------------
+-- Help button
+-----------------------------------------------------------------------
+frmHelpButton = UI_CreateForm( "frmHelpButton", FALSE, ((87+10) * 5 - 10), 50, 0, 50, TRUE, FALSE )
+UI_ShowForm( frmHelpButton, TRUE )
+UI_AddFormToTemplete( frmHelpButton, FORM_SELECT )
+UI_FormSetIsEscClose( frmHelpButton, FALSE )
+UI_SetFormStyle( frmHelpButton, 2 )
+
+btnWikipedia = UI_CreateCompent( frmHelpButton, BUTTON_TYPE, "btnWikipedia", 87, 23, 0, 0 )
+UI_LoadButtonImage( btnWikipedia, "texture/gui/select-cha-panel.png", 87, 23, 508, 0, FALSE )
+UI_SetHint( btnWikipedia, "Server guides" )
+
+btnDatabase = UI_CreateCompent( frmHelpButton, BUTTON_TYPE, "btnDatabase", 87, 23, 87+10, 0 )
+UI_LoadButtonImage( btnDatabase, "texture/gui/select-cha-panel.png", 87, 23, 508, 138, FALSE )
+UI_SetHint( btnDatabase, "Game knowledge base of monsters and items" )
+
+btnDonate = UI_CreateCompent( frmHelpButton, BUTTON_TYPE, "btnDonate", 87, 23, ((87+10) * 2), 0 )
+UI_LoadButtonImage( btnDonate, "texture/gui/select-cha-panel.png", 87, 23, 508, 69, FALSE )
+UI_SetHint( btnDonate, "Top up your personal IMPS account" )
+
+btnRatings = UI_CreateCompent( frmHelpButton, BUTTON_TYPE, "btnRatings", 87, 23, ((87+10) * 3), 0 )
+UI_LoadButtonImage( btnRatings, "texture/gui/select-cha-panel.png", 87, 23, 595, 0, FALSE )
+UI_SetHint( btnRatings, "Various character achievements" )
+
+btnDiscord = UI_CreateCompent( frmHelpButton, BUTTON_TYPE, "btnDiscord", 87, 23, ((87+10) * 4), 0 )
+UI_LoadButtonImage( btnDiscord, "texture/gui/select-cha-panel.png", 87, 23, 595, 69, FALSE )
+UI_SetHint( btnDiscord, "Server to communicate with other players" )
+
+-----------------------------------------------------------------------
+-- Main scene select cha
+-----------------------------------------------------------------------
+frmSelect = UI_CreateForm( "frmSelect", FALSE, 493, 227, 200, 200, TRUE, FALSE )
+UI_ShowForm( frmSelect, TRUE )
+UI_AddFormToTemplete( frmSelect, FORM_SELECT )
+--UI_SetFormStyleEx( frmSelect, 7, 0, 2 )
+UI_FormSetIsEscClose( frmSelect, FALSE )
+UI_SetFormStyle( frmSelect, 2 )
+
+-- background
+imgSelect = UI_CreateCompent( frmSelect, IMAGE_TYPE, "imgSelect", 493, 223+24, 0, 0 )
+UI_LoadImage( imgSelect, "texture/gui/select-cha-panel.png", NORMAL, 493, 223, 0, 0 )
+
+-- change pw
+btnAlter = UI_CreateCompent( frmSelect, BUTTON_TYPE, "btnAlter", 36, 36, 366, 179+24 )
+UI_LoadButtonImage( btnAlter, "texture/gui/select-cha-panel.png", 36, 36, 290, 296, TRUE )
+
+-- Create
+btnCreate = UI_CreateCompent( frmSelect, BUTTON_TYPE, "btnCreate", 36, 36, 38, 179+24 )
+UI_LoadButtonImage( btnCreate, "texture/gui/select-cha-panel.png", 36, 36, 0, 296, TRUE )
+
+-- Delete
+btnDel = UI_CreateCompent( frmSelect, BUTTON_TYPE, "btnDel", 36, 36, 94, 179+24 )
+UI_LoadButtonImage( btnDel, "texture/gui/select-cha-panel.png", 36, 36, 145, 296, TRUE )
+
+-- Play
+btnYes = UI_CreateCompent( frmSelect, BUTTON_TYPE, "btnYes", 212, 61, 138, 142+24 )
+UI_LoadButtonImage( btnYes, "texture/gui/select-cha-panel.png", 212, 61, 0, 226, TRUE )
+
+-- Exit
+btnNo = UI_CreateCompent( frmSelect, BUTTON_TYPE, "btnNo", 36, 36, 422, 179+24 )
+UI_LoadButtonImage( btnNo, "texture/gui/select-cha-panel.png", 36, 36, 435, 296, TRUE )
+
+-----------------------------------------------------------------------
+-- Create cha
+-----------------------------------------------------------------------
+frmQuit = UI_CreateForm( "frmQuit", FALSE, 451, 217, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmQuit, TRUE )
+UI_AddFormToTemplete( frmQuit, FORM_CREATE_CHA )
+UI_FormSetIsEscClose( frmQuit, FALSE )
+UI_SetBackground(frmQuit)
+
+imgQuit = UI_CreateCompent( frmQuit, IMAGE_TYPE, "imgQuit", 451, 217, 0, 0 )
+UI_LoadImage( imgQuit, "texture/gui/create-cha-02.png", NORMAL, 451, 217, 0, 0 )
+
+btnLance = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btnLance", 81, 81, 53, 130 )
+UI_LoadButtonImage( btnLance, "texture/gui/create-cha-02.png", 81, 81, 0, 255, TRUE )
+
+btnCarsise = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btnCarsise", 81, 81, 143, 130 )
+UI_LoadButtonImage( btnCarsise, "texture/gui/create-cha-02.png", 81, 81, 0, 336, TRUE )
+
+btnPhyllis = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btnPhyllis", 81, 81, 233, 130 )
+UI_LoadButtonImage( btnPhyllis, "texture/gui/create-cha-02.png", 81, 81, 0, 417, TRUE )
+
+btnAmi = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btnAmi", 81, 81, 323, 130 )
+UI_LoadButtonImage( btnAmi, "texture/gui/create-cha-02.png", 81, 81, 0, 498, TRUE )
+
+imgLance = UI_CreateCompent( frmQuit, IMAGE_TYPE, "imgLance", 519, 98, -26, 230 )
+UI_LoadImage( imgLance, "texture/gui/create-cha-02.png", NORMAL, 519, 98, 336, 257 )
+
+imgCarsise = UI_CreateCompent( frmQuit, IMAGE_TYPE, "imgCarsise", 519, 98, -26, 230 )
+UI_LoadImage( imgCarsise, "texture/gui/create-cha-02.png", NORMAL, 519, 98, 336, 356 )
+
+imgPhyllis = UI_CreateCompent( frmQuit, IMAGE_TYPE, "imgPhyllis", 519, 98, -26, 230 )
+UI_LoadImage( imgPhyllis, "texture/gui/create-cha-02.png", NORMAL, 519, 98, 336, 455 )
+
+imgAmi = UI_CreateCompent( frmQuit, IMAGE_TYPE, "imgAmi", 519, 98, -26, 230 )
+UI_LoadImage( imgAmi, "texture/gui/create-cha-02.png", NORMAL, 519, 98, 336, 554 )
+
+btnNo = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btnNo", 32, 32, 398, 54 )
+UI_LoadButtonImage( btnNo, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+
+-----------------------------------------------------------------------
+-- Form set settings on create character
+-----------------------------------------------------------------------
+frmFound = UI_CreateForm( "frmFound", FALSE, 454, 373, 173, 112, TRUE, FALSE )
+UI_ShowForm(frmFound, TRUE )
+UI_SetIsDrag(frmFound, FALSE)
+UI_FormSetIsEscClose(frmFound, FALSE )
+UI_SetFormStyle(frmFound, 1)
+UI_AddFormToTemplete(frmFound, FORM_CREATE_CHA)
+UI_SetBackground(frmFound)
+
+imgSelect = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgSelect", 460, 410, 200, -100 )
+UI_LoadImage( imgSelect, "texture/gui/create-cha-01.png", NORMAL, 460, 410, 0, 0 )
+
+imgInputName = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgInputName", 302, 80, -15, 300 )
+UI_LoadImage( imgInputName, "texture/gui/create-cha-01.png", NORMAL, 302, 80, 0, 455 )
+
+edtName = UI_CreateCompent( frmFound, EDIT_TYPE, "edtName", 117, 12, 70, 335 )
+UI_SetTextColor( edtName, COLOR_9A958D )
+UI_SetEditMaxNum( edtName, 16 )
+UI_SetEditMaxNumVisible( edtName, 16 )
+UI_SetEditCursorColor( edtName, COLOR_9A958D )
+
+labHairShow = UI_CreateCompent( frmFound, LABELEX_TYPE, "labHairShow", 65, 12, 380, 75 )
+UI_SetCaption( labHairShow, "Long Hair" )
+UI_SetTextColor( labHairShow, COLOR_9A958D )
+UI_SetLabelExFont( labHairShow, FONT20, FALSE, COLOR_9A958D )
+
+labFaceShow = UI_CreateCompent( frmFound, LABELEX_TYPE, "labFaceShow", 65, 12, 380, 145 )
+UI_SetCaption( labFaceShow, "Nightmare" )
+UI_SetTextColor( labFaceShow, COLOR_9A958D )
+UI_SetLabelExFont( labFaceShow, FONT20, FALSE, COLOR_9A958D )
+
+labAngle = UI_CreateCompent( frmFound, LABELEX_TYPE, "labAngle", 65, 12, 396, 255 )
+UI_SetCaption( labAngle, "Angle" )
+UI_SetTextColor( labAngle, COLOR_9A958D )
+UI_SetLabelExFont( labAngle, FONT20, FALSE, COLOR_9A958D )
+
+btnLeftHair = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnLeftHair", 41, 41, 233+50, 64 )
+UI_LoadButtonImage( btnLeftHair, "texture/gui/create-cha-01.png", 41, 41, 0, 410, TRUE )
+
+btnLeftFace = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnLeftFace", 41, 41, 233+50, 134 )
+UI_LoadButtonImage( btnLeftFace, "texture/gui/create-cha-01.png", 41, 41, 0, 410, TRUE )
+
+btnLeft3d = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnLeft3d", 41, 41, 233+50, 244 )
+UI_LoadButtonImage( btnLeft3d, "texture/gui/create-cha-01.png", 41, 41, 0, 410, TRUE )
+
+btnRightHair = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnRightHair", 41, 41, 586-50, 64 )
+UI_LoadButtonImage( btnRightHair, "texture/gui/create-cha-01.png", 41, 41, 165, 410, TRUE )
+
+btnRightFace = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnRightFace", 41, 41, 586-50, 134 )
+UI_LoadButtonImage( btnRightFace, "texture/gui/create-cha-01.png", 41, 41, 165, 410, TRUE )
+
+btnRight3d = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnRight3d", 41, 41, 586-50, 244 )
+UI_LoadButtonImage( btnRight3d, "texture/gui/create-cha-01.png",  41, 41, 165, 410, TRUE )
+
+ui3dCreateCha = UI_CreateCompent( frmFound, UI3D_COMPENT, "ui3dCreateCha", 160, 300, 52, 35 )
+
+btnYes = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnYes", 200, 60, 286+11, 309 )
+UI_LoadButtonImage( btnYes, "texture/gui/create-cha-01.png", 200, 60, 0, 535, FALSE )
+
+btnNo = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnNo", 60, 60, 286+205+11, 309 )
+UI_LoadButtonImage( btnNo, "texture/gui/create-cha-01.png", 60, 60, 206, 535, FALSE )
+
+-----------------------------------------------------------------------
+-- Character Intro
+-----------------------------------------------------------------------	
+frmRoleInfo = UI_CreateForm("frmRoleInfo", TRUE, 600, 450, 50 , 450, TRUE,TRUE)
+UI_ShowForm(frmRoleInfo, FALSE )
+UI_SetIsDrag(frmRoleInfo, FALSE)
+UI_FormSetIsEscClose(frmRoleInfo, FALSE)
+UI_SetFormStyle(frmRoleInfo,1)
+UI_AddFormToTemplete( frmRoleInfo, FORM_CREATE_CHA )
+
+imgRoleInfo = UI_CreateCompent(frmRoleInfo, IMAGE_TYPE,"imgRoleInfo", 606, 488, 0, 0)
+UI_LoadImage( imgRoleInfo, "texture/gui/welcome-notification-04.png", NORMAL, 606, 488, 0, 0)
+
+btnNextStep = UI_CreateCompent(frmRoleInfo, BUTTON_TYPE,"btnNextStep", 306, 70, 117+33, 449)
+UI_LoadButtonImage( btnNextStep,"texture/gui/welcome-notification-04.png", 306, 70, 0, 488, FALSE )

@@ -1,0 +1,51 @@
+-----------------------------------------------------------------------
+-- Quest Log
+-----------------------------------------------------------------------
+frmMission = UI_CreateForm( "frmMission", FALSE, 299, 468, 470, 150, FALSE, FALSE )
+UI_FormSetHotKey( frmMission, ALT_KEY, HOTKEY_Q ) 
+UI_ShowForm( frmMission, TRUE )
+UI_AddFormToTemplete( frmMission, FORM_MAIN )
+UI_SetIsDrag( frmMission, TRUE )
+
+imgMisson = UI_CreateCompent( frmMission, IMAGE_TYPE, "imgMisson", 299, 468, 0, 0 )
+UI_LoadImage( imgMisson, "texture/gui/quest-log.png", NORMAL, 299, 468, 0, 0 )
+
+labMisson = UI_CreateCompent( frmMission, LABELEX_TYPE, "labMisson", 47, 11, 78, 135 )
+--UI_SetCaption( labMisson, "Quest Hint" )
+UI_SetTextColor( labMisson, COLOR_BLACK )
+UI_SetLabelExFont( labMisson, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+btnClose = UI_CreateCompent( frmMission, BUTTON_TYPE, "btnClose", 32, 32, 260, 12 )
+UI_LoadButtonImage( btnClose, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+trvMission = UI_CreateCompent( frmMission, TREE_TYPE, "trvMission", 270, 130, 20, 60 )
+UI_SetIsDrag( trvEditor, TRUE )
+UI_TreeLoadImage( trvMission, enumTreeAddImage, "texture/gui/old_gui/SystemBotton3.tga", 16, 16, 205, 120, 12, 12 )
+UI_TreeLoadImage( trvMission, enumTreeSubImage, "texture/gui/old_gui/SystemBotton3.tga", 16, 16, 222, 120, 12, 12 )
+
+scrollid = UI_GetScroll( trvMission)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
+UI_SetSize( id, 13, 43 )
+
+memMiss  = UI_CreateCompent( frmMission, MEMOEX_TYPE, "memMiss", 270, 220, 20, 200 )
+UI_SetCaption( memMiss, "400" )
+UI_SetTextColor( memMiss, COLOR_BLACK )
+UI_SetLabelExFont( memMiss, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetMemoPageShowNum( memMiss, 13 )
+
+scrollid = UI_GetScroll( memMiss)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
+UI_SetSize( id, 13, 43 )
+
+btnBreak = UI_CreateCompent( frmMission, BUTTON_TYPE, "btnBreak", 96, 37, 108, 422 )
+UI_LoadButtonImage( btnBreak, "texture/gui/quest-log.png", 96, 37, 0, 470, TRUE )
+UI_SetHint( btnBreak, "Abandon Quest" )

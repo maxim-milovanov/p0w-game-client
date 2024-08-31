@@ -1,0 +1,18 @@
+function UI_CreateFont( font, size800, size1024, dwStyle )		
+	return CLU_Call("UI_CreateFont", font, size800, size1024, dwStyle )
+end
+
+DEFAULT_FONT = UI_CreateFont( "Courier New", 12, 12, 0 )
+FONT14 = UI_CreateFont( "Courier New", 12, 12, 0 )
+FONT16 = UI_CreateFont( "Courier New", 14, 14, 1 )
+FONT016 = UI_CreateFont( "Courier New", 16, 16, 0 )
+FONT18 = UI_CreateFont( "Courier New", 18, 18, 0 )
+FONT20 = UI_CreateFont( "Courier New", 18, 18, 1 )
+FONT28 = UI_CreateFont( "Courier New", 24, 24, 1 )
+FONT24 = UI_CreateFont( "Courier New", 24, 24, 0 )
+FONT11 = UI_CreateFont( "Courier New", 11, 11, 0 )
+BIGFONT01 = UI_CreateFont( "Courier New", 30, 30, 0 )
+BIGFONT = UI_CreateFont( "Courier New", 40, 40, 0 )
+ARIAL_FONT = UI_CreateFont( "Arial", 11, 11, 0 )
+MINI_FONT = UI_CreateFont( "Courier New", 10, 10, 0 )
+ARIAL_FONT_MINI = UI_CreateFont( "Arial", 10, 10, 0 )

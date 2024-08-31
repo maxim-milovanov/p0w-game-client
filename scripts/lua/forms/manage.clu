@@ -1,0 +1,124 @@
+-----------------------------------------------------------------------
+-- Guild
+-----------------------------------------------------------------------
+frmManage = UI_CreateForm( "frmManage", FALSE, 550, 496, 200, 200, TRUE, FALSE )
+UI_FormSetHotKey( frmManage, ALT_KEY, HOTKEY_C )
+UI_ShowForm( frmManage, FALSE )
+UI_AddFormToTemplete( frmManage, 1 )
+UI_SetIsDrag( frmManage, TRUE )
+UI_SetFormStyleEx( frmManage, FORM_BOTTOM, 0, 45)
+
+imgBackground = UI_CreateCompent( frmManage, IMAGE_TYPE, "imgBackground", 550, 496, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/guild.png", NORMAL, 550, 496, 0, 0 )
+
+imgBackground = UI_CreateCompent( frmManage, IMAGE_TYPE, "imgBackground", 354, 347, 196, 82 )
+UI_LoadImage( imgBackground, "texture/gui/guild.png", NORMAL, 354, 347, 558, 0 )
+
+btnClose = UI_CreateCompent( frmManage, BUTTON_TYPE, "btnClose", 32, 32, 507, 11 )
+UI_LoadButtonImage( btnClose, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+pgePublic = UI_CreateCompent( frmManage, PAGE_TYPE, "pgePublic", 185, 275, 11, 79 )
+UI_SetPageButton( pgePublic, PAGE_BUTTON_CUSTOM, 48, 16 )
+
+skillid = UI_CreatePageItem( pgePublic )
+ttlNum = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlNum, "texture/gui/guild.png", PAGE_ITEM_TITLE_NORMAL, 173, 30, 0, 506 )
+UI_LoadImage( ttlNum, "texture/gui/guild.png", PAGE_ITEM_TITLE_ACTIVE, 173, 30, 190, 506 )
+UI_SetPos( ttlNum, 8, 20 )
+UI_SetSize( ttlNum, 173, 30 )
+UI_AddCompent( skillid, lstNum )
+
+skillid = UI_CreatePageItem( pgePublic )
+ttlLive = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlLive, "texture/gui/guild.png", PAGE_ITEM_TITLE_NORMAL, 173, 30, 0, 538 )
+UI_LoadImage( ttlLive, "texture/gui/guild.png", PAGE_ITEM_TITLE_ACTIVE, 173, 30, 190, 538 )
+UI_SetPos( ttlLive, 8, 20+30+12 )
+UI_SetSize( ttlLive, 173, 30 )
+
+lstNum = UI_CreateListView( frmManage, "lstNum", 322, 350, 210, 90, 5, 2 )
+UI_ListViewSetTitle( lstNum, 0, 103, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstNum, 1, 81, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstNum, 2, 30, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstNum, 3, 28, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstNum, 4, 28, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstNum, 6, 30, "", 0, 0, 0, 0 )
+UI_SetListRowHeight( lstNum, 28 )
+
+scrollid = UI_GetScroll(lstNum)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
+UI_SetSize( id, 13, 43 )
+
+lstAsk = UI_CreateListView( frmManage, "lstAsk", 322, 350, 210, 90, 5, 2 )
+UI_ListViewSetTitle( lstAsk, 0, 103, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstAsk, 1, 81, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstAsk, 2, 30, "", 0, 0, 0, 0 )
+UI_SetListRowHeight( lstAsk, 28 )
+
+scrollid = UI_GetScroll(lstAsk)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
+UI_SetSize( id, 13, 43 )
+
+labName = UI_CreateCompent( frmManage, LABELEX_TYPE, "labName", 95, 13, 23, 64 )
+UI_SetCaption( labName, "Tales of Pirates.net" )
+UI_SetTextColor( labName, COLOR_C9C2B4 )
+UI_SetLabelExFont( labName, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labNum = UI_CreateCompent( frmManage, LABELEX_TYPE, "labNum", 50, 13, 215, 64 )
+UI_SetCaption( labNum, "Players 0\150" )
+UI_SetTextColor( labNum, COLOR_C9C2B4 )
+UI_SetLabelExFont( labNum, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labPeople = UI_CreateCompent( frmManage, LABELEX_TYPE, "labPeople", 95, 13, 400, 64 )
+UI_SetCaption( labPeople, "Leader: %s" )
+UI_SetTextColor( labPeople, COLOR_C9C2B4 )
+UI_SetLabelExFont( labPeople, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+btnYes = UI_CreateCompent( frmManage, BUTTON_TYPE, "btnYes", 59, 30, 327, 449 )
+UI_LoadButtonImage( btnYes, "texture/gui/guild.png", 59, 30, 0, 694, TRUE )
+
+btnNo = UI_CreateCompent( frmManage, BUTTON_TYPE, "btnNo", 59, 30, 400, 449 )
+UI_LoadButtonImage( btnNo, "texture/gui/guild.png", 59, 30, 237, 663, TRUE )
+
+btnkick = UI_CreateCompent( frmManage, BUTTON_TYPE, "btnkick", 59, 30, 474, 449 )
+UI_LoadButtonImage( btnkick, "texture/gui/guild.png", 59, 30, 0, 663, TRUE )
+
+btnSan = UI_CreateCompent( frmManage, BUTTON_TYPE, "btnSan", 164, 29, 18, 226 )
+UI_LoadButtonImage( btnSan, "texture/gui/old_gui/SysBotton4.tga", 41, 14, 0, 76, TRUE )
+
+btnMaxim = UI_CreateCompent( frmManage, BUTTON_TYPE, "btnMaxim", 164, 29, 18, 184 )
+UI_LoadButtonImage( btnMaxim, "texture/gui/guild.png", 164, 29, 0, 571, TRUE )
+
+-----------------------------------------------------------------------
+-- Edit motto
+-----------------------------------------------------------------------
+frmEditMaxim = UI_CreateForm( "frmEditMaxim",  FALSE, 231, 109, 397, 500, TRUE, FALSE )
+UI_ShowForm( frmEditMaxim, FALSE )
+UI_AddFormToTemplete( frmEditMaxim, FORM_MAIN )
+UI_SetFormStyle( frmEditMaxim, 0 )
+UI_SetIsDrag( frmEditMaxim, TRUE )
+
+imgBackground = UI_CreateCompent( frmEditMaxim, IMAGE_TYPE, "imgBackground", 231, 109, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/guild.png", NORMAL, 231, 109, 559, 361 )
+
+edtMaxim = UI_CreateCompent( frmEditMaxim, EDIT_TYPE, "edtMaxim", 95, 11, 90, 38 )
+UI_SetEditCursorColor( edtMaxim, COLOR_WHITE )
+UI_SetTextColor( edtMaxim, COLOR_FFEDCF )
+UI_SetEditMaxNum( edtMaxim, 30 )
+UI_SetEditMaxNumVisible( edtMaxim, 30 )
+
+btnYes = UI_CreateCompent( frmEditMaxim, BUTTON_TYPE, "btnYes", 93, 32, 23, 92 )
+UI_LoadButtonImage( btnYes, "texture/gui/friends.png", 93, 32, 0, 494, FALSE )
+UI_SetEditEnterButton( edtTradeGold, btnYes )
+
+btnNo = UI_CreateCompent( frmEditMaxim, BUTTON_TYPE, "btnNo", 93, 32, 119, 92 )
+UI_LoadButtonImage( btnNo, "texture/gui/friends.png", 93, 32, 93, 494, FALSE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )

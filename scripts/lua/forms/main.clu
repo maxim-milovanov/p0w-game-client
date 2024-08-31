@@ -1,0 +1,2351 @@
+UI_LoadSkillActiveImage( "texture/gui/old_gui/StartF.dds", 2,  32, 32, 124, 155 )
+
+UI_LoadChargeImage( enumEQUIP_HEAD, "texture/gui/old_gui/charge.tga", 6,  32, 32, 0, 0 )
+UI_LoadChargeImage( enumEQUIP_FACE, "texture/gui/old_gui/charge.tga", 6,  32, 32, 0, 0 ) 
+UI_LoadChargeImage( enumEQUIP_BODY, "texture/gui/old_gui/charge.tga", 6,  32, 32, 0, 0 ) 
+UI_LoadChargeImage( enumEQUIP_GLOVE, "texture/gui/old_gui/charge.tga", 6,  32, 32, 0, 0 ) 
+UI_LoadChargeImage( enumEQUIP_SHOES, "texture/gui/old_gui/charge.tga", 6,  32, 32, 0, 0 ) 
+UI_LoadChargeImage( enumEQUIP_LHAND, "texture/gui/old_gui/charge.tga", 6,  32, 32, 0, 0 ) 
+UI_LoadChargeImage( enumEQUIP_RHAND, "texture/gui/old_gui/charge.tga", 6,  32, 32, 0, 0 ) 
+UI_LoadChargeImage( enumEQUIP_NECK, "texture/gui/old_gui/charge.tga", 6,  32, 32, 0, 0 ) 
+UI_LoadChargeImage( enumEQUIP_HAND1, "texture/gui/old_gui/charge.tga", 6,  32, 32, 0, 0 ) 
+UI_LoadChargeImage( enumEQUIP_HAND2, "texture/gui/old_gui/charge.tga", 6,  32, 32, 0, 0 )
+ 
+-----------------------------------------------------------------------
+UI_SetChatColor( 4294967295, 4290505961, 4281597696, 4278255615,  4294967040, 4294967040 ,4287943679, 4294939894 )
+UI_SetHeadSayBkgColor( 2568384662 )
+
+-----------------------------------------------------------------------
+-- My character (left up)
+-----------------------------------------------------------------------	
+frmDetail = UI_CreateForm( "frmDetail", FALSE, 250, 51, 15, 15, TRUE, FALSE )
+--UI_FormSetHotKey( frmDetail, ALT_KEY, HOTKEY_X ) 
+UI_ShowForm( frmDetail, TRUE )
+UI_AddFormToTemplete( frmDetail, FORM_MAIN )
+UI_FormSetIsEscClose( frmDetail, FALSE )
+
+avatarBackground = UI_CreateCompent( frmDetail, IMAGE_TYPE, "avatarBackground", 80, 81, 0, 0 )
+UI_LoadImage( avatarBackground, "texture/gui/detail-01.png", NORMAL, 80, 81, 15, 3 )
+
+paramsBackground = UI_CreateCompent( frmDetail, IMAGE_TYPE, "paramsBackground", 221, 64, 70-37, 0 )
+UI_LoadImage( paramsBackground, "texture/gui/detail-01.png", NORMAL, 221, 64, 96, 6 )
+
+proMainHP1 = UI_CreateCompent( frmDetail, PROGRESS_TYPE, "proMainHP1", 194, 20, 49, 16 )
+UI_LoadScaleImage( proMainHP1, "texture/gui/detail-01.png", PROGRESS_PROGRESS, 194, 20, 140, 90, 1.0, 0.9 )
+UI_SetHint( proMainHP1, "HP" )
+UI_SetProgressHintStyle( proMainHP1, PROGRESS_HINT_NUM )
+
+proMainSP = UI_CreateCompent( frmDetail, PROGRESS_TYPE, "proMainSP", 185, 19, 50, 31+7+1+1 )
+UI_LoadScaleImage( proMainSP, "texture/gui/detail-01.png", PROGRESS_PROGRESS, 185, 19, 141, 122, 1.0, 0.9 )
+UI_SetHint( proMainSP, "SP" )
+UI_SetProgressHintStyle( proMainSP, PROGRESS_HINT_NUM )
+
+-- Player avatar
+d3dSelf = UI_CreateCompent( frmDetail, UI3D_COMPENT_TYPE, "d3dSelf", 40, 45, 14, 20 )
+d3dSelfDown = UI_CreateCompent( frmDetail, UI3D_COMPENT_TYPE, "d3dSelfDown", 189, 51, 0, 0 )
+
+frameAvatar = UI_CreateCompent( frmDetail, IMAGE_TYPE, "frameAvatar", 80, 81, 1, 0 )
+UI_LoadImage( frameAvatar, "texture/gui/detail-01.png", NORMAL, 80, 81, 15, 86 )
+
+imgPremium = UI_CreateCompent( frmDetail, IMAGE_TYPE, "imgPremium", 80, 81, 1, 0 )
+UI_LoadImage( imgPremium, "texture/gui/detail-01.png", NORMAL, 80, 81, 15, 168 )
+UI_SetIsShow( imgPremium, FALSE )
+
+levelBackground = UI_CreateCompent( frmDetail, IMAGE_TYPE, "levelBackground", 30, 30, 5, 44 )
+UI_LoadImage( levelBackground, "texture/gui/detail-01.png", NORMAL, 30, 30, 93, 82 )
+
+labMainLv = UI_CreateCompent( frmDetail, LABELEX_TYPE, "labMainLv", 14, 9, 14, 54 )
+UI_SetTextColor( labMainLv, COLOR_WHITE )
+UI_SetLabelExFont( labMainLv, DEFAULT_FONT, TRUE, COLOR_BLACK )
+UI_SetCaption( labMainLv, "99" )
+
+percentLab01HP = UI_CreateCompent( frmDetail, LABELEX_TYPE, "percentLab01HP", 14, 9, 118, 18 )
+UI_SetCaption( percentLab01HP, "Health")
+UI_SetTextColor( percentLab01HP, COLOR_958273 )
+UI_SetLabelExFont( percentLab01HP, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+percentLabHP = UI_CreateCompent( frmDetail, LABELEX_TYPE, "percentLabHP", 14, 9, 85, 18 )
+UI_SetTextColor( percentLabHP, COLOR_C9C2B4 )
+UI_SetLabelExFont( percentLabHP, DEFAULT_FONT, FALSE, COLOR_BLACK )
+UI_SetCaption( percentLabHP, "99" )
+
+percentLab01SP = UI_CreateCompent( frmDetail, LABELEX_TYPE, "percentLab01SP", 14, 9, 118, 42 )
+UI_SetCaption( percentLab01SP, "Mana")
+UI_SetTextColor( percentLab01SP, COLOR_958273 )
+UI_SetLabelExFont( percentLab01SP, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+percentLabSP = UI_CreateCompent( frmDetail, LABELEX_TYPE, "percentLabSP", 14, 9, 85, 42 )
+UI_SetTextColor( percentLabSP, COLOR_C9C2B4 )
+UI_SetLabelExFont( percentLabSP, DEFAULT_FONT, FALSE, COLOR_BLACK )
+UI_SetCaption( percentLabSP, "99" )
+
+imgLeader = UI_CreateCompent( frmDetail, IMAGE_TYPE, "imgLeader", 30, 30, 5, 5 )
+UI_LoadImage( imgLeader, "texture/gui/detail-01.png", NORMAL, 30, 30, 93, 111 )
+UI_SetIsShow( imgLeader, FALSE )
+
+btnHPSP = UI_CreateCompent( frmDetail, BUTTON_TYPE, "btnHPSP", 111, 8, 1102, 22 )
+
+expBackground = UI_CreateCompent( frmDetail, IMAGE_TYPE, "expBackground", 81, 21, 165, 2 )
+UI_LoadImage( expBackground, "texture/gui/detail-01.png", NORMAL, 81, 21, 138, 148 )
+
+proMainEXP = UI_CreateCompent( frmDetail, PROGRESS_TYPE, "proMainEXP", 77, 19, 167, 3 )
+UI_LoadScaleImage( proMainEXP, "texture/gui/detail-01.png", PROGRESS_PROGRESS, 77, 19, 140, 171, 1.0, 1.0 )
+UI_SetHint( proMainEXP, "EXP" )
+
+-----------------------------------------------------------------------
+-- 定义800*600主界面
+-----------------------------------------------------------------------	
+-- 创建主界面表单
+frmMain800 = UI_CreateForm( "frmMain800", FALSE, 330, 30, 0, 570, TRUE, FALSE )
+--UI_FormSetHotKey( frmMain800, ALT_KEY, HOTKEY_X ) 
+UI_ShowForm( frmMain800, TRUE )
+UI_AddFormToTemplete( frmMain800, FORM_MAIN )
+UI_SetFormStyle( frmMain800, 7 )---下
+UI_FormSetIsEscClose( frmMain800, FALSE )
+--UI_SetAlpha( frmMinimap, 200 )
+
+tlCity = UI_CreateCompent( frmMain800, TITLE_TYPE, "tlCity", 715, 240, 0, 0 )
+UI_LoadImage( tlCity, "texture/gui/City.png", NORMAL, 253, 240, 0, 0 )
+UI_LoadImage( tlCity, "texture/gui/City.png", HOVER, 209, 240, 253, 0 )
+UI_LoadImage( tlCity, "texture/gui/City.png", DOWN, 253, 240, 462, 0 )
+UI_SetTitleFont( tlCity, BIGFONT, COLOR_FFEDCF, 85 )
+
+tlField = UI_CreateCompent( frmMain800, TITLE_TYPE, "tlField", 715, 240, 0, 0 )
+UI_LoadImage( tlField, "texture/gui/Field.png", NORMAL, 253, 240, 0, 0 )
+UI_LoadImage( tlField, "texture/gui/Field.png", HOVER, 209, 240, 253, 0 )
+UI_LoadImage( tlField, "texture/gui/Field.png", DOWN, 253, 240, 462, 0 )
+UI_SetTitleFont( tlField, BIGFONT, COLOR_FFEDCF, 15 )
+
+imgMain = UI_CreateCompent( frmMain800, IMAGE_TYPE, "imgMain", 330, 30, 0, 2 )
+UI_LoadImage( imgMain, "texture/gui/chat.png", NORMAL, 330, 30, 0, 0 )
+
+edtSay = UI_CreateCompent( frmMain800, EDIT_TYPE, "edtSay", 170, 20, 85, 9 )
+UI_SetTextColor( edtSay, COLOR_8D837A )
+UI_SetEditMaxNum( edtSay, 200)
+UI_SetEditMaxNumVisible( edtSay, 24)
+UI_SetEditCursorColor( edtSay, COLOR_WHITE )
+
+-- Chat Background
+lstOnSay = UI_CreateCompent( frmMain800, LIST_TYPE, "lstOnSay", 330, 100, 0, -98 )
+UI_LoadImage( lstOnSay, "texture/gui/chat.png", COMPENT_BACK, 5, 5, 13, 32 )
+UI_SetImageAlpha( lstOnSay, 450 ) -- Transparent value
+UI_SetMargin( lstOnSay, 5, 3, 0, 0 )
+
+-- 设置拖动条 
+drpTitle = UI_CreateCompent( frmMain800, DRAG_TITLE_TYPE, "drpTitle", 43, 7, 0, -100 )
+UI_LoadImage( drpTitle, "texture/gui/old_gui/SysBotton4.tga", NORMAL, 43, 7, 158, 100 )
+
+-- scroll chat
+scrollid = UI_GetScroll(lstOnSay)
+UI_SetSize( scrollid, 10, 26 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/chat.png", COMPENT_BACK, 10, 26, 0, 32 )
+UI_SetSize( id, 10, 26 )
+
+-- System Chat Background
+lstOnSaySystem = UI_CreateCompent( frmMain800, LIST_TYPE, "lstOnSaySystem", 330, 60, 0, -158 )
+UI_LoadImage( lstOnSaySystem, "texture/gui/chat.png", COMPENT_BACK, 5, 5, 13, 32 )
+UI_SetImageAlpha( lstOnSaySystem, 450 )
+UI_SetMargin( lstOnSaySystem, 5, 3, 0, 0 )
+
+-- 设置拖动条 
+drpTitleSystem = UI_CreateCompent( frmMain800, DRAG_TITLE_TYPE, "drpTitleSystem", 43, 7, 0, -160 )
+UI_LoadImage( drpTitleSystem, "texture/gui/old_gui/SysBotton4.tga", NORMAL, 43, 7, 158, 100 )
+
+scrollid = UI_GetScroll( lstOnSaySystem )
+UI_SetSize( scrollid, 10, 26 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/chat.png", COMPENT_BACK, 10, 26, 0, 32 )
+UI_SetSize( id, 10, 26 )
+
+----------创建密语     开   关
+chkChatOn = UI_CreateCompent( frmMain800, CHECK_TYPE, "chkChatOn", 16, 16, 50, 9 )
+UI_LoadImage( chkChatOn, "texture/gui/chat.png", UNCHECKED, 16, 16, 213, 32 )
+UI_LoadImage( chkChatOn, "texture/gui/chat.png", CHECKED, 16, 16, 232, 32 )
+UI_SetHint( chkChatOn , "Channel Display Button" )
+
+----------名片按钮
+btnCard = UI_CreateCompent( frmMain800, BUTTON_TYPE, "btnCard", 9, 16, 70, 8 )
+UI_LoadButtonImage( btnCard, "texture/gui/chat.png", 9, 16, 25, 72, TRUE )
+UI_SetHint( btnCard , "Whisper list" )
+
+----------名片列表
+lstCard = UI_CreateCompent( frmMain800, LIST_TYPE, "lstCard", 100, 80, 56, -79 )
+UI_SetListRowHeight( lstCard, 14 )
+UI_SetListFontColor( lstCard, COLOR_BLACK, COLOR_BLACK )
+--UI_LoadImage( lstCard, "texture/ui/QQ.dds", COMPENT_BACK, 35, 100, 212, 57 )
+UI_LoadImage( lstCard, "texture/gui/chat.png", COMPENT_BACK, 28, 28, 5, 95 )
+UI_SetListIsMouseFollow( lstCard, TRUE)
+--UI_ListLoadSelectImage( lstCard, "texture/ui/SystemBotton3.tga", 79, 14, 0, 227  )
+UI_SetMargin( lstCard, 8,6,5,1 )
+UI_SetIsShow( lstCard, FALSE )
+
+--获得滚动条
+scrollid = UI_GetScroll( lstCard )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/old_gui/PublicC.tga", COMPENT_BACK, 11, 1, 194, 13 )
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/gui/old_gui/PublicC.tga", 11, 9, 166, 0, TRUE )
+UI_SetSize( id, 11, 9 )
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/old_gui/PublicC.tga", COMPENT_BACK, 11, 33, 166, 10 )
+UI_SetSize( id, 11, 33 )
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/gui/old_gui/PublicC.tga", 11, 9, 166, 0, TRUE )
+UI_SetSize( id, 11, 9 )
+
+
+--创建频道选择
+cboChannel  = UI_CreateCompent( frmMain800, COMBO_TYPE, "cboChannel", 45, 26, 2, 5 )
+UI_ComboSetStyle( cboChannel, FALSE )
+--UI_LoadComboImage( cboChannel, "", 33, 26, 0, 0, "texture/ui/Quest1.tga", 1, 1, 30, 195, TRUE )
+UI_ComboSetTextColor( cboChannel, COLOR_WHITE )
+lstChannel = UI_GetList( cboChannel )
+UI_SetListRowHeight( lstChannel, 14 )
+UI_SetListFontColor( lstChannel, COLOR_WHITE, COLOR_WHITE )
+UI_SetSize( lstChannel, 35, 104 )
+UI_SetMargin( lstChannel, 5,8,5,4 )
+UI_SetListRowHeight( lstChannel, 18 )
+UI_LoadImage( lstChannel, "texture/gui/chat.png", COMPENT_BACK, 28, 28, 5, 95 )
+
+UI_AddListText( lstChannel, "Local" )
+UI_AddListText( lstChannel, "Party" )
+UI_AddListText( lstChannel, "Guild" )
+UI_AddListText( lstChannel, "Trade" )
+UI_AddListText( lstChannel, "World" )
+
+-- 频道列表
+lstChannel = UI_CreateCompent( frmMain800, LIST_TYPE, "lstChannel", 75, 84, 0, -200 )
+listid = UI_GetList( lstChannel )
+UI_SetListRowHeight( listid, 15 )
+--UI_LoadImage( listid, "texture/ui/selectcha.dds", NORMAL, 75, 85, 944, 1    )
+UI_SetMargin( lstChannel, 12, 5, 6, 2 )
+--scrollid = UI_GetScroll( listid )
+--UI_SetSize( scrollid, 13, 13 )
+--UI_LoadImage( scrollid, "texture/ui/chat/chat.dds", COMPENT_BACK, 9, 9, 0, 51 )
+--scrollid = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+--UI_LoadImage( scrollid, "texture/ui/item.dds", COMPENT_BACK, 13, 17, 13, 374 )
+--UI_SetSize( scrollid, 13, 17 )
+--UI_SetAlpha( lstChannel, 100 )
+--UI_SetIsKeyFocus( lstChannel, FALSE )
+UI_SetIsShow( lstChannel, FALSE )
+UI_SetListIsMouseFollow( lstChannel, TRUE )
+
+--UI_SetFrameSelectAtrribute( lstChannel, 57, 15, 6, 3 )
+
+UI_AddListText( lstChannel, "World" )
+UI_AddListText( lstChannel, "PM" )
+UI_AddListText( lstChannel, "Party" )
+UI_AddListText( lstChannel, "Guild" )
+UI_AddListText( lstChannel, "Trade" )
+
+-- 创建动作按钮
+btnAction = UI_CreateCompent( frmMain800, BUTTON_TYPE, "btnAction", 12, 17, 267, 8 )
+UI_LoadButtonImage( btnAction, "texture/gui/chat.png", 12, 17, 56, 72, TRUE )
+UI_SetHint( btnAction, "Action" )
+
+-- 创建心情按钮
+btnBrow = UI_CreateCompent( frmMain800, BUTTON_TYPE, "btnBrow", 21, 17, 285, 8 )
+UI_LoadButtonImage( btnBrow, "texture/gui/chat.png", 21, 17, 149, 73, TRUE )
+UI_SetHint( btnBrow, "Mood" )
+
+-- 聊天表情按钮
+btnChatFace = UI_CreateCompent( frmMain800, BUTTON_TYPE, "btnChatFace", 17, 17, 309, 8 )
+UI_LoadButtonImage( btnChatFace, "texture/gui/chat.png", 17, 17, 95, 73, TRUE )
+UI_SetHint( btnChatFace , "Emoticon" )
+
+-- 表情表格
+grdFace = UI_CreateCompent( frmMain800, GRID_TYPE, "grdFace", 142, 170, 263, -168 ) 
+UI_LoadImage( grdFace, "texture/gui/chat.png", NORMAL, 142, 170, 39, 92 )
+UI_SetGridUnitSize( grdFace, 20, 20 )
+UI_SetIsShow( grdFace, FALSE )
+UI_SetMargin( grdFace, 11, 5, 5, 5 )
+UI_SetGridSpace( grdFace, 4, 4 )
+UI_SetGridIsDragSize( grdFace, FALSE )
+n=0
+while 1 do
+	name = "texture/gui/face/"..(n+1)..".tga"   	
+    	UI_AddFaceToGrid( grdFace, name, 16, 16, 0, 0, 1, 0 )
+	UI_SetTextParse( n , name, 16, 16 , 0 , 0 ,1 )
+	n = n + 1    	
+    	if n>=77 then break end
+end
+UI_GridLoadSelectImage( grdFace, "texture/gui/old_gui/StartF.dds", 32, 32, 123, 99 )
+
+-- 动作表格
+grdAction = UI_CreateCompent( frmMain800, GRID_TYPE, "grdAction", 142, 170, 263, -168 ) 
+UI_LoadImage( grdAction, "texture/gui/chat.png", NORMAL, 142, 170, 39, 92 )
+UI_SetGridUnitSize( grdAction, 32, 32 )
+UI_SetIsShow( grdAction, FALSE )
+UI_SetMargin( grdAction, 5, 4, 0, 0 )
+UI_SetGridSpace( grdAction, 1, 1 )
+UI_SetGridIsDragSize( grdAction, FALSE )
+
+n=2
+while 1 do
+	name = "texture/gui/action/"..(n)..".tga"   	
+    	UI_AddFaceToGrid( grdAction, name, 32, 32, 0, 0, 1, n )	
+	n = n + 1    	
+    	if n>=10 then break end
+end
+n=16
+while 1 do
+	name = "texture/gui/action/"..(n)..".tga"   	
+    	UI_AddFaceToGrid( grdAction, name, 32, 32, 0, 0, 1, n )	
+	n = n + 1    	
+    	if n>=24 then break end
+end
+UI_GridLoadSelectImage( grdAction, "texture/gui/old_gui/StartF.dds", 32, 32, 157, 99 )
+
+
+-- 心情表格
+grdHeart = UI_CreateCompent( frmMain800, GRID_TYPE, "grdHeart", 142, 170, 263, -168 ) 
+UI_LoadImage( grdHeart, "texture/gui/chat.png", NORMAL, 142, 170, 39, 92 )
+UI_SetGridUnitSize( grdHeart, 32, 32 )
+UI_SetIsShow( grdHeart, FALSE )
+UI_SetMargin( grdHeart, 5, 4, 0, 0 )
+UI_SetGridSpace( grdHeart, 0, 0 )
+UI_SetGridIsDragSize( grdHeart, FALSE )
+n=0
+while 1 do
+	name = "texture/gui/brow/"..(n)..".tga"   	
+    	UI_AddFaceToGrid( grdHeart, name, 64, 64, 0, 0, 2, 0 )	
+	n = n + 1    	
+   	if n>=27 then break end
+end
+UI_GridLoadSelectImage( grdHeart, "texture/gui/old_gui/StartF.dds", 32, 32, 123, 99 )
+
+-- 向上按钮
+btnFastUp = UI_CreateCompent( frmMain800, BUTTON_TYPE, "btnFastUp", 7, 8, 298, 11 )
+--UI_LoadButtonImage( btnFastUp, "texture/gui/old_gui/Nbotton.tga", 7, 8, 82, 2, TRUE )
+
+-- 向下按钮
+btnFastDown = UI_CreateCompent( frmMain800, BUTTON_TYPE, "btnFastDown", 7, 8, 298, 19 )
+--UI_LoadButtonImage( btnFastDown, "texture/gui/old_gui/Nbotton.tga", 7, 8, 82, 12, TRUE )
+
+
+---创建好友右键表单
+selfMouseRight = UI_CreateCompent( frmMain800, MENU_TYPE, "selfMouseRight", 68, 97, 240, 468 )
+UI_MenuLoadImage( selfMouseRight, TRUE, FALSE, "texture/gui/right.png", 5, 5, 3, 17, "texture/gui/right-off.png", 5, 5 )
+UI_SetMargin( selfMouseRight, 10, 5, 5, 5 )
+
+-- 装载菜单选择条的图片
+UI_MenuLoadSelect( selfMouseRight, "texture/gui/right.png", 15, 6, 17, 26  )
+
+-- 增加菜单
+UI_MenuAddText( selfMouseRight, "Leave Party" )
+
+-----------------------------------------------------------------------------------
+-- Fast bar
+-----------------------------------------------------------------------------------
+frmFast = UI_CreateForm( "frmFast", FALSE, 487, 82, 380, 557, TRUE, FALSE )
+UI_ShowForm( frmFast, TRUE )
+UI_SetFormStyleEx( frmFast, FORM_BOTTOM, 0, 0)
+UI_AddFormToTemplete( frmFast, FORM_MAIN )
+UI_SetIsDrag( frmFast, FALSE )
+UI_FormSetIsEscClose( frmFast, FALSE )
+
+imgFastbarBackground01 = UI_CreateCompent( frmFast, IMAGE_TYPE, "imgFastbarBackground01", 454, 74, 7, 4 )
+UI_LoadImage( imgFastbarBackground01, "texture/gui/fast-bar.png", NORMAL, 454, 74, 7, 4 )
+
+imgFastbarBackground02 = UI_CreateCompent( frmFast, IMAGE_TYPE, "imgFastbarBackground02", 454, 74, 7, 4 )
+UI_LoadImage( imgFastbarBackground02, "texture/gui/fast-bar.png", NORMAL, 454, 74, 7, 109 )
+
+fscMainN12  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainN12",  32, 32, 9, 6 )
+fscMainN13  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainN13",  32, 32, 47, 6 )
+fscMainN14  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainN14",  32, 32, 85, 6 )
+fscMainN15  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainN15",  32, 32, 123, 6 )
+fscMainN16  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainN16",  32, 32, 161, 6 )
+fscMainN17  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainN17",  32, 32, 199, 6 )
+fscMainN18  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainN18",  32, 32, 237, 6 )
+fscMainN19  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainN19",  32, 32, 275, 6 )
+fscMainN20  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainN20",  32, 32, 313, 6 )
+fscMainN21  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainN21",  32, 32, 351, 6 )
+fscMainN22  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainN22", 32, 32, 389, 6 )
+fscMainN23  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainN23", 32, 32, 427, 6 )
+
+fscMainF0  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainF0",  32, 32, 9, 44 )
+fscMainF1  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainF1",  32, 32, 47, 44 )
+fscMainF2  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainF2",  32, 32, 85, 44 )
+fscMainF3  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainF3",  32, 32, 123, 44 )
+fscMainF4  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainF4",  32, 32, 161, 44 )
+fscMainF5  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainF5",  32, 32, 199, 44 )
+fscMainF6  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainF6",  32, 32, 237, 44 )
+fscMainF7  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainF7",  32, 32, 275, 44 )
+fscMainF8  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainF8",  32, 32, 313, 44 )
+fscMainF9  = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainF9",  32, 32, 351, 44 )
+fscMainF10 = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainF10", 32, 32, 389, 44 )
+fscMainF11 = UI_CreateCompent( frmFast, FAST_COMMANG_TYPE, "fscMainF11", 32, 32, 427, 44 )
+
+chkFBNNucklock = UI_CreateCompent( frmFast, CHECK_TYPE, "chkFBNNucklock", 49, 12, 475, 16 )
+UI_LoadImage( chkFBNNucklock, "texture/gui/fast-bar.png", UNCHECKED, 49, 12, 8, 94 )
+UI_LoadImage( chkFBNNucklock, "texture/gui/fast-bar.png", CHECKED, 49, 12, 8, 81 )
+
+btnFastDown = UI_CreateCompent( frmFast, BUTTON_TYPE, "btnFastDown", 49, 12, 475, 17+34+3 )
+UI_LoadButtonImage( btnFastDown, "texture/gui/fast-bar.png", 49, 12, 64, 93, TRUE )
+UI_SetHint( btnFastDown, "Switch bar" )
+
+-----------------------------------------------------------------------
+-- System pannel
+-----------------------------------------------------------------------	
+frmMainFun = UI_CreateForm( "frmMainFun", FALSE, 215, 30, 185, 566, TRUE, FALSE )
+--UI_FormSetHotKey( frmMainFun, ALT_KEY, HOTKEY_D ) 
+UI_ShowForm( frmMainFun, TRUE )
+UI_AddFormToTemplete( frmMainFun, FORM_MAIN )
+UI_FormSetIsEscClose( frmMainFun, FALSE )
+UI_SetFormStyle( frmMainFun, 11 )---右下
+
+imgMainFun = UI_CreateCompent( frmMainFun, IMAGE_TYPE, "imgMainFun", 367, 80, -173, -52 )
+UI_LoadImage( imgMainFun, "texture/gui/system-btn.png", NORMAL, 367, 80, 0, 146+23 )
+UI_SetIsShow(imgMainFun, FALSE)
+
+btnMenuItemListView = UI_CreateCompent( frmMainFun, BUTTON_TYPE, "btnMenuItemListView", 20, 50, 188, -37 )
+UI_LoadButtonImage( btnMenuItemListView, "texture/gui/system-btn.png", 30, 72, 0, 0, TRUE )
+UI_SetIsShow(btnMenuItemListView, TRUE)
+
+btnMenuItemListHide = UI_CreateCompent( frmMainFun, BUTTON_TYPE, "btnMenuItemListHide", 20, 50, 188, -37 )
+UI_LoadButtonImage( btnMenuItemListHide, "texture/gui/system-btn.png", 30, 72, 0, 72, TRUE )
+UI_SetIsShow(btnMenuItemListHide, FALSE)
+
+btnState = UI_CreateCompent( frmMainFun, BUTTON_TYPE, "btnState", 42, 40, -143, -32 )
+UI_LoadButtonImage( btnState, "texture/gui/system-btn.png", 44, 42, 126, 0, FALSE )
+UI_SetHint( btnState , "Stats (Alt+A)" )
+UI_SetIsShow(btnState, FALSE)
+
+btnOpenBag = UI_CreateCompent( frmMainFun, BUTTON_TYPE, "btnOpenBag", 33, 40, -91, -32 )
+UI_LoadButtonImage( btnOpenBag, "texture/gui/system-btn.png", 33, 40, 170, 0, FALSE )
+UI_SetHint( btnOpenBag , "Item bag (Alt+E)" )
+UI_SetIsShow(btnOpenBag, FALSE)
+
+btnSkill = UI_CreateCompent( frmMainFun, BUTTON_TYPE, "btnSkill", 40, 40, -50, -32 )
+UI_LoadButtonImage( btnSkill, "texture/gui/system-btn.png", 40, 40, 203, 0, FALSE )
+UI_SetHint( btnSkill , "Skill (Alt+S)" )
+UI_SetIsShow(btnSkill, FALSE)
+
+btnMission = UI_CreateCompent( frmMainFun, BUTTON_TYPE, "btnMission", 33, 40, -2, -32 )
+UI_LoadButtonImage( btnMission, "texture/gui/system-btn.png", 33, 40, 243, 0, FALSE )
+UI_SetHint( btnMission , "Quest(Alt+Q)" )
+UI_SetIsShow(btnMission, FALSE)
+
+btnOpenSociliaty = UI_CreateCompent( frmMainFun, BUTTON_TYPE, "btnOpenSociliaty", 40, 40, 39, -32 )
+UI_LoadButtonImage( btnOpenSociliaty, "texture/gui/system-btn.png", 42, 42, 276, 0, FALSE )
+UI_SetHint( btnOpenSociliaty , "Guild (Alt+C)" )
+UI_SetIsShow(btnOpenSociliaty, FALSE)
+
+btnQQ = UI_CreateCompent( frmMainFun, BUTTON_TYPE, "btnQQ", 40, 40, 87, -32 )
+UI_LoadButtonImage( btnQQ, "texture/gui/system-btn.png", 40, 40, 318, 0, FALSE )
+UI_SetHint( btnQQ , "Friend (Alt+F)" )
+UI_SetIsShow(btnQQ, FALSE)
+
+btnSystem = UI_CreateCompent( frmMainFun, BUTTON_TYPE, "btnSystem", 41, 40, 135, -32 )
+UI_LoadButtonImage( btnSystem, "texture/gui/system-btn.png", 41, 40, 358, 0, FALSE )
+UI_SetHint( btnSystem , "Setting (Alt+O)" )
+UI_SetIsShow(btnSystem, FALSE)
+
+-------------------------------------------------------------------------
+---- 定义功能区			--道具          点击btnOpenBag后显示
+-------------------------------------------------------------------------	
+frmBag = UI_CreateForm( "frmBag", FALSE, 89,  30, 450, 250, TRUE, FALSE )
+--UI_FormSetHotKey( frmItem, ALT_KEY, HOTKEY_D ) 
+UI_ShowForm( frmBag, TRUE )
+UI_AddFormToTemplete( frmBag, FORM_MAIN )
+UI_FormSetIsEscClose( frmBag, FALSE )
+
+--加载背景图片
+imgMainFun1 = UI_CreateCompent( frmBag, IMAGE_TYPE, "imgMainFun1", 32, 30, 57, 0 )
+UI_LoadImage( imgMainFun1, "texture/gui/old_gui/new4.tga", NORMAL, 32, 30, 0, 0 )
+
+imgMainFun2 = UI_CreateCompent( frmBag, IMAGE_TYPE, "imgMainFun2", 32, 30, 0, 0 )
+UI_LoadImage( imgMainFun2, "texture/gui/old_gui/new4.tga", NORMAL, 32, 30, 32, 0 )
+
+imgMainFun2 = UI_CreateCompent( frmBag, IMAGE_TYPE, "imgMainFun2", 25, 30, 32, 0 )
+UI_LoadImage( imgMainFun2, "texture/gui/old_gui/new4.tga", NORMAL, 2, 30, 0, 0 )
+
+--加载背包按钮和临时背包按钮
+--点击后显示原有道具栏
+btnOpenItem = UI_CreateCompent( frmBag, BUTTON_TYPE, "btnOpenItem", 37, 22, 7, 4 )
+UI_LoadButtonImage( btnOpenItem, "texture/gui/old_gui/new6.tga", 37, 22, 0, 198,TRUE )
+UI_SetHint( btnOpenItem , "Inventory(Alt+E)" )
+
+--点击后显示临时背包
+btnOpenTempBag = UI_CreateCompent( frmBag, BUTTON_TYPE, "btnOpenTempBag", 37, 22, 45, 4 )
+UI_LoadButtonImage( btnOpenTempBag, "texture/gui/old_gui/new6.tga", 37, 22, 0, 220,TRUE )
+UI_SetHint( btnOpenTempBag , "Temporary Bag" )
+
+-------------------------------------------------------------------------
+---- 定义功能区			--社交		点击btnSociliaty后显示
+-------------------------------------------------------------------------	
+frmSociliaty = UI_CreateForm( "frmSociliaty", FALSE, 37,  30, 400, 300, TRUE, FALSE )
+--UI_FormSetHotKey( frmItem, ALT_KEY, HOTKEY_D ) 
+UI_ShowForm( frmSociliaty, TRUE )
+UI_AddFormToTemplete( frmSociliaty, FORM_MAIN )
+UI_FormSetIsEscClose( frmSociliaty, FALSE )
+
+--加载背景图片
+imgMainFun1 = UI_CreateCompent( frmSociliaty, IMAGE_TYPE, "imgMainFun1", 25, 30, 0, 0 )
+UI_LoadImage( imgMainFun1, "texture/gui/old_gui/new4.tga", NORMAL, 25, 30, 32, 0 )
+
+imgMainFun2 = UI_CreateCompent( frmSociliaty, IMAGE_TYPE, "imgMainFun2", 25, 30, 12, 0 )
+UI_LoadImage( imgMainFun2, "texture/gui/old_gui/new4.tga", NORMAL, 25, 30, 7, 0 )
+
+--加载各种按钮
+--加载工会  点击后走原有btnGuild的路线
+btnOpenGuild = UI_CreateCompent( frmSociliaty, BUTTON_TYPE, "btnOpenGuild", 23, 22, 7, 4  )
+UI_LoadButtonImage( btnOpenGuild, "texture/gui/old_gui/new6.tga", 23, 22, 0, 88,TRUE )
+UI_SetHint( btnOpenGuild , "Guild(Alt+C)" )
+
+--加载组队志愿者   点击后走原有组队志愿者路线
+-- btnOpenTeam = UI_CreateCompent( frmSociliaty, BUTTON_TYPE, "btnOpenTeam", 23, 22, 31, 4 )
+-- UI_LoadButtonImage( btnOpenTeam, "texture/gui/old_gui/new6.tga", 23, 22, 69, 22, TRUE )
+-- UI_SetHint( btnOpenTeam , "Party Volunteer" )
+
+-----------------------------------------------------------------------
+-- 定义大地图
+-----------------------------------------------------------------------	
+-- 创建大地图表单
+frmBigmap = UI_CreateForm( "frmBigmap", FALSE, 569, 430, 30, 80, TRUE, FALSE )
+UI_ShowForm( frmBigmap, TRUE )
+UI_AddFormToTemplete( frmBigmap, FORM_MAIN )
+UI_FormSetIsEscClose( frmBigmap, FALSE )
+UI_FormSetHotKey( frmBigmap, ALT_KEY, HOTKEY_W )
+UI_FormSetIsEscClose( frmBigmap, FALSE )
+
+-- 加载图片
+imgBigmap1 = UI_CreateCompent( frmBigmap, IMAGE_TYPE, "imgBigmap1", 256, 256, 0, 0 )
+UI_LoadImage( imgBigmap1, "texture/gui/old_gui/bigmap1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBigmap2 = UI_CreateCompent( frmBigmap, IMAGE_TYPE, "imgBigmap2", 256, 256, 256, 0 )
+UI_LoadImage( imgBigmap2, "texture/gui/old_gui/bigmap2.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBigmap3 = UI_CreateCompent( frmBigmap, IMAGE_TYPE, "imgBigmap3", 256, 256, 512, 0 )
+UI_LoadImage( imgBigmap3, "texture/gui/old_gui/bigmap3.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBigmap4 = UI_CreateCompent( frmBigmap, IMAGE_TYPE, "imgBigmap4", 256, 256, 0, 256 )
+UI_LoadImage( imgBigmap4, "texture/gui/old_gui/bigmap4.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBigmap5 = UI_CreateCompent( frmBigmap, IMAGE_TYPE, "imgBigmap5", 256, 256, 256, 256 )
+UI_LoadImage( imgBigmap5, "texture/gui/old_gui/bigmap5.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBigmap6 = UI_CreateCompent( frmBigmap, IMAGE_TYPE, "imgBigmap6", 256, 256, 512, 256 )
+UI_LoadImage( imgBigmap6, "texture/gui/old_gui/bigmap6.tga", NORMAL, 256, 256, 0, 0 )
+
+-- 程序用于显示大地图，大小，位置无所谓
+UI_CreateCompent( frmBigmap, UI3D_COMPENT_TYPE, "d3dCompent", 530, 390, 140, 52 )
+
+
+imgBigmap11 = UI_CreateCompent( frmBigmap, IMAGE_TYPE, "imgBigmap11", 256, 256, 0, 0 )
+UI_LoadImage( imgBigmap11, "texture/gui/old_gui/bigmap8.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBigmap21 = UI_CreateCompent( frmBigmap, IMAGE_TYPE, "imgBigmap21", 256, 97, 256, 10 )
+UI_LoadImage( imgBigmap21, "texture/gui/old_gui/bigmap9.tga", NORMAL, 256, 97, 0, 0 )
+
+imgBigmap31 = UI_CreateCompent( frmBigmap, IMAGE_TYPE, "imgBigmap31", 256, 256, 512, 0 )
+UI_LoadImage( imgBigmap31, "texture/gui/old_gui/bigmap10.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBigmap41 = UI_CreateCompent( frmBigmap, IMAGE_TYPE, "imgBigmap41", 256, 256, 0, 256 )
+UI_LoadImage( imgBigmap41, "texture/gui/old_gui/bigmap11.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBigmap51 = UI_CreateCompent( frmBigmap, IMAGE_TYPE, "imgBigmap51", 256, 97, 256, 373 )
+UI_LoadImage( imgBigmap51, "texture/gui/old_gui/bigmap9.tga", NORMAL, 256, 97, 0, 159 )
+
+imgBigmap61 = UI_CreateCompent( frmBigmap, IMAGE_TYPE, "imgBigmap61", 256, 256, 512, 256 )
+UI_LoadImage( imgBigmap61, "texture/gui/old_gui/bigmap12.tga", NORMAL, 256, 256, 0, 0 )
+
+
+----箭头
+btnLeft = UI_CreateCompent( frmBigmap, BUTTON_TYPE, "btnLeft", 15, 39, 160, 230 )
+UI_LoadButtonImage( btnLeft, "texture/gui/old_gui/SysBotton4.tga", 15, 39, 165, 39, TRUE )
+
+btnRight = UI_CreateCompent( frmBigmap, BUTTON_TYPE, "btnRight", 15, 39, 640, 230 )
+UI_LoadButtonImage( btnRight, "texture/gui/old_gui/SysBotton4.tga", 15, 39, 165, 0, TRUE )
+
+btnTop = UI_CreateCompent( frmBigmap, BUTTON_TYPE, "btnTop", 39, 15, 387, 60 )
+UI_LoadButtonImage( btnTop, "texture/gui/old_gui/ShipBuildT.tga", 39, 15, 132, 185, FALSE )
+
+btnDown = UI_CreateCompent( frmBigmap, BUTTON_TYPE, "btnDown", 39, 15, 387, 420 )
+UI_LoadButtonImage( btnDown, "texture/gui/old_gui/ShipBuildT.tga", 39, 15, 132, 123, FALSE )
+
+btnNo = UI_CreateCompent( frmBigmap, BUTTON_TYPE, "btnNo", 111, 36, 615, 415 )
+UI_LoadButtonImage( btnNo, "texture/gui/old_gui/Close.tga", 111, 36, 0, 0, FALSE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 定义跟随界面
+-----------------------------------------------------------------------	
+-- 创建跟随界面表单
+frmFollow = UI_CreateForm( "frmFollow", FALSE, 0, 0, 350, 280, FALSE, FALSE )
+UI_ShowForm( frmFollow, TRUE )
+UI_AddFormToTemplete( frmFollow, FORM_MAIN )
+UI_FormSetIsEscClose( frmFollow, FALSE )
+
+labFollow = UI_CreateCompent( frmFollow, LABELEX_TYPE, "labFollow", 100, 40, 0, 0 )
+UI_SetCaption( labFollow, "" )
+UI_SetTextColor( labFollow, COLOR_BLACK )
+UI_SetLabelExFont( labFollow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+
+------------------------------------
+-- 创建GM输入表单
+-------------------------------------
+frmGM = UI_CreateForm( "frmGM", FALSE, 480, 20, 300, 545, TRUE, FALSE )
+UI_FormSetHotKey( frmGM, ALT_KEY, HOTKEY_P ) 
+UI_ShowForm( frmGM, FALSE )
+UI_AddFormToTemplete( frmGM, FORM_MAIN )
+UI_FormSetIsEscClose( frmGM, FALSE )
+UI_SetFormStyleEx( frmGM, FORM_BOTTOM, 0, 45)
+
+-- 聊天输入
+edtGMSay = UI_CreateCompent( frmGM, EDIT_TYPE, "edtGMSay", 480, 20, 6, 6 )
+UI_SetTextColor( edtGMSay, COLOR_WHITE )
+UI_SetEditMaxNum( edtGMSay, 500)
+UI_SetEditMaxNumVisible( edtGMSay, 500)
+UI_SetEditCursorColor( edtGMSay, COLOR_WHITE )
+
+-----------------------------------------------------------------------
+-- Enable / Disable Chat
+-----------------------------------------------------------------------	
+-- 创建频道屏蔽界面表单
+frmForbid = UI_CreateForm( "frmForbid", FALSE, 243, 16, 34, 555, FALSE, FALSE )
+UI_ShowForm( frmForbid, FALSE )
+UI_AddFormToTemplete( frmForbid, FORM_MAIN )
+UI_FormSetIsEscClose( frmForbid, TRUE )
+--UI_FormSetHotKey( frmForbid, ALT_KEY, HOTKEY_Z )
+imgForbid = UI_CreateCompent( frmForbid, IMAGE_TYPE, "imgForbid", 243, 16, 0, 0 )
+UI_LoadImage( imgForbid, "texture/gui/old_gui/forge3.tga", NORMAL, 243, 16, 0, 211 ) 
+
+--创建私人
+chkPersonal = UI_CreateCompent( frmForbid, CHECK_TYPE, "chkPersonal", 33, 16, 0, 0 )
+UI_LoadImage( chkPersonal, "texture/gui/old_gui/forge3.tga", UNCHECKED, 33, 16, 0, 101 )
+UI_LoadImage( chkPersonal, "texture/gui/old_gui/forge3.tga", CHECKED, 33, 16, 0, 117 )
+
+--创建公共
+chkNear = UI_CreateCompent( frmForbid, CHECK_TYPE, "chkNear", 33, 16, 35, 0 )
+UI_LoadImage( chkNear, "texture/gui/old_gui/forge3.tga", UNCHECKED, 33, 16, 33, 101 )
+UI_LoadImage( chkNear, "texture/gui/old_gui/forge3.tga", CHECKED, 33, 16, 33, 117 )
+
+--创建系统
+chkSystem = UI_CreateCompent( frmForbid, CHECK_TYPE, "chkSystem", 33, 16, 70, 0 )
+UI_LoadImage( chkSystem, "texture/gui/old_gui/forge3.tga", UNCHECKED, 33, 16, 66, 101 )
+UI_LoadImage( chkSystem, "texture/gui/old_gui/forge3.tga", CHECKED, 33, 16, 66, 117 )
+
+--创建组队
+chkTeam = UI_CreateCompent( frmForbid, CHECK_TYPE, "chkTeam", 33, 16, 105, 0 )
+UI_LoadImage( chkTeam, "texture/gui/old_gui/forge3.tga", UNCHECKED, 33, 16, 99, 101 )
+UI_LoadImage( chkTeam, "texture/gui/old_gui/forge3.tga", CHECKED, 33, 16, 99, 117 )
+
+--创建公会
+chkGuild = UI_CreateCompent( frmForbid, CHECK_TYPE, "chkGuild", 33, 16, 140, 0 )
+UI_LoadImage( chkGuild, "texture/gui/old_gui/forge3.tga", UNCHECKED, 33, 16, 132, 101 )
+UI_LoadImage( chkGuild, "texture/gui/old_gui/forge3.tga", CHECKED, 33, 16, 132, 117 )
+
+--创建世界
+chkWorld = UI_CreateCompent( frmForbid, CHECK_TYPE, "chkWorld", 33, 16, 175, 0 )
+UI_LoadImage( chkWorld, "texture/gui/old_gui/forge3.tga", UNCHECKED, 33, 16, 165, 101 )
+UI_LoadImage( chkWorld, "texture/gui/old_gui/forge3.tga", CHECKED, 33, 16, 165, 117 )
+
+--创建交易
+chkTrade = UI_CreateCompent( frmForbid, CHECK_TYPE, "chkTrade", 33, 16, 210, 0 )
+UI_LoadImage( chkTrade, "texture/gui/old_gui/forge3.tga", UNCHECKED, 33, 16, 198, 101 )
+UI_LoadImage( chkTrade, "texture/gui/old_gui/forge3.tga", CHECKED, 33, 16, 198, 117 )
+
+-----------------------------------------------------------------------
+-- Fairy
+-----------------------------------------------------------------------	
+frmMainPet = UI_CreateForm( "frmMainPet", FALSE, 71+35, 47, 60, 78, FALSE, FALSE )
+UI_ShowForm( frmMainPet, FALSE )
+UI_AddFormToTemplete( frmMainPet, FORM_MAIN )
+UI_FormSetIsEscClose( frmMainPet, FALSE )
+--UI_FormSetHotKey( frmMainPet, ALT_KEY, HOTKEY_V )
+
+imgMainPet = UI_CreateCompent( frmMainPet, IMAGE_TYPE, "imgMainPet", 71, 22, 35, 12 )
+UI_LoadImage( imgMainPet, "texture/gui/detail-01.png", NORMAL, 71, 22, 249, 151 )
+
+proPetHP = UI_CreateCompent( frmMainPet, PROGRESS_TYPE, "proPetHP", 71, 13, 36, 0+12 )
+UI_LoadScaleImage( proPetHP, "texture/gui/detail-01.png", PROGRESS_PROGRESS, 71, 13, 250, 181, 1.0, 1.0 )
+UI_SetHint( proPetHP, "Stamina" )
+UI_SetProgressHintStyle( proPetHP, PROGRESS_HINT_NUM )
+
+proPetSP = UI_CreateCompent( frmMainPet, PROGRESS_TYPE, "proPetSP", 70, 9, 1+35, 12+12 )
+UI_LoadScaleImage( proPetSP, "texture/gui/detail-01.png", PROGRESS_PROGRESS, 70, 9, 250, 195, 1.0, 1.0 )
+UI_SetHint( proPetSP, "Growth" )
+UI_SetProgressHintStyle( proPetSP, PROGRESS_HINT_NUM )
+
+imgBackgroundPet = UI_CreateCompent( frmMainPet, IMAGE_TYPE, "imgBackgroundPet", 46, 46, 0, 0 )
+UI_LoadImage( imgBackgroundPet, "texture/gui/detail-01.png", NORMAL, 46, 46, 122, 199 )
+
+imgPetHead = UI_CreateCompent( frmMainPet, IMAGE_TYPE, "imgPetHead", 21, 21, 11, 13 )
+
+imgFramePet = UI_CreateCompent( frmMainPet, IMAGE_TYPE, "imgFramePet", 40, 40, 3, 3 )
+UI_LoadImage( imgFramePet, "texture/gui/detail-01.png", NORMAL, 40, 40, 174, 202 )
+
+imgBackgroundPetLv = UI_CreateCompent( frmMainPet, IMAGE_TYPE, "imgBackgroundPetLv", 28, 26, 27, 10 )
+UI_LoadImage( imgBackgroundPetLv, "texture/gui/detail-01.png", NORMAL, 28, 26, 94, 85 )
+
+labPetLv = UI_CreateCompent( frmMainPet, LABELEX_TYPE, "labPetLv", 14, 9, 35, 16 )
+UI_SetTextColor( labPetLv, COLOR_WHITE )
+UI_SetLabelExFont( labPetLv, DEFAULT_FONT, TRUE, COLOR_BLACK )
+UI_SetCaption( labPetLv, "99" )
+
+-----------------------------------------------------------------------
+-- Mount
+-----------------------------------------------------------------------	
+frmMainMount = UI_CreateForm( "frmMainMount", FALSE, 71+35, 47, 176, 78, FALSE, FALSE )
+UI_ShowForm( frmMainMount, FALSE )
+UI_AddFormToTemplete( frmMainMount, FORM_MAIN )
+UI_FormSetIsEscClose( frmMainMount, FALSE )
+--UI_FormSetHotKey( frmMainMount, ALT_KEY, HOTKEY_V )
+
+imgMainMount = UI_CreateCompent( frmMainMount, IMAGE_TYPE, "imgMainMount", 71, 22, 35, 12 )
+UI_LoadImage( imgMainMount, "texture/gui/detail-01.png", NORMAL, 71, 22, 249, 151 )
+
+proMountHP = UI_CreateCompent( frmMainMount, PROGRESS_TYPE, "proMountHP", 71, 13, 36, 0+12 )
+UI_LoadScaleImage( proMountHP, "texture/gui/detail-01.png", PROGRESS_PROGRESS, 71, 13, 250, 181, 1.0, 1.0 )
+UI_SetHint( proMountHP, "Stamina" )
+UI_SetProgressHintStyle( proMountHP, PROGRESS_HINT_NUM )
+
+proMountSP = UI_CreateCompent( frmMainMount, PROGRESS_TYPE, "proMountSP", 70, 9, 1+35, 12+12 )
+UI_LoadScaleImage( proMountSP, "texture/gui/detail-01.png", PROGRESS_PROGRESS, 70, 9, 250, 195, 1.0, 1.0 )
+UI_SetHint( proMountSP, "Growth" )
+UI_SetProgressHintStyle( proMountSP, PROGRESS_HINT_NUM )
+
+imgBackgroundMount = UI_CreateCompent( frmMainMount, IMAGE_TYPE, "imgBackgroundMount", 46, 46, 0, 0 )
+UI_LoadImage( imgBackgroundMount, "texture/gui/detail-01.png", NORMAL, 46, 46, 122, 199 )
+
+imgMountHead = UI_CreateCompent( frmMainMount, IMAGE_TYPE, "imgMountHead", 21, 21, 11, 13 )
+
+imgFrameMount = UI_CreateCompent( frmMainMount, IMAGE_TYPE, "imgFrameMount", 40, 40, 3, 3 )
+UI_LoadImage( imgFrameMount, "texture/gui/detail-01.png", NORMAL, 40, 40, 174, 202 )
+
+imgBackgroundMountLv = UI_CreateCompent( frmMainMount, IMAGE_TYPE, "imgBackgroundMountLv", 28, 26, 27, 10 )
+UI_LoadImage( imgBackgroundMountLv, "texture/gui/detail-01.png", NORMAL, 28, 26, 94, 85 )
+
+labMountLv = UI_CreateCompent( frmMainMount, LABELEX_TYPE, "labMountLv", 14, 9, 35, 16 )
+UI_SetTextColor( labMountLv, COLOR_WHITE )
+UI_SetLabelExFont( labMountLv, DEFAULT_FONT, TRUE, COLOR_BLACK )
+UI_SetCaption( labMountLv, "99" )
+
+-----------------------------------------------------------------------
+---- 定义新手帮助系统面板
+-------------------------------------------------------------------------
+--创建帮助系统面板
+frmHelpSystem = UI_CreateForm( "frmHelpSystem", FALSE, 480, 350, 300, 100, TRUE, FALSE )
+UI_ShowForm( frmHelpSystem, TRUE )
+UI_AddFormToTemplete( frmHelpSystem, FORM_MAIN )
+UI_FormSetIsEscClose( frmHelpSystem, TRUE )
+UI_SetIsDrag(frmHelpSystem,TRUE)
+UI_SetFormStyle(frmHelpSystem,1)
+--UI_FormSetHotKey( frmHelpSystem, ALT_KEY, HOTKEY_Z )
+
+
+--加载帮助系统面板背景图片
+imgBackGround1 = UI_CreateCompent( frmHelpSystem, IMAGE_TYPE, "imgBackGround1", 256, 256, 0, 0 )
+UI_LoadImage( imgBackGround1, "texture/gui/old_gui/newshelp/newhelp01.tga", NORMAL, 256,256, 0, 0 )
+
+imgBackGround2 = UI_CreateCompent( frmHelpSystem, IMAGE_TYPE, "imgBackGround2", 256, 256, 256, 0 )
+UI_LoadImage( imgBackGround2, "texture/gui/old_gui/newshelp/newhelp02.tga", NORMAL, 256,256, 0, 0 )
+
+imgBackGround3 = UI_CreateCompent( frmHelpSystem, IMAGE_TYPE, "imgBackGround3", 256, 206, 0, 256 )
+UI_LoadImage( imgBackGround3, "texture/gui/old_gui/newshelp/newhelp03.tga", NORMAL, 256,206, 0, 0 )
+
+imgBackGround4 = UI_CreateCompent( frmHelpSystem, IMAGE_TYPE, "imgBackGround4", 256, 206, 256, 256 )
+UI_LoadImage( imgBackGround4, "texture/gui/old_gui/newshelp/newhelp04.tga", NORMAL, 256,206, 0, 0 )
+
+imgBackGround5 = UI_CreateCompent( frmHelpSystem, IMAGE_TYPE, "imgBackGround5", 93, 256, 512, 0 )
+UI_LoadImage( imgBackGround5, "texture/gui/old_gui/newshelp/newhelp05.tga", NORMAL, 93,256, 0, 0 )
+
+imgBackGround6 = UI_CreateCompent( frmHelpSystem, IMAGE_TYPE, "imgBackGround6", 93, 206, 512, 256 )
+UI_LoadImage( imgBackGround6, "texture/gui/old_gui/newshelp/newhelp05.tga", NORMAL, 93,206,93,0  )
+
+labTitle = UI_CreateCompent( frmHelpSystem, LABELEX_TYPE, "labTitle", 400, 150, 10, 3 )
+UI_SetCaption( labTitle, "Help System")
+UI_SetTextColor( labTitle, COLOR_BLACK )
+UI_SetLabelExFont( labTitle, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建滚动菜单区域
+lstHelpList = UI_CreateCompent( frmHelpSystem, LIST_TYPE, "lstHelpList", 170, 390, 19,42 )
+
+lstHelpButton = UI_GetList(lstHelpList)
+UI_SetListRowHeight(lstHelpButton,15)
+UI_SetListIsMouseFollow( lstHelpList, TRUE )
+
+	--获得滚动条
+	scrollid = UI_GetScroll( lstHelpButton )
+	UI_SetSize( scrollid, 11, 1 )
+	UI_LoadImage( scrollid, "texture/gui/old_gui/PublicC.tga", COMPENT_BACK, 11, 1, 194, 13 )
+	
+	--加载向上按钮
+	id = UI_GetScrollObj( scrollid, SCROLL_UP )
+	UI_LoadButtonImage( id, "texture/gui/old_gui/PublicC.tga", 11, 9, 166, 0, TRUE )
+	UI_SetSize( id, 11, 9 )
+	
+	--加载滚动条
+	id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+	UI_LoadImage( id, "texture/gui/old_gui/PublicC.tga", COMPENT_BACK, 11, 33, 166, 10 )
+	UI_SetSize( id, 11, 33 )
+	
+	--加载向下按钮
+	id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+	UI_LoadButtonImage( id, "texture/gui/old_gui/PublicC.tga", 11, 9, 166, 0, TRUE )
+	UI_SetSize( id, 11, 9 )
+
+
+--加载显示图片栏
+local tabImage1 = {}
+local tabImage2 = {}
+local tabImage3 = {}
+local tabImage4 = {}
+for i=1,68,1 do
+	tabImage1[i]  = UI_CreateCompent( frmHelpSystem, IMAGE_TYPE, "imgHelpShow"..i.."_1", 256, 256, 223, 43 )
+	UI_LoadImage( tabImage1[i], "texture/gui/old_gui/newshelp/"..i.."_1.tga", NORMAL, 256,256, 0, 0 )
+	UI_SetIsShow(tabImage1[i],FALSE)
+
+	tabImage2[i]  = UI_CreateCompent( frmHelpSystem, IMAGE_TYPE, "imgHelpShow"..i.."_2",256, 132, 223, 299 )
+	UI_LoadImage( tabImage2[i], "texture/gui/old_gui/newshelp/"..i.."_2.tga", NORMAL, 256,132, 0, 0 )
+	UI_SetIsShow(tabImage2[i],FALSE)
+
+	tabImage3[i]  = UI_CreateCompent( frmHelpSystem, IMAGE_TYPE, "imgHelpShow"..i.."_3", 104, 256, 479, 43 )
+	UI_LoadImage( tabImage3[i], "texture/gui/old_gui/newshelp/"..i.."_3.tga", NORMAL, 104,256, 0, 0 )
+	UI_SetIsShow(tabImage3[i],FALSE)
+
+	tabImage4[i]  = UI_CreateCompent( frmHelpSystem, IMAGE_TYPE, "imgHelpShow"..i.."_4", 104, 132, 479, 299)
+	UI_LoadImage( tabImage4[i], "texture/gui/old_gui/newshelp/"..i.."_3.tga", NORMAL, 104, 132, 104, 0 )
+	UI_SetIsShow(tabImage4[i],FALSE)
+end
+
+--加载关闭按钮
+btnClose = UI_CreateCompent( frmHelpSystem, BUTTON_TYPE, "btnClose", 14, 14, 585, 3 )
+UI_LoadButtonImage( btnClose, "texture/gui/old_gui/PublicC.tga", 14, 14, 116, 175, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--加载主菜单
+UI_AddListText( lstHelpList,"Attribute")
+UI_AddListText( lstHelpList,"Classes")
+UI_AddListText( lstHelpList,"Swordsman")
+UI_AddListText( lstHelpList,"Hunter")
+UI_AddListText( lstHelpList,"Herbalist")
+UI_AddListText( lstHelpList,"Explorer")
+UI_AddListText( lstHelpList,"Crusader")
+UI_AddListText( lstHelpList,"Champion")
+UI_AddListText( lstHelpList,"Cleric")
+UI_AddListText( lstHelpList,"Seal Master")
+UI_AddListText( lstHelpList,"Sharpshooter")
+UI_AddListText( lstHelpList,"Voyager")
+UI_AddListText( lstHelpList,"Item")
+UI_AddListText( lstHelpList,"Skill")
+UI_AddListText( lstHelpList,"Quest")
+UI_AddListText( lstHelpList,"Friends/Guild")
+UI_AddListText( lstHelpList,"Help Interface")
+UI_AddListText( lstHelpList,"System Setting")
+UI_AddListText( lstHelpList,"Chat System")
+UI_AddListText( lstHelpList,"Movement")
+UI_AddListText( lstHelpList,"Battle Mode")
+UI_AddListText( lstHelpList,"NPC")
+UI_AddListText( lstHelpList,"Camera View")
+UI_AddListText( lstHelpList,"Party")
+UI_AddListText( lstHelpList,"Trade")
+UI_AddListText( lstHelpList,"World Map")
+UI_AddListText( lstHelpList,"Account Secrecy")
+UI_AddListText( lstHelpList,"Game Master")
+UI_AddListText( lstHelpList,"Shortcut Keys")
+UI_AddListText( lstHelpList,"Radar Guide")
+UI_AddListText( lstHelpList,"Equipment")
+UI_AddListText( lstHelpList,"Class Advancement")
+UI_AddListText( lstHelpList,"Item Pickup")
+UI_AddListText( lstHelpList,"HP/SP Recovery")
+UI_AddListText( lstHelpList,"Special Chest")
+UI_AddListText( lstHelpList,"Help!")
+UI_AddListText( lstHelpList,"Advancement Quest I")
+UI_AddListText( lstHelpList,"Advancement Quest II")
+UI_AddListText( lstHelpList,"Learning Skill")
+UI_AddListText( lstHelpList,"Official Guide")
+UI_AddListText( lstHelpList,"Leveling")
+UI_AddListText( lstHelpList,"Story Quest")
+UI_AddListText( lstHelpList,"Teleportation")
+UI_AddListText( lstHelpList,"Lifeskill")
+UI_AddListText( lstHelpList,"Emoticons")
+UI_AddListText( lstHelpList,"Spawn Point")
+UI_AddListText( lstHelpList,"Storage")
+UI_AddListText( lstHelpList,"Accessory")
+UI_AddListText( lstHelpList,"Sailing")
+UI_AddListText( lstHelpList,"Party Benefits")
+UI_AddListText( lstHelpList,"Whisper")
+UI_AddListText( lstHelpList,"Decorative Wings")
+UI_AddListText( lstHelpList,"Follow Mode")
+UI_AddListText( lstHelpList,"Equipment Attribute")
+UI_AddListText( lstHelpList,"Experience Cap")
+UI_AddListText( lstHelpList,"Sea Commerce")
+UI_AddListText( lstHelpList,"Virtual Bag")
+UI_AddListText( lstHelpList,"Pet Fairy")
+UI_AddListText( lstHelpList,"System Notice")
+UI_AddListText( lstHelpList,"Training Area")
+UI_AddListText( lstHelpList,"Discussion Forum")
+UI_AddListText( lstHelpList,"Events")
+UI_AddListText( lstHelpList,"Class Advancement II")
+UI_AddListText( lstHelpList,"Mazes")
+UI_AddListText( lstHelpList,"Runestones")
+UI_AddListText( lstHelpList,"Guild")
+UI_AddListText( lstHelpList,"Advancement I")
+UI_AddListText( lstHelpList,"Advancement II")
+
+-----------------------------------------------------------------------
+-- Store
+-----------------------------------------------------------------------
+frmStore = UI_CreateForm( "frmStore", FALSE, 727, 600, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmStore, FALSE )
+UI_AddFormToTemplete( frmStore, FORM_MAIN )
+UI_FormSetIsEscClose( frmStore, FALSE )
+UI_SetIsDrag( frmStore,FALSE)
+UI_SetFormStyle( frmStore, 1)
+
+imgBackGround = UI_CreateCompent( frmStore, IMAGE_TYPE, "imgBackGround", 727, 600, 0, 0 )
+UI_LoadImage( imgBackGround, "texture/gui/store.png", NORMAL, 727, 600, 0, 35 )
+
+trvStore = UI_CreateCompent( frmStore, TREE_TYPE, "trvStore", 142, 370, 60, 80)
+itemid = UI_CreateNoteGraphItem( "texture/gui/old_gui/store6.tga", 127, 20, 30, 114, 0, "Item Mall", 5 , 2 )
+gridid = UI_CreateGridNode( trvStore, itemid, 1, 32, 32, -1 )
+UI_TreeLoadImage( trvStore, enumTreeAddImage, "texture/gui/store.png", 30, 20, 0, 634, 30, 20)
+UI_TreeLoadImage( trvStore, enumTreeSubImage, "texture/gui/store.png", 30, 20, 0, 654, 30, 20)
+UI_SetIsDrag( trvStore, FALSE )
+
+scrollid = UI_GetScroll(trvStore)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
+UI_SetSize( id, 13, 43 )
+
+local labName = {}
+local labPrice = {}
+local labRemark = {}
+local labLeftTime = {}
+local labLeftNum = {}
+local labRightClickView = {}
+
+local btnBlue = {}
+local imgBlue = {}
+local imgNew = {}
+local imgHot = {}
+local imgSquare = {}
+local cmdStore = {}
+local imgCutLine = {}
+local imgMoney = {}
+
+local posx = 30
+local posy = 15
+for i = 0, 8, 1 do
+	imgCutLine[i] = UI_CreateCompent( frmStore, IMAGE_TYPE, "imgCutLine_"..i, 355, 2, 230+posx, i*42+78+posy )
+	UI_LoadImage( imgCutLine[i], "texture/gui/old_gui/store6.tga",NORMAL, 253 ,2, 0, 51 )
+	--UI_SetAlpha(imgCutLine[i],150)
+	
+	-- icon background
+	imgSquare[i] =  UI_CreateCompent( frmStore, IMAGE_TYPE, "imgSquare_"..i, 36, 36, 190+posx, i*42+82+posy )
+	UI_LoadImage( imgSquare[i], "texture/gui/detail-01.png", NORMAL, 35, 34, 336, 19 )
+	
+	cmdStore[i] = UI_CreateCompent( frmStore, COMMAND_ONE_TYPE, "cmdStore_"..i, 32, 32, 192+posx, i*42+84+posy )	
+	
+	btnBlue[i] = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnBlue_"..i, 410, 40, 180+posx, i*42+80+posy )
+	--UI_LoadButtonImage( btnBlue[i], "texture/gui/old_gui/store7.tga", 256 ,51, 0, 0, FALSE )
+	UI_SetAlpha(btnBlue[i],0)
+	
+	--±кК?Мх  μг?ч?уПФК?
+	imgBlue[i] = UI_CreateCompent( frmStore, IMAGE_TYPE, "imgBlue_"..i, 373, 40, 230+posx, i*42+80+posy )
+	UI_LoadImage( imgBlue[i], "texture/gui/store.png", NORMAL, 373, 40, 36, 644 )
+	UI_SetAlpha(imgBlue[i],200)
+	UI_SetIsShow(imgBlue[i],FALSE)
+	
+	labName[i] = UI_CreateCompent( frmStore, LABELEX_TYPE, "labName_"..i, 10, 150, 235+posx, i*42+84+posy )
+	UI_SetCaption( labName[i], "Item"..i)
+	UI_SetTextColor( labName[i], COLOR_C9C2B4 )
+	UI_SetLabelExFont( labName[i], DEFAULT_FONT, FALSE, COLOR_WHITE )
+	UI_SetIsShow(labName[i],FALSE)
+	
+	labRemark[i] = UI_CreateCompent( frmStore, LABELEX_TYPE, "labRemark_"..i, 10, 150, 235+posx, i*42+98+posy )
+	UI_SetCaption( labRemark[i], "Remark"..i)
+	UI_SetTextColor( labRemark[i], COLOR_958273 )
+	UI_SetLabelExFont( labRemark[i], DEFAULT_FONT, FALSE, COLOR_WHITE )
+	
+	imgMoney = UI_CreateCompent( frmStore, IMAGE_TYPE, "imgMoney_"..i, 10, 150, 420+posx, i*42+84+5+posy )
+	
+	labPrice[i] = UI_CreateCompent( frmStore, LABELEX_TYPE, "labPrice_"..i, 10, 150, 441+posx, i*42+98+posy)
+	UI_SetCaption( labPrice[i], "Price"..i)
+	UI_SetTextColor( labPrice[i], COLOR_FFEDCF)
+	UI_SetLabelExFont( labPrice[i], DEFAULT_FONT, FALSE, COLOR_WHITE )
+	UI_SetIsShow(labPrice[i],FALSE)
+
+	labLeftTime[i] = UI_CreateCompent( frmStore, LABELEX_TYPE, "labLeftTime_"..i, 10, 150, 440+posx, i*42+84+posy )
+	UI_SetCaption( labLeftTime[i], "Remaining time"..i)
+	UI_SetTextColor( labLeftTime[i], COLOR_958273 )
+	UI_SetLabelExFont( labLeftTime[i], DEFAULT_FONT, FALSE, COLOR_WHITE )
+	UI_SetIsShow(labLeftTime[i],FALSE)
+	
+	labLeftNum[i] = UI_CreateCompent( frmStore, LABELEX_TYPE, "labLeftNum_"..i, 10, 150, 535+posx, i*42+84+posy )
+	UI_SetCaption( labLeftNum[i], "Remaining amount"..i)
+	UI_SetTextColor( labLeftNum[i], COLOR_958273 )
+	UI_SetLabelExFont( labLeftNum[i], DEFAULT_FONT, FALSE, COLOR_WHITE )		
+	UI_SetIsShow(labLeftNum[i],FALSE)
+end
+
+labMoneyLeft = UI_CreateCompent( frmStore, LABELEX_TYPE, "labMoneyLeft", 400, 150, 63, 470+19 )
+UI_SetCaption( labMoneyLeft, "99999")
+UI_SetTextColor( labMoneyLeft, COLOR_C9C2B4 )
+UI_SetLabelExFont( labMoneyLeft, FONT016, FALSE, COLOR_WHITE )
+
+labBeanLeft = UI_CreateCompent( frmStore, LABELEX_TYPE, "labBeanLeft", 400, 150, 63, 490+19 )
+UI_SetCaption( labBeanLeft, "0")
+UI_SetTextColor( labBeanLeft, COLOR_C9C2B4 )
+UI_SetLabelExFont( labBeanLeft, FONT016, FALSE, COLOR_WHITE )
+
+btnLeftPage = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnLeftPage", 32, 32, 449, 490 )
+UI_LoadButtonImage( btnLeftPage, "texture/gui/store.png", 32, 32, 372, 725, TRUE )
+UI_SetIsShow(btnLeftPage,FALSE)
+
+labListPage = UI_CreateCompent( frmStore, LABELEX_TYPE, "labListPage", 400, 150, 485, 499 )
+UI_SetCaption( labListPage, "0\0")
+UI_SetTextColor( labListPage, COLOR_C9C2B4 )
+UI_SetLabelExFont( labListPage, FONT016, FALSE, COLOR_WHITE )
+UI_SetIsShow(labListPage,FALSE)
+
+btnRightPage = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnRightPage", 32, 32, 520, 490 )
+UI_LoadButtonImage( btnRightPage, "texture/gui/store.png", 32, 32, 372, 693, TRUE )
+UI_SetIsShow(btnRightPage,FALSE)
+
+btnTrade = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnTrade", 63, 32, 240, 490 )
+UI_LoadButtonImage( btnTrade, "texture/gui/store.png", 63, 32, 0, 693, FALSE )
+
+btnTryon = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnTryon", 63, 32, 240+63+7, 490 )
+UI_LoadButtonImage( btnTryon, "texture/gui/store.png", 63, 32, 69, 693, FALSE )
+
+btnViewAll = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnViewAll", 63, 32, 240+63+7+63+7, 490 )
+UI_LoadButtonImage( btnViewAll, "texture/gui/store.png", 63, 32, 140, 693, FALSE )
+
+btnPayment = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnPayment", 63, 32, 559, 490 )
+UI_LoadButtonImage( btnPayment, "texture/gui/store.png", 63, 32, 210, 693, FALSE )
+
+btnCloseall = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnCloseall", 32, 32, 559+63+7, 490 )
+UI_LoadButtonImage( btnCloseall, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+UI_SetButtonModalResult( btnCloseall, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- View packet from store
+-----------------------------------------------------------------------
+frmViewAll = UI_CreateForm( "frmViewAll", FALSE, 250, 184, 100, 100, TRUE, FALSE )
+UI_ShowForm( frmViewAll, FALSE )
+UI_AddFormToTemplete( frmViewAll, FORM_MAIN )
+UI_FormSetIsEscClose( frmViewAll, TRUE )
+UI_SetFormStyle(frmViewAll,1)
+
+imgBackground = UI_CreateCompent( frmViewAll, IMAGE_TYPE, "imgBackground", 15, 15, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754, 0 )
+
+for pos = 1, 15, 1 do
+	imgBackground = UI_CreateCompent( frmViewAll, IMAGE_TYPE, "imgBackground", 15, 15, (pos*15), 0 )
+	UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15, 0 )
+	
+	for pos2 = 1, 10, 1 do
+		imgBackground = UI_CreateCompent( frmViewAll, IMAGE_TYPE, "imgBackground", 15, 15, (pos*15), (pos2*15) )
+		UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15, 15 )
+	end
+	
+	imgBackground = UI_CreateCompent( frmViewAll, IMAGE_TYPE, "imgBackground", 15, 15, (pos*15), 160 )
+	UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15, 30 )
+end
+
+imgBackground = UI_CreateCompent( frmViewAll, IMAGE_TYPE, "imgBackground", 15, 15, 225+15, 0 )
+UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15+15, 0 )
+
+for pos = 1, 10, 1 do
+	imgBackground = UI_CreateCompent( frmViewAll, IMAGE_TYPE, "imgBackground", 15, 15, 0, (15*pos) )
+	UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754, 15 )
+	
+	imgBackground = UI_CreateCompent( frmViewAll, IMAGE_TYPE, "imgBackground", 15, 15, 225+15, (15*pos) )
+	UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15+15, 15 )
+end
+
+imgBackground = UI_CreateCompent( frmViewAll, IMAGE_TYPE, "imgBackground", 15, 15, 0, 160 )
+UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754, 30 )
+
+imgBackground = UI_CreateCompent( frmViewAll, IMAGE_TYPE, "imgBackground", 15, 15, 225+15, 160 )
+UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15+15, 30 )
+
+local imgSquareViewAll = {}
+local cmdSquareIcon = {}
+
+for i=0, 5, 1 do
+	cmdSquareIcon[i] = UI_CreateCompent( frmViewAll, COMMAND_ONE_TYPE, "cmdSquareIcon_"..i, 32, 32, i*43+7, 15 )	
+end
+
+memViewAll  = UI_CreateCompent( frmViewAll, MEMO_TYPE, "memViewAll", 200, 100, 12, 60)
+UI_SetCaption( memViewAll, "400" )
+UI_SetMemoPageShowNum( memViewAll, 4 )
+UI_SetMemoMaxNumPerRow( memViewAll, 33 )
+
+btnReBack = UI_CreateCompent( frmViewAll, BUTTON_TYPE, "btnReBack", 32, 32, 217, 5 )
+UI_LoadButtonImage( btnReBack, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+UI_SetButtonModalResult( btnReBack, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- Prewive character
+-----------------------------------------------------------------------
+frmTryon = UI_CreateForm( "frmTryon", FALSE, 200, 320, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmTryon, FALSE )
+UI_AddFormToTemplete( frmTryon, FORM_MAIN )
+UI_FormSetIsEscClose( frmTryon, TRUE )
+UI_SetIsDrag(frmTryon, FALSE)
+
+for pos = 1, 11, 1 do
+	imgBackground = UI_CreateCompent( frmTryon, IMAGE_TYPE, "imgBackground", 15, 15, (pos*15), 0 )
+	UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15, 0 )
+	
+	for pos2 = 1, 20, 1 do
+		imgBackground = UI_CreateCompent( frmTryon, IMAGE_TYPE, "imgBackground", 15, 15, (pos*15), (pos2*15) )
+		UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15, 15 )
+	end
+	
+	imgBackground = UI_CreateCompent( frmTryon, IMAGE_TYPE, "imgBackground", 15, 15, (pos*15), 305 )
+	UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15, 30 )
+end
+
+for pos = 1, 20, 1 do
+	imgBackground = UI_CreateCompent( frmTryon, IMAGE_TYPE, "imgBackground", 15, 15, 0, (15*pos) )
+	UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754, 15 )
+	
+	imgBackground = UI_CreateCompent( frmTryon, IMAGE_TYPE, "imgBackground", 15, 15, 180, (15*pos) )
+	UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15+15, 15 )
+end
+
+imgBackground = UI_CreateCompent( frmTryon, IMAGE_TYPE, "imgBackground", 15, 15, 180, 0 )
+UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15+15, 0 )
+
+imgBackground = UI_CreateCompent( frmTryon, IMAGE_TYPE, "imgBackground", 15, 15, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754, 0 )
+
+imgBackground = UI_CreateCompent( frmTryon, IMAGE_TYPE, "imgBackground", 15, 15, 0, 305 )
+UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754, 30 )
+
+imgBackground = UI_CreateCompent( frmTryon, IMAGE_TYPE, "imgBackground", 15, 15, 180, 305 )
+UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15+15, 30 )
+
+ui3dplayer = UI_CreateCompent( frmTryon, UI3D_COMPENT, "ui3dplayer", 120, 240, 40, 30 )
+
+btnTurnleft3d = UI_CreateCompent( frmTryon, BUTTON_TYPE, "btnTurnleft3d", 17, 13, 145, 264 )
+UI_LoadButtonImage( btnTurnleft3d, "texture/gui/Inventory.png", 17, 13, 248, 412+4, FALSE )
+
+btnTurnright3d = UI_CreateCompent( frmTryon, BUTTON_TYPE, "btnTurnright3d", 17, 13, 34, 264)
+UI_LoadButtonImage( btnTurnright3d, "texture/gui/Inventory.png", 17, 13, 202, 412+4, FALSE )
+
+btnClearAll = UI_CreateCompent( frmTryon, BUTTON_TYPE, "btnClearAll", 63, 32, 66, 30)
+UI_LoadButtonImage( btnClearAll, "texture/gui/store.png", 63, 32, 372, 760, TRUE )
+
+btnReBack = UI_CreateCompent( frmTryon, BUTTON_TYPE, "btnReBack", 32, 32, 63+66+5, 30 )
+UI_LoadButtonImage( btnReBack, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+UI_SetButtonModalResult( btnReBack, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- Fairy marriage
+-----------------------------------------------------------------------
+frmSpiritMarry = UI_CreateForm( "frmSpiritMarry", FALSE, 251, 368, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmSpiritMarry, FALSE )
+UI_AddFormToTemplete( frmSpiritMarry, FORM_MAIN )
+UI_FormSetIsEscClose( frmSpiritMarry, TRUE )
+UI_SetIsDrag( frmSpiritMarry,TRUE)
+UI_SetFormStyle( frmSpiritMarry,1)
+
+imgBak = UI_CreateCompent( frmSpiritMarry, IMAGE_TYPE, "imgBak", 251, 368, 0, 0 )
+UI_LoadImage( imgBak, "texture/gui/fairy-marriage.png", NORMAL, 251, 368, 0, 0 )
+
+cmdSpiritOne = UI_CreateCompent( frmSpiritMarry, COMMAND_ONE_TYPE, "cmdSpiritOne", 32, 32, 80, 218 )
+cmdSpiritTwo = UI_CreateCompent( frmSpiritMarry, COMMAND_ONE_TYPE, "cmdSpiritTwo", 32, 32, 137, 218 )
+cmdSpiritItem = UI_CreateCompent( frmSpiritMarry, COMMAND_ONE_TYPE, "cmdSpiritItem", 32, 32, 110, 272 )
+
+UI_SetTag( cmdSpiritOne, enumSPIRIT_ONE )
+UI_SetTag( cmdSpiritTwo, enumSPIRIT_TWO )
+UI_SetTag( cmdSpiritItem, enumSPIRIT_OUT )
+
+labMoneyShow = UI_CreateCompent( frmSpiritMarry, LABELEX_TYPE, "labMoneyShow", 112, 14, 68+37, 334 )
+UI_SetCaption( labMoneyShow, "$$$")
+UI_SetTextColor( labMoneyShow, COLOR_FFEDCF )
+UI_SetLabelExFont( labMoneyShow, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+btnForgeYes = UI_CreateCompent( frmSpiritMarry, BUTTON_TYPE, "btnForgeYes", 50, 44, 22, 275 )
+UI_LoadButtonImage( btnForgeYes, "texture/gui/marryyesno.tga", 60, 53, 0, 0, FALSE )
+
+btnForgeNo = UI_CreateCompent( frmSpiritMarry, BUTTON_TYPE, "btnForgeNo", 50, 44, 150+25, 275)
+UI_LoadButtonImage( btnForgeNo, "texture/gui/marryyesno.tga", 60, 53, 60, 0, FALSE )
+UI_SetButtonModalResult( btnForgeNo, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 定义装备提纯面板  2006.8.29 by Leo
+-----------------------------------------------------------------------
+frmEquipPurify = UI_CreateForm( "frmEquipPurify", FALSE, 251, 182, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmEquipPurify, FALSE )
+UI_AddFormToTemplete( frmEquipPurify, FORM_MAIN )
+UI_FormSetIsEscClose( frmEquipPurify, TRUE )
+UI_SetIsDrag( frmEquipPurify,TRUE)
+UI_SetFormStyle( frmEquipPurify,1)
+
+imgBakTop = UI_CreateCompent( frmEquipPurify, IMAGE_TYPE, "imgBakTop", 251, 182, 0, 0 )
+UI_LoadImage( imgBakTop, "texture/gui/purification.png", NORMAL, 251, 182, 0, 0 )
+
+cmdEquipOne = UI_CreateCompent( frmEquipPurify, COMMAND_ONE_TYPE, "cmdEquipOne", 32, 32, 50, 101 )
+
+labHintleft1 = UI_CreateCompent( frmEquipPurify, LABELEX_TYPE, "labHintleft1", 112, 14, 46, 143 )
+UI_SetCaption( labHintleft1, "Equip #1")
+UI_SetTextColor( labHintleft1, COLOR_A29688 )
+UI_SetLabelExFont( labHintleft1, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labHintleft2 = UI_CreateCompent( frmEquipPurify, LABELEX_TYPE, "labHintleft2", 112, 14, 46, 143 )
+UI_SetCaption( labHintleft2, "Wings")
+UI_SetTextColor( labHintleft2, COLOR_A29688 )
+UI_SetLabelExFont( labHintleft2, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labHintleft3 = UI_CreateCompent( frmEquipPurify, LABELEX_TYPE, "labHintleft3", 112, 14, 46, 143 )
+UI_SetCaption( labHintleft3, "Equipment")
+UI_SetTextColor( labHintleft3, COLOR_A29688 )
+UI_SetLabelExFont( labHintleft3, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labHintleft4 = UI_CreateCompent( frmEquipPurify, LABELEX_TYPE, "labHintleft4", 112, 14, 46, 143 )
+UI_SetCaption( labHintleft4, "Life tool")
+UI_SetTextColor( labHintleft4, COLOR_A29688 )
+UI_SetLabelExFont( labHintleft4, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+cmdEquipTwo = UI_CreateCompent( frmEquipPurify, COMMAND_ONE_TYPE, "cmdEquipTwo", 32, 32, 170, 101 )	-- 要提纯的武器
+
+labHintright1 = UI_CreateCompent( frmEquipPurify, LABELEX_TYPE, "labHintright1", 112, 14, 168, 143 )
+UI_SetCaption( labHintright1, "To Equip #2")
+UI_SetTextColor( labHintright1, COLOR_A29688 )
+UI_SetLabelExFont( labHintright1, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labHintright2 = UI_CreateCompent( frmEquipPurify, LABELEX_TYPE, "labHintright2", 112, 14, 168, 143 )
+UI_SetCaption( labHintright2, "Stone")
+UI_SetTextColor( labHintright2, COLOR_A29688 )
+UI_SetLabelExFont( labHintright2, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labHintright3 = UI_CreateCompent( frmEquipPurify, LABELEX_TYPE, "labHintright3", 112, 14, 168, 143 )
+UI_SetCaption( labHintright3, "Pliers")
+UI_SetTextColor( labHintright3, COLOR_A29688 )
+UI_SetLabelExFont( labHintright3, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labHintright4 = UI_CreateCompent( frmEquipPurify, LABELEX_TYPE, "labHintright4", 112, 14, 168, 143 )
+UI_SetCaption( labHintright4, "Repair Tool")
+UI_SetTextColor( labHintright4, COLOR_A29688 )
+UI_SetLabelExFont( labHintright4, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labMoneyShow = UI_CreateCompent( frmEquipPurify, LABELEX_TYPE, "labMoneyShow", 112, 14, 75, 68 )
+UI_SetCaption( labMoneyShow, "")
+UI_SetTextColor( labMoneyShow, COLOR_FFEDCF )
+UI_SetLabelExFont( labMoneyShow, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+btnForgeYes = UI_CreateCompent( frmEquipPurify, BUTTON_TYPE, "btnForgeYes", 93, 32, 23+8, 163 )
+UI_LoadButtonImage( btnForgeYes, "texture/gui/friends.png", 93, 32, 0, 494, FALSE )
+UI_SetEditEnterButton( edtTradeGold, btnForgeYes )
+
+btnForgeNo = UI_CreateCompent( frmEquipPurify, BUTTON_TYPE, "btnForgeNo", 93, 32, 119+8, 163 )
+UI_LoadButtonImage( btnForgeNo, "texture/gui/friends.png", 93, 32, 93, 494, FALSE )
+UI_SetButtonModalResult( btnForgeNo, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 定义精灵老虎机面板  2006.8.29 by Leo
+-----------------------------------------------------------------------
+frmSpiritErnie = UI_CreateForm( "frmSpiritErnie", FALSE, 423, 357, 0, 0, TRUE, FALSE )
+UI_AddFormToTemplete( frmSpiritErnie, FORM_MAIN )
+UI_FormSetIsEscClose( frmSpiritErnie, TRUE )
+UI_SetIsDrag( frmSpiritErnie,TRUE)
+UI_SetFormStyle( frmSpiritErnie,1)
+
+--UI_FormSetHotKey( frmSpiritErnie, ALT_KEY, HOTKEY_V )
+
+--加载背景图片
+imgBakTopLeft = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgBakTopLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgBakTopLeft, "texture/gui/old_gui/SpiritErnie1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakTopRight = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgBakTopRight", 167, 256, 256, 0 )
+UI_LoadImage( imgBakTopRight, "texture/gui/old_gui/SpiritErnie2.tga", NORMAL, 167, 256, 0, 0 )
+
+imgBakBottomLeft = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgBakBottomLeft", 256, 101, 0, 256 )
+UI_LoadImage( imgBakBottomLeft, "texture/gui/old_gui/SpiritErnie3.tga", NORMAL, 256, 101, 0, 0 )
+
+imgBakBottomRight = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgBakBottomRight", 167, 101, 256, 256 )
+UI_LoadImage( imgBakBottomRight, "texture/gui/old_gui/SpiritErnie3.tga", NORMAL, 167, 101, 0, 101 )
+
+--加载滚动动画
+	--第一竖条
+		--第一行
+		imgLine1_1 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine1_1", 32, 32, 180, 86 )
+		UI_LoadImage( imgLine1_1, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 0, 0 )
+
+		imgLine1_2 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine1_2", 32, 32, 180, 86 )
+		UI_LoadImage( imgLine1_2, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 32, 0 )
+
+		imgLine1_3 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine1_3", 32, 32, 180, 86 )
+		UI_LoadImage( imgLine1_3, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 64, 0 )
+
+		imgLine1_4 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine1_4", 32, 32, 180, 86 )
+		UI_LoadImage( imgLine1_4, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 96, 0 )
+
+		imgLine1_5 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine1_5", 32, 32, 180, 86 )
+		UI_LoadImage( imgLine1_5, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 128, 0 )
+		--第二行
+		imgLine2_1 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine2_1", 32, 32, 180, 143 )
+		UI_LoadImage( imgLine2_1, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 0, 32 )
+
+		imgLine2_2 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine2_2", 32, 32, 180, 143 )
+		UI_LoadImage( imgLine2_2, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 32, 32 )
+
+		imgLine2_3 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine2_3", 32, 32, 180, 143 )
+		UI_LoadImage( imgLine2_3, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 64, 32 )
+
+		imgLine2_4 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine2_4", 32, 32, 180, 143 )
+		UI_LoadImage( imgLine2_4, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 96, 32 )
+
+		imgLine2_5 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine2_5", 32, 32, 180, 143 )
+		UI_LoadImage( imgLine2_5, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 128, 32 )
+		--第三行
+		imgLine3_1 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine3_1", 32, 32, 180, 199 )
+		UI_LoadImage( imgLine3_1, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 0, 64 )
+
+		imgLine3_2 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine3_2", 32, 32, 180, 199 )
+		UI_LoadImage( imgLine3_2, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 32, 64 )
+
+		imgLine3_3 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine3_3", 32, 32, 180, 199 )
+		UI_LoadImage( imgLine3_3, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 64, 64 )
+
+		imgLine3_4 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine3_4", 32, 32, 180, 199 )
+		UI_LoadImage( imgLine3_4, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 96, 64 )
+
+		imgLine3_5 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine3_5", 32, 32, 180, 199 )
+		UI_LoadImage( imgLine3_5, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 128, 64 )
+	-------------------------------------------------------------------------------------------------
+	--第二竖条
+		--第一行
+		imgLine4_1 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine4_1", 32, 32, 239,86 )
+		UI_LoadImage( imgLine4_1, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 0, 96 )
+
+		imgLine4_2 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine4_2", 32, 32, 239,86 )
+		UI_LoadImage( imgLine4_2, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 32, 96 )
+
+		imgLine4_3 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine4_3", 32, 32, 239,86 )
+		UI_LoadImage( imgLine4_3,"texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 64, 96 )
+
+		imgLine4_4 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine4_4", 32, 32, 239,86 )
+		UI_LoadImage( imgLine4_4, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 96, 96 )
+
+		imgLine4_5 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine4_5", 32, 32, 239,86 )
+		UI_LoadImage( imgLine4_5, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 128, 96 )
+		--第二行
+		imgLine5_1 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine5_1", 32, 32, 239,143 )
+		UI_LoadImage( imgLine5_1, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 0, 128 )
+
+		imgLine5_2 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine5_2", 32, 32, 239,143 )
+		UI_LoadImage( imgLine5_2, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 32, 128 )
+
+		imgLine5_3 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine5_3", 32, 32, 239,143 )
+		UI_LoadImage( imgLine5_3,"texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 64, 128 )
+
+		imgLine5_4 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine5_4", 32, 32, 239,143 )
+		UI_LoadImage( imgLine5_4, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 96, 128 )
+
+		imgLine5_5 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine5_5", 32, 32, 239,143 )
+		UI_LoadImage( imgLine5_5, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 128, 128 )
+		--第三行
+		imgLine6_1 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine6_1", 32, 32, 239,199 )
+		UI_LoadImage( imgLine6_1, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 0, 160 )
+
+		imgLine6_2 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine6_2", 32, 32, 239,199 )
+		UI_LoadImage( imgLine6_2, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 32, 160 )
+
+		imgLine6_3 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine6_3", 32, 32, 239,199 )
+		UI_LoadImage( imgLine6_3,"texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 64, 160 )
+
+		imgLine6_4 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine6_4", 32, 32, 239,199 )
+		UI_LoadImage( imgLine6_4, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 96, 160 )
+
+		imgLine6_5 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine6_5", 32, 32, 239,199 )
+		UI_LoadImage( imgLine6_5, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 128, 160 )
+	-------------------------------------------------------------------------------------------------
+	--第三竖条
+		--第一行
+		imgLine7_1 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine7_1", 32, 32, 297, 86 )
+		UI_LoadImage( imgLine7_1, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 160, 0 )
+
+		imgLine7_2 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine7_2", 32, 32, 297, 86 )
+		UI_LoadImage( imgLine7_2, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 192, 0 )
+
+		imgLine7_3 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine7_3", 32, 32, 297, 86 )
+		UI_LoadImage( imgLine7_3,"texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 224, 0 )
+
+		imgLine7_4 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine7_4", 32, 32, 297, 86 )
+		UI_LoadImage( imgLine7_4, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 160, 96 )
+
+		imgLine7_5 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine7_5", 32, 32, 297, 86 )
+		UI_LoadImage( imgLine7_5, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 192, 96 )
+		--第二行
+		imgLine8_1 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine8_1", 32, 32, 297, 143 )
+		UI_LoadImage( imgLine3_1_1, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 160, 32 )
+
+		imgLine8_2 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine8_2", 32, 32, 297, 143 )
+		UI_LoadImage( imgLine8_2, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 192, 32 )
+
+		imgLine8_3 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine8_3", 32, 32, 297, 143 )
+		UI_LoadImage( imgLine8_3,"texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 224, 32 )
+
+		imgLine8_4 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine8_4", 32, 32, 297, 143 )
+		UI_LoadImage( imgLine8_4, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 160, 128 )
+
+		imgLine8_5 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine8_5", 32, 32, 297, 143 )
+		UI_LoadImage( imgLine8_5, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 192, 128 )
+		--第三行
+		imgLine9_1 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine9_1", 32, 32, 297, 199 )
+		UI_LoadImage( imgLine9_1, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 160, 64 )
+
+		imgLine9_2 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine9_2", 32, 32, 297, 199 )
+		UI_LoadImage( imgLine9_2, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 192, 64 )
+
+		imgLine9_3 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine9_3", 32, 32, 297, 199 )
+		UI_LoadImage( imgLine9_3,"texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 224, 64 )
+
+		imgLine9_4 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine9_4", 32, 32, 297, 199 )
+		UI_LoadImage( imgLine9_4, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 160, 160 )
+
+		imgLine9_5 = UI_CreateCompent( frmSpiritErnie, IMAGE_TYPE, "imgLine9_5", 32, 32, 297, 199 )
+		UI_LoadImage( imgLine9_5, "texture/gui/old_gui/tiger.tga", NORMAL, 32, 32, 192, 160 )
+
+--创建9个道具栏
+cmdItemTiger1 = UI_CreateCompent( frmSpiritErnie, COMMAND_ONE_TYPE, "cmdItemTiger1", 32, 32, 180, 86 )
+cmdItemTiger2 = UI_CreateCompent( frmSpiritErnie, COMMAND_ONE_TYPE, "cmdItemTiger2", 32, 32, 180, 143 )
+cmdItemTiger3 = UI_CreateCompent( frmSpiritErnie, COMMAND_ONE_TYPE, "cmdItemTiger3", 32, 32, 180, 199 )
+cmdItemTiger4 = UI_CreateCompent( frmSpiritErnie, COMMAND_ONE_TYPE, "cmdItemTiger4", 32, 32, 239, 86 )
+cmdItemTiger5 = UI_CreateCompent( frmSpiritErnie, COMMAND_ONE_TYPE, "cmdItemTiger5", 32, 32, 239, 143 )
+cmdItemTiger6 = UI_CreateCompent( frmSpiritErnie, COMMAND_ONE_TYPE, "cmdItemTiger6", 32, 32, 239, 199 )
+cmdItemTiger7 = UI_CreateCompent( frmSpiritErnie, COMMAND_ONE_TYPE, "cmdItemTiger7", 32, 32, 297, 86 )
+cmdItemTiger8 = UI_CreateCompent( frmSpiritErnie, COMMAND_ONE_TYPE, "cmdItemTiger8", 32, 32, 297, 143 )
+cmdItemTiger9 = UI_CreateCompent( frmSpiritErnie, COMMAND_ONE_TYPE, "cmdItemTiger9", 32, 32, 297, 199 )
+
+--创建开始按钮
+btnStart = UI_CreateCompent( frmSpiritErnie, BUTTON_TYPE, "btnStart", 48, 19, 80, 252 )
+UI_LoadButtonImage( btnStart, "texture/gui/old_gui/store8.tga", 48, 19, 0, 76, FALSE )
+
+labStart = UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labStart", 400, 150, 92, 255 )
+UI_SetCaption( labStart, "Start")
+UI_SetTextColor( labStart, COLOR_BLACK )
+UI_SetLabelExFont( labStart, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmSpiritErnie, BUTTON_TYPE, "btnClose", 14, 14, 403, 3 )
+UI_LoadButtonImage( btnClose, "texture/gui/old_gui/PublicC.tga", 14, 14, 116, 175, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--创建提示
+labMoneyShow = UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labMoneyShow", 112, 14, 84, 42 )
+UI_SetCaption( labMoneyShow, "Note: Minimum try cost 5 Fairy Coins!")
+UI_SetTextColor( labMoneyShow, COLOR_RED )
+UI_SetLabelExFont( labMoneyShow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建提示
+labMoneyShow = UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labMoneyShow", 112, 14, 84, 60 )
+UI_SetCaption( labMoneyShow, "Note: Do not have than 1900000000G in your inventory!")
+UI_SetTextColor( labMoneyShow, COLOR_RED )
+UI_SetLabelExFont( labMoneyShow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建下注label1
+labSetmoney1= UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labSetmoney1", 112, 14, 100, 85 )
+UI_SetCaption( labSetmoney1, "Bet")
+UI_SetTextColor( labSetmoney1, COLOR_BLACK )
+UI_SetLabelExFont( labSetmoney1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--设置压注按钮1
+chkSetmoney1 = UI_CreateCompent( frmSpiritErnie, CHECK_TYPE, "chkSetmoney1", 10, 10, 130, 85 )
+UI_LoadImage( chkSetmoney1, "texture/gui/old_gui/QQ2.tga", UNCHECKED, 10, 10, 40, 231 )
+UI_LoadImage( chkSetmoney1, "texture/gui/old_gui/QQ2.tga", CHECKED, 10, 10, 52, 231 )
+UI_SetHint( chkSetmoney1, "Bet" )
+
+--设置下注显示label
+labUsemoney1= UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labUsemoney1", 112, 14, 78, 106 )
+UI_SetCaption( labUsemoney1, "")
+UI_SetTextColor( labUsemoney1, COLOR_BLACK )
+UI_SetLabelExFont( labUsemoney1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建下注label2
+labSetmoney2= UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labSetmoney2", 112, 14, 100, 142 )
+UI_SetCaption( labSetmoney2, "Bet")
+UI_SetTextColor( labSetmoney2, COLOR_BLACK )
+UI_SetLabelExFont( labSetmoney2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--设置压注按钮2
+chkSetmoney2 = UI_CreateCompent( frmSpiritErnie, CHECK_TYPE, "chkSetmoney2", 10, 10, 130, 142 )
+UI_LoadImage( chkSetmoney2, "texture/gui/old_gui/QQ2.tga", UNCHECKED, 10, 10, 40, 231 )
+UI_LoadImage( chkSetmoney2, "texture/gui/old_gui/QQ2.tga", CHECKED, 10, 10, 52, 231 )
+UI_SetHint( chkSetmoney2, "Bet" )
+--设置下注显示label
+
+labUsemoney2= UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labUsemoney2", 112, 14, 78, 163 )
+UI_SetCaption( labUsemoney2, "")
+UI_SetTextColor( labUsemoney2, COLOR_BLACK )
+UI_SetLabelExFont( labUsemoney2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建下注label3
+labSetmoney3 = UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labSetmoney3", 112, 14, 100, 198 )
+UI_SetCaption( labSetmoney3, "Bet")
+UI_SetTextColor( labSetmoney3, COLOR_BLACK )
+UI_SetLabelExFont( labSetmoney3, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--设置压注按钮3
+chkSetmoney3 = UI_CreateCompent( frmSpiritErnie, CHECK_TYPE, "chkSetmoney3", 10, 10, 130, 198 )
+UI_LoadImage( chkSetmoney3, "texture/gui/old_gui/QQ2.tga", UNCHECKED, 10, 10, 40, 231 )
+UI_LoadImage( chkSetmoney3, "texture/gui/old_gui/QQ2.tga", CHECKED, 10, 10, 52, 231 )
+UI_SetHint( chkSetmoney3, "Bet" )
+--设置下注显示label
+
+labUsemoney3= UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labUsemoney3", 112, 14, 78, 219 )
+UI_SetCaption( labUsemoney3, "")
+UI_SetTextColor( labUsemoney3, COLOR_BLACK )
+UI_SetLabelExFont( labUsemoney3, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建停止按钮
+btnStop1 = UI_CreateCompent( frmSpiritErnie, BUTTON_TYPE, "btnStop1", 48, 19, 175, 252 )
+UI_LoadButtonImage( btnStop1, "texture/gui/old_gui/store8.tga", 48, 19, 0, 76, FALSE )
+
+labStop1 = UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labTryon", 400, 150, 187, 255 )
+UI_SetCaption( labStop1, "Stop")
+UI_SetTextColor( labStop1, COLOR_BLACK )
+UI_SetLabelExFont( labStop1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+btnStop2 = UI_CreateCompent( frmSpiritErnie, BUTTON_TYPE, "btnStop2", 48, 19, 234, 252 )
+UI_LoadButtonImage( btnStop2, "texture/gui/old_gui/store8.tga", 48, 19, 0, 76, FALSE )
+
+labStop2 = UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labTryon", 400, 150, 246, 255 )
+UI_SetCaption( labStop2, "Stop")
+UI_SetTextColor( labStop2, COLOR_BLACK )
+UI_SetLabelExFont( labStop2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+btnStop3 = UI_CreateCompent( frmSpiritErnie, BUTTON_TYPE, "btnStop3", 48, 19, 292, 252 )
+UI_LoadButtonImage( btnStop3, "texture/gui/old_gui/store8.tga", 48, 19, 0, 76, FALSE )
+
+labStop3 = UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labStop3", 400, 150, 304, 255 )
+UI_SetCaption( labStop3, "Stop")
+UI_SetTextColor( labStop3, COLOR_BLACK )
+UI_SetLabelExFont( labStop3, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建最终显示label
+labLastshow1= UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labLastshow1", 112, 14, 40, 300 )
+UI_SetCaption( labLastshow1, "This is the first result explanation")
+UI_SetTextColor( labLastshow1, COLOR_BLACK )
+UI_SetLabelExFont( labLastshow1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labLastshow2= UI_CreateCompent( frmSpiritErnie, LABELEX_TYPE, "labLastshow2", 112, 14, 40, 320 )
+UI_SetCaption( labLastshow2, "This is the second line outcome explaination")
+UI_SetTextColor( labLastshow2, COLOR_BLACK )
+UI_SetLabelExFont( labLastshow2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-----------------------------------------------------------------------
+-- 定义反斗白银城统计面板  2006.10.16 by Leo
+-----------------------------------------------------------------------
+frmPKSilver = UI_CreateForm( "frmPKSilver", FALSE, 548, 386, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmPKSilver, FALSE )
+UI_AddFormToTemplete( frmPKSilver, FORM_MAIN )
+UI_FormSetIsEscClose( frmPKSilver, TRUE )
+UI_SetIsDrag( frmPKSilver,TRUE)
+UI_SetFormStyle( frmPKSilver,2)
+
+--UI_FormSetHotKey( frmPKSilver, ALT_KEY, HOTKEY_Z )
+
+--加载背景图片
+imgBackGround1 = UI_CreateCompent( frmPKSilver, IMAGE_TYPE, "imgBackGround1", 256, 256, 0, 0 )
+UI_LoadImage( imgBackGround1, "texture/gui/old_gui/fighting1.tga", NORMAL, 256,256, 0, 0 )
+
+imgBackGround2 = UI_CreateCompent( frmPKSilver, IMAGE_TYPE, "imgBackGround2", 256, 256, 256, 0 )
+UI_LoadImage( imgBackGround2, "texture/gui/old_gui/fighting2.tga", NORMAL, 256,256, 0, 0 )
+
+imgBackGround3 = UI_CreateCompent( frmPKSilver, IMAGE_TYPE, "imgBackGround3", 46, 256, 512, 0 )
+UI_LoadImage( imgBackGround3, "texture/gui/old_gui/fighting5.tga", NORMAL, 46, 256, 0, 0 )
+
+imgBackGround4 = UI_CreateCompent( frmPKSilver, IMAGE_TYPE, "imgBackGround4", 256, 130, 0, 256 )
+UI_LoadImage( imgBackGround4, "texture/gui/old_gui/fighting3.tga", NORMAL, 256,130, 0, 0 )
+
+imgBackGround5 = UI_CreateCompent( frmPKSilver, IMAGE_TYPE, "imgBackGround5", 256, 130, 256, 256 )
+UI_LoadImage( imgBackGround5, "texture/gui/old_gui/fighting4.tga", NORMAL, 256,130, 0, 0 )
+
+imgBackGround6 = UI_CreateCompent( frmPKSilver, IMAGE_TYPE, "imgBackGround6", 46, 130, 512, 256 )
+UI_LoadImage( imgBackGround6, "texture/gui/old_gui/fighting5.tga", NORMAL, 46,130, 46, 0 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmPKSilver, BUTTON_TYPE, "btnClose", 14, 14, 531, 3 )
+UI_LoadButtonImage( btnClose, "texture/gui/old_gui/PublicC.tga", 14, 14, 116, 175, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--创建结果表单
+--标头--程序不处理
+labTtitle1 = UI_CreateCompent( frmPKSilver, LABELEX_TYPE, "labTtitle1", 400, 150,60, 104 )
+UI_SetCaption( labTtitle1, "Character ")
+UI_SetTextColor( labTtitle1, COLOR_RED )
+UI_SetLabelExFont( labTtitle1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labTtitle2 = UI_CreateCompent( frmPKSilver, LABELEX_TYPE, "labTtitle2", 400, 150,175, 104 )
+UI_SetCaption( labTtitle2, "Level")
+UI_SetTextColor( labTtitle2, COLOR_RED )
+UI_SetLabelExFont( labTtitle2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labTtitle3 = UI_CreateCompent( frmPKSilver, LABELEX_TYPE, "labTtitle3", 400, 150,289, 104 )
+UI_SetCaption( labTtitle3, "Class")
+UI_SetTextColor( labTtitle3, COLOR_RED )
+UI_SetLabelExFont( labTtitle3, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labTtitle4 = UI_CreateCompent( frmPKSilver, LABELEX_TYPE, "labTtitle4", 400, 150,406, 104 )
+UI_SetCaption( labTtitle4, "Chaos Points")
+UI_SetTextColor( labTtitle4, COLOR_RED )
+UI_SetLabelExFont( labTtitle4, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labTtitle5 = UI_CreateCompent( frmPKSilver, LABELEX_TYPE, "labTtitle5", 400, 150,27, 104 )
+UI_SetCaption( labTtitle5, "NO")
+UI_SetTextColor( labTtitle5, COLOR_RED )
+UI_SetLabelExFont( labTtitle5, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--内容
+local labName = {}
+local labLevel = {}
+local labJob = {}
+local labData = {}
+local labNO = {}
+
+for i=0 ,4 ,1 do
+	labName[i] = UI_CreateCompent( frmPKSilver, LABELEX_TYPE, "labName_"..i, 10, 150, 60, i*32+136 )
+	UI_SetCaption( labName[i], "User Name"..i)
+	UI_SetTextColor( labName[i], COLOR_BLACK )
+	UI_SetLabelExFont( labName[i], DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+	labLevel[i] = UI_CreateCompent( frmPKSilver, LABELEX_TYPE, "labLevel_"..i, 10, 150, 175, i*32+136 )
+	UI_SetCaption( labLevel[i], "Player Lv"..i)
+	UI_SetTextColor( labLevel[i], COLOR_BLACK )
+	UI_SetLabelExFont( labLevel[i], DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+	labJob[i] = UI_CreateCompent( frmPKSilver, LABELEX_TYPE, "labJob_"..i, 10, 150, 289, i*32+136 )
+	UI_SetCaption( labJob[i], "Player class"..i)
+	UI_SetTextColor( labJob[i], COLOR_BLACK )
+	UI_SetLabelExFont( labJob[i], DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+	labData[i] = UI_CreateCompent( frmPKSilver, LABELEX_TYPE, "labData_"..i, 10, 150, 406, i*32+136 )
+	UI_SetCaption( labData[i], "time"..i)
+	UI_SetTextColor( labData[i], COLOR_BLACK )
+	UI_SetLabelExFont( labData[i], DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+	labNO[i] = UI_CreateCompent( frmPKSilver, LABELEX_TYPE, "labTtitle5", 400, 150, 27, i*32+136 )
+	UI_SetCaption( labNO[i], ""..(i+1))
+	UI_SetTextColor( labNO[i], COLOR_RED )
+	UI_SetLabelExFont( labNO[i], DEFAULT_FONT, TRUE, COLOR_WHITE )
+end
+	labNotice1 = UI_CreateCompent( frmPKSilver, LABELEX_TYPE, "labNotice1", 10, 150, 50, 305)
+	UI_SetCaption( labNotice1, "Assemble and fuse the Chaos stone set: Framestone, Clawstone and Pawstone")
+	UI_SetTextColor( labNotice1, COLOR_BLACK )
+	UI_SetLabelExFont( labNotice1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+	
+	labNotice2 = UI_CreateCompent( frmPKSilver, LABELEX_TYPE, "labNotice2", 10, 150, 50, 320)
+	UI_SetCaption( labNotice2, "To receive hidden powers of the full set based on ranking on this list")
+	UI_SetTextColor( labNotice2, COLOR_BLACK )
+	UI_SetLabelExFont( labNotice2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+-----------------------------------------------------------------------
+-- 定义组队面板  2006.10.17 by Leo
+-----------------------------------------------------------------------
+frmFindTeam = UI_CreateForm( "frmFindTeam", FALSE, 568, 427, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmFindTeam, FALSE )
+UI_AddFormToTemplete( frmFindTeam, FORM_MAIN )
+UI_FormSetIsEscClose( frmFindTeam, TRUE )
+UI_SetIsDrag( frmFindTeam,TRUE)
+UI_SetFormStyle( frmFindTeam,2)
+
+imgBackGround1 = UI_CreateCompent( frmFindTeam, IMAGE_TYPE, "imgBackGround1", 568, 427, 0, 0 )
+UI_LoadImage( imgBackGround1, "texture/gui/search-party.png", NORMAL, 568, 427, 0, 0 )
+
+--定义玩家显示列表
+local labName = {}
+local labLevel = {}
+local labJob = {}
+local labPlace = {}
+local btnSubmit = {}
+
+for i=0 ,9 ,1 do
+	labName[i] = UI_CreateCompent( frmFindTeam, LABELEX_TYPE, "labName_"..i, 10, 150, 35+5, i*28+83+20 )
+	UI_SetCaption( labName[i], "User Name"..i)
+	UI_SetTextColor( labName[i], COLOR_FFEDCF )
+	UI_SetLabelExFont( labName[i], DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+	labLevel[i] = UI_CreateCompent( frmFindTeam, LABELEX_TYPE, "labLevel_"..i, 10, 150, 164+5, i*28+83+20 )
+	UI_SetCaption( labLevel[i], "Player Lv"..i)
+	UI_SetTextColor( labLevel[i], COLOR_FFEDCF )
+	UI_SetLabelExFont( labLevel[i], DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+	labJob[i] = UI_CreateCompent( frmFindTeam, LABELEX_TYPE, "labJob_"..i, 10, 150, 269+5, i*28+83+20 )
+	UI_SetCaption( labJob[i], "Player class"..i)
+	UI_SetTextColor( labJob[i], COLOR_FFEDCF )
+	UI_SetLabelExFont( labJob[i], DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+	labPlace[i] = UI_CreateCompent( frmFindTeam, LABELEX_TYPE, "labPlace_"..i, 10, 150, 376+5, i*28+83+20 )
+	UI_SetCaption( labPlace[i], "Location"..i)
+	UI_SetTextColor( labPlace[i], COLOR_FFEDCF )
+	UI_SetLabelExFont( labPlace[i], DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+	btnSubmit[i] =  UI_CreateCompent( frmFindTeam, BUTTON_TYPE, "btnSubmit_"..i, 19, 19, 470+5, i*28+80+20 )
+	UI_LoadButtonImage( btnSubmit[i], "texture/gui/search-party.png", 19, 19, 245, 436, TRUE )
+end
+
+
+btnLeftPage = UI_CreateCompent( frmFindTeam, BUTTON_TYPE, "btnLeftPage", 32, 32, 30, 368 )
+UI_LoadButtonImage( btnLeftPage, "texture/gui/store.png", 32, 32, 372, 725, TRUE )
+
+labListPage = UI_CreateCompent( frmFindTeam, LABELEX_TYPE, "labListPage", 400, 150, 70, 377 )
+UI_SetCaption( labListPage, "")
+UI_SetTextColor( labListPage, COLOR_C9C2B4 )
+UI_SetLabelExFont( labListPage, FONT016, FALSE, COLOR_WHITE )
+
+btnRightPage = UI_CreateCompent( frmFindTeam, BUTTON_TYPE, "btnRightPage", 32, 32, 110, 368 )
+UI_LoadButtonImage( btnRightPage, "texture/gui/store.png", 32, 32, 372, 693, TRUE )
+
+btnAddme = UI_CreateCompent( frmFindTeam, BUTTON_TYPE, "btnAddme", 59, 30, 384, 369 )
+UI_LoadButtonImage( btnAddme, "texture/gui/search-party.png", 59, 30, 0, 434, TRUE )
+
+btnDelme = UI_CreateCompent( frmFindTeam, BUTTON_TYPE, "btnDelme", 78, 30, 461, 369 )
+UI_LoadButtonImage( btnDelme, "texture/gui/search-party.png", 78, 30, 0, 464, TRUE )
+
+btnClose = UI_CreateCompent( frmFindTeam, BUTTON_TYPE, "btnClose", 32, 32, 522, 20 )
+UI_LoadButtonImage( btnClose, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- Manufacturing
+-----------------------------------------------------------------------
+frmCompose = UI_CreateForm( "frmCompose", FALSE, 302, 422, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmCompose, FALSE )
+UI_AddFormToTemplete( frmCompose, FORM_MAIN )
+UI_FormSetIsEscClose( frmCompose, TRUE )
+UI_SetIsDrag( frmCompose,TRUE)
+UI_SetFormStyle( frmCompose,2)
+
+imgBackground = UI_CreateCompent( frmCompose, IMAGE_TYPE, "imgBackground", 302, 422, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/life-manufacturing.png", NORMAL, 302, 422, 0, 0 )
+
+cmdItemBase1 = UI_CreateCompent( frmCompose, COMMAND_ONE_TYPE, "cmdItemBase1", 32, 32, 84, 255 )
+UI_SetHint(cmdItemBase1,"Blueprint")
+
+cmdItemBase2 = UI_CreateCompent( frmCompose, COMMAND_ONE_TYPE, "cmdItemBase2", 32, 32,	187, 255 )
+UI_SetHint(cmdItemBase2,"Tool")
+
+cmdItemBase3 = UI_CreateCompent( frmCompose, COMMAND_ONE_TYPE, "cmdItemBase3", 32, 32, 51, 157 )
+UI_SetHint(cmdItemBase3,"Material 1")
+
+cmdItemBase4 = UI_CreateCompent( frmCompose, COMMAND_ONE_TYPE, "cmdItemBase4", 32, 32, 135, 96 )
+UI_SetHint(cmdItemBase4,"Material 2")
+
+cmdItemBase5 = UI_CreateCompent( frmCompose, COMMAND_ONE_TYPE, "cmdItemBase5", 32, 32, 218, 157 )
+UI_SetHint(cmdItemBase5,"Material 3")
+
+cmdItemBase6 = UI_CreateCompent( frmCompose, COMMAND_ONE_TYPE, "cmdItemBase6", 32, 32, 135, 184 )
+UI_SetHint(cmdItemBase6, "Product")
+
+imgCookingFrame = UI_CreateCompent( frmCompose, IMAGE_TYPE, "imgCookingFrame", 286, 7, 8, 285+50 )
+UI_LoadImage( imgCookingFrame, "texture/gui/life-butchering.png", NORMAL, 286, 7, 0, 425 )
+
+proCompose = UI_CreateCompent( frmCompose, PROGRESS_TYPE, "proCompose", 282, 4, 10, 287+50 )
+UI_LoadImage( proCompose, "texture/gui/life-butchering.png", PROGRESS_PROGRESS, 282, 4, 0, 433)
+
+btnForgeYes = UI_CreateCompent( frmCompose, BUTTON_TYPE, "btnForgeYes", 140, 42, 57, 345+10 )
+UI_LoadButtonImage( btnForgeYes, "texture/gui/life-butchering.png", 140, 42, 307, 0, FALSE )
+
+btnClose = UI_CreateCompent( frmCompose, BUTTON_TYPE, "btnClose", 42, 42, 203, 345+10 )
+UI_LoadButtonImage( btnClose, "texture/gui/life-butchering.png", 42, 42, 307, 172, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- Analyze
+-----------------------------------------------------------------------
+frmBreak = UI_CreateForm( "frmBreak", FALSE, 302, 422, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmBreak, FALSE )
+UI_AddFormToTemplete( frmBreak, FORM_MAIN )
+UI_FormSetIsEscClose( frmBreak, TRUE )
+UI_SetIsDrag( frmBreak,TRUE)
+UI_SetFormStyle( frmBreak,2)
+
+imgBackground = UI_CreateCompent( frmBreak, IMAGE_TYPE, "imgBackground", 302, 422, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/life-analyze.png", NORMAL, 302, 422, 0, 0 )
+
+cmdItemBase3 = UI_CreateCompent( frmBreak, COMMAND_ONE_TYPE, "cmdItemBase3", 32, 32, 135, 101 )
+UI_SetHint(cmdItemBase3, "Catalyst")
+
+cmdItemBase2 = UI_CreateCompent( frmBreak, COMMAND_ONE_TYPE, "cmdItemBase2", 32, 32, 135, 159 )
+UI_SetHint(cmdItemBase2, "Equip")
+
+cmdItemBase1 = UI_CreateCompent( frmBreak, COMMAND_ONE_TYPE, "cmdItemBase1", 32, 32, 135, 217 )
+UI_SetHint(cmdItemBase1, "Particle Crystal")
+
+imgBreakFrame = UI_CreateCompent( frmBreak, IMAGE_TYPE, "imgBreakFrame", 286, 7, 8, 285 )
+UI_LoadImage( imgBreakFrame, "texture/gui/life-butchering.png", NORMAL, 286, 7, 0, 425 )
+
+proBreak = UI_CreateCompent( frmBreak, PROGRESS_TYPE, "proBreak", 282, 4, 10, 287 )
+UI_LoadImage( proBreak, "texture/gui/life-butchering.png", PROGRESS_PROGRESS, 282, 4, 0, 433)
+
+btnForgeYes = UI_CreateCompent( frmBreak, BUTTON_TYPE, "btnForgeYes", 140, 42, 57, 345 )
+UI_LoadButtonImage( btnForgeYes, "texture/gui/life-butchering.png", 140, 42, 307, 0, FALSE )
+
+btnClose = UI_CreateCompent( frmBreak, BUTTON_TYPE, "btnClose", 42, 42, 203, 345 )
+UI_LoadButtonImage( btnClose, "texture/gui/life-butchering.png", 42, 42, 307, 172, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+------
+-- Butchering
+------
+frmButchering = UI_CreateForm( "frmButchering", FALSE, 302, 422, 0, 0, TRUE, FALSE )
+UI_ShowForm(frmButchering, FALSE)
+UI_AddFormToTemplete(frmButchering, FORM_MAIN)
+UI_FormSetIsEscClose(frmButchering, TRUE)
+UI_SetIsDrag(frmButchering,TRUE)
+UI_SetFormStyle(frmButchering, 2)
+
+imgBackground = UI_CreateCompent( frmButchering, IMAGE_TYPE, "imgBackground", 302, 422, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/life-butchering.png", NORMAL, 302, 422, 0, 0 )
+
+cmdItemBase1 = UI_CreateCompent( frmButchering, COMMAND_ONE_TYPE, "cmdItemBase1", 32, 32, 135, 101 )
+UI_SetHint(cmdItemBase1,"Fish board")
+
+cmdItemBase2 = UI_CreateCompent( frmButchering, COMMAND_ONE_TYPE, "cmdItemBase2", 32, 32, 135, 159 )
+UI_SetHint(cmdItemBase2,"Fish")
+
+cmdItemBase3 = UI_CreateCompent( frmButchering, COMMAND_ONE_TYPE, "cmdItemBase3", 32, 32, 135, 217 )
+UI_SetHint(cmdItemBase3, "Fisherman's knife")
+
+imgBreakFrame = UI_CreateCompent( frmButchering, IMAGE_TYPE, "imgBreakFrame", 286, 7, 8, 285 )
+UI_LoadImage( imgBreakFrame, "texture/gui/life-butchering.png", NORMAL, 286, 7, 0, 425 )
+
+proBreak = UI_CreateCompent( frmButchering, PROGRESS_TYPE, "proBreak", 282, 4, 10, 287 )
+UI_LoadImage( proBreak, "texture/gui/life-butchering.png", PROGRESS_PROGRESS, 282, 4, 0, 433)
+
+btnForgeYes = UI_CreateCompent( frmButchering, BUTTON_TYPE, "btnForgeYes", 140, 42, 57, 345 )
+UI_LoadButtonImage( btnForgeYes, "texture/gui/life-butchering.png", 140, 42, 307, 0, FALSE )
+
+btnClose = UI_CreateCompent( frmButchering, BUTTON_TYPE, "btnClose", 42, 42, 203, 345 )
+UI_LoadButtonImage( btnClose, "texture/gui/life-butchering.png", 42, 42, 307, 172, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--------------------------------------------------------------------
+-- Crafting
+-----------------------------------------------------------------------
+frmFound = UI_CreateForm( "frmFound", FALSE, 302, 422, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmFound, FALSE )
+UI_AddFormToTemplete( frmFound, FORM_MAIN )
+UI_FormSetIsEscClose( frmFound, TRUE )
+UI_SetIsDrag( frmFound,TRUE)
+UI_SetFormStyle( frmFound,2)
+
+imgBackground = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgBackground", 302, 422, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/life-craft.png", NORMAL, 302, 422, 0, 0 )
+
+cmdItemBase1 = UI_CreateCompent( frmFound, COMMAND_ONE_TYPE, "cmdItemBase1", 32, 32, 84, 255 )
+UI_SetHint(cmdItemBase1,"Blueprint")
+
+cmdItemBase2 = UI_CreateCompent( frmFound, COMMAND_ONE_TYPE, "cmdItemBase2", 32, 32,	187, 255 )
+UI_SetHint(cmdItemBase2,"Tool")
+
+cmdItemBase3 = UI_CreateCompent( frmFound, COMMAND_ONE_TYPE, "cmdItemBase3", 32, 32, 51, 157 )
+UI_SetHint(cmdItemBase3,"Material 1")
+
+cmdItemBase4 = UI_CreateCompent( frmFound, COMMAND_ONE_TYPE, "cmdItemBase4", 32, 32, 135, 96 )
+UI_SetHint(cmdItemBase4,"Material 2")
+
+cmdItemBase5 = UI_CreateCompent( frmFound, COMMAND_ONE_TYPE, "cmdItemBase5", 32, 32, 218, 157 )
+UI_SetHint(cmdItemBase5,"Material 3")
+
+cmdItemBase6 = UI_CreateCompent( frmFound, COMMAND_ONE_TYPE, "cmdItemBase6", 32, 32, 135, 184 )
+UI_SetHint(cmdItemBase6, "Product")
+
+------
+
+imgShaiZi1_1 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi1_1", 32, 32, 84, 296 )
+UI_LoadImage( imgShaiZi1_1, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 0, 182 )
+-- UI_SetIsShow(imgShaiZi1_1,FALSE)
+
+imgShaiZi1_2 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi1_2", 32, 32, 84, 296 )
+UI_LoadImage( imgShaiZi1_2, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 36, 182 )
+UI_SetIsShow(imgShaiZi1_2,FALSE)
+
+imgShaiZi1_3 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi1_3", 32, 32, 84, 296 )
+UI_LoadImage( imgShaiZi1_3, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 72, 182 )
+UI_SetIsShow(imgShaiZi1_3,FALSE)
+
+imgShaiZi1_4 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi1_4", 32, 32, 84, 296 )
+UI_LoadImage( imgShaiZi1_4, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 108, 182 )
+UI_SetIsShow(imgShaiZi1_4,FALSE)
+
+imgShaiZi1_5 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi1_5", 32, 32, 84, 296 )
+UI_LoadImage( imgShaiZi1_5, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 144, 182 )
+UI_SetIsShow(imgShaiZi1_5,FALSE)
+
+imgShaiZi1_6 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi1_6", 32, 32, 84, 296 )
+UI_LoadImage( imgShaiZi1_6, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 180, 182 )
+UI_SetIsShow(imgShaiZi1_6,FALSE)
+
+imgShaiZi2_1 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi2_1", 32, 32, 135, 296 )
+UI_LoadImage( imgShaiZi2_1, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 0, 182 )
+-- UI_SetIsShow(imgShaiZi2_1,FALSE)
+
+imgShaiZi2_2 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi2_2", 32, 32, 135, 296 )
+UI_LoadImage( imgShaiZi2_2, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 36, 182 )
+UI_SetIsShow(imgShaiZi2_2,FALSE)
+
+imgShaiZi2_3 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi2_3", 32, 32, 135, 296 )
+UI_LoadImage( imgShaiZi2_3, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 72, 182 )
+UI_SetIsShow(imgShaiZi2_3,FALSE)
+
+imgShaiZi2_4 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi2_4", 32, 32, 135, 296 )
+UI_LoadImage( imgShaiZi2_4, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 108, 182 )
+UI_SetIsShow(imgShaiZi2_4,FALSE)
+
+imgShaiZi2_5 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi2_5", 32, 32, 135, 296 )
+UI_LoadImage( imgShaiZi2_5, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 144, 182 )
+UI_SetIsShow(imgShaiZi2_5,FALSE)
+
+imgShaiZi2_6 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi2_6", 32, 32, 135, 296 )
+UI_LoadImage( imgShaiZi2_6, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 180, 182 )
+UI_SetIsShow(imgShaiZi2_6,FALSE)
+
+imgShaiZi3_1 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi3_1", 32, 32, 187, 296 )
+UI_LoadImage( imgShaiZi3_1, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 0, 182 )
+-- UI_SetIsShow(imgShaiZi3_1,FALSE)
+
+imgShaiZi3_2 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi3_2", 32, 32, 187, 296 )
+UI_LoadImage( imgShaiZi3_2, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 36, 182 )
+UI_SetIsShow(imgShaiZi3_2,FALSE)
+
+imgShaiZi3_3 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi3_3", 32, 32, 187, 296 )
+UI_LoadImage( imgShaiZi3_3, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 72, 182 )
+UI_SetIsShow(imgShaiZi3_3,FALSE)
+
+imgShaiZi3_4 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi3_4", 32, 32, 187, 296 )
+UI_LoadImage( imgShaiZi3_4, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 108, 182 )
+UI_SetIsShow(imgShaiZi3_4,FALSE)
+
+imgShaiZi3_5 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi3_5", 32, 32, 187, 296 )
+UI_LoadImage( imgShaiZi3_5, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 144, 182 )
+UI_SetIsShow(imgShaiZi3_5,FALSE)
+
+imgShaiZi3_6 = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgShaiZi3_6", 32, 32, 187, 296 )
+UI_LoadImage( imgShaiZi3_6, "texture/gui/old_gui/Progress.tga", NORMAL, 36, 36, 180, 182 )
+UI_SetIsShow(imgShaiZi3_6,FALSE)
+
+btnBigBig = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnBigBig", 82, 42, 26, 91 )
+UI_LoadButtonImage( btnBigBig, "texture/gui/life-craft.png", 82, 42, 308, 0, FALSE )
+
+btnSmallSmall = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnSmallSmall", 82, 42, 191, 91 )
+UI_LoadButtonImage( btnSmallSmall, "texture/gui/life-craft.png", 82, 42, 393, 0, FALSE )
+
+imgFoundFrame = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgFoundFrame", 286, 7, 8, 285+50 )
+UI_LoadImage( imgFoundFrame, "texture/gui/life-butchering.png", NORMAL, 286, 7, 0, 425 )
+
+proFound = UI_CreateCompent( frmFound, PROGRESS_TYPE, "proFound", 282, 4, 10, 287+50 )
+UI_LoadImage( proFound, "texture/gui/life-butchering.png", PROGRESS_PROGRESS, 282, 4, 0, 433)
+
+btnForgeYes = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnForgeYes", 140, 42, 57, 345+10 )
+UI_LoadButtonImage( btnForgeYes, "texture/gui/life-butchering.png", 140, 42, 307, 0, FALSE )
+
+btnClose = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnClose", 42, 42, 203, 345+10 )
+UI_LoadButtonImage( btnClose, "texture/gui/life-butchering.png", 42, 42, 307, 172, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- Cooking
+-----------------------------------------------------------------------
+frmCooking = UI_CreateForm( "frmCooking", FALSE, 302, 422, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmCooking, FALSE )
+UI_AddFormToTemplete( frmCooking, FORM_MAIN )
+UI_FormSetIsEscClose( frmCooking, TRUE )
+UI_SetIsDrag( frmCooking,TRUE)
+UI_SetFormStyle( frmCooking,2)
+
+imgBackground = UI_CreateCompent( frmCooking, IMAGE_TYPE, "imgBackground", 302, 422, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/life-cooking.png", NORMAL, 302, 422, 0, 0 )
+
+cmdItemBase1 = UI_CreateCompent( frmCooking, COMMAND_ONE_TYPE, "cmdItemBase1", 32, 32, 84, 255 )
+UI_SetHint(cmdItemBase1,"Blueprint")
+
+cmdItemBase2 = UI_CreateCompent( frmCooking, COMMAND_ONE_TYPE, "cmdItemBase2", 32, 32,	187, 255 )
+UI_SetHint(cmdItemBase2,"Tool")
+
+cmdItemBase3 = UI_CreateCompent( frmCooking, COMMAND_ONE_TYPE, "cmdItemBase3", 32, 32, 51, 157 )
+UI_SetHint(cmdItemBase3,"Material 1")
+
+cmdItemBase4 = UI_CreateCompent( frmCooking, COMMAND_ONE_TYPE, "cmdItemBase4", 32, 32, 135, 96 )
+UI_SetHint(cmdItemBase4,"Material 2")
+
+cmdItemBase5 = UI_CreateCompent( frmCooking, COMMAND_ONE_TYPE, "cmdItemBase5", 32, 32, 218, 157 )
+UI_SetHint(cmdItemBase5,"Material 3")
+
+cmdItemBase6 = UI_CreateCompent( frmCooking, COMMAND_ONE_TYPE, "cmdItemBase6", 32, 32, 135, 184 )
+UI_SetHint(cmdItemBase6, "Product")
+
+imgCookingFrame = UI_CreateCompent( frmCooking, IMAGE_TYPE, "imgCookingFrame", 286, 7, 8, 285+50 )
+UI_LoadImage( imgCookingFrame, "texture/gui/life-butchering.png", NORMAL, 286, 7, 0, 425 )
+
+proCooking = UI_CreateCompent( frmCooking, PROGRESS_TYPE, "proCooking", 282, 4, 10, 287+50 )
+UI_LoadImage( proCooking, "texture/gui/life-butchering.png", PROGRESS_PROGRESS, 282, 4, 0, 433)
+
+btnForgeYes = UI_CreateCompent( frmCooking, BUTTON_TYPE, "btnForgeYes", 140, 42, 57, 345+10 )
+UI_LoadButtonImage( btnForgeYes, "texture/gui/life-butchering.png", 140, 42, 307, 0, FALSE )
+
+btnClose = UI_CreateCompent( frmCooking, BUTTON_TYPE, "btnClose", 42, 42, 203, 345+10 )
+UI_LoadButtonImage( btnClose, "texture/gui/life-butchering.png", 42, 42, 307, 172, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+------
+-- 
+------
+frmAlchemy = UI_CreateForm( "frmAlchemy", FALSE, 302, 422, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmAlchemy, FALSE )
+UI_AddFormToTemplete( frmAlchemy, FORM_MAIN )
+UI_FormSetIsEscClose( frmAlchemy, TRUE )
+UI_SetIsDrag( frmAlchemy,TRUE)
+UI_SetFormStyle( frmAlchemy,2)
+
+imgBackground = UI_CreateCompent( frmAlchemy, IMAGE_TYPE, "imgBackground", 302, 422, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/life-alchemy.png", NORMAL, 302, 422, 0, 0 )
+
+cmdItemBase1 = UI_CreateCompent( frmAlchemy, COMMAND_ONE_TYPE, "cmdItemBase1", 32, 32, 84, 255 )
+UI_SetHint(cmdItemBase1,"Blueprint")
+
+cmdItemBase2 = UI_CreateCompent( frmAlchemy, COMMAND_ONE_TYPE, "cmdItemBase2", 32, 32,	187, 255 )
+UI_SetHint(cmdItemBase2,"Tool")
+
+cmdItemBase3 = UI_CreateCompent( frmAlchemy, COMMAND_ONE_TYPE, "cmdItemBase3", 32, 32, 51, 157 )
+UI_SetHint(cmdItemBase3,"Material 1")
+
+cmdItemBase4 = UI_CreateCompent( frmAlchemy, COMMAND_ONE_TYPE, "cmdItemBase4", 32, 32, 135, 96 )
+UI_SetHint(cmdItemBase4,"Material 2")
+
+cmdItemBase5 = UI_CreateCompent( frmAlchemy, COMMAND_ONE_TYPE, "cmdItemBase5", 32, 32, 218, 157 )
+UI_SetHint(cmdItemBase5,"Material 3")
+
+cmdItemBase6 = UI_CreateCompent( frmAlchemy, COMMAND_ONE_TYPE, "cmdItemBase6", 32, 32, 135, 184 )
+UI_SetHint(cmdItemBase6, "Product")
+
+imgCookingFrame = UI_CreateCompent( frmAlchemy, IMAGE_TYPE, "imgCookingFrame", 286, 7, 8, 285+50 )
+UI_LoadImage( imgCookingFrame, "texture/gui/life-butchering.png", NORMAL, 286, 7, 0, 425 )
+
+proCooking = UI_CreateCompent( frmAlchemy, PROGRESS_TYPE, "proCooking", 282, 4, 10, 287+50 )
+UI_LoadImage( proCooking, "texture/gui/life-butchering.png", PROGRESS_PROGRESS, 282, 4, 0, 433)
+
+btnForgeYes = UI_CreateCompent( frmAlchemy, BUTTON_TYPE, "btnForgeYes", 140, 42, 57, 345+10 )
+UI_LoadButtonImage( btnForgeYes, "texture/gui/life-butchering.png", 140, 42, 307, 0, FALSE )
+
+btnClose = UI_CreateCompent( frmAlchemy, BUTTON_TYPE, "btnClose", 42, 42, 203, 345+10 )
+UI_LoadButtonImage( btnClose, "texture/gui/life-butchering.png", 42, 42, 307, 172, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 定义问题提交面板  2007.1.17 by Leo
+-----------------------------------------------------------------------
+frmQuestion = UI_CreateForm( "frmQuestion", FALSE, 235, 317, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmQuestion, FALSE )
+UI_AddFormToTemplete( frmQuestion, FORM_MAIN  )
+UI_FormSetIsEscClose( frmQuestion, TRUE )
+UI_SetIsDrag( frmQuestion,TRUE)
+UI_SetFormStyle( frmQuestion,2)
+
+--UI_FormSetHotKey( frmQuestion, ALT_KEY, HOTKEY_X )
+
+--背景
+imgMissonT = UI_CreateCompent( frmQuestion, IMAGE_TYPE, "imgMissonT", 235, 111, 0, 0 )
+UI_LoadImage( imgMissonT, "texture/gui/old_gui/answer.tga", NORMAL, 235, 111, 0, 0 )
+imgMissonD = UI_CreateCompent( frmQuestion, IMAGE_TYPE, "imgMissonD", 235, 206, 0, 111 )
+UI_LoadImage( imgMissonD, "texture/gui/old_gui/question.tga", NORMAL, 235, 206, 0, 0 )
+
+--title
+labMisson = UI_CreateCompent( frmQuestion, LABELEX_TYPE, "labMisson", 47, 11, 3, 3 )
+UI_SetCaption( labMisson, "Submit question" )
+UI_SetTextColor( labMisson, COLOR_BLACK )
+UI_SetLabelExFont( labMisson, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--提交内容
+--主题
+edtQuestionTitle= UI_CreateCompent(frmQuestion, EDIT_TYPE,"edtQuestionTitle",197, 21, 23, 43)
+UI_SetEditMaxNum( edtQuestionTitle, 256)
+UI_SetEditMaxNumVisible(edtDoublePwdAlterNew,30)
+
+--内容
+memCentent  = UI_CreateCompent( frmQuestion, MEMO_TYPE, "memCentent", 140, 210, 21, 95 )
+UI_SetCaption( memCentent, "400" )
+UI_SetTextColor( memCentent, COLOR_BLACK )
+UI_SetLabelExFont( memCentent, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetMemoPageShowNum( memCentent, 9 )
+UI_SetMemoMaxNumPerRow( memCentent, 31 )
+
+	labNotice = UI_CreateCompent( frmQuestion, LABELEX_TYPE, "labNotice", 400, 150, 15 ,73 )
+	UI_SetCaption( labNotice, "Please do not disclose your security code in the question.")
+	UI_SetTextColor( labNotice, COLOR_RED)
+	UI_SetLabelExFont( labNotice, DEFAULT_FONT, TRUE, COLOR_WHITE )
+	
+--定义提交按钮
+	btnSubmit = UI_CreateCompent( frmQuestion, BUTTON_TYPE, "btnSubmit", 48, 19, 170, 287 )
+	UI_LoadButtonImage( btnSubmit, "texture/gui/old_gui/store8.tga", 48, 19, 0, 76, FALSE )
+
+	labSubmit = UI_CreateCompent( frmQuestion, LABELEX_TYPE, "labSubmit", 400 , 150 , 179 , 289 )
+	UI_SetCaption( labSubmit, "Submit")
+	UI_SetTextColor( labSubmit, COLOR_BLACK )
+	UI_SetLabelExFont( labSubmit, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmQuestion, BUTTON_TYPE, "btnClose", 14, 14, 215, 3 )
+UI_LoadButtonImage( btnClose, "texture/gui/old_gui/PublicC.tga", 14, 14, 116, 175, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 定义查看回复面板  2007.1.17  by Leo
+-----------------------------------------------------------------------
+frmAnswer = UI_CreateForm( "frmAnswer", FALSE, 235, 317, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmAnswer, FALSE )
+UI_AddFormToTemplete( frmAnswer, FORM_MAIN  )
+UI_FormSetIsEscClose( frmAnswer, TRUE )
+UI_SetIsDrag( frmAnswer,TRUE)
+UI_SetFormStyle( frmAnswer,2)
+
+--UI_FormSetHotKey( frmAnswer, ALT_KEY, HOTKEY_Z )
+
+--背景
+imgMissonT = UI_CreateCompent( frmAnswer, IMAGE_TYPE, "imgMissonT", 235, 111, 0, 0)
+UI_LoadImage( imgMissonT, "texture/gui/old_gui/answer.tga", NORMAL, 235, 111, 0,111 )
+imgMissonD = UI_CreateCompent( frmAnswer, IMAGE_TYPE, "imgMissonD", 235, 206, 0, 111 )
+UI_LoadImage( imgMissonD, "texture/gui/old_gui/question.tga", NORMAL, 235, 206, 0, 0 )
+
+--title
+labMisson = UI_CreateCompent( frmAnswer, LABELEX_TYPE, "labMisson", 47, 11, 3, 3 )
+UI_SetCaption( labMisson, "Check browser" )
+UI_SetTextColor( labMisson, COLOR_BLACK )
+UI_SetLabelExFont( labMisson, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--提交内容
+memMiss  = UI_CreateCompent( frmAnswer, MEMO_TYPE, "memMiss", 197, 230, 20, 44 )
+UI_SetCaption( memMiss, "400" )
+UI_SetTextColor( memMiss, COLOR_BLACK )
+UI_SetLabelExFont( memMiss, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetMemoPageShowNum( memMiss, 9 )
+UI_SetMemoMaxNumPerRow( memMiss, 31 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmAnswer, BUTTON_TYPE, "btnClose", 14, 14, 215, 3 )
+UI_LoadButtonImage( btnClose, "texture/gui/old_gui/PublicC.tga", 14, 14, 116, 175, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 定义透明遮罩面板  2007.1.29  by Leo
+-----------------------------------------------------------------------
+frmAlphaMatte = UI_CreateForm( "frmAlphaMatte", FALSE, 800, 600, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmAlphaMatte, FALSE )
+UI_AddFormToTemplete( frmAlphaMatte, FORM_MAIN  )
+UI_FormSetIsEscClose( frmAlphaMatte, FALSE )
+UI_SetIsDrag( frmAlphaMatte,FALSE)
+
+-----------------------------------------------------------------------
+-- 定义商城进度条  2007.02.12  by Leo
+-----------------------------------------------------------------------
+frmStoreLoad = UI_CreateForm( "frmStoreLoad", FALSE, 200, 80, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmStoreLoad, FALSE )
+UI_AddFormToTemplete( frmStoreLoad, FORM_MAIN  )
+UI_FormSetIsEscClose( frmStoreLoad, TRUE )
+UI_SetIsDrag( frmStoreLoad,FALSE)
+
+proStoreLoad= UI_CreateCompent( frmStoreLoad, PROGRESS_TYPE, "proStoreLoad", 160, 13,20, 10 )
+UI_LoadImage( proStoreLoad, "texture/gui/old_gui/Progress.tga", PROGRESS_PROGRESS, 157, 13, 0, 0 )
+
+labStoreLoad = UI_CreateCompent( frmStoreLoad, LABELEX_TYPE, "labStoreLoad", 400, 150, 0,30 )
+UI_SetCaption( labStoreLoad, "Loading... ESC to Close.")
+UI_SetTextColor( labStoreLoad, COLOR_BLACK )
+UI_SetLabelExFont( labStoreLoad, BIGFONT, FALSE, COLOR_WHITE )
+
+-----------------------------------------------------------------------
+-- 定义商城变暗表单
+-----------------------------------------------------------------------
+-- 创建选择角色表单
+frmStoreDark = UI_CreateForm( "frmStoreDark", FALSE, 98, 36, 380, 507, TRUE, FALSE )
+UI_ShowForm( frmStoreDark, TRUE )
+UI_AddFormToTemplete( frmStoreDark, FORM_MAIN )
+UI_SetFormStyleEx( frmStoreDark, 7, 0, 2 )
+UI_FormSetIsEscClose( frmStoreDark, FALSE )
+
+-- 加载背景图片
+imgBack = UI_CreateCompent( frmStoreDark, IMAGE_TYPE, "imgBack", 1198, 768, -380, -675 )
+UI_LoadImage( imgBack, "texture/gui/old_gui/select4.tga", NORMAL, 1, 1, 232, 1 )
+
+-- 加载logo图片
+imgLogo = UI_CreateCompent( frmStoreDark, IMAGE_TYPE, "imgLogo", 242, 115, -100, -410 )
+--UI_LoadImage( imgLogo, "texture/gui/old_gui/logot.tga", NORMAL, 242, 115, 0, 0 )
+
+
+-----------------------------------------------------------------------
+-- 定义教堂拍卖
+-----------------------------------------------------------------------
+frmChurchSale = UI_CreateForm( "frmChurchSale", FALSE, 558, 291, 380, 507, TRUE, FALSE )
+UI_ShowForm( frmChurchSale, TRUE )
+UI_AddFormToTemplete( frmChurchSale, FORM_MAIN)
+UI_FormSetIsEscClose( frmChurchSale, FALSE )
+UI_SetIsDrag( frmChurchSale,TRUE)
+UI_SetFormStyle(frmChurchSale,1)
+
+--UI_FormSetHotKey( frmChurchSale, ALT_KEY, HOTKEY_Z )
+
+
+-- 加载背景图片
+imgBack01 = UI_CreateCompent( frmChurchSale, IMAGE_TYPE, "imgBack01", 256,256,0,0 )
+UI_LoadImage( imgBack01, "texture/gui/old_gui/church01.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBack02 = UI_CreateCompent( frmChurchSale, IMAGE_TYPE, "imgBack02", 256,256,256,0 )
+UI_LoadImage( imgBack02, "texture/gui/old_gui/church02.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBack03 = UI_CreateCompent( frmChurchSale, IMAGE_TYPE, "imgBack03", 46,256,512,0 )
+UI_LoadImage( imgBack03, "texture/gui/old_gui/church04.tga", NORMAL, 46, 256, 0, 0 )
+
+imgBack04 = UI_CreateCompent( frmChurchSale, IMAGE_TYPE, "imgBack04", 256,35,0,256 )
+UI_LoadImage( imgBack04, "texture/gui/old_gui/church03.tga", NORMAL, 256, 35, 0, 0 )
+
+imgBack05 = UI_CreateCompent( frmChurchSale, IMAGE_TYPE, "imgBack05", 256,35,256,256 )
+UI_LoadImage( imgBack05, "texture/gui/old_gui/church03.tga", NORMAL, 256, 35, 0, 74 )
+
+imgBack06 = UI_CreateCompent( frmChurchSale, IMAGE_TYPE, "imgBack06", 46,35,512,256 )
+UI_LoadImage( imgBack06, "texture/gui/old_gui/church04.tga", NORMAL, 46, 35, 46, 0 )
+
+btnPriceUp = UI_CreateCompent( frmChurchSale, BUTTON_TYPE, "btnPriceUp", 41, 19, 492, 118)
+UI_LoadButtonImage( btnPriceUp, "texture/gui/old_gui/church03.tga", 41, 19, 1, 55, TRUE )
+
+--加载显示label
+labInfoShow1 = UI_CreateCompent( frmChurchSale, LABELEX_TYPE, "labInfoShow1", 124, 16,24,122 )
+UI_SetCaption( labInfoShow1, "Program writes here")
+UI_SetTextColor( labInfoShow1, COLOR_BLACK )
+UI_SetLabelExFont( labInfoShow1, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labInfoShow2 = UI_CreateCompent( frmChurchSale, LABELEX_TYPE, "labInfoShow2", 124, 16, 186,122 )
+UI_SetCaption( labInfoShow2, "Program writes here")
+UI_SetTextColor( labInfoShow2, COLOR_BLACK )
+UI_SetLabelExFont( labInfoShow2, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labInfoShow3 = UI_CreateCompent( frmChurchSale, LABELEX_TYPE, "labInfoShow3", 98, 16,373,122  )
+UI_SetCaption( labInfoShow3, "Program writes here")
+UI_SetTextColor( labInfoShow3, COLOR_BLACK )
+UI_SetLabelExFont( labInfoShow3, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labTittle = UI_CreateCompent( frmChurchSale, LABELEX_TYPE, "labTittle", 496,16,23,35 )
+UI_SetCaption( labTittle, "Please make sure your inventory have two empty spaces")
+UI_SetTextColor( labTittle, COLOR_BLACK )
+UI_SetLabelExFont( labTittle, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+
+--加载文字label
+labTextShow = UI_CreateCompent( frmChurchSale, LABELEX_TYPE, "labTextShow", 496,16,23,202 )
+UI_SetCaption( labTextShow, "Bid for renting Saturday 1st timing for Church usage is Every Monday 06:00pm-06:30 pm")
+UI_SetTextColor( labTextShow, COLOR_BLACK )
+UI_SetLabelExFont( labTextShow, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labTextShow = UI_CreateCompent( frmChurchSale, LABELEX_TYPE, "labTextShow", 496,16,23,216 )
+UI_SetCaption( labTextShow, "Bid for renting Saturday 2nd timing for Church usage is Every Monday 06:40pm-07:10 pm")
+UI_SetTextColor( labTextShow, COLOR_BLACK )
+UI_SetLabelExFont( labTextShow, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labTextShow = UI_CreateCompent( frmChurchSale, LABELEX_TYPE, "labTextShow", 496,16,23,230 )
+UI_SetCaption( labTextShow, "Bid for renting Sunday 1st timing for Church usage is Every Monday 07:20pm-07:50 pm")
+UI_SetTextColor( labTextShow, COLOR_BLACK )
+UI_SetLabelExFont( labTextShow, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labTextShow = UI_CreateCompent( frmChurchSale, LABELEX_TYPE, "labTextShow", 496,16,23,244 )
+UI_SetCaption( labTextShow, "Bid for renting Sunday 2nd timing for Church usage is Every Monday 08:00pm-08:30 pm")
+UI_SetTextColor( labTextShow, COLOR_BLACK )
+UI_SetLabelExFont( labTextShow, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmChurchSale, BUTTON_TYPE, "btnClose", 14, 14, 538, 3 )
+UI_LoadButtonImage( btnClose, "texture/gui/old_gui/PublicC.tga", 14, 14, 116, 175, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+----------------------------------------------------------------------- 
+-- Ежедневные награды
+----------------------------------------------------------------------- 
+frmDailyPrize = UI_CreateForm( "frmDailyPrize", FALSE, 640, 366, 0, 0, TRUE, FALSE ) 
+UI_AddFormToTemplete( frmDailyPrize, FORM_MAIN )
+UI_FormSetIsEscClose( frmDailyPrize, FALSE )
+UI_SetIsDrag( frmDailyPrize, FALSE)
+
+imgBackground = UI_CreateCompent( frmDailyPrize, IMAGE_TYPE, "imgBackground", 640, 366, 0, 0 ) 
+UI_LoadImage( imgBackground, "texture/gui/daily-prize.png", NORMAL, 640, 366, 0, 0 ) 
+
+btnGetPrize = UI_CreateCompent( frmDailyPrize, BUTTON_TYPE, "btnGetPrize", 120, 46, 259, 256 )
+UI_LoadButtonImage( btnGetPrize, "texture/gui/daily-prize.png", 120, 46, 0, 397, TRUE )
+UI_SetButtonModalResult( btnGetPrize, BUTTON_CLOSE )
+
+grdDailySocket = UI_CreateCompent( frmDailyPrize, GOODS_GRID_TYPE, "grdDailySocket", 32, 340, 151, 141 ) 
+UI_SetGridSpace( grdDailySocket, 19, 0 )
+UI_SetGridContent( grdDailySocket, 1, 7 )
+UI_SetGridUnitSize( grdDailySocket, 32, 32 )
+UI_SetMargin( grdDailySocket, 0,0, 0, 	0 )
+
+grdDailySocketVip = UI_CreateCompent( frmDailyPrize, GOODS_GRID_TYPE, "grdDailySocketVip", 32, 340, 151, 204 ) 
+UI_SetGridSpace( grdDailySocketVip, 19, 0 )
+UI_SetGridContent( grdDailySocketVip, 1, 7 )
+UI_SetGridUnitSize( grdDailySocketVip, 32, 32 )
+UI_SetMargin( grdDailySocketVip, 0,0, 0, 	0 )
+
+imgGettedPize = UI_CreateCompent( frmDailyPrize, IMAGE_TYPE, "imgGettedPize", 32, 30, 0, -20 ) 
+UI_LoadImage( imgGettedPize, "texture/gui/daily-prize.png", NORMAL, 32, 30, 544, 403 )
+
+imgNowDay = UI_CreateCompent( frmDailyPrize, IMAGE_TYPE, "imgNowDay", 42, 42, 0, 0 ) 
+UI_LoadImage( imgNowDay, "texture/gui/daily-prize.png", NORMAL, 42, 42, 502, 397 )
+
+-------------------
+-------------------
+----------------------------
+--Maze Portal timer --
+----------------------------
+frmPortalTime = UI_CreateForm("frmPortalTime", FALSE, 693, 197, 0, 0, TRUE, TRUE)
+imgPortal = UI_CreateCompent( frmPortalTime, IMAGE_TYPE, "imgPortal", 693, 197, 0, 0 )
+UI_LoadImage( imgPortal, "texture/ui/mapTimer.png", NORMAL, 693, 197, 0, 0 )
+
+UI_ShowForm( frmPortalTime, FALSE )
+UI_FormSetHotKey( frmPortalTime, ALT_KEY, HOTKEY_T )
+-- UI_AddFormToTemplete( frmPortalTime, FORM_MAIN )
+UI_SetIsDrag(frmPortalTime, TRUE)
+UI_SetFormStyle( frmPortalTime, 0 )
+
+labInfoShow1 = UI_CreateCompent( frmPortalTime, LABELEX_TYPE, "labInfoShow1", 124, 16, 320, 2)
+UI_SetCaption( labInfoShow1, "Portal Timers")
+UI_SetTextColor( labInfoShow1, COLOR_BLACK )
+UI_SetLabelExFont( labInfoShow1, DEFAULT_FONT, FALSE, COLOR_RED )
+
+list = UI_CreateListView( frmPortalTime, "list", 680, 226, 8, 35, 5, 1)
+UI_SetListRowHeight( list, 16 )
+id = UI_GetScroll( list )
+UI_SetIsEnabled( id, TRUE )
+UI_ListViewSetTitle( list, 0, 250, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( list, 1, 185, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( list, 2, 80, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( list, 3, 80, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( list, 4, 80, "", 0, 0, 0, 0 )
+
+UI_SetListIsMouseFollow( list, FALSE )
+
+btnClose = UI_CreateCompent( frmPortalTime, BUTTON_TYPE, "btnClose", 14, 14, 675, 1 )
+UI_LoadButtonImage( btnClose, "texture/gui/old_gui/PublicC.tga", 14, 14, 116, 175, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+scrollid = UI_GetScroll( list )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui/Satisfy/PublicC.png", COMPENT_BACK, 11, 1, 194, 13 )
+
+--Scroll
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/gui/old_gui/PublicC.png", 9, 9, 166, 0, TRUE )
+UI_SetSize( id, 9, 9 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/old_gui/PublicC.png", COMPENT_BACK, 9, 44, 166, 9 )
+UI_SetSize( id, 9, 44 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/gui/old_gui/PublicC.png", 9, 9, 166, 0, TRUE )
+UI_SetSize( id, 9, 9 )
+ -----------------------maze portal timer end 
+ 
