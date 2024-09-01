@@ -48,6 +48,10 @@ UI_LoadButtonImage( btnUpdate, "texture/gui/updater.png", 310, 70, 0, 0, FALSE )
 btnPlay = UI_CreateCompent( frmUpdater, BUTTON_TYPE, "btnPlay", 180, 50, 180+20+310+20, 300)
 UI_LoadButtonImage( btnPlay, "texture/gui/updater.png", 180, 50, 310, 200, FALSE )
 
+labStatus = UI_CreateCompent( frmUpdater, LABELEX_TYPE, "labStatus", 200, 20, 0, 260 )
+UI_SetCaption( labStatus, "Begin..." )
+UI_SetTextColor( labStatus, COLOR_WHITE )
+UI_SetLabelExFont( labStatus, FONT016, TRUE, COLOR_BLACK )
 
 -----------------------------------------------------------------------
 -- Login Form
