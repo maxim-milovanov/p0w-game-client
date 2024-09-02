@@ -1,7 +1,7 @@
 -----------------------------------------------------------------------
 -- Selete gate
 -----------------------------------------------------------------------	
-frmServer = UI_CreateForm( "frmServer", FALSE, 441, 281, 396, 225, FALSE, FALSE )
+frmServer = UI_CreateForm( "frmServer", FALSE, 441, 281, 396, 300, FALSE, FALSE )
 UI_SetFormStyle( frmServer , 2 )
 UI_AddFormToTemplete( frmServer, FORM_LOGIN )
 UI_FormSetIsEscClose( frmServer, FALSE )
@@ -31,7 +31,7 @@ UI_SetListFontColor( lvServer, 4286213985, 4291467848 )
 -----------------------------------------------------------------------
 -- Updater
 -----------------------------------------------------------------------
-frmUpdater = UI_CreateForm( "frmUpdater", FALSE, 710, 360, 396, 225+50, FALSE, FALSE )
+frmUpdater = UI_CreateForm( "frmUpdater", FALSE, 710, 360, 396, 300+50, FALSE, FALSE )
 UI_SetFormStyle( frmUpdater , 2 )
 UI_AddFormToTemplete( frmUpdater, FORM_LOGIN )
 UI_FormSetIsEscClose( frmUpdater, FALSE )
@@ -56,7 +56,7 @@ UI_SetLabelExFont( labStatus, FONT016, TRUE, COLOR_BLACK )
 -----------------------------------------------------------------------
 -- Login Form
 -----------------------------------------------------------------------
-frmAccount = UI_CreateForm( "frmAccount", FALSE, 501, 330, 310, 340, FALSE, FALSE )
+frmAccount = UI_CreateForm( "frmAccount", FALSE, 501, 330, 310, 420, FALSE, FALSE )
 UI_AddFormToTemplete( frmAccount, FORM_LOGIN )
 UI_SetFormStyle( frmAccount, 2 )
 UI_FormSetIsEscClose( frmAccount, FALSE )
