@@ -691,6 +691,10 @@ animation\0953.lab	7612e9330c636a2822d3ff60f1070c88
 animation\0954.lab	1e0df4e8f7cbfe594539824acf55b210
 animation\0955.lab	255dab891b627e62d073045249168ff9
 animation\0956.lab	e85423cb2714cc1699a1838e007e05c1
+animation\0980.lab	ddebfa33cb5d0e073c163024fb9c6f1f
+animation\0981.lab	ddebfa33cb5d0e073c163024fb9c6f1f
+animation\0982.lab	ddebfa33cb5d0e073c163024fb9c6f1f
+animation\0983.lab	ddebfa33cb5d0e073c163024fb9c6f1f
 animation\1000.lab	9f21338a7dd8ff5ec6cf1234ed9086f6
 animation\1001.lab	a5e92b689a9a4659572d4fc9f9d82e9c
 animation\1002.lab	fd942f775bd3f37c7f8ba0552d1c7dcb
@@ -7578,6 +7582,10 @@ model\character\0953000000.lgo	605d5afa97779153723576faf4e6d5d0
 model\character\0954000000.lgo	7efaeb73e0ad16d6e1f21ba962745e03
 model\character\0955000000.lgo	f53c41a0cc4d101c75fc5e2bab7e4f72
 model\character\0956000000.lgo	b53fc30d95443197648bbeec134866e4
+model\character\0980000000.lgo	fe3845b7a90e1b635a9a24608ebdc8d9
+model\character\0981000000.lgo	52287d3896aaea4a9bc33c410e619ea0
+model\character\0982000000.lgo	01af9903a5ad6406f5a7ec1fc92f9325
+model\character\0983000000.lgo	1d9e3bc672567c4bc4127cef93c7679a
 model\character\0990000001.lgo	b2662a901d77cc60abd2faae7cd7e7c5
 model\character\0990000002.lgo	0be9b831e2a9422eea13e1d8c5e9e6ca
 model\character\09FUYUWU01.lgo	1faafcad1edc84419d27567c34e003ee
@@ -22047,6 +22055,10 @@ texture\character\0910000000.tga	fcad9f24f160fae63e5a91231cd08cfc
 texture\character\0910000001.tga	403fbcf87c317384a61f303ae3ba6248
 texture\character\09180000.bmp	b089b4e0ed23afa2b92248160772cbf8
 texture\character\09190000.bmp	a5f0822e3c46caf04ebe887b30d9a8f6
+texture\character\0980000000.bmp	854479f30a95ed76fffdcf81929744d8
+texture\character\0981000000.bmp	857955d2478724ee298a260a67f65825
+texture\character\0982000000.bmp	e3f0b73b2bbf8e722c80c8385c6da72c
+texture\character\0983000000.bmp	7bb5bca90534fd5600e5590b1e07d252
 texture\character\09FUYUWU01.bmp	324c2480a6f2c303920d98ad2c82affa
 texture\character\09FUYUWU02.bmp	3ffd1a80c9fd427dbc884fc4a858ba60
 texture\character\09FUYUWU03.bmp	1642d7150ad8cf06ab647ddc4ba4e6e7
