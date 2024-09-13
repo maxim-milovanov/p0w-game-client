@@ -1,7 +1,7 @@
 -----------------------------------------------------------------------
 -- Selete gate
 -----------------------------------------------------------------------	
-frmServer = UI_CreateForm( "frmServer", FALSE, 441, 281, 396, 300, FALSE, FALSE )
+frmServer = UI_CreateForm( "frmServer", FALSE, 441, 281, 396, 100, FALSE, FALSE )
 UI_SetFormStyle( frmServer , 2 )
 UI_AddFormToTemplete( frmServer, FORM_LOGIN )
 UI_FormSetIsEscClose( frmServer, FALSE )
@@ -31,27 +31,28 @@ UI_SetListFontColor( lvServer, 4286213985, 4291467848 )
 -----------------------------------------------------------------------
 -- Updater
 -----------------------------------------------------------------------
-frmUpdater = UI_CreateForm( "frmUpdater", FALSE, 710, 360, 396, 300+50, FALSE, FALSE )
+frmUpdater = UI_CreateForm( "frmUpdater", FALSE, 710, 90, 396, 400, FALSE, FALSE )
 UI_SetFormStyle( frmUpdater , 2 )
 UI_AddFormToTemplete( frmUpdater, FORM_LOGIN )
 UI_FormSetIsEscClose( frmUpdater, FALSE )
 
--- §£§à§ã§ã§ä§Ñ§ß§à§Ó§Ý§Ö§ß§Ú§Ö §Ü§Ý§Ú§Ö§ß§ä§Ñ §Õ§à §à§â§Ú§Ô§Ú§ß§Ñ§Ý§î§ß§í§ç §æ§Ñ§Û§Ý§à§Ó
-btnVersionCheck = UI_CreateCompent( frmUpdater, BUTTON_TYPE, "btnVersionCheck", 180, 50, 0, 300)
-UI_LoadButtonImage( btnVersionCheck, "texture/gui/updater.png", 180, 50, 310, 0, FALSE )
-
--- §¬§ß§à§á§Ü§Ñ §à§Ò§ß§à§Ó§Ý§Ö§ß§Ú§ñ §Ü§Ý§Ú§Ö§ß§ä§Ñ
-btnUpdate = UI_CreateCompent( frmUpdater, BUTTON_TYPE, "btnUpdate", 310, 70, 180+20, 290)
-UI_LoadButtonImage( btnUpdate, "texture/gui/updater.png", 310, 70, 0, 0, FALSE )
-
--- §¬§ß§à§á§Ü§Ñ §ã§Ü§Ú§á§Ñ §à§Ò§ß§à§Ó§Ý§Ö§ß§Ú§ñ
-btnPlay = UI_CreateCompent( frmUpdater, BUTTON_TYPE, "btnPlay", 180, 50, 180+20+310+20, 300)
-UI_LoadButtonImage( btnPlay, "texture/gui/updater.png", 180, 50, 310, 200, FALSE )
-
-labStatus = UI_CreateCompent( frmUpdater, LABELEX_TYPE, "labStatus", 200, 20, 0, 260 )
+labStatus = UI_CreateCompent( frmUpdater, LABELEX_TYPE, "labStatus", 200, 20, 0, 0 )
 UI_SetCaption( labStatus, "Begin..." )
 UI_SetTextColor( labStatus, COLOR_WHITE )
 UI_SetLabelExFont( labStatus, FONT016, TRUE, COLOR_BLACK )
+
+-- §£§à§ã§ã§ä§Ñ§ß§à§Ó§Ý§Ö§ß§Ú§Ö §Ü§Ý§Ú§Ö§ß§ä§Ñ §Õ§à §à§â§Ú§Ô§Ú§ß§Ñ§Ý§î§ß§í§ç §æ§Ñ§Û§Ý§à§Ó
+btnVersionCheck = UI_CreateCompent( frmUpdater, BUTTON_TYPE, "btnVersionCheck", 180, 50, 0, 50)
+UI_LoadButtonImage( btnVersionCheck, "texture/gui/updater.png", 180, 50, 310, 0, FALSE )
+
+-- §¬§ß§à§á§Ü§Ñ §à§Ò§ß§à§Ó§Ý§Ö§ß§Ú§ñ §Ü§Ý§Ú§Ö§ß§ä§Ñ
+btnUpdate = UI_CreateCompent( frmUpdater, BUTTON_TYPE, "btnUpdate", 310, 70, 180+20, 40)
+UI_LoadButtonImage( btnUpdate, "texture/gui/updater.png", 310, 70, 0, 0, FALSE )
+
+-- §¬§ß§à§á§Ü§Ñ §ã§Ü§Ú§á§Ñ §à§Ò§ß§à§Ó§Ý§Ö§ß§Ú§ñ
+btnPlay = UI_CreateCompent( frmUpdater, BUTTON_TYPE, "btnPlay", 180, 50, 180+20+310+20, 50)
+UI_LoadButtonImage( btnPlay, "texture/gui/updater.png", 180, 50, 310, 200, FALSE )
+
 
 -----------------------------------------------------------------------
 -- Login Form

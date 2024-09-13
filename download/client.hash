@@ -18417,7 +18417,7 @@ scripts\lua\forms\editor.clu	20418a4d0799cdd0c59cd157306275be
 scripts\lua\forms\Equip.clu	f4e47597463d890d9691a88ccb400394
 scripts\lua\forms\help.clu	70e21b1f8a4c80a39e01c66957fae7fd
 scripts\lua\forms\loading.clu	43c894d385b2897410fbbb826ce826de
-scripts\lua\forms\login.clu	4dfb51551b29950d8cec9f4539401bb7
+scripts\lua\forms\login.clu	e5cb6cd298604d04c6251dd22573b54b
 scripts\lua\forms\main.clu	7a2dbb4f2e32963b824b243ae2f1b296
 scripts\lua\forms\manage.clu	519ca29d67cc4d063fd3e38ed70207ec
 scripts\lua\forms\minimap.clu	6446b5d45382a5104e0532f5cf14f23f
@@ -18428,7 +18428,7 @@ scripts\lua\forms\preperty.clu	e825fde1432744e0bbe402dd6294dd88
 scripts\lua\forms\select.clu	e34943a31e6d2c2165860ccce0bc800b
 scripts\lua\forms\selectcha.clu	0e57706610017191f50bcc0ac2c0f8f6
 scripts\lua\forms\ship.clu	aa4312d72b0f61260c4d1d43014e3105
-scripts\lua\forms\system.clu	3a7efb8459c8fbdd15033175f990eea4
+scripts\lua\forms\system.clu	d9fddfc412b2efd1e61ebb56e6b5caec
 scripts\lua\forms\traderoom.clu	aa0a3786000bb75f3a44482a2e0dd66c
 scripts\lua\gui.clu	0f8ab8edbe5944f7943a9b79e97c4da4
 scripts\lua\mission\mission.lua	d6832a2a464a0f591b966310fda483c2
@@ -18475,7 +18475,7 @@ scripts\table\shadeinfo.bin	2a0ad26f2c371e5d921a116212131e74
 scripts\table\shipinfo.bin	4e0dce2252a025f48f54a52b58a7ea39
 scripts\table\shipiteminfo.bin	0f8daa750857371edd1edd732c01cdaf
 scripts\table\skilleff.bin	29bbfceb61640477d23b283f30b5e40e
-scripts\table\skillinfo.bin	6b93486453cbebc6a78026b9ba9c1b0c
+scripts\table\skillinfo.bin	b8852a5c70afa8e047bbc705391663ae
 scripts\table\StoneInfo.bin	0514c9ff22dcfde3998d501a495c3514
 scripts\table\StringSet.bin	298621188171081175e4b29be0734f16
 scripts\table\TerrainInfo.bin	0348aae42963af0955555e6d0ad817f6
@@ -18553,7 +18553,7 @@ system\CaLua.dll	5c55c71cce36c5c85e5266dd01a1d2a5
 system\discord-rpc.dll	b6fd682381b825d2ceba5995c296dde3
 system\en_US.res	63de64711605ad29ff11301536052db3
 system\ErrorReport.exe	495f093d2902854332ad5c44e49a62db
-system\Game.exe	7a84fcf8b409552482b538b475efa3d6
+system\Game.exe	64556fb8bfd215db578db9f6d0fb7b12
 system\icudt38.dll	9b5ac1badf16aea1a48dae77fca76670
 system\icuuc38.dll	395b5b053bc7505626e446f36b92d0c5
 system\libcurl.dll	b613b88a5a778361e570515c968c7350
