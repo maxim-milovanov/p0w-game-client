@@ -218,6 +218,20 @@ cbxModel = UI_CreateCompent( frmVideo, CHECK_GROUP_TYPE, "cbxModel", 0, 0, 0, 0 
 UI_AddGroupBox( cbxModel, chkFull )
 UI_AddGroupBox( cbxModel, chkWindow )
 
+cboPixel  = UI_CreateCompent( frmVideo, COMBO_TYPE, "cboPixel", 98, 20, 175, 308 )
+UI_ComboSetStyle( cboPixel, TRUE )
+UI_ComboSetTextColor( cboPixel, COLOR_WHITE )
+
+lstPixel = UI_GetList( cboPixel )
+UI_SetListFontColor( lstPixel, COLOR_WHITE, COLOR_WHITE )
+UI_SetSize( lstPixel, 81, 190 )
+UI_SetMargin( lstPixel, 16,6,16,0 )
+UI_SetListRowHeight( lstPixel, 18 )
+UI_LoadImage( lstPixel, "texture/gui/select-map.png", COMPENT_BACK, 81, 68, 4, 114 )
+UI_AddListText( lstPixel, "1024x768" )
+UI_SetListIsMouseFollow( lstPixel, TRUE)
+UI_ComboSetTextColor( lstPixel, COLOR_WHITE )
+
 -----------------------------------------------------------------------
 -- esc -> game setting
 -----------------------------------------------------------------------
