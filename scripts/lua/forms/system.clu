@@ -283,6 +283,8 @@ addSystemOption(frmGame,"cbxIsWingShow", 516, 180, 479, 180)
 addSystemOption(frmGame,"cbxIsMountsShow", 516, 214, 479, 214)
 -- Character apparels
 addSystemOption(frmGame,"cbxIsApparelShow", 516, 248, 479, 248)
+-- Magic melee tweak
+addSystemOption(frmGame,"cbxisMagicMeleeTweak", 516, 282, 479, 282)
 
 -----------------------------------------------------------------------
 -- 
