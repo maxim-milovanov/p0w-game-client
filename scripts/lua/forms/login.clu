@@ -1,144 +1,157 @@
 -----------------------------------------------------------------------
 -- Selete gate
 -----------------------------------------------------------------------	
-frmServer = UI_CreateForm( "frmServer", FALSE, 441, 281, 396, 100, FALSE, FALSE )
+frmServer = UI_CreateForm( "frmServer", FALSE, 345, 500, 396, 100, FALSE, FALSE )
 UI_SetFormStyle( frmServer , 2 )
 UI_AddFormToTemplete( frmServer, FORM_LOGIN )
 UI_FormSetIsEscClose( frmServer, FALSE )
 
-imgBakTop = UI_CreateCompent( frmServer, IMAGE_TYPE, "imgBakTop", 441, 280, 0, 0 )
-UI_LoadImage( imgBakTop, "texture/gui/region.png", NORMAL, 441, 281, 456, 0 )
+local __left = 16
+local __up = 75
 
-btnNo = UI_CreateCompent( frmServer, BUTTON_TYPE, "btnNo", 32, 32, 416-20, 13 )
-UI_LoadButtonImage( btnNo, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
+imgBackground = UI_CreateCompent( frmServer, IMAGE_TYPE, "imgBackground", 345, 329, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0 )
+
+imgSelectGate = UI_CreateCompent( frmServer, IMAGE_TYPE, "imgSelectGate", 307, 41, 25, 20 )
+UI_LoadImage( imgSelectGate, "texture/gui/btnServer.png", NORMAL, 307, 41, 0, 727 )
+
+btnNo = UI_CreateCompent( frmServer, BUTTON_TYPE, "btnNo", 28, 26, 290, 18 )
+UI_LoadButtonImage( btnNo, "texture/gui/btnServer.png", 28, 26, 0, 512, TRUE )
 UI_SetAlpha(btnNo,210)
 
-imgServerIcon = UI_CreateCompent( frmServer, IMAGE_TYPE, "imgServerIcon", 16, 11, 0, 0 )
-UI_LoadImage( imgServerIcon, "texture/gui/old_gui/forge3.tga", NORMAL, 16, 11, 164, 76 )
+-- worldwide
+btnServer_0 = UI_CreateCompent( frmServer, BUTTON_TYPE, "btnServer_0", 320, 71, __left, __up )
+UI_LoadButtonImage( btnServer_0, "texture/gui/btnServer.png", 320, 71, 8, 8, TRUE )
 
-lvServer = UI_CreateListView( frmServer, "lvServer", 210, 200, 16, 35, 3, 2 )
-UI_SetMargin( lvServer, 19, 20, 15, 0 )
-UI_ListViewSetTitle( lvServer, 0, 20, "", 0, 0, 0, 0 )
-UI_ListViewSetTitle( lvServer, 1, 75, "", 0, 0, 0, 0 )
-UI_ListViewSetTitle( lvServer, 2, 30, "", 0, 0, 0, 0 )
-UI_ListSetItemMargin( lvServer, 20, 15 )
-UI_SetListRowHeight( lvServer, 45 )
-UI_SetListIsMouseFollow( lvServer, TRUE)
-UI_ListLoadSelectImage( lvServer, "texture/gui/region.png", 130, 22, 155, 292 )
-UI_SetImageAlpha( lvServer, 134 )
-UI_SetListFontColor( lvServer, 4286213985, 4291467848 )
+labServer_0 = UI_CreateCompent( frmServer, LABELEX_TYPE, "labServer_0", 200, 20, __left + 77, __up + 38 )
+UI_SetCaption( labServer_0, "Ping: 0ms" )
+UI_SetTextColor( labServer_0, COLOR_958273 )
+UI_SetLabelExFont( labServer_0, FONT016, TRUE, COLOR_BLACK )
 
------------------------------------------------------------------------
--- Updater
------------------------------------------------------------------------
-frmUpdater = UI_CreateForm( "frmUpdater", FALSE, 710, 90, 396, 400, FALSE, FALSE )
-UI_SetFormStyle( frmUpdater , 2 )
-UI_AddFormToTemplete( frmUpdater, FORM_LOGIN )
-UI_FormSetIsEscClose( frmUpdater, FALSE )
+-- europe
+btnServer_1 = UI_CreateCompent( frmServer, BUTTON_TYPE, "btnServer_1", 320, 71, __left, __up + (71 + 6) )
+UI_LoadButtonImage( btnServer_1, "texture/gui/btnServer.png", 320, 71, 8, 8 + 71, TRUE )
 
-labStatus = UI_CreateCompent( frmUpdater, LABELEX_TYPE, "labStatus", 200, 20, 0, 0 )
+labServer_1 = UI_CreateCompent( frmServer, LABELEX_TYPE, "labServer_1", 200, 20, __left + 77, __up + (71 + 6) + 38 )
+UI_SetCaption( labServer_1, "Ping: 0ms" )
+UI_SetTextColor( labServer_1, COLOR_958273 )
+UI_SetLabelExFont( labServer_1, FONT016, TRUE, COLOR_BLACK )
+
+-- stall mode
+btnServer_2 = UI_CreateCompent( frmServer, BUTTON_TYPE, "btnServer_2", 320, 71, __left, __up + (71 + 6) + (71 + 6) )
+UI_LoadButtonImage( btnServer_2, "texture/gui/btnServer.png", 320, 71, 8, 8 + 71 + 71, TRUE )
+
+labServer_2 = UI_CreateCompent( frmServer, LABELEX_TYPE, "labServer_2", 200, 20, __left + 77, __up + (71 + 6) + (71 + 6) + 38 )
+UI_SetCaption( labServer_2, "Ping: 0ms" )
+UI_SetTextColor( labServer_2, COLOR_958273 )
+UI_SetLabelExFont( labServer_2, FONT016, TRUE, COLOR_BLACK )
+
+-- other
+btnServer_3 = UI_CreateCompent( frmServer, BUTTON_TYPE, "btnServer_3", 320, 71, __left, __up + (71 + 6) + (71 + 6) + (71 + 6) )
+UI_LoadButtonImage( btnServer_3, "texture/gui/btnServer.png", 320, 71, 8, 8 + 71 + 71 + 71, TRUE )
+
+labServer_3 = UI_CreateCompent( frmServer, LABELEX_TYPE, "labServer_3", 200, 20, __left + 77, __up + (71 + 6) + (71 + 6) + (71 + 6) + 38 )
+UI_SetCaption( labServer_3, "Ping: 0ms" )
+UI_SetTextColor( labServer_3, COLOR_958273 )
+UI_SetLabelExFont( labServer_3, FONT016, TRUE, COLOR_BLACK )
+
+-- other
+btnServer_4 = UI_CreateCompent( frmServer, BUTTON_TYPE, "btnServer_4", 320, 71, __left, __up + (71 + 6) + (71 + 6) + (71 + 6) + (71 + 6) )
+UI_LoadButtonImage( btnServer_4, "texture/gui/btnServer.png", 320, 71, 8, 8 + 71 + 71 + 71, TRUE )
+
+labServer_4 = UI_CreateCompent( frmServer, LABELEX_TYPE, "labServer_4", 200, 20, __left + 77, __up + (71 + 6) + (71 + 6) + (71 + 6) + (71 + 6) + 38 )
+UI_SetCaption( labServer_4, "Ping: 0ms" )
+UI_SetTextColor( labServer_4, COLOR_958273 )
+UI_SetLabelExFont( labServer_4, FONT016, TRUE, COLOR_BLACK )
+
+-- Статус обновления
+labStatus = UI_CreateCompent( frmServer, LABELEX_TYPE, "labStatus", 345, 20, -25, 370 )
 UI_SetCaption( labStatus, "Begin..." )
 UI_SetTextColor( labStatus, COLOR_WHITE )
 UI_SetLabelExFont( labStatus, FONT016, TRUE, COLOR_BLACK )
 
 -- Восстановление клиента до оригинальных файлов
-btnVersionCheck = UI_CreateCompent( frmUpdater, BUTTON_TYPE, "btnVersionCheck", 180, 50, 0, 50)
-UI_LoadButtonImage( btnVersionCheck, "texture/gui/updater.png", 180, 50, 310, 0, FALSE )
+btnVersionCheck = UI_CreateCompent( frmServer, BUTTON_TYPE, "btnVersionCheck", 293, 49, __left + 5, 350)
+UI_LoadButtonImage( btnVersionCheck, "texture/gui/btnServer.png", 293, 49, 22, 314, FALSE )
 
 -- Кнопка обновления клиента
-btnUpdate = UI_CreateCompent( frmUpdater, BUTTON_TYPE, "btnUpdate", 310, 70, 180+20, 40)
-UI_LoadButtonImage( btnUpdate, "texture/gui/updater.png", 310, 70, 0, 0, FALSE )
-
--- Кнопка скипа обновления
-btnPlay = UI_CreateCompent( frmUpdater, BUTTON_TYPE, "btnPlay", 180, 50, 180+20+310+20, 50)
-UI_LoadButtonImage( btnPlay, "texture/gui/updater.png", 180, 50, 310, 200, FALSE )
-
+btnUpdate = UI_CreateCompent( frmServer, BUTTON_TYPE, "btnUpdate", 253, 100, __left + 35, 340)
+UI_LoadButtonImage( btnUpdate, "texture/gui/btnServer.png", 253, 100, 328, 312, FALSE )
 
 -----------------------------------------------------------------------
 -- Login Form
 -----------------------------------------------------------------------
-frmAccount = UI_CreateForm( "frmAccount", FALSE, 501, 330, 310, 420, FALSE, FALSE )
+frmAccount = UI_CreateForm( "frmAccount", FALSE, 434, 330, 0, 350, FALSE, FALSE )
 UI_AddFormToTemplete( frmAccount, FORM_LOGIN )
 UI_SetFormStyle( frmAccount, 2 )
 UI_FormSetIsEscClose( frmAccount, FALSE )
 
-imgBackground = UI_CreateCompent( frmAccount, IMAGE_TYPE, "imgBackground", 501, 330, 0, -150 )
-UI_LoadImage( imgBackground, "texture/gui/region.png", NORMAL, 501, 330, 0, 324 )
+imgInput1 = UI_CreateCompent( frmAccount, IMAGE_TYPE, "imgInput1", 434, 121, 0, 0 )
+UI_LoadImage( imgInput1, "texture/gui/btnServer.png", NORMAL, 434, 121, 0, 602 )
+UI_SetAlpha( imgInput1, 150 )
 
-chkID = UI_CreateCompent( frmAccount, CHECK_TYPE, "chkID", 28, 28, 180+41, 25+4 )
-UI_LoadImage( chkID, "texture/gui/region.png", UNCHECKED, 28, 28, 312, 295 )
-UI_LoadImage( chkID, "texture/gui/region.png", CHECKED, 28, 28, 341, 295 )
-UI_SetHint( chkID, "Remember ID" )
+imgInput2 = UI_CreateCompent( frmAccount, IMAGE_TYPE, "imgInput2", 434, 121, 0, 90 )
+UI_LoadImage( imgInput2, "texture/gui/btnServer.png", NORMAL, 434, 121, 0, 602 )
+UI_SetAlpha( imgInput2, 150 )
 
-btnYes = UI_CreateCompent( frmAccount, BUTTON_TYPE, "btnYes", 151, 44, 84+140, 70 )
-UI_LoadButtonImage( btnYes, "texture/gui/region.png", 151, 44, 666, 339, FALSE )
+imgRememberme = UI_CreateCompent( frmAccount, IMAGE_TYPE, "imgRememberme", 154, 41, 165, 220 )
+UI_LoadImage( imgRememberme, "texture/gui/btnServer.png", NORMAL, 154, 41, 488, 640 )
 
-btnNo = UI_CreateCompent( frmAccount, BUTTON_TYPE, "btnNo", 151, 44, 84+140, 70+44+10 )
-UI_LoadButtonImage( btnNo, "texture/gui/region.png", 151, 44, 514, 339, FALSE )
+imgUsername = UI_CreateCompent( frmAccount, IMAGE_TYPE, "imgUsername", 111, 21, 160, 57 )
+UI_LoadImage( imgUsername, "texture/gui/btnServer.png", NORMAL, 111, 21, 669, 651 )
 
-labYes = UI_CreateCompent( frmAccount, LABELEX_TYPE, "labYes", 42, 10, 107, 155 )
-UI_SetCaption( labYes, "" )
-UI_SetTextColor( labYes, COLOR_WHITE )
-UI_SetLabelExFont( labYes, DEFAULT_FONT, TRUE, COLOR_BLACK )
+imgPassword = UI_CreateCompent( frmAccount, IMAGE_TYPE, "imgPassword", 108, 21, 160, 147 )
+UI_LoadImage( imgPassword, "texture/gui/btnServer.png", NORMAL, 108, 21, 670, 674 )
 
-labNo = UI_CreateCompent( frmAccount, LABELEX_TYPE, "labNo", 42, 10, 152, 155 )
-UI_SetCaption( labNo, "" )
-UI_SetTextColor( labNo, COLOR_WHITE )
-UI_SetLabelExFont( labNo, DEFAULT_FONT, TRUE, COLOR_BLACK )
+chkRememberme = UI_CreateCompent( frmAccount, CHECK_TYPE, "chkRememberme", 43, 41, 120, 220 )
+UI_LoadImage( chkRememberme, "texture/gui/btnServer.png", UNCHECKED, 43, 41, 441, 679 )
+UI_LoadImage( chkRememberme, "texture/gui/btnServer.png", CHECKED, 43, 41, 441, 640 )
+UI_SetHint( chkRememberme, "Remember ID" )
 
-edtID = UI_CreateCompent( frmAccount, EDIT_TYPE, "edtID", 120, 12, 240, -30 )
+btnEnterLogin = UI_CreateCompent( frmAccount, BUTTON_TYPE, "btnEnterLogin", 253, 100, 100, 270 )
+UI_LoadButtonImage( btnEnterLogin, "texture/gui/btnServer.png", 253, 100, 581, 312, FALSE )
+
+btnSelectGate = UI_CreateCompent( frmAccount, BUTTON_TYPE, "btnSelectGate", 293, 49, 70, 240 )
+UI_LoadButtonImage( btnSelectGate, "texture/gui/btnServer.png", 293, 49, 850, 314, FALSE )
+
+edtID = UI_CreateCompent( frmAccount, EDIT_TYPE, "edtID", 300, 12, 100, 60 )
 UI_SetTextColor( edtID, COLOR_B1A58E )
-UI_SetEditMaxNum( edtID, 32 )
-UI_SetEditMaxNumVisible( edtID, 32 )
+UI_SetEditMaxNum( edtID, 35 )
+UI_SetEditMaxNumVisible( edtID, 35 )
 UI_SetEditCursorColor( edtID, COLOR_WHITE )
 
-edtPassword = UI_CreateCompent( frmAccount, EDIT_TYPE, "edtPassword", 120, 12, 240, -2 )
+edtPassword = UI_CreateCompent( frmAccount, EDIT_TYPE, "edtPassword", 300, 12, 100, 150 )
 UI_SetTextColor( edtPassword, COLOR_B1A58E )
-UI_SetEditMaxNum( edtPassword, 20 )
-UI_SetEditMaxNumVisible( edtPassword, 12 )
+UI_SetEditMaxNum( edtPassword, 35 )
+UI_SetEditMaxNumVisible( edtPassword, 35 )
 UI_SetEditCursorColor( edtPassword, COLOR_WHITE )
 
-imgAccountList = UI_CreateCompent(frmAccount, IMAGE_TYPE, "imgAccountList", 19, 12, 350, -30)
-UI_LoadImage(imgAccountList, "texture/gui/region.png", NORMAL, 19, 12, 372, 302)
+-----------------------------------------------------------------------
+-- Fast login
+-----------------------------------------------------------------------	
+frmFastLogin = UI_CreateForm( "frmFastLogin", FALSE, 500, 180, 0, 150, FALSE, FALSE )
+UI_AddFormToTemplete( frmFastLogin, FORM_LOGIN )
+UI_SetFormStyle( frmFastLogin, 2 )
+UI_FormSetIsEscClose( frmFastLogin, FALSE )
 
-AccountList  = UI_CreateCompent( frmAccount, COMBO_TYPE, "AccountList", 98, 12, 350, -33 )
-UI_ComboSetStyle( AccountList, TRUE )
-UI_ComboSetTextColor( AccountList, COLOR_WHITE )
+imgBackground = UI_CreateCompent( frmFastLogin, IMAGE_TYPE, "imgBackground", 500, 180, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0 )
 
-lstAccountList = UI_GetList( AccountList )
-UI_SetListFontColor( lstAccountList, COLOR_WHITE, COLOR_WHITE )
-UI_SetSize( lstAccountList, 81, 100 )
-UI_SetMargin( lstAccountList, 16,6,16,0 )
-UI_SetListRowHeight( lstAccountList, 18 )
-UI_LoadImage( lstAccountList, "texture/gui/select-map.png", COMPENT_BACK, 81, 68, 4, 114 )
-UI_SetListIsMouseFollow( lstAccountList, TRUE)
-UI_ComboSetTextColor( lstAccountList, COLOR_WHITE )
+pageListLogin = UI_CreateCompent( frmFastLogin, PAGE_TYPE, "pageListLogin", 185, 275, 0, 0 )
+UI_SetPageButton( pageListLogin, PAGE_BUTTON_CUSTOM, 48, 16 )
 
-scrollid = UI_GetScroll(lstAccountList)
+listLogin = UI_CreateListView( frmFastLogin, "listLogin", 480, 170, 20, 0, 50, 20 )
+UI_ListViewSetTitle( listLogin, 0, 240, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( listLogin, 1, 140, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( listLogin, 2, 100, "", 0, 0, 0, 0 )
+
+scrollid = UI_GetScroll( listLogin)
 UI_SetSize( scrollid, 11, 1 )
 UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
 
 id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
 UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
 UI_SetSize( id, 13, 43 )
-
-btnRemoveAccount = UI_CreateCompent( frmAccount, BUTTON_TYPE, "btnRemoveAccount", 34, 40, 390, 72)
-UI_LoadButtonImage( btnRemoveAccount, "texture/gui/region.png", 34, 40, 408+110, 289, TRUE )
-UI_SetHint(btnRemoveAccount, "Delete saved account")
-
------------------------------------------------------------------------
--- Login Form Support
------------------------------------------------------------------------
-frmAccountSupport = UI_CreateForm( "frmAccountSupport", FALSE, 456, 32, 0, 0, TRUE, FALSE )
-UI_ShowForm( frmAccountSupport, TRUE )
-UI_AddFormToTemplete( frmAccountSupport, FORM_LOGIN )
-UI_FormSetIsEscClose( frmAccountSupport, FALSE )
-
-bntCreateAccount = UI_CreateCompent( frmAccountSupport, BUTTON_TYPE, "bntCreateAccount", 228, 32, 7, 7 )
-UI_LoadButtonImage( bntCreateAccount, "texture/gui/select-cha-panel.png", 228, 32, 686, 0, FALSE )
-
-bntForgot = UI_CreateCompent( frmAccountSupport, BUTTON_TYPE, "bntForgot", 188, 32, 228+40, 7 )
-UI_LoadButtonImage( bntForgot, "texture/gui/select-cha-panel.png", 188, 32, 686, 96, FALSE )
 
 -----------------------------------------------------------------------
 -- 定义健康通告
