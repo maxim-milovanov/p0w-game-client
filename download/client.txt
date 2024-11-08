@@ -18555,7 +18555,7 @@ system\CaLua.dll	5c55c71cce36c5c85e5266dd01a1d2a5
 system\discord-rpc.dll	b6fd682381b825d2ceba5995c296dde3
 system\en_US.res	63de64711605ad29ff11301536052db3
 system\ErrorReport.exe	495f093d2902854332ad5c44e49a62db
-system\Game.exe	a22fa316369b5becac1ebef7d916431e
+system\Game.exe	da233caa89df890ab3d099f35a672f24
 system\icudt38.dll	9b5ac1badf16aea1a48dae77fca76670
 system\icuuc38.dll	395b5b053bc7505626e446f36b92d0c5
 system\libcurl.dll	b613b88a5a778361e570515c968c7350
@@ -24820,11 +24820,11 @@ texture\character\CRIKAR0001.png	bfffbd080be2caa9cd9336d62203c6cf
 texture\character\CRIKAR0002.png	58050277aba49cb567d9b884cbf6a895
 texture\character\CRIKAR0003.png	054979e66573eebb2cc91254bdc41c7e
 texture\character\CRIKAR0004.png	05a5a1db8ab49618dbcfe71de4e0d6cc
-texture\character\CrimeÂ’sRedemptionSet001.png	8fdad932436a7a93c246d2c38a403fdf
-texture\character\CrimeÂ’sRedemptionSet002.png	b420f9d0ed6a788d783a53b8e0e7904a
-texture\character\CrimeÂ’sRedemptionSet003.png	3059e99d127de81de2dbdb1524aa3fdf
-texture\character\CrimeÂ’sRedemptionSet004.png	a6afefd4a60ef1f420ee18234b5a5905
-texture\character\CrimeÂ’sRedemptionSet005.png	e4b787daadca7a4f629a5b79ae851b82
+texture\character\Crime’sRedemptionSet001.png	8fdad932436a7a93c246d2c38a403fdf
+texture\character\Crime’sRedemptionSet002.png	b420f9d0ed6a788d783a53b8e0e7904a
+texture\character\Crime’sRedemptionSet003.png	3059e99d127de81de2dbdb1524aa3fdf
+texture\character\Crime’sRedemptionSet004.png	a6afefd4a60ef1f420ee18234b5a5905
+texture\character\Crime’sRedemptionSet005.png	e4b787daadca7a4f629a5b79ae851b82
 texture\character\CRIMREDP01.png	6dc04143ac242ee342e2abbedb3938e3
 texture\character\CRIMREDP02.png	3059e99d127de81de2dbdb1524aa3fdf
 texture\character\CRIMREDP03.png	a6afefd4a60ef1f420ee18234b5a5905

@@ -8,8 +8,8 @@ UI_SetFormStyle( frmMinimap, 9 )
 UI_FormSetIsEscClose( frmMinimap, FALSE )
 
 -- Background radar
-imgBackground = UI_CreateCompent( frmMinimap, IMAGE_TYPE, "imgBackground", 162, 183, 0, 0 )
-UI_LoadImage( imgBackground, "texture/gui/minimap-background.png", NORMAL, 162, 183, 0, 0 )
+imgBackground = UI_CreateCompent( frmMinimap, IMAGE_TYPE, "imgBackground", 153, 183, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/minimap-background.png", NORMAL, 153, 183, 0, 0 )
 
 -- radar
 imgMinimapRect = UI_CreateCompent( frmMinimap, IMAGE_TYPE, "imgMinimapRect", 128, 128, 17, 26 )
@@ -92,6 +92,20 @@ cbxShowGuildCircle = UI_CreateCompent( frmMinimap, CHECK_TYPE, "cbxShowGuildCirc
 UI_LoadImage( cbxShowGuildCircle, "texture/gui/old_gui//btnCircle.tga", UNCHECKED, 36, 36, 0, 0 )
 UI_LoadImage( cbxShowGuildCircle, "texture/gui/old_gui/btnCircle.tga", CHECKED, 36, 36, 36, 0 )
 
+btnMedalofhonor = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnMedalofhonor", 87, 23, 62, 178+23+5+30 )
+UI_LoadButtonImage( btnMedalofhonor, "texture/gui/minimap-background.png", 87, 23, 153, 0, FALSE )
+UI_SetHint( btnMedalofhonor, "Server guides" )
+
+--btnRating = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnRating", 87, 23, 62, 178+23+5+30 )
+--UI_LoadButtonImage( btnRating, "texture/gui/select-cha-panel.png", 87, 23, 508, 0, FALSE )
+--UI_SetHint( btnRating, "Server guides" )
+
+--btnSitDown = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnSitDown", 87, 23, 62, 178+23+5+30+30 )
+--UI_LoadButtonImage( btnSitDown, "texture/gui/select-cha-panel.png", 87, 23, 508, 0, FALSE )
+--UI_SetHint( btnSitDown, "Server guides" )
+
+
+
 -----------------------------------------------------------------------
 -- Select map
 -----------------------------------------------------------------------	
@@ -100,7 +114,7 @@ UI_ShowForm( frmSearch, FALSE )
 UI_AddFormToTemplete( frmSearch, FORM_MAIN )
 UI_FormSetIsEscClose( frmSearch, FALSE )
 UI_FormSetHotKey( frmSearch, ALT_KEY, HOTKEY_R )
-UI_SetIsDrag( frmSearch, TRUE )
+UI_SetIsDrag( frmSearch, FALSE )
 
 imgSearch = UI_CreateCompent( frmSearch, IMAGE_TYPE, "imgSearch", 231, 109, 0, 0 )
 UI_LoadImage( imgSearch, "texture/gui/select-map.png", NORMAL, 231, 109, 8, 1 )
