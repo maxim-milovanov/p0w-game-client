@@ -224,7 +224,7 @@ for pos = 1, 4, 1 do
 end
 
 ------------------------------------------------------------------------------
-mainMouseRight = UI_CreateCompent( frmMain800, MENU_TYPE, "mainMouseRight", 105, 100, 240, 468 )
+mainMouseRight = UI_CreateCompent( frmMain800, MENU_TYPE, "mainMouseRight", 120, 100, 240, 468 )
 UI_MenuLoadImage( mainMouseRight, TRUE, FALSE, "texture/gui/right.png", 5, 5, 3, 17, "texture/gui/right-off.png", 5, 5 )
 UI_SetMargin( mainMouseRight, 10, 5, 5, 5 )
 
@@ -870,17 +870,27 @@ UI_SetProgressActiveMouse( proPercent, 1 )
 imgPercent = UI_CreateCompent( frmAntiBot, IMAGE_TYPE, "imgPercent", 58, 58, 0, 30 )
 UI_LoadImage( imgPercent, "texture/gui/frmAntiBot.png", NORMAL, 56, 56, 0, 0 )
 
-labPercent = UI_CreateCompent( frmAntiBot, LABELEX_TYPE, "labPercent", 33, 33, 10, 48 )
+labPercent = UI_CreateCompent( frmAntiBot, LABELEX_TYPE, "labPercent", 33, 33, 5, 48 )
 UI_SetCaption( labPercent, "90%" )
 UI_SetTextColor( labPercent, COLOR_WHITE )
 UI_SetLabelExFont( labPercent, FONT24, FALSE, COLOR_WHITE )
+
+labInfo = UI_CreateCompent( frmAntiBot, LABELEX_TYPE, "labInfo", 33, 33, 75, 52 )
+UI_SetCaption( labInfo, "Set the slider to 80%" )
+UI_SetTextColor( labInfo, COLOR_WHITE )
+UI_SetLabelExFont( labInfo, FONT016, FALSE, COLOR_WHITE )
+
+labSeconds = UI_CreateCompent( frmAntiBot, LABELEX_TYPE, "labSeconds", 33, 33, 380, 52 )
+UI_SetCaption( labSeconds, "30s" )
+UI_SetTextColor( labSeconds, COLOR_WHITE )
+UI_SetLabelExFont( labSeconds, FONT016, FALSE, COLOR_WHITE )
 
 ------
 -- Medal of Honor
 ------
 frmMedalofhonor = UI_CreateForm( "frmMedalofhonor", FALSE, 480, 220, 100, 50, TRUE, FALSE )
 UI_SetIsDrag( frmMedalofhonor, FALSE )
-UI_FormSetIsEscClose( frmMedalofhonor, FALSE )
+UI_FormSetIsEscClose( frmMedalofhonor, TRUE )
 
 imgBackground = UI_CreateCompent( frmMedalofhonor, IMAGE_TYPE, "imgBackground", 480, 220, 0, 0 )
 UI_LoadImage( imgBackground, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0 )

@@ -18426,7 +18426,7 @@ scripts\lua\forms\manage.clu	519ca29d67cc4d063fd3e38ed70207ec
 scripts\lua\forms\minimap.clu	e94482f5f0b903dd512a38f89dbecf3d
 scripts\lua\forms\mission.clu	d2d17371ba0b0362d2967f6be192a089
 scripts\lua\forms\NPC.clu	8d59039d77658c1ebc75c288edb98d4d
-scripts\lua\forms\player.clu	9ed05bfa107c4685d486075a81e02ffb
+scripts\lua\forms\player.clu	934fe073ebf9338563b62748ef46c013
 scripts\lua\forms\preperty.clu	e825fde1432744e0bbe402dd6294dd88
 scripts\lua\forms\select.clu	e34943a31e6d2c2165860ccce0bc800b
 scripts\lua\forms\selectcha.clu	0e57706610017191f50bcc0ac2c0f8f6
@@ -18479,7 +18479,7 @@ scripts\table\shipiteminfo.bin	0f8daa750857371edd1edd732c01cdaf
 scripts\table\skilleff.bin	29bbfceb61640477d23b283f30b5e40e
 scripts\table\skillinfo.bin	d30cc46885893c8a10896134cb5f4b90
 scripts\table\StoneInfo.bin	0514c9ff22dcfde3998d501a495c3514
-scripts\table\StringSet.bin	32b0171295ee5861a70fadaf23435bc4
+scripts\table\StringSet.bin	0b62c04e644dc11e82cd7affbccc4e6e
 scripts\table\TerrainInfo.bin	0348aae42963af0955555e6d0ad817f6
 scripts\txt\aaa.tx	71ee47cdc0052f472e8d306921b3ad2e
 scripts\txt\CharacterAction-original.tx	4919b0c1456cbbaae4b343e1075a1828
@@ -18555,11 +18555,11 @@ system\CaLua.dll	5c55c71cce36c5c85e5266dd01a1d2a5
 system\discord-rpc.dll	b6fd682381b825d2ceba5995c296dde3
 system\en_US.res	63de64711605ad29ff11301536052db3
 system\ErrorReport.exe	495f093d2902854332ad5c44e49a62db
-system\Game.exe	da233caa89df890ab3d099f35a672f24
+system\Game.exe	6a2d478bc96116aab3f96cefe1ac65a5
 system\icudt38.dll	9b5ac1badf16aea1a48dae77fca76670
 system\icuuc38.dll	395b5b053bc7505626e446f36b92d0c5
 system\libcurl.dll	b613b88a5a778361e570515c968c7350
-system\MindPower3D_D8R.dll	c78daf75ddb5b4a811406b3960015800
+system\MindPower3D_D8R.dll	d8184b08f0aa55d1bf0079c50b43f62f
 system\PAI.DLL	ecb6062b9a4026a7b525ce733e2adb82
 system\SDL.dll	a28d3c74676fc1bf398a7f91c8873b2f
 system\SDL_mixer.dll	210c22faec8c452b4f90f1ea253d9312
