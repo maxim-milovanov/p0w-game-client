@@ -1247,6 +1247,8 @@ cursor\search.ani	60be012334ef950388c1c45a2f4014bc
 cursor\skill.ani	f311fe55997d0595798b96bb00d3db88
 cursor\vertical.ani	7f760a4c6f57ddf149d11ea98332d3da
 cursor\wait.ani	417b0872ba5b7ad80b0653f3d40a1d6b
+download\client.hash	ab5171d97125e3f3b799ceff3e67901e
+download\version.hash	39fe390011b2b7238316aa75e5304a6f
 effect\00000001.par	c90253a2d8182935fdb62320c6959bf2
 effect\00000002.eff	dac915bd138c1338cb1f2f6346560212
 effect\00000002.par	ea3c4daa2d4af9c23d925c9ec103cc07
@@ -16799,6 +16801,7 @@ model\item\no_loot_chest.lgo	b704a3c80cbc149355dc95b47426f03a
 model\item\NSV2000001.lgo	be1fe81613c3c8062c2db32aceb68541
 model\item\ntxr004.lgo	9ae5398b7da49f342b08eaa6d282ea65
 model\item\NYAKACSW01.lgo	bdfe38391ec60d6f62f395b9388efd2f
+model\item\nyakacswo1.lgo	bdfe38391ec60d6f62f395b9388efd2f
 model\item\OBDSGDSSSW.lgo	15ebce931d451db946db7d86d3c72ad8
 model\item\obecwp0001.lgo	50e1371f04768840151fcef5393147ee
 model\item\OBLAKCSW01.lgo	7b9dcadc5c90775085016a2c1f9dac56
@@ -18456,7 +18459,7 @@ scripts\table\ElfSkillInfo.bin	b7bc966e67c27da157c2d7b669986b79
 scripts\table\eventsound.bin	f36ee492da3753f8bc8fb13f966bd2a8
 scripts\table\forgeitem.bin	8b9273b3acd36ca3decf41d69be14a5a
 scripts\table\hairs.bin	49425087d555ffe71b3f768658da263c
-scripts\table\iteminfo.bin	e201d12dd1114aa9af505b396a2a1221
+scripts\table\iteminfo.bin	d048ef67871780061976eeed4a60d67e
 scripts\table\itempre.bin	b04247185a14fdbd307dab07321a4c91
 scripts\table\ItemRefineEffectInfo.bin	c7c3a89add7283df3f9132c9ec0a15c9
 scripts\table\ItemRefineInfo.bin	1a0ea8f8fd79c56bc238d531de792cc0
@@ -18479,7 +18482,7 @@ scripts\table\shipiteminfo.bin	0f8daa750857371edd1edd732c01cdaf
 scripts\table\skilleff.bin	29bbfceb61640477d23b283f30b5e40e
 scripts\table\skillinfo.bin	d30cc46885893c8a10896134cb5f4b90
 scripts\table\StoneInfo.bin	0514c9ff22dcfde3998d501a495c3514
-scripts\table\StringSet.bin	0b62c04e644dc11e82cd7affbccc4e6e
+scripts\table\StringSet.bin	60542cdff6787d516d8268271e236e17
 scripts\table\TerrainInfo.bin	0348aae42963af0955555e6d0ad817f6
 scripts\txt\aaa.tx	71ee47cdc0052f472e8d306921b3ad2e
 scripts\txt\CharacterAction-original.tx	4919b0c1456cbbaae4b343e1075a1828
