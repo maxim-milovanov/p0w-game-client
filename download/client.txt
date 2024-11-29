@@ -4065,6 +4065,9 @@ map\bdlair4.rbo	d41d8cd98f00b204e9800998ecf8427e
 map\binglang2.map	3d41cff1457b6814322175c937d37726
 map\binglang2.obj	7fed21271d7fa5bcbdbcfcbde68307be
 map\binglang2.rbo	d41d8cd98f00b204e9800998ecf8427e
+map\bountypk.map	0bbd486c6dec259dd3da68e630ae764a
+map\bountypk.obj	ce46580807375560fb4f15dc8063a0d6
+map\bountypk.rbo	d41d8cd98f00b204e9800998ecf8427e
 map\christory.map	6db21855c36f039c6425b64398ff13dc
 map\christory.obj	3442347c2b38e50949099229b4a25eba
 map\christory.rbo	d41d8cd98f00b204e9800998ecf8427e
@@ -18464,7 +18467,7 @@ scripts\table\ItemRefineInfo.bin	cd0a386f1bc7485120e17a1224a99055
 scripts\table\MagicGroupInfo.bin	71179b0f81f04b3fcc8a7172915ede36
 scripts\table\MagicSingleinfo.bin	83c9a7e91997dc23f8dfbcc143c2615b
 scripts\table\MapHelper.bin	631166a6a1472b6a3e9e161da4dcbccc
-scripts\table\mapinfo.bin	91a6acfddedc46c1725d85ad8b87125f
+scripts\table\mapinfo.bin	a4809b024abfd1c86ce31ddcea156afc
 scripts\table\MonsterInfo.bin	6ab619d17690282e59cda8a8a5c65e41
 scripts\table\MountInfo.bin	bce8731ff5b244d2ba9cdd6fdd3173d1
 scripts\table\musicinfo.bin	5fae901e7c93c69a517950e0c1480700
@@ -18481,7 +18484,7 @@ scripts\table\skilleff.bin	29bbfceb61640477d23b283f30b5e40e
 scripts\table\skillinfo.bin	d30cc46885893c8a10896134cb5f4b90
 scripts\table\StoneInfo.bin	0514c9ff22dcfde3998d501a495c3514
 scripts\table\StringSet.bin	60542cdff6787d516d8268271e236e17
-scripts\table\TerrainInfo.bin	0348aae42963af0955555e6d0ad817f6
+scripts\table\TerrainInfo.bin	ba7e97d2298f9e1c8f9a58b4f1a0400b
 scripts\txt\aaa.tx	71ee47cdc0052f472e8d306921b3ad2e
 scripts\txt\CharacterAction-original.tx	4919b0c1456cbbaae4b343e1075a1828
 scripts\txt\CharacterAction.tx	4ea9d05861869970caf8df525944215c
@@ -39645,6 +39648,7 @@ texture\minimap\bdlair2\bdlair2.pk	e81c9b3bb2606dfd61dc6497c5814674
 texture\minimap\bdlair3\bdlair3.pk	e81c9b3bb2606dfd61dc6497c5814674
 texture\minimap\bdlair4\bdlair4.pk	e81c9b3bb2606dfd61dc6497c5814674
 texture\minimap\binglang2\binglang2.pk	4209270d693192e08fde5941cabdaab7
+texture\minimap\bountypk\bountypk.pk	07f7cad55f030077f05e58c82456739d
 texture\minimap\christory\christory.pk	4209270d693192e08fde5941cabdaab7
 texture\minimap\CrystalShore\CrystalShore.pk	46f8d2f2ad965d5233640b84e188cd4d
 texture\minimap\darkblue\darkblue.pk	a503c4aa961f5a4ee1c5d82d818bfdad
@@ -41753,6 +41757,9 @@ texture\terrain\grass11.bmp	72f80ecaa88f3d8c2bb0156c77843899
 texture\terrain\grass69.bmp	8547c017bb75815eeafcd06185ffca0b
 texture\terrain\lava22.bmp	3004672ad0427fbcf28910c18625c11a
 texture\terrain\mud1.bmp	4521f9a44103618b5325bba0d9b16b45
+texture\terrain\p0w1.bmp	6a0548f9097b60cbddcada149a17451a
+texture\terrain\p0w2.bmp	73f8556d46a37196701f5917fbbd5f8d
+texture\terrain\p0w3.bmp	9521de514316998bf16f594b25461897
 texture\terrain\pavement1.bmp	99bab37a136a0dd5216bc3ca4409557d
 texture\terrain\poterra01.bmp	2c7c766730d9b5167d30b6aa76dba6d1
 texture\terrain\rgrass1.bmp	00c4db6a96577cc40e56f0cf4023b1b5
