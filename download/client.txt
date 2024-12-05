@@ -18420,7 +18420,7 @@ scripts\lua\font.clu	8d0c5f7518a67dc9c0d2436af0c1f090
 scripts\lua\forms\chat.clu	f22f527267da0e1cf7b26b70a6a1bee5
 scripts\lua\forms\coze.clu	d41d8cd98f00b204e9800998ecf8427e
 scripts\lua\forms\dialog.clu	bed50d9d9cc123fb28fada96c235f26c
-scripts\lua\forms\editor.clu	20418a4d0799cdd0c59cd157306275be
+scripts\lua\forms\editor.clu	b99a72f7092e01bdd2cb4763df62312b
 scripts\lua\forms\Equip.clu	f4e47597463d890d9691a88ccb400394
 scripts\lua\forms\help.clu	70e21b1f8a4c80a39e01c66957fae7fd
 scripts\lua\forms\loading.clu	43c894d385b2897410fbbb826ce826de
@@ -18435,7 +18435,7 @@ scripts\lua\forms\preperty.clu	e825fde1432744e0bbe402dd6294dd88
 scripts\lua\forms\select.clu	e34943a31e6d2c2165860ccce0bc800b
 scripts\lua\forms\selectcha.clu	0e57706610017191f50bcc0ac2c0f8f6
 scripts\lua\forms\ship.clu	aa4312d72b0f61260c4d1d43014e3105
-scripts\lua\forms\system.clu	7ca01f04f2439a33f73ed0d9391a0a90
+scripts\lua\forms\system.clu	23c38c346f7dc9cf85b49334ac0762d9
 scripts\lua\forms\traderoom.clu	aa0a3786000bb75f3a44482a2e0dd66c
 scripts\lua\gui.clu	0f8ab8edbe5944f7943a9b79e97c4da4
 scripts\lua\mission\mission.lua	d6832a2a464a0f591b966310fda483c2
@@ -18463,7 +18463,7 @@ scripts\table\hairs.bin	49425087d555ffe71b3f768658da263c
 scripts\table\iteminfo.bin	39276bc6fd3fe39163421088bdbe77c2
 scripts\table\itempre.bin	b04247185a14fdbd307dab07321a4c91
 scripts\table\ItemRefineEffectInfo.bin	c7c3a89add7283df3f9132c9ec0a15c9
-scripts\table\ItemRefineInfo.bin	cd0a386f1bc7485120e17a1224a99055
+scripts\table\ItemRefineInfo.bin	395bd69c0fdfe949ff61f165de822d8d
 scripts\table\MagicGroupInfo.bin	71179b0f81f04b3fcc8a7172915ede36
 scripts\table\MagicSingleinfo.bin	83c9a7e91997dc23f8dfbcc143c2615b
 scripts\table\MapHelper.bin	631166a6a1472b6a3e9e161da4dcbccc
@@ -18559,11 +18559,11 @@ system\CaLua.dll	5c55c71cce36c5c85e5266dd01a1d2a5
 system\discord-rpc.dll	b6fd682381b825d2ceba5995c296dde3
 system\en_US.res	63de64711605ad29ff11301536052db3
 system\ErrorReport.exe	495f093d2902854332ad5c44e49a62db
-system\Game.exe	e9f03b42c8e21f1d906990baf6425448
+system\Game.exe	83dfd0f9a5a09f568e23cb10c2156314
 system\icudt38.dll	9b5ac1badf16aea1a48dae77fca76670
 system\icuuc38.dll	395b5b053bc7505626e446f36b92d0c5
 system\libcurl.dll	b613b88a5a778361e570515c968c7350
-system\MindPower3D_D8R.dll	d8184b08f0aa55d1bf0079c50b43f62f
+system\MindPower3D_D8R.dll	365ef6cf5e38f28237ded97dbce2019b
 system\PAI.DLL	ecb6062b9a4026a7b525ce733e2adb82
 system\SDL.dll	a28d3c74676fc1bf398a7f91c8873b2f
 system\SDL_mixer.dll	210c22faec8c452b4f90f1ea253d9312
@@ -30723,7 +30723,7 @@ texture\gui\brow\6.tga	5225eac45056ac640700c686389424c4
 texture\gui\brow\7.tga	ccd4a81446476393e560ed35a1363d8a
 texture\gui\brow\8.tga	1ca4d296452ca0afdb6560d73ade1c73
 texture\gui\brow\9.tga	a9e602f49cb8c4319f410626b1387085
-texture\gui\btnServer.png	8c5becaeaeaa3afaf86a8601eb6cf3a6
+texture\gui\btnServer.png	23e96877a850b79321843c818a5d0a93
 texture\gui\chat.png	dc48ed597fe837f1f152269e0560a3fb
 texture\gui\City.png	865d72dca05d128c3893d0f286d00e1c
 texture\gui\coButtons.png	8bfd1c14ce0e3b4a66243ccd457bbc22

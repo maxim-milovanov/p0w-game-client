@@ -1,8 +1,8 @@
 -----------------------------------------------------------------------
--- 定义Editor
+-- map editor, modify by e1mer 24\11\2024
 -----------------------------------------------------------------------	
 frmEditor = UI_CreateForm( "frmEditor", FALSE, 192, 768, 0, 0, FALSE, FALSE )
--- UI_FormSetHotKey( frmEditor, ALT_KEY, 69 ) --'E'
+-- UI_FormSetHotKey( frmEditor, ALT_KEY, 69 )
 -- UI_LoadFormImage( frmEditor, "texture/ui/title2.tga", 128, 128, 0, 0, "texture/ui/board2.tga", 16, 16 )
 -- UI_AddAllFormTemplete( frmEditor )
 UI_ShowForm( frmEditor, TRUE )
@@ -52,7 +52,7 @@ chkHideTree = UI_CreateCompent( frmEditor, CHECK_TYPE, "chkHideTree", 20, 20, 35
 UI_LoadImage( chkHideTree, "texture/gui/editor/hidetree.tga", CHECKED, 20, 20, 0, 0 )
 UI_LoadImage( chkHideTree, "texture/gui/editor/hidetree.tga", UNCHECKED, 20, 20, 0, 20 )
 
-local start = 380
+local start = 430
 
 btnColor = UI_CreateCompent( frmEditor, BUTTON_TYPE, "btnColor", 14, 20, start, 5 )
 UI_LoadImage( btnColor, "texture/gui/old_gui/white.tga", NORMAL, 1, 1, 0, 0  )
@@ -141,128 +141,139 @@ UI_LoadImage( scrollid, "texture/gui/editor/scroll.tga", COMPENT_BACK, 16, 32, 0
 UI_SetSize( scrollid, 10, 32 )
 -- UI_SetAlpha( trvEditor, 100 )
 
-itemid = UI_CreateTextItem( "earth surface", TREE_TEXT_COLOR )
+itemid = UI_CreateTextItem( "surface", TREE_TEXT_COLOR )
 sndNode = UI_CreateSingleNode( trvEditor, itemid, -1 )
-	itemid = UI_CreateTextItem( "Style 1", TREE_TEXT_COLOR )
-	gridid1 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
+itemid = UI_CreateTextItem( "Style 1", TREE_TEXT_COLOR )
+gridid1 = UI_CreateGridNode( trvEditor, itemid, 3, 32, 32, sndNode )
+
+itemid = UI_CreateTextItem( "Style 2", TREE_TEXT_COLOR )
+gridid2 = UI_CreateGridNode( trvEditor, itemid, 3, 32, 32, sndNode )
+
+itemid = UI_CreateTextItem( "Style 3", TREE_TEXT_COLOR )
+gridid3 = UI_CreateGridNode( trvEditor, itemid, 3, 32, 32, sndNode )
 	
-	itemid = UI_CreateTextItem( "Style 2", TREE_TEXT_COLOR )
-	gridid2 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
-	
-	itemid = UI_CreateTextItem( "Style 3", TREE_TEXT_COLOR )
-	gridid3 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
-		
-	itemid = UI_CreateTextItem( "Public", TREE_TEXT_COLOR )
-	gridid100 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
-	
-	local n, type
-	n  = 1		
-	while 1 do			
-	    local terrain_tex = GetTerrainTextureID(n)
-	    if terrain_tex==nil then break end
-	    
+itemid = UI_CreateTextItem( "Public", TREE_TEXT_COLOR )
+gridid100 = UI_CreateGridNode( trvEditor, itemid, 3, 32, 32, sndNode )
+
+local n, type
+n  = 1		
+while 1 do			
+	local terrain_tex = GetTerrainTextureID(n)
+	if (terrain_tex ~= nil) then
 		graphid = UI_CreateGraphItemTex( 0, 0, 32, 32, 1.0, 1.0, terrain_tex, n )
-	    	
-	    	type = GetTerrainTextureType(n)
-	    	if type==1 then
-		    	UI_GridNodeAddItem( gridid1, graphid )		    	
-		end
-		if type==2 then 
-		    	UI_GridNodeAddItem( gridid2, graphid )		    	
-		end
-		if type==3 then 
-		    	UI_GridNodeAddItem( gridid3, graphid )		    	
-		end
-		if type==100 then 
-		    	UI_GridNodeAddItem( gridid100, graphid )		    	
+		
+		type = GetTerrainTextureType(n)
+		
+		if type==1 then
+			UI_GridNodeAddItem( gridid1, graphid )		    	
 		end
 		
-	    	n = n + 1
-	end	   	
+		if type==2 then 
+			UI_GridNodeAddItem( gridid2, graphid )		    	
+		end
+		
+		if type==3 then 
+			UI_GridNodeAddItem( gridid3, graphid )		    	
+		end
+		
+		if type ~= 1 and type ~= 2 and type ~= 3 then 
+			UI_GridNodeAddItem( gridid100, graphid )		    	
+		end
+	end
+	n = n + 1
+	
+	if (n > 100) then break end
+end
 	
 itemid = UI_CreateTextItem( "Building", TREE_TEXT_COLOR )
 sndNode = UI_CreateSingleNode( trvEditor, itemid, -1 )
 
-	itemid = UI_CreateTextItem( "Argent City", TREE_TEXT_COLOR )
-	gridid1 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
-	
-	itemid = UI_CreateTextItem( "Thundoria Castle", TREE_TEXT_COLOR )
-	gridid2 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
-			
-	itemid = UI_CreateTextItem( "Shaitan City", TREE_TEXT_COLOR )
-	gridid3 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
-				
-	itemid = UI_CreateTextItem( "Icicle Castle", TREE_TEXT_COLOR )
-	gridid4 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
-				
-	itemid = UI_CreateTextItem( "Style 5", TREE_TEXT_COLOR )
-	gridid5 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
-				
-	itemid = UI_CreateTextItem( "Style 6", TREE_TEXT_COLOR )
-	gridid6 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
-				
-	itemid = UI_CreateTextItem( "Maze", TREE_TEXT_COLOR )
-	gridid7 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
-	
-	itemid = UI_CreateTextItem( "Tree", TREE_TEXT_COLOR )
-	gridid8 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
-	
-	itemid = UI_CreateTextItem( "Auras", TREE_TEXT_COLOR )
-	gridid9 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
+itemid = UI_CreateTextItem( "Argent City", TREE_TEXT_COLOR )
+gridid1 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
+
+itemid = UI_CreateTextItem( "Thundoria Castle", TREE_TEXT_COLOR )
+gridid2 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
 		
-	itemid = UI_CreateTextItem( "Public", TREE_TEXT_COLOR )
-	gridid100 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
+itemid = UI_CreateTextItem( "Shaitan City", TREE_TEXT_COLOR )
+gridid3 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
+			
+itemid = UI_CreateTextItem( "Icicle Castle", TREE_TEXT_COLOR )
+gridid4 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
+			
+itemid = UI_CreateTextItem( "Style 5", TREE_TEXT_COLOR )
+gridid5 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
+			
+itemid = UI_CreateTextItem( "Style 6", TREE_TEXT_COLOR )
+gridid6 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
+			
+itemid = UI_CreateTextItem( "Maze", TREE_TEXT_COLOR )
+gridid7 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
+
+itemid = UI_CreateTextItem( "Tree", TREE_TEXT_COLOR )
+gridid8 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
+
+itemid = UI_CreateTextItem( "Auras", TREE_TEXT_COLOR )
+gridid9 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
 	
-	itemid = UI_CreateTextItem( "dummy item", TREE_TEXT_COLOR )
-	gridid200 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
+itemid = UI_CreateTextItem( "Public", TREE_TEXT_COLOR )
+gridid100 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
 
-		n  = 1			
-		while 1 do
-			local tex_id = GetSceneObjPhotoTexID(n)
-		    	if tex_id~=nil then 
-		    	
-				graphid = UI_CreateGraphItemTex( 0, 0, 32, 32, 1.0, 1.0, tex_id, n  )
+itemid = UI_CreateTextItem( "dummy item", TREE_TEXT_COLOR )
+gridid200 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
 
-			    	type = GetSceneObjPhotoTexType(n)
-					-- 根据返回类型将图片添加到相应节点，约定１００为公用，２００为虚拟物件
-			    	if type == 1 then
-				    	UI_GridNodeAddItem( gridid1, graphid )
-			    	end 
-			    	if type == 2 then
-				    	UI_GridNodeAddItem( gridid2, graphid )
-			    	end 
-			    	if type == 3 then
-				    	UI_GridNodeAddItem( gridid3, graphid )
-			    	end 
-			    	if type == 4 then
-				    	UI_GridNodeAddItem( gridid4, graphid )
-			    	end 
-			    	if type == 5 then
-				    	UI_GridNodeAddItem( gridid5, graphid )
-			    	end 
-			    	if type == 6 then
-				    	UI_GridNodeAddItem( gridid6, graphid )
-			    	end 
-			    	if type == 7 then
-				    	UI_GridNodeAddItem( gridid7, graphid )
-			    	end 
-			    	if type == 8 then
-				    	UI_GridNodeAddItem( gridid8, graphid )
-			    	end 
-			    	if type == 9 then
-				    	UI_GridNodeAddItem( gridid9, graphid )
-			    	end 
-			    	if type == 100 then
-				    	UI_GridNodeAddItem( gridid100, graphid )
-			    	end 
-			    	if type == 200 then
-				    	UI_GridNodeAddItem( gridid200, graphid )
-			    	end 			    	
-		    			        				
-		        end
-			n = n + 1
-		        if n==550 then break end
-		end	
+itemid = UI_CreateTextItem( "others", TREE_TEXT_COLOR )
+gridid300 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
+
+n  = 1			
+while 1 do
+	local tex_id = GetSceneObjPhotoTexID(n)
+	if (tex_id ~= nil) then 
+		graphid = UI_CreateGraphItemTex( 0, 0, 32, 32, 1.0, 1.0, tex_id, n  )
+
+		type = GetSceneObjPhotoTexType(n)
+		
+		if type == 1 then
+			UI_GridNodeAddItem( gridid1, graphid )
+		end 
+		if type == 2 then
+			UI_GridNodeAddItem( gridid2, graphid )
+		end 
+		if type == 3 then
+			UI_GridNodeAddItem( gridid3, graphid )
+		end 
+		if type == 4 then
+			UI_GridNodeAddItem( gridid4, graphid )
+		end 
+		if type == 5 then
+			UI_GridNodeAddItem( gridid5, graphid )
+		end 
+		if type == 6 then
+			UI_GridNodeAddItem( gridid6, graphid )
+		end 
+		if type == 7 then
+			UI_GridNodeAddItem( gridid7, graphid )
+		end 
+		if type == 8 then
+			UI_GridNodeAddItem( gridid8, graphid )
+		end 
+		if type == 9 then
+			UI_GridNodeAddItem( gridid9, graphid )
+		end 
+		if type == 100 then
+			UI_GridNodeAddItem( gridid100, graphid )
+		end 
+		if type == 200 then
+			UI_GridNodeAddItem( gridid200, graphid )
+		end 			    	
+		
+		if (type > 9 and type ~= 100 and type ~= 200) then
+			UI_GridNodeAddItem( gridid300, graphid )
+		end
+	end
+	
+	n = n + 1
+	if n > 9999 then break end
+end	
 
 			
 	itemid = UI_CreateTextItem( "Character", TREE_TEXT_COLOR )
@@ -294,7 +305,7 @@ gridid = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, -1 )
             if n==1000 then break end
 	end
 
-itemid = UI_CreateTextItem( "Region attribute", TREE_TEXT_COLOR )
+itemid = UI_CreateTextItem( "Area attribute", TREE_TEXT_COLOR )
 gridid = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, -1 )
 	n = 1
 	while 1 do
@@ -333,7 +344,7 @@ gridid = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, -1 )
 		    UI_GridNodeAddItem( gridid, graphid )
 	    end
 	    n = n + 1
-            if n==30 then break end
+            if n==100 then break end
 	end
 
 itemid = UI_CreateTextItem( "Character Action", TREE_TEXT_COLOR )
@@ -350,7 +361,7 @@ gridid = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, -1 )
             if n==55 then break end
 	end
 
-itemid = UI_CreateTextItem( "Character Image", TREE_TEXT_COLOR )
+itemid = UI_CreateTextItem( "Character portrait", TREE_TEXT_COLOR )
 gridid = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, -1 )
 	n = 0
 	while 1 do
@@ -364,7 +375,7 @@ gridid = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, -1 )
             if n==5 then break end
 	end
 
-itemid = UI_CreateTextItem( "Mouse Shape", TREE_TEXT_COLOR )
+itemid = UI_CreateTextItem( "Mosue status", TREE_TEXT_COLOR )
 gridid = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, -1 )
 	n = 1
 	while 1 do
@@ -378,7 +389,7 @@ gridid = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, -1 )
             if n==21 then break end
 	end
 
-itemid = UI_CreateTextItem( "Character Effect", TREE_TEXT_COLOR )
+itemid = UI_CreateTextItem( "Character effect", TREE_TEXT_COLOR )
 gridid = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, -1 )
 	n = 0
 	while 1 do

@@ -516,3 +516,108 @@ btnClose = UI_CreateCompent( frmDeathRecap, BUTTON_TYPE, "btnClose", 32, 32, 568
 UI_LoadButtonImage( btnClose, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
 UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
 
+------
+-- Tickets system
+------
+frmTickets = UI_CreateForm( "frmTickets", FALSE, 400, 420, 300, 100, TRUE, FALSE )
+UI_FormSetHotKey( frmTickets, ALT_KEY, HOTKEY_G )
+UI_ShowForm( frmTickets, TRUE )
+UI_SetIsDrag( frmTickets, TRUE )
+UI_AddFormToTemplete( frmTickets, FORM_MAIN )
+UI_FormSetIsEscClose( frmTickets, TRUE )
+
+imgBackground = UI_CreateCompent( frmTickets, IMAGE_TYPE, "imgBackground", 400, 420, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0 )
+imgBackground2 = UI_CreateCompent( frmTickets, IMAGE_TYPE, "imgBackground2", 400, 420, 0, 0 )
+UI_LoadImage( imgBackground2, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0 )
+UI_SetAlpha( imgBackground2, 100 )
+
+imgHeader = UI_CreateCompent( frmTickets, IMAGE_TYPE, "imgHeader", 299, 42, 50, 20 )
+UI_LoadImage( imgHeader, "texture/gui/btnServer.png", NORMAL, 299, 42, 652, 727 )
+
+btnClose = UI_CreateCompent( frmTickets, BUTTON_TYPE, "btnClose", 28, 26, 340, 17 )
+UI_LoadButtonImage( btnClose, "texture/gui/btnServer.png", 28, 26, 0, 512, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+btnMazes = UI_CreateCompent( frmTickets, BUTTON_TYPE, "btnMazes", 91, 47, 5, 65 )
+UI_LoadButtonImage( btnMazes, "texture/gui/btnServer.png", 91, 47, 859, 519, FALSE )
+
+btnAreas = UI_CreateCompent( frmTickets, BUTTON_TYPE, "btnAreas", 91, 47, 5 + 5 +91, 65 )
+UI_LoadButtonImage( btnAreas, "texture/gui/btnServer.png", 91, 47, 950, 519, FALSE )
+
+btnBosses = UI_CreateCompent( frmTickets, BUTTON_TYPE, "btnBosses", 91, 47, 5 + 5 +91 +5 + 91, 65 )
+UI_LoadButtonImage( btnBosses, "texture/gui/btnServer.png", 91, 47, 1041, 519, FALSE )
+
+btnNpc = UI_CreateCompent( frmTickets, BUTTON_TYPE, "btnNpc", 91, 47, 5 + 5 +91 +5 + 91 + 5 + 91, 65 )
+UI_LoadButtonImage( btnNpc, "texture/gui/btnServer.png", 91, 47, 1132, 519, FALSE )
+
+local szTicketName = {}
+local szTicketPrice = {}
+local szTicketImgPrice = {}
+local szTicketDesc = {}
+local szTicketIcon = {}
+local szBtnLine = {}
+
+local posx = 30
+local posy = 80
+local padding = 40
+
+for page_id = 0, 3, 1 do
+	local str_id = 1
+	
+	for i = 0, 71, 1 do
+		szTicketName[page_id] = {}
+		szTicketPrice[page_id] = {}
+		szTicketImgPrice[page_id] = {}
+		szTicketDesc[page_id] = {}
+		szTicketIcon[page_id] = {}
+		szBtnLine[page_id] = {}
+
+		-- icon background
+		local _posy = posy + (str_id * padding)
+		szTicketIcon[page_id][i] =  UI_CreateCompent( frmTickets, IMAGE_TYPE, "imgIcon_".. page_id.."_" .. i, 36, 36, posx, _posy )
+		UI_LoadImage( szTicketIcon[page_id][i], "texture/gui/detail-01.png", NORMAL, 35, 34, 336, 19 )
+		
+		szBtnLine[page_id][i] = UI_CreateCompent( frmTickets, BUTTON_TYPE, "btnLine_"..page_id.."_"..i, 340, 45, posx, _posy - 9 )
+		UI_LoadButtonImage( szBtnLine[page_id][i], "texture/gui/btnServer.png", 434, 70, 0, 810, TRUE )
+		
+		szTicketName[page_id][i] = UI_CreateCompent( frmTickets, LABELEX_TYPE, "labName_"..page_id.."_"..i, 10, 150, 45+posx, _posy )
+		UI_SetCaption( szTicketName[page_id][i], "Item "..i)
+		UI_SetTextColor( szTicketName[page_id][i], COLOR_C9C2B4 )
+		UI_SetLabelExFont( szTicketName[page_id][i], DEFAULT_FONT, FALSE, COLOR_WHITE )
+		UI_SetIsShow(szTicketName[page_id][i],FALSE)
+		
+		szTicketPrice[page_id][i] = UI_CreateCompent( frmTickets, LABELEX_TYPE, "labPrice_"..page_id.."_"..i, 10, 150, 290+posx, _posy + 9 )
+		UI_SetCaption( szTicketPrice[page_id][i], "1.000 ")
+		UI_SetTextColor( szTicketPrice[page_id][i], COLOR_C9C2B4 )
+		UI_SetLabelExFont( szTicketPrice[page_id][i], DEFAULT_FONT, FALSE, COLOR_WHITE )
+		UI_SetIsShow(szTicketPrice[page_id][i],FALSE)
+		
+		szTicketImgPrice[page_id][i] =  UI_CreateCompent( frmTickets, IMAGE_TYPE, "imgPrice_".. page_id.."_" .. i, 16, 16, 270 + posx, 7 + _posy )
+		UI_LoadImage( szTicketImgPrice[page_id][i], "texture/gui/btnServer.png", NORMAL, 32, 32, 666, 431 )
+		
+		_posy = _posy + 16
+		szTicketDesc[page_id][i] = UI_CreateCompent( frmTickets, LABELEX_TYPE, "labDescription_"..page_id.."_"..i, 10, 150, 45+posx, _posy )
+		UI_SetCaption( szTicketDesc[page_id][i], "Remark"..i)
+		UI_SetTextColor( szTicketDesc[page_id][i], COLOR_958273 )
+		UI_SetLabelExFont( szTicketDesc[page_id][i], DEFAULT_FONT, FALSE, COLOR_WHITE )
+		
+		str_id = str_id + 1
+	
+		if (str_id > 6) then
+			str_id = 1
+		end
+	end
+	
+end
+
+btnBackPage = UI_CreateCompent( frmTickets, BUTTON_TYPE, "btnBackPage", 25, 46, 154, 365 )
+UI_LoadButtonImage( btnBackPage, "texture/gui/btnServer.png", 84, 154, 1284, 0, FALSE )
+
+labPagination = UI_CreateCompent( frmTickets, LABELEX_TYPE, "labPagination", 40, 12, 183, 379 )
+UI_SetCaption(labPagination, "Page (0/0)" )
+UI_SetTextColor(labPagination, COLOR_FFEDCF )
+UI_SetLabelExFont(labPagination, FONT18, FALSE, COLOR_WHITE )
+
+btnNextPage = UI_CreateCompent( frmTickets, BUTTON_TYPE, "btnNextPage", 25, 46, 221, 365 )
+UI_LoadButtonImage( btnNextPage, "texture/gui/btnServer.png", 84, 154, 1369, 0, FALSE )
