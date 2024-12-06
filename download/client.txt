@@ -18430,7 +18430,7 @@ scripts\lua\forms\manage.clu	519ca29d67cc4d063fd3e38ed70207ec
 scripts\lua\forms\minimap.clu	e94482f5f0b903dd512a38f89dbecf3d
 scripts\lua\forms\mission.clu	d2d17371ba0b0362d2967f6be192a089
 scripts\lua\forms\NPC.clu	8d59039d77658c1ebc75c288edb98d4d
-scripts\lua\forms\player.clu	934fe073ebf9338563b62748ef46c013
+scripts\lua\forms\player.clu	dea953d98a95ff1fee2c934f57f4ca6e
 scripts\lua\forms\preperty.clu	e825fde1432744e0bbe402dd6294dd88
 scripts\lua\forms\select.clu	e34943a31e6d2c2165860ccce0bc800b
 scripts\lua\forms\selectcha.clu	0e57706610017191f50bcc0ac2c0f8f6
@@ -18559,7 +18559,7 @@ system\CaLua.dll	5c55c71cce36c5c85e5266dd01a1d2a5
 system\discord-rpc.dll	b6fd682381b825d2ceba5995c296dde3
 system\en_US.res	63de64711605ad29ff11301536052db3
 system\ErrorReport.exe	495f093d2902854332ad5c44e49a62db
-system\Game.exe	83dfd0f9a5a09f568e23cb10c2156314
+system\Game.exe	6c6ce46eab29fe94c801b46ab74b9523
 system\icudt38.dll	9b5ac1badf16aea1a48dae77fca76670
 system\icuuc38.dll	395b5b053bc7505626e446f36b92d0c5
 system\libcurl.dll	b613b88a5a778361e570515c968c7350
@@ -18568,6 +18568,18 @@ system\PAI.DLL	ecb6062b9a4026a7b525ce733e2adb82
 system\SDL.dll	a28d3c74676fc1bf398a7f91c8873b2f
 system\SDL_mixer.dll	210c22faec8c452b4f90f1ea253d9312
 system\smpeg.dll	c27385a0b0801519ba0dd23261ea78f0
+texture\areamanager\boss_74.png	b94134cbb8ae1d9db91c9f3bb514bff4
+texture\areamanager\boss_757.png	cdcbb38d7495a262bc1ab56266a4da23
+texture\areamanager\boss_776.png	ae8d1b3e04600c22f7de576eb7dbf3cd
+texture\areamanager\boss_786.png	d6f3fa2cee2fe384cdbf26fc7048fae7
+texture\areamanager\boss_788.png	1b9b16804303e8228f68306aa98665eb
+texture\areamanager\boss_805.png	4deee01bf1735b14865158a6513e6420
+texture\areamanager\boss_807.png	f42a23b5f731ad1ddc52ce14ec763f45
+texture\areamanager\mazes_chaos.png	e6f353d5683fd77e0b1180fa38c464ce
+texture\areamanager\mazes_ds.png	d4c9333c9beef92d435b5efb9ade2763
+texture\areamanager\mazes_dw.png	e7f4f369a4b50effd3ca3e8843d4370d
+texture\areamanager\mazes_fc.png	ce6012ba55508334a221e260af182d8a
+texture\areamanager\mazes_sw.png	3924fb786997371424627d4054e6e3e5
 texture\bigmap\01.bmp	edfc0f717fa4f18ac4509cf4d253d128
 texture\bigmap\02.bmp	7bc88231c5f01cb457cbf569e0ec65f6
 texture\bigmap\03.bmp	62167347eb2ec71e1834d68f9c6e7265

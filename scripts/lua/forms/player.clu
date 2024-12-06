@@ -834,7 +834,7 @@ UI_LoadImage( imgResize, "texture/gui/panel-effects.png", NORMAL, 20, 20, 1, 58 
 -- Imporant && Warning message
 ------
 iwMessage = UI_CreateForm( "iwMessage", FALSE, 314, 63, 100, 50, TRUE, FALSE )
-UI_FormSetHotKey( iwMessage, ALT_KEY, HOTKEY_G )
+--UI_FormSetHotKey( iwMessage, ALT_KEY, HOTKEY_G )
 UI_ShowForm( iwMessage, TRUE )
 UI_SetIsDrag( iwMessage, TRUE )
 UI_AddFormToTemplete( iwMessage, FORM_MAIN )
