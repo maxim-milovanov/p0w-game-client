@@ -18559,11 +18559,11 @@ system\CaLua.dll	5c55c71cce36c5c85e5266dd01a1d2a5
 system\discord-rpc.dll	b6fd682381b825d2ceba5995c296dde3
 system\en_US.res	63de64711605ad29ff11301536052db3
 system\ErrorReport.exe	495f093d2902854332ad5c44e49a62db
-system\Game.exe	6c6ce46eab29fe94c801b46ab74b9523
+system\Game.exe	3257ac6888484065df833e39b6ef61d4
 system\icudt38.dll	9b5ac1badf16aea1a48dae77fca76670
 system\icuuc38.dll	395b5b053bc7505626e446f36b92d0c5
 system\libcurl.dll	b613b88a5a778361e570515c968c7350
-system\MindPower3D_D8R.dll	365ef6cf5e38f28237ded97dbce2019b
+system\MindPower3D_D8R.dll	6ff2d427936fbf4c07894890c73b18fa
 system\PAI.DLL	ecb6062b9a4026a7b525ce733e2adb82
 system\SDL.dll	a28d3c74676fc1bf398a7f91c8873b2f
 system\SDL_mixer.dll	210c22faec8c452b4f90f1ea253d9312
