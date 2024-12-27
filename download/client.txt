@@ -18453,14 +18453,14 @@ scripts\lua\table\scripts.lua	686f9b28cb70884a8d56719d5a717e2c
 scripts\lua\table\stonehint.lua	692672a7cc288a407c31dc2650463a96
 scripts\ooo.lit	ff74dd67a8a0107b3fb1f86dea9f5ff6
 scripts\table\AreaSet.bin	422e4952997923742c3d93575d047bfe
-scripts\table\Characterinfo.bin	25a40d53cc0433cd5ff5942ec0104bf5
+scripts\table\Characterinfo.bin	2d433c00d9d89083d2e11c1c93522719
 scripts\table\characterposeinfo.bin	ae8a3299480b3a28ee360edf96ade493
 scripts\table\chaticons.bin	2a254e653142bb7c7941605d50ad704e
 scripts\table\ElfSkillInfo.bin	b7bc966e67c27da157c2d7b669986b79
 scripts\table\eventsound.bin	f36ee492da3753f8bc8fb13f966bd2a8
 scripts\table\forgeitem.bin	8b9273b3acd36ca3decf41d69be14a5a
 scripts\table\hairs.bin	49425087d555ffe71b3f768658da263c
-scripts\table\iteminfo.bin	e071325fb1f30b665f00700ab8db43cb
+scripts\table\iteminfo.bin	2058701886279f1fe43a7e9751588062
 scripts\table\itempre.bin	b04247185a14fdbd307dab07321a4c91
 scripts\table\ItemRefineEffectInfo.bin	c7c3a89add7283df3f9132c9ec0a15c9
 scripts\table\ItemRefineInfo.bin	395bd69c0fdfe949ff61f165de822d8d
@@ -18484,7 +18484,7 @@ scripts\table\skilleff.bin	29bbfceb61640477d23b283f30b5e40e
 scripts\table\skillinfo.bin	d30cc46885893c8a10896134cb5f4b90
 scripts\table\StoneInfo.bin	0514c9ff22dcfde3998d501a495c3514
 scripts\table\StringSet.bin	60542cdff6787d516d8268271e236e17
-scripts\table\TerrainInfo.bin	ba7e97d2298f9e1c8f9a58b4f1a0400b
+scripts\table\TerrainInfo.bin	b34efb5cfd6e782bf6e1b7c2605fa704
 scripts\txt\aaa.tx	71ee47cdc0052f472e8d306921b3ad2e
 scripts\txt\CharacterAction-original.tx	4919b0c1456cbbaae4b343e1075a1828
 scripts\txt\CharacterAction.tx	4ea9d05861869970caf8df525944215c
@@ -41772,6 +41772,7 @@ texture\terrain\mud1.bmp	4521f9a44103618b5325bba0d9b16b45
 texture\terrain\p0w1.bmp	6a0548f9097b60cbddcada149a17451a
 texture\terrain\p0w2.bmp	73f8556d46a37196701f5917fbbd5f8d
 texture\terrain\p0w3.bmp	9521de514316998bf16f594b25461897
+texture\terrain\p0w4.bmp	6378afe14a7730076e649ee29360e6a2
 texture\terrain\pavement1.bmp	99bab37a136a0dd5216bc3ca4409557d
 texture\terrain\poterra01.bmp	2c7c766730d9b5167d30b6aa76dba6d1
 texture\terrain\rgrass1.bmp	00c4db6a96577cc40e56f0cf4023b1b5
