@@ -64,105 +64,111 @@ UI_LoadButtonImage( btnNo, "texture/gui/select-cha-panel.png", 36, 36, 435, 296,
 -----------------------------------------------------------------------
 -- Create cha
 -----------------------------------------------------------------------
-frmQuit = UI_CreateForm( "frmQuit", FALSE, 451, 217, 0, 0, TRUE, FALSE )
+frmQuit = UI_CreateForm( "frmQuit", FALSE, 800, 600, 0, 0, TRUE, FALSE )
 UI_ShowForm( frmQuit, TRUE )
 UI_AddFormToTemplete( frmQuit, FORM_CREATE_CHA )
 UI_FormSetIsEscClose( frmQuit, FALSE )
 UI_SetBackground(frmQuit)
 
-imgQuit = UI_CreateCompent( frmQuit, IMAGE_TYPE, "imgQuit", 451, 217, 0, 0 )
-UI_LoadImage( imgQuit, "texture/gui/create-cha-02.png", NORMAL, 451, 217, 0, 0 )
+imgBg = UI_CreateCompent( frmQuit, IMAGE_TYPE, "imgBg", 1920, 1080, 0, 0 )
+UI_LoadImage( imgBg, "texture/gui/p0w-create-cha-bg.png", NORMAL, 1920, 1080, 0, 0 )
 
-btnLance = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btnLance", 81, 81, 53, 130 )
-UI_LoadButtonImage( btnLance, "texture/gui/create-cha-02.png", 81, 81, 0, 255, TRUE )
+imgLineBackground = UI_CreateCompent(frmQuit, IMAGE_TYPE, "imgLineBackground", 1600, 86, 0, 0)
+UI_LoadImage(imgLineBackground, "texture/gui/p0w-create-cha.png", NORMAL, 1600, 86, 0, 282)
 
-btnCarsise = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btnCarsise", 81, 81, 143, 130 )
-UI_LoadButtonImage( btnCarsise, "texture/gui/create-cha-02.png", 81, 81, 0, 336, TRUE )
+render_cha = UI_CreateCompent( frmQuit, UI3D_COMPENT, "render_cha", 160, 500, 0, 0 )
 
-btnPhyllis = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btnPhyllis", 81, 81, 233, 130 )
-UI_LoadButtonImage( btnPhyllis, "texture/gui/create-cha-02.png", 81, 81, 0, 417, TRUE )
+imgInput = UI_CreateCompent( frmQuit, IMAGE_TYPE, "imgInput", 434, 121, 0, 0 )
+UI_LoadImage( imgInput, "texture/gui/btnServer.png", NORMAL, 434, 121, 0, 602 )
+UI_SetAlpha( imgInput, 150 )
 
-btnAmi = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btnAmi", 81, 81, 323, 130 )
-UI_LoadButtonImage( btnAmi, "texture/gui/create-cha-02.png", 81, 81, 0, 498, TRUE )
-
-imgLance = UI_CreateCompent( frmQuit, IMAGE_TYPE, "imgLance", 519, 98, -26, 230 )
-UI_LoadImage( imgLance, "texture/gui/create-cha-02.png", NORMAL, 519, 98, 336, 257 )
-
-imgCarsise = UI_CreateCompent( frmQuit, IMAGE_TYPE, "imgCarsise", 519, 98, -26, 230 )
-UI_LoadImage( imgCarsise, "texture/gui/create-cha-02.png", NORMAL, 519, 98, 336, 356 )
-
-imgPhyllis = UI_CreateCompent( frmQuit, IMAGE_TYPE, "imgPhyllis", 519, 98, -26, 230 )
-UI_LoadImage( imgPhyllis, "texture/gui/create-cha-02.png", NORMAL, 519, 98, 336, 455 )
-
-imgAmi = UI_CreateCompent( frmQuit, IMAGE_TYPE, "imgAmi", 519, 98, -26, 230 )
-UI_LoadImage( imgAmi, "texture/gui/create-cha-02.png", NORMAL, 519, 98, 336, 554 )
+edtName = UI_CreateCompent( frmQuit, EDIT_TYPE, "edtName", 300, 12, 0, 0 )
+UI_SetTextColor( edtName, COLOR_B1A58E )
+UI_SetEditMaxNum( edtName, 16 )
+UI_SetEditMaxNumVisible( edtName, 16)
+UI_SetEditCursorColor(edtName, COLOR_WHITE)
 
 btnNo = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btnNo", 32, 32, 398, 54 )
 UI_LoadButtonImage( btnNo, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
 
------------------------------------------------------------------------
--- Form set settings on create character
------------------------------------------------------------------------
-frmFound = UI_CreateForm( "frmFound", FALSE, 454, 373, 173, 112, TRUE, FALSE )
-UI_ShowForm(frmFound, TRUE )
-UI_SetIsDrag(frmFound, FALSE)
-UI_FormSetIsEscClose(frmFound, FALSE )
-UI_SetFormStyle(frmFound, 1)
-UI_AddFormToTemplete(frmFound, FORM_CREATE_CHA)
-UI_SetBackground(frmFound)
+btnCreate = UI_CreateCompent(frmQuit, BUTTON_TYPE, "btnCreate", 288, 103, 300, 650)
+UI_LoadButtonImage(btnCreate, "texture/gui/p0w-create-cha.png", 288, 103, 353, 0, TRUE)
 
-imgSelect = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgSelect", 460, 410, 200, -100 )
-UI_LoadImage( imgSelect, "texture/gui/create-cha-01.png", NORMAL, 460, 410, 0, 0 )
+imgBackgroundRace = UI_CreateCompent(frmQuit, IMAGE_TYPE, "imgBackgroundRace", 270, 150, 0, 0)
+UI_LoadImage(imgBackgroundRace, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0)
 
-imgInputName = UI_CreateCompent( frmFound, IMAGE_TYPE, "imgInputName", 302, 80, -15, 300 )
-UI_LoadImage( imgInputName, "texture/gui/create-cha-01.png", NORMAL, 302, 80, 0, 455 )
+imgRaceTitle = UI_CreateCompent(frmQuit, IMAGE_TYPE, "imgRaceTitle", 272, 25, 0, 0)
+UI_LoadImage(imgRaceTitle, "texture/gui/p0w-create-cha.png", NORMAL, 392, 35, 0, 103)
 
-edtName = UI_CreateCompent( frmFound, EDIT_TYPE, "edtName", 117, 12, 70, 335 )
-UI_SetTextColor( edtName, COLOR_9A958D )
-UI_SetEditMaxNum( edtName, 16 )
-UI_SetEditMaxNumVisible( edtName, 16 )
-UI_SetEditCursorColor( edtName, COLOR_9A958D )
+-- Формирование выбора рассы
+for id = 1, 4, 1 do
+	local x = 414
+	local y = 103
+	
+	if (id == 2) then
+		y = 196
+	elseif (id == 3) then
+		x = 754
+	elseif (id == 4) then
+		x = 754
+		y = 196
+	end
+	
+	local name = string.format("btn_race_%d", id)
+	name = UI_CreateCompent( frmQuit, BUTTON_TYPE, name, 59, 65, 0, 0)
+	UI_LoadButtonImage( name, "texture/gui/p0w-create-cha.png", 85, 93, x, y, TRUE )
+end
 
-labHairShow = UI_CreateCompent( frmFound, LABELEX_TYPE, "labHairShow", 65, 12, 380, 75 )
-UI_SetCaption( labHairShow, "Long Hair" )
-UI_SetTextColor( labHairShow, COLOR_9A958D )
-UI_SetLabelExFont( labHairShow, FONT20, FALSE, COLOR_9A958D )
+imgBackgroundJobs = UI_CreateCompent(frmQuit, IMAGE_TYPE, "imgBackgroundJobs", 270, 150, 0, 0)
+UI_LoadImage(imgBackgroundJobs, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0)
 
-labFaceShow = UI_CreateCompent( frmFound, LABELEX_TYPE, "labFaceShow", 65, 12, 380, 145 )
-UI_SetCaption( labFaceShow, "Nightmare" )
-UI_SetTextColor( labFaceShow, COLOR_9A958D )
-UI_SetLabelExFont( labFaceShow, FONT20, FALSE, COLOR_9A958D )
+imgJobsTitle = UI_CreateCompent(frmQuit, IMAGE_TYPE, "imgJobsTitle", 272, 25, 0, 0)
+UI_LoadImage(imgJobsTitle, "texture/gui/p0w-create-cha.png", NORMAL, 392, 35, 0, 149)
 
-labAngle = UI_CreateCompent( frmFound, LABELEX_TYPE, "labAngle", 65, 12, 396, 255 )
-UI_SetCaption( labAngle, "Angle" )
-UI_SetTextColor( labAngle, COLOR_9A958D )
-UI_SetLabelExFont( labAngle, FONT20, FALSE, COLOR_9A958D )
+-- Формирование выбора профессии
+for id = 1, 4, 1 do
+	local x = 1094
+	local y = 103
+	if (id == 2) then
+		y = 196
+	elseif (id == 3) then
+		x = 0
+		y = 383
+	elseif (id == 4) then
+		x = 340
+		y = 383
+	end
+	
+	local name = string.format("btn_job_%d", id)
+	name = UI_CreateCompent( frmQuit, BUTTON_TYPE, name, 59, 65, 0, 0)
+	UI_LoadButtonImage( name, "texture/gui/p0w-create-cha.png", 85, 93, x, y, TRUE )
+end
 
-btnLeftHair = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnLeftHair", 41, 41, 233+50, 64 )
-UI_LoadButtonImage( btnLeftHair, "texture/gui/create-cha-01.png", 41, 41, 0, 410, TRUE )
+imgBackgroundHair = UI_CreateCompent(frmQuit, IMAGE_TYPE, "imgBackgroundHair", 270, 210, 0, 0)
+UI_LoadImage(imgBackgroundHair, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0)
 
-btnLeftFace = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnLeftFace", 41, 41, 233+50, 134 )
-UI_LoadButtonImage( btnLeftFace, "texture/gui/create-cha-01.png", 41, 41, 0, 410, TRUE )
+imgHairTitle = UI_CreateCompent(frmQuit, IMAGE_TYPE, "imgHairTitle", 272, 25, 0, 0)
+UI_LoadImage(imgHairTitle, "texture/gui/p0w-create-cha.png", NORMAL, 392, 35, 0, 194)
 
-btnLeft3d = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnLeft3d", 41, 41, 233+50, 244 )
-UI_LoadButtonImage( btnLeft3d, "texture/gui/create-cha-01.png", 41, 41, 0, 410, TRUE )
+-- Формирование выбора головного убора
+for id = 1, 8, 1 do
+	local name = string.format("btn_hair_%d", id)
+	name = UI_CreateCompent( frmQuit, BUTTON_TYPE, name, 59, 65, 0, 0)
+	UI_LoadButtonImage( name, "texture/gui/p0w-create-cha.png", 85, 93, 0, 0, TRUE )
+end
 
-btnRightHair = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnRightHair", 41, 41, 586-50, 64 )
-UI_LoadButtonImage( btnRightHair, "texture/gui/create-cha-01.png", 41, 41, 165, 410, TRUE )
+imgBackgroundFace = UI_CreateCompent(frmQuit, IMAGE_TYPE, "imgBackgroundFace", 270, 210, 0, 0)
+UI_LoadImage(imgBackgroundFace, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0)
 
-btnRightFace = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnRightFace", 41, 41, 586-50, 134 )
-UI_LoadButtonImage( btnRightFace, "texture/gui/create-cha-01.png", 41, 41, 165, 410, TRUE )
+imgFaceTitle = UI_CreateCompent(frmQuit, IMAGE_TYPE, "imgFaceTitle", 272, 25, 0, 0)
+UI_LoadImage(imgFaceTitle, "texture/gui/p0w-create-cha.png", NORMAL, 392, 35, 0, 241)
 
-btnRight3d = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnRight3d", 41, 41, 586-50, 244 )
-UI_LoadButtonImage( btnRight3d, "texture/gui/create-cha-01.png",  41, 41, 165, 410, TRUE )
-
-ui3dCreateCha = UI_CreateCompent( frmFound, UI3D_COMPENT, "ui3dCreateCha", 160, 300, 52, 35 )
-
-btnYes = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnYes", 200, 60, 286+11, 309 )
-UI_LoadButtonImage( btnYes, "texture/gui/create-cha-01.png", 200, 60, 0, 535, FALSE )
-
-btnNo = UI_CreateCompent( frmFound, BUTTON_TYPE, "btnNo", 60, 60, 286+205+11, 309 )
-UI_LoadButtonImage( btnNo, "texture/gui/create-cha-01.png", 60, 60, 206, 535, FALSE )
+-- Формирование выбора лица
+for id = 1, 8, 1 do
+	local name = string.format("btn_face_%d", id)
+	name = UI_CreateCompent( frmQuit, BUTTON_TYPE, name, 59, 65, 0, 0)
+	UI_LoadButtonImage( name, "texture/gui/p0w-create-cha.png", 85, 93, 0, 0, TRUE )
+end
 
 -----------------------------------------------------------------------
 -- Character Intro
