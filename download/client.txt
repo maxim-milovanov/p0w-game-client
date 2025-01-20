@@ -4065,6 +4065,12 @@ map\bdlair4.rbo	d41d8cd98f00b204e9800998ecf8427e
 map\binglang2.map	3d41cff1457b6814322175c937d37726
 map\binglang2.obj	7fed21271d7fa5bcbdbcfcbde68307be
 map\binglang2.rbo	d41d8cd98f00b204e9800998ecf8427e
+map\bof1.map	4bd9d47586ef98899b93e9c4ba074b07
+map\bof1.obj	ea51e4c97ac9bb6a3306c851b4a4e74b
+map\bof2.map	d2cc70ab8b950435c83743073ed5dc14
+map\bof2.obj	9581de66e6973b622f5a4b9bc3e772e3
+map\bof3.map	9c862d36fc3b539f98b459a70e47b4ff
+map\bof3.obj	2a0b792e7a83937f7d3b593317f6400a
 map\bountypk.map	0bbd486c6dec259dd3da68e630ae764a
 map\bountypk.obj	ce46580807375560fb4f15dc8063a0d6
 map\bountypk.rbo	d41d8cd98f00b204e9800998ecf8427e
@@ -4163,12 +4169,6 @@ map\jialebi.rbo	d41d8cd98f00b204e9800998ecf8427e
 map\Jungle.map	6716f21f97963a6a781080557cfc534f
 map\Jungle.obj	53ce05692734128dae72a2bdf1ed1abc
 map\Jungle.rbo	d41d8cd98f00b204e9800998ecf8427e
-map\kyjj_1.map	4bd9d47586ef98899b93e9c4ba074b07
-map\kyjj_1.obj	ea51e4c97ac9bb6a3306c851b4a4e74b
-map\kyjj_2.map	d2cc70ab8b950435c83743073ed5dc14
-map\kyjj_2.obj	9581de66e6973b622f5a4b9bc3e772e3
-map\kyjj_3.map	9c862d36fc3b539f98b459a70e47b4ff
-map\kyjj_3.obj	2a0b792e7a83937f7d3b593317f6400a
 map\L4MAP.map	c55c103d826ef80d01f9d6436c90e8ab
 map\L4MAP.obj	3ef7b60f09157eeeb70032b1fec57cae
 map\leiting2.map	afa99e5f7c7d9c7fca224c12c9fe479f
@@ -4192,7 +4192,7 @@ map\magicsea2.rbo	d41d8cd98f00b204e9800998ecf8427e
 map\magicsea2mini.map	04415a5b815190c063cbc3c776400f16
 map\magicsea2mini.obj	d47bf3a5a06f59295b471a84d34f1e8d
 map\magicsea2mini.rbo	d41d8cd98f00b204e9800998ecf8427e
-map\mapinfo.bin	733fa44c53f8e98a080779be2dc90c24
+map\mapinfo.bin	a4809b024abfd1c86ce31ddcea156afc
 map\mingyun.map	c5993943927140dd67586cfe03e9b26b
 map\mingyun.obj	46a25ace767e69a7e8f64854eccd5554
 map\mingyun.rbo	d41d8cd98f00b204e9800998ecf8427e
