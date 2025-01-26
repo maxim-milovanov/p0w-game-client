@@ -18484,7 +18484,7 @@ scripts\table\skilleff.bin	29bbfceb61640477d23b283f30b5e40e
 scripts\table\skillinfo.bin	d30cc46885893c8a10896134cb5f4b90
 scripts\table\StoneInfo.bin	0514c9ff22dcfde3998d501a495c3514
 scripts\table\StringSet.bin	93267b0c394a42ba6c384d02a80e886f
-scripts\table\TerrainInfo.bin	b34efb5cfd6e782bf6e1b7c2605fa704
+scripts\table\TerrainInfo.bin	7d9b3354d427f158faadc5f255632959
 scripts\txt\aaa.tx	71ee47cdc0052f472e8d306921b3ad2e
 scripts\txt\CharacterAction-original.tx	4919b0c1456cbbaae4b343e1075a1828
 scripts\txt\CharacterAction.tx	4ea9d05861869970caf8df525944215c
@@ -41776,6 +41776,8 @@ texture\terrain\p0w1.bmp	6a0548f9097b60cbddcada149a17451a
 texture\terrain\p0w2.bmp	73f8556d46a37196701f5917fbbd5f8d
 texture\terrain\p0w3.bmp	9521de514316998bf16f594b25461897
 texture\terrain\p0w4.bmp	6378afe14a7730076e649ee29360e6a2
+texture\terrain\p0w5.bmp	d2b8b0c7f0b5bb5a7c0e99557018872d
+texture\terrain\p0w6.bmp	8168407b8f80e7f4d04cc173f74f5fa2
 texture\terrain\pavement1.bmp	99bab37a136a0dd5216bc3ca4409557d
 texture\terrain\poterra01.bmp	2c7c766730d9b5167d30b6aa76dba6d1
 texture\terrain\rgrass1.bmp	00c4db6a96577cc40e56f0cf4023b1b5
