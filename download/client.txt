@@ -17069,6 +17069,7 @@ model\item\SIDRSW0001.lgo	bef8ef177e64aad0fcf5937d3e20969a
 model\item\SIFRSW0001.lgo	7d97ed3ffdea6d47ed346f1c9a8af54a
 model\item\sighblue.lgo	04607c99a90b15f1aa89b0ff0254f512
 model\item\sighblues.lgo	04607c99a90b15f1aa89b0ff0254f512
+model\item\sighgblue.lgo	8fde40ea9c78af77a10f3dc5cbe9cd03
 model\item\sighgray.lgo	476d5c0005c9d5ecd6fd19f5516cab80
 model\item\sighgreen.lgo	fa1967482cec1440b27d5e4baa73fa78
 model\item\sighpurp.lgo	38f312dbf6520528c6ca876920f52059
@@ -18435,7 +18436,7 @@ scripts\lua\forms\preperty.clu	e825fde1432744e0bbe402dd6294dd88
 scripts\lua\forms\select.clu	2f3fa6e381777b9aad8ed8d69b7c40c8
 scripts\lua\forms\selectcha.clu	0e57706610017191f50bcc0ac2c0f8f6
 scripts\lua\forms\ship.clu	aa4312d72b0f61260c4d1d43014e3105
-scripts\lua\forms\system.clu	23c38c346f7dc9cf85b49334ac0762d9
+scripts\lua\forms\system.clu	8fd821445e910534584cf6c7b2bc1366
 scripts\lua\forms\traderoom.clu	aa0a3786000bb75f3a44482a2e0dd66c
 scripts\lua\gui.clu	0f8ab8edbe5944f7943a9b79e97c4da4
 scripts\lua\mission\mission.lua	d6832a2a464a0f591b966310fda483c2
@@ -18485,6 +18486,7 @@ scripts\table\skillinfo.bin	d30cc46885893c8a10896134cb5f4b90
 scripts\table\StoneInfo.bin	0514c9ff22dcfde3998d501a495c3514
 scripts\table\StringSet.bin	93267b0c394a42ba6c384d02a80e886f
 scripts\table\TerrainInfo.bin	7d9b3354d427f158faadc5f255632959
+scripts\table\Wardrobe.bin	723e065fc3e05b1b85e0814af0174950
 scripts\txt\aaa.tx	71ee47cdc0052f472e8d306921b3ad2e
 scripts\txt\CharacterAction-original.tx	4919b0c1456cbbaae4b343e1075a1828
 scripts\txt\CharacterAction.tx	4ea9d05861869970caf8df525944215c
@@ -18559,11 +18561,11 @@ system\CaLua.dll	5c55c71cce36c5c85e5266dd01a1d2a5
 system\discord-rpc.dll	b6fd682381b825d2ceba5995c296dde3
 system\en_US.res	63de64711605ad29ff11301536052db3
 system\ErrorReport.exe	495f093d2902854332ad5c44e49a62db
-system\Game.exe	e8aa0309e0882a3f9f58d49a6b8fd75b
+system\Game.exe	adada36c49997412eeed8b3006faf88b
 system\icudt38.dll	9b5ac1badf16aea1a48dae77fca76670
 system\icuuc38.dll	395b5b053bc7505626e446f36b92d0c5
 system\libcurl.dll	b613b88a5a778361e570515c968c7350
-system\MindPower3D_D8R.dll	e1042b40a3836a5d724677b19715cadb
+system\MindPower3D_D8R.dll	8257caf8e7a7a57f91b262682e3676d3
 system\PAI.DLL	ecb6062b9a4026a7b525ce733e2adb82
 system\SDL.dll	a28d3c74676fc1bf398a7f91c8873b2f
 system\SDL_mixer.dll	210c22faec8c452b4f90f1ea253d9312
@@ -31294,6 +31296,7 @@ texture\gui\old_gui\white.tga	b0dec6df1566424d935329f38ba1295d
 texture\gui\old_gui\Word.dds	95d7926b5a1303b33fbb5aa279c64b05
 texture\gui\p0w-create-cha-bg.png	24d720c023615ef945e8a660fe8b81c0
 texture\gui\p0w-create-cha.png	10f4f73a0a691c1f18e15d0c54ac7884
+texture\gui\p0w-dialog-npc-state.png	9eaac8d3f1865a1e78225104b6ad19e3
 texture\gui\p0w-quest.png	a8bbb7f70bcc6605ccc155c5f0638093
 texture\gui\panel-effects.png	d18303ed979713df7e4cefe68e3fbe68
 texture\gui\purification.png	6799ff5337aafa8af425ef5155e0c3e4
@@ -39418,6 +39421,7 @@ texture\item\SIBAST0001.png	2609c697ed1946108b6364a464bbf5d3
 texture\item\SIDRSW0001.png	06d01e32811121879e40865b8aea1f1e
 texture\item\SIFRSW0001.png	bd4533c06bab943b87f78b6877417769
 texture\item\sighblue.bmp	b95e34660392f834ac6b01bb58a78fa2
+texture\item\sighgblue.bmp	2957def7437ce37aa5d9e113152b03f9
 texture\item\sighgray.BMP	158d32ffd9040ea45d5cc0850b990418
 texture\item\sighgreen.BMP	56949ab71b55e26a1e65b2d77eae3d77
 texture\item\sighpurp.bmp	b0dd43a106da2ce482b1186951eeac37

@@ -621,3 +621,188 @@ UI_SetLabelExFont(labPagination, FONT18, FALSE, COLOR_WHITE )
 
 btnNextPage = UI_CreateCompent( frmTickets, BUTTON_TYPE, "btnNextPage", 25, 46, 221, 365 )
 UI_LoadButtonImage( btnNextPage, "texture/gui/btnServer.png", 84, 154, 1369, 0, FALSE )
+
+------
+-- Mount Skins
+------
+frmWardrobe = UI_CreateForm( "frmWardrobe", FALSE, 700, 550, 300, 100, TRUE, FALSE )
+UI_FormSetHotKey( frmWardrobe, ALT_KEY, HOTKEY_V )
+UI_ShowForm( frmWardrobe, TRUE )
+UI_SetIsDrag( frmWardrobe, FALSE )
+UI_AddFormToTemplete( frmWardrobe, FORM_MAIN )
+UI_FormSetIsEscClose( frmWardrobe, TRUE )
+UI_SetBackground(frmWardrobe)
+
+imgBackground = UI_CreateCompent( frmWardrobe, IMAGE_TYPE, "imgBackground", 700, 550, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0 )
+
+imgInputSearch = UI_CreateCompent( frmWardrobe, IMAGE_TYPE, "frmWardrobe", math.ceil(434*0.6), math.ceil(121*0.6), 13, 115 - 40 )
+UI_LoadImage( imgInputSearch, "texture/gui/btnServer.png", NORMAL, 434, 121, 0, 602 )
+UI_SetAlpha( imgInputSearch, 150 )
+
+editSearch = UI_CreateCompent( frmWardrobe, EDIT_TYPE, "editSearch", 300, 12, 40, 150 - 40 )
+UI_SetTextColor( editSearch, COLOR_B1A58E )
+UI_SetEditMaxNum( editSearch, 15 )
+UI_SetEditMaxNumVisible( editSearch, 15 )
+UI_SetEditCursorColor( editSearch, COLOR_WHITE )
+
+labSearchResult = UI_CreateCompent( frmWardrobe, LABELEX_TYPE, "labSearchResult", 40, 12, 195, 150 - 40 )
+UI_SetCaption(labSearchResult, "Search (0/0)" )
+UI_SetTextColor(labSearchResult, COLOR_FFEDCF )
+UI_SetLabelExFont(labSearchResult, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+d3dSkin = UI_CreateCompent( frmWardrobe, UI3D_COMPENT, "d3dSkin", 160, 300, 360, 140 )
+
+
+		
+		
+																	-- §°§ä§ã§ä§å§á §ã§Ý§Ö§Ó§Ñ (§Ó§Ö§ã§î §ã§á§Ú§ã§à§Ü)
+																		-- §°§ä§ã§ä§å§á §ã§Ó§Ö§â§ç§å (§Ó§Ö§ã§î §ã§á§Ú§ã§à§Ü)
+listItems = UI_CreateListView( frmWardrobe, "listItems", 250, 350, 20, 160, 50, 50 )
+--UI_SetMargin( listItems, 30, 20, 15, 0 )
+UI_ListViewSetTitle(listItems, 0, 34, "", 0, 0, 0, 0)
+UI_ListViewSetTitle(listItems, 1, 145, "", 0, 0, 0, 0)
+UI_ListViewSetTitle(listItems, 2, 25, "", 0, 0, 0, 0)
+UI_ListViewSetTitle(listItems, 3, 30, "", 0, 0, 0, 0)
+UI_ListSetItemMargin(listItems, 0, 3 )						-- §±§Ö§â§Ö§Þ§Ö§ë§Ö§ß§Ú§Ö §ä§Ö§Ü§ã§ä§Ñ §Ó§ß§å§ä§â§Ú §ã§ä§â§à§Ü§Ú
+UI_SetListRowHeight(listItems, 40 )							-- §°§ä§ã§ä§å§á §ã§ä§â§à§Ü §Þ§Ö§Ø§Õ§å §ã§à§Ò§à§Û
+UI_SetListIsMouseFollow(listItems, TRUE)
+UI_ListLoadSelectImage(listItems, "texture/gui/frmBackground.png", 79, 13, 100, 300 )
+UI_SetImageAlpha(listItems, 134)
+--UI_SetListFontColor(listItems, COLOR_BLACK, COLOR_RED )
+
+scrollid = UI_GetScroll(listItems)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
+UI_SetSize( id, 13, 43 )
+
+pgePublic = UI_CreateCompent( frmWardrobe, PAGE_TYPE, "pgePublic", 192, 325, 20, 60 )
+UI_SetPageButton(pgePublic, PAGE_BUTTON_CUSTOM, 48, 16 )
+
+---------------------
+skillid = UI_CreatePageItem(pgePublic)
+ttlNum = UI_GetPageItemObj(skillid, PAGE_ITEM_TITLE)
+UI_LoadImage( ttlNum, "texture/gui/p0w-wardrobe.png", PAGE_ITEM_TITLE_NORMAL, 134, 41, 0, 0)
+UI_LoadImage( ttlNum, "texture/gui/p0w-wardrobe.png", PAGE_ITEM_TITLE_ACTIVE, 134, 41, 140, 0)
+UI_SetPos( ttlNum, 0, 0 )
+UI_SetSize( ttlNum, math.ceil(134 / 2), math.ceil(41 / 2))
+
+-----------------------
+
+skillid = UI_CreatePageItem( pgePublic )
+ttlNum = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlNum, "texture/gui/p0w-wardrobe.png", PAGE_ITEM_TITLE_NORMAL, 134, 41, 0, 41)
+UI_LoadImage( ttlNum, "texture/gui/p0w-wardrobe.png", PAGE_ITEM_TITLE_ACTIVE, 134, 41, 140, 41)
+UI_SetPos( ttlNum, math.ceil(134 / 2) + 20, 0)
+UI_SetSize( ttlNum, math.ceil(134 / 2), math.ceil(41 / 2))
+
+sltImgHead = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgHead", 36, 36, 340, 350)
+UI_LoadImage(sltImgHead, "texture/gui/eqform/cmdArmet.png", NORMAL, 36, 36, 0, 0 )
+sltHead = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltHead", 32, 32, 340, 350)
+
+sltImgBody = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgBody", 36, 36, 390, 350)
+UI_LoadImage(sltImgBody, "texture/gui/eqform/cmdBody.png", NORMAL, 36, 36, 0, 0 )
+sltBody = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltBody", 32, 32, 390, 350)
+
+sltImgGlove = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgGlove", 36, 36, 440, 350)
+UI_LoadImage(sltImgGlove, "texture/gui/eqform/cmdGlove.png", NORMAL, 36, 36, 0, 0 )
+sltGlove = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltGlove", 32, 32, 440, 350)
+
+sltImgShoes = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgShoes", 36, 36, 490, 350)
+UI_LoadImage(sltImgShoes, "texture/gui/eqform/cmdShoes.png", NORMAL, 36, 36, 0, 0 )
+sltShoes = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltShoes", 32, 32, 490, 350)
+
+UI_AddCompent(skillid, sltImgHead)
+UI_AddCompent(skillid, sltHead)
+UI_AddCompent(skillid, sltImgBody)
+UI_AddCompent(skillid, sltBody)
+UI_AddCompent(skillid, sltImgGlove)
+UI_AddCompent(skillid, sltGlove)
+UI_AddCompent(skillid, sltImgShoes)
+UI_AddCompent(skillid, sltShoes)
+
+--------------------------------
+
+skillid = UI_CreatePageItem( pgePublic )
+ttlNum = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlNum, "texture/gui/p0w-wardrobe.png", PAGE_ITEM_TITLE_NORMAL, 154, 41, 0, 82)
+UI_LoadImage( ttlNum, "texture/gui/p0w-wardrobe.png", PAGE_ITEM_TITLE_ACTIVE, 154, 41, 162, 82)
+UI_SetPos( ttlNum, (math.ceil(134 / 2) * 2) + 35, 0)
+UI_SetSize( ttlNum, math.ceil(154 / 2), math.ceil(41 / 2))
+local x = - 75
+
+sltImgSword1 = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgSword1", 36, 36, 340 + x, 350)
+UI_LoadImage(sltImgSword1, "texture/gui/eqform/cmdSword1App.png", NORMAL, 36, 36, 0, 0 )
+sltSword1 = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltSword1", 32, 32, 340 + x, 350)
+
+sltImgSword2 = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgSword2", 36, 36, 390 + x, 350)
+UI_LoadImage(sltImgSword2, "texture/gui/eqform/cmdSword2App.png", NORMAL, 36, 36, 0, 0 )
+sltSword2 = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltSword2", 32, 32, 390 + x, 350)
+
+sltImgGreatSword = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgGreatSword", 36, 36, 440 + x, 350)
+UI_LoadImage(sltImgGreatSword, "texture/gui/eqform/cmdGreatSwordApp.png", NORMAL, 36, 36, 0, 0 )
+sltGreatSword = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltGreatSword", 32, 32, 440 + x, 350)
+
+sltImgShield = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgShield", 36, 36, 490 + x, 350)
+UI_LoadImage(sltImgShield, "texture/gui/eqform/cmdShieldApp.png", NORMAL, 36, 36, 0, 0 )
+sltShield = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltShield", 32, 32, 490 + x, 350)
+
+sltImgGun = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgGun", 36, 36, 540 + x, 350)
+UI_LoadImage(sltImgGun, "texture/gui/eqform/cmdGunApp.png", NORMAL, 36, 36, 0, 0 )
+sltGun = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltGun", 32, 32, 540 + x, 350)
+
+sltImgBow = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgBow", 36, 36, 590 + x, 350)
+UI_LoadImage(sltImgBow, "texture/gui/eqform/cmdBowApp.png", NORMAL, 36, 36, 0, 0 )
+sltBow = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltBow", 32, 32, 590 + x, 350)
+
+sltImgDagger = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgDagger", 36, 36, 640 + x, 350)
+UI_LoadImage(sltImgDagger, "texture/gui/eqform/cmdDaggerApp.png", NORMAL, 36, 36, 0, 0 )
+sltDagger = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltDagger", 32, 32, 640 + x, 350)
+
+sltImgStaff = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgStaff", 36, 36, 690 + x, 350)
+UI_LoadImage(sltImgStaff, "texture/gui/eqform/cmdStaffApp.png", NORMAL, 36, 36, 0, 0 )
+sltStaff = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltStaff", 32, 32, 690 + x, 350)
+
+UI_AddCompent(skillid, sltImgSword1)
+UI_AddCompent(skillid, sltSword1)
+UI_AddCompent(skillid, sltImgSword2)
+UI_AddCompent(skillid, sltSword2)
+UI_AddCompent(skillid, sltImgGreatSword)
+UI_AddCompent(skillid, sltGreatSword)
+UI_AddCompent(skillid, sltImgShield)
+UI_AddCompent(skillid, sltShield)
+UI_AddCompent(skillid, sltImgGun)
+UI_AddCompent(skillid, sltGun)
+UI_AddCompent(skillid, sltImgBow)
+UI_AddCompent(skillid, sltBow)
+UI_AddCompent(skillid, sltImgDagger)
+UI_AddCompent(skillid, sltDagger)
+UI_AddCompent(skillid, sltImgStaff)
+UI_AddCompent(skillid, sltStaff)
+
+--------------------------------
+
+imgCboMountType = UI_CreateCompent( frmWardrobe, IMAGE_TYPE, "imgCboMountType", math.ceil(245 / 1), math.ceil(41 / 1), 20, 130 )
+UI_LoadImage( imgCboMountType, "texture/gui/p0w-wardrobe.png", NORMAL, 245, 41, 0, 131 )
+UI_AddCompent( frmWardrobe, imgCboMountType )
+
+cboType  = UI_CreateCompent( frmWardrobe, COMBO_TYPE, "cboType", 98, 20, 55, 145 )
+UI_ComboSetStyle( cboType, TRUE )
+UI_ComboSetTextColor( cboType, COLOR_WHITE )
+lstType = UI_GetList( cboType )
+UI_SetListFontColor( lstType, COLOR_WHITE, COLOR_WHITE )
+UI_SetSize( lstType, 81, 100 )
+UI_SetMargin( lstType, 16,6,16,0 )
+UI_SetListRowHeight( lstType, 18 )
+UI_LoadImage( lstType, "texture/gui/select-map.png", COMPENT_BACK, 81, 68, 4, 114 )
+UI_AddListText( lstType, "All" )
+UI_AddListText( lstType, "Level 1-30" )
+UI_AddListText( lstType, "Level 31-60" )
+UI_AddListText( lstType, "Level 61+" )
+UI_AddListText( lstType, "Event" )
+UI_SetListIsMouseFollow( lstType, TRUE)
+UI_ComboSetTextColor( lstType, COLOR_WHITE )
+
