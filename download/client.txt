@@ -18484,9 +18484,9 @@ scripts\table\shipiteminfo.bin	0f8daa750857371edd1edd732c01cdaf
 scripts\table\skilleff.bin	29bbfceb61640477d23b283f30b5e40e
 scripts\table\skillinfo.bin	d30cc46885893c8a10896134cb5f4b90
 scripts\table\StoneInfo.bin	0514c9ff22dcfde3998d501a495c3514
-scripts\table\StringSet.bin	93267b0c394a42ba6c384d02a80e886f
+scripts\table\StringSet.bin	cfd81c12a548e085f87d3b767337b08d
 scripts\table\TerrainInfo.bin	7d9b3354d427f158faadc5f255632959
-scripts\table\Wardrobe.bin	723e065fc3e05b1b85e0814af0174950
+scripts\table\Wardrobe.bin	15377814b5ee0e205376a4bf419365f3
 scripts\txt\aaa.tx	71ee47cdc0052f472e8d306921b3ad2e
 scripts\txt\CharacterAction-original.tx	4919b0c1456cbbaae4b343e1075a1828
 scripts\txt\CharacterAction.tx	4ea9d05861869970caf8df525944215c
@@ -18561,7 +18561,7 @@ system\CaLua.dll	5c55c71cce36c5c85e5266dd01a1d2a5
 system\discord-rpc.dll	b6fd682381b825d2ceba5995c296dde3
 system\en_US.res	63de64711605ad29ff11301536052db3
 system\ErrorReport.exe	495f093d2902854332ad5c44e49a62db
-system\Game.exe	adada36c49997412eeed8b3006faf88b
+system\Game.exe	9ae450f69bf8792c5a9c3e1f5ec6d86d
 system\icudt38.dll	9b5ac1badf16aea1a48dae77fca76670
 system\icuuc38.dll	395b5b053bc7505626e446f36b92d0c5
 system\libcurl.dll	b613b88a5a778361e570515c968c7350
@@ -31298,6 +31298,7 @@ texture\gui\p0w-create-cha-bg.png	24d720c023615ef945e8a660fe8b81c0
 texture\gui\p0w-create-cha.png	10f4f73a0a691c1f18e15d0c54ac7884
 texture\gui\p0w-dialog-npc-state.png	9eaac8d3f1865a1e78225104b6ad19e3
 texture\gui\p0w-quest.png	a8bbb7f70bcc6605ccc155c5f0638093
+texture\gui\p0w-wardrobe.png	9afe12463a6d028d7e8051338026e1c2
 texture\gui\panel-effects.png	d18303ed979713df7e4cefe68e3fbe68
 texture\gui\purification.png	6799ff5337aafa8af425ef5155e0c3e4
 texture\gui\quest-log.png	acda64d0fa79bd9ca3a7dc68feff3c50
