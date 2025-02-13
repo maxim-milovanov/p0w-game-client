@@ -889,6 +889,35 @@ function UI_SetFontSize_Cmd( id, nFontIndex )
 	CLU_Call("UI_SetFontSize_Cmd", id, nFontIndex )
 end
 
+function addEquip(x,y,name,form,skillid)
+	_G["img"..name] = UI_CreateCompent( form, IMAGE_TYPE, "img"..name, 36,36, x-2 ,y -2 )
+	UI_LoadImage( _G["img"..name], "texture/gui/eqform/"..name..".png", NORMAL, 36,36, 0, 0 )
+	_G[name] = UI_CreateCompent( form, COMMAND_ONE_TYPE, name, 32, 32, x ,y )
+	if skillid then
+		UI_AddCompent( skillid, _G["img"..name] )
+		UI_AddCompent( skillid, _G[name] )
+	end
+end
+
+function addEquipGroup(X,Y,Xoff,Yoff,names,form,skillid)
+	for i,v in pairs(names) do
+		addEquip(X + (i-1)* Xoff ,Y + (i-1)* Yoff,v,form,skillid)
+	end
+end
+
+function argbColor(hex)
+    -- §²§Ñ§Ù§Ò§Ú§â§Ñ§Ö§Þ §ê§Ö§ã§ä§ß§Ñ§Õ§è§Ñ§ä§Ö§â§Ú§é§ß§à§Ö §Ù§ß§Ñ§é§Ö§ß§Ú§Ö §è§Ó§Ö§ä§Ñ
+    local r = tonumber(hex:sub(1, 2), 16)
+    local g = tonumber(hex:sub(3, 4), 16)
+    local b = tonumber(hex:sub(5, 6), 16)
+    
+    -- §¥§à§Ò§Ñ§Ó§Ý§ñ§Ö§Þ §Ñ§Ý§î§æ§Ñ-§Ü§Ñ§ß§Ñ§Ý (255 - §á§à§Ý§ß§à§ã§ä§î§ð §ß§Ö§á§â§à§Ù§â§Ñ§é§ß§í§Û)
+    local a = 255
+
+    -- §¬§à§ß§Ó§Ö§â§ä§Ú§â§å§Ö§Þ §Ó §é§Ú§ã§Ý§à (ARGB §Ó little-endian §æ§à§â§Þ§Ñ§ä§Ö)
+    return a * 2^24 + r * 2^16 + g * 2^8 + b
+end
+
 UI_ItemBarLoadImage( "texture/ui/system/progress.tga", 64, 16, 0, 0 )
 
 

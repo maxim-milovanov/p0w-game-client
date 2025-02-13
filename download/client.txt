@@ -18417,7 +18417,7 @@ scripts\lua\Camera-big.clu	1c09a4759aee3e778cffcdbef6e428a3
 scripts\lua\Camera.clu	3f5d9f28366cf042bf45bab8c93a0110
 scripts\lua\CharacterConf.clu	1fec371d919f5e3f09b73e50933d3a04
 scripts\lua\filter.clu	ce62330c88b7afbc3a1085a79172b3a9
-scripts\lua\font.clu	8d0c5f7518a67dc9c0d2436af0c1f090
+scripts\lua\font.clu	7d5da390ca539cecac7d631d86b1bfb1
 scripts\lua\forms\chat.clu	f22f527267da0e1cf7b26b70a6a1bee5
 scripts\lua\forms\coze.clu	d41d8cd98f00b204e9800998ecf8427e
 scripts\lua\forms\dialog.clu	bed50d9d9cc123fb28fada96c235f26c
@@ -18438,7 +18438,7 @@ scripts\lua\forms\selectcha.clu	0e57706610017191f50bcc0ac2c0f8f6
 scripts\lua\forms\ship.clu	aa4312d72b0f61260c4d1d43014e3105
 scripts\lua\forms\system.clu	8fd821445e910534584cf6c7b2bc1366
 scripts\lua\forms\traderoom.clu	aa0a3786000bb75f3a44482a2e0dd66c
-scripts\lua\gui.clu	0f8ab8edbe5944f7943a9b79e97c4da4
+scripts\lua\gui.clu	0cc881617a1439662567c27c91b7ee7c
 scripts\lua\mission\mission.lua	d6832a2a464a0f591b966310fda483c2
 scripts\lua\mission\missioninfo.lua	f88012b6bd36c2db5a022bc55d6c66a0
 scripts\lua\pear.luc	c55e5f68c6315c75a50bb8fe3e7aeaf3
