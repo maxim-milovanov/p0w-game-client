@@ -1,129 +1,34 @@
-
-function addEquip(x,y,name,form,skillid)
-	_G["img"..name] = UI_CreateCompent( form, IMAGE_TYPE, "img"..name, 36,36, x-2 ,y -2 )
-	UI_LoadImage( _G["img"..name], "texture/gui/eqform/"..name..".png", NORMAL, 36,36, 0, 0 )
-	_G[name] = UI_CreateCompent( form, COMMAND_ONE_TYPE, name, 32, 32, x ,y )
-	if skillid then
-		UI_AddCompent( skillid, _G["img"..name] )
-		UI_AddCompent( skillid, _G[name] )
-	end
-end
-
-function addEquipGroup(X,Y,Xoff,Yoff,names,form,skillid)
-	for i,v in pairs(names) do
-		addEquip(X + (i-1)* Xoff ,Y + (i-1)* Yoff,v,form,skillid)
-	end
-end
-
-frmInv = UI_CreateForm( "frmInv", FALSE, 447, 414, 198, 160, TRUE, FALSE )
+frmInv = UI_CreateForm( "frmInv", FALSE, 332, 408, 198, 160, TRUE, FALSE )
 UI_FormSetHotKey( frmInv, ALT_KEY, HOTKEY_E ) --'E'
 UI_ShowForm( frmInv, FALSE )
 UI_AddFormToTemplete( frmInv, FORM_MAIN )
 UI_SetIsDrag( frmInv, TRUE )
 
-imgfrmInv = UI_CreateCompent( frmInv, IMAGE_TYPE, "imgfrmInv", 196, 368, 0, 0 )
-UI_LoadImage( imgfrmInv, "texture/gui/Inventory.png", NORMAL, 196, 368, 0, 0 )
+imgBackground = UI_CreateCompent( frmInv, IMAGE_TYPE, "imgBackground", 332, 408, 0, 0 )
+UI_LoadImage(imgBackground, "texture/gui/p0w-frmInv.png", NORMAL, 332, 408, 0, 0 )
 
-imgfrmInv2 = UI_CreateCompent( frmInv, IMAGE_TYPE, "imgfrmInv2", 251, 414, 196, 0 )
-UI_LoadImage( imgfrmInv2, "texture/gui/Inventory.png", NORMAL, 251, 414, 196, 0 )
+btnClose = UI_CreateCompent(frmInv, BUTTON_TYPE, "btnClose", 28, 26, 278, 23)
+UI_LoadButtonImage(btnClose, "texture/gui/btnServer.png", 28, 26, 0, 512, TRUE)
+UI_SetButtonModalResult(btnClose, BUTTON_CLOSE)
 
-btnClose = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnClose", 32, 32, 408, 7 )
-UI_LoadButtonImage( btnClose, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
-UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
-
-pgePublic = UI_CreateCompent( frmInv, PAGE_TYPE, "pgePublic", 192, 325, 8, 16 )
-UI_SetPageButton( pgePublic, PAGE_BUTTON_CUSTOM, 48, 16 )
-
-local tabX = 14
-local tabXoff= 56
-local tabY = 2
-
-local tabsX = 55
-local tabsY = 35
-
---Equip Tab
-skillid = UI_CreatePageItem( pgePublic )
-ttlNum = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
-UI_LoadImage( ttlNum, "texture/gui/Inventory.png", PAGE_ITEM_TITLE_ACTIVE, 46, 42, 0, 400 )
---UI_LoadImage( ttlNum, "texture/gui/Inventory.png", PAGE_ITEM_TITLE_NORMAL, 46, 42, 0, 400 )
-UI_SetPos( ttlNum, -4, -7 )
-UI_SetSize( ttlNum, 51, 35 )
-
---left col
-addEquipGroup(8,40,0,49,{"cmdArmet","cmdWing","cmdNecklace","cmdRightHand","cmdJewelry4","cmdCloak"},frmInv,skillid)
---2nd col
-addEquipGroup(56,187,0,49,{"cmdCirclet1","cmdJewelry1","cmdRearPet"},frmInv,skillid)
---3rd col
-addEquipGroup(104,187,0,49,{"cmdCirclet2","cmdJewelry2","cmdPet"},frmInv,skillid)
---right col
-addEquipGroup(152,40,0,49,{"cmdBody","cmdGlove","cmdShoes","cmdLeftHand","cmdJewelry3","cmdMount"},frmInv,skillid)
-
-ui3dCha = UI_CreateCompent( frmInv, UI3D_COMPENT, "ui3dCha", 0, 0, 96, 180 )
-
-btnChaRight3d = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnChaRight3d", 17, 13, 70, 328 )
-UI_LoadButtonImage( btnChaRight3d, "texture/gui/Inventory.png", 17, 13, 202, 412+4, FALSE )
-
-btnChaLeft3d = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnChaLeft3d", 17, 13, 70+17+20, 328 )
-UI_LoadButtonImage( btnChaLeft3d, "texture/gui/Inventory.png", 17, 13, 248, 412+4, FALSE )
-
-UI_AddCompent( skillid, btnChaLeft3d )
-UI_AddCompent( skillid, btnChaRight3d )
-UI_AddCompent( skillid, ui3dCha )
-
---Apparel Tab
-skillid = UI_CreatePageItem( pgePublic )
-ttlNum = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
-UI_LoadImage( ttlNum, "texture/gui/Inventory.png", PAGE_ITEM_TITLE_ACTIVE, 62, 42, 54, 400 )
---UI_LoadImage( ttlNum, "texture/gui/Inventory.png", PAGE_ITEM_TITLE_NORMAL, 62, 42, 54, 400 )
-UI_SetPos( ttlNum, 48, -7 )
-UI_SetSize( ttlNum, 62, 35 )
-UI_AddCompent( skillid, lstNum )
-
-addEquipGroup(22,48,0,55,{"cmdPetApp","cmdDaggerApp","cmdGunApp","cmdSword1App","cmdGreatSwordApp"},frmInv,skillid)
-addEquipGroup(82,48,0,55,{"cmdArmetApp","cmdFaceApp","cmdBodyApp","cmdGloveApp","cmdShoesApp",},frmInv,skillid)
-addEquipGroup(142,48,0,55,{"cmdGlowApp","cmdStaffApp","cmdBowApp","cmdSword2App","cmdShieldApp",},frmInv,skillid)
-
-
---Temp Tab
-skillid = UI_CreatePageItem( pgePublic )
-ttlNum = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
-UI_LoadImage( ttlNum, "texture/gui/Inventory.png", PAGE_ITEM_TITLE_ACTIVE, 73, 42, 120, 400 )
---UI_LoadImage( ttlNum, "texture/gui/Inventory.png", PAGE_ITEM_TITLE_NORMAL, 73, 42, 56, 70 )
-
-UI_SetPos( ttlNum, 111, -7 )
-UI_SetSize( ttlNum, 73, 35 )
-
-
-grid = UI_CreateCompent( frmInv, IMAGE_TYPE, "grid", 153, 308, 17, 36 )
-UI_LoadImage( grid, "texture/gui/Inventory.png", NORMAL, 153, 308, 0, 445 )
-UI_AddCompent( skillid, grid )
-
-grdTempBag = UI_CreateCompent( frmInv, GOODS_GRID_TYPE, "grdTempBag", 153, 328, 19, 37 ) 
-UI_SetGridSpace( grdTempBag, 7, 7 )
-UI_SetGridContent( grdTempBag, 8, 4 )
-UI_SetGridUnitSize( grdTempBag, 32, 32 )
-UI_SetMargin( grdTempBag, 0, 0, 0, 0 )
-
-UI_AddCompent( skillid, grdTempBag )
-
-grdItem = UI_CreateCompent( frmInv, GOODS_GRID_TYPE, "grdItem", 230, 320, 208, 54 ) 
-UI_SetGridSpace( grdItem, 7, 7 )
+grdItem = UI_CreateCompent( frmInv, GOODS_GRID_TYPE, "grdItem", 230, 320, 48, 72 ) 
+UI_SetGridSpace( grdItem, 9, 9 )
 UI_SetGridContent( grdItem, 8, 6 )
 UI_SetGridUnitSize( grdItem, 32, 32 )
 UI_SetMargin( grdItem, 0, 0, 0, 0 )
 
-labItemgoldnumber = UI_CreateCompent( frmInv, LABELEX_TYPE, "labItemgoldnumber", 91, 8, 232, 329+43 )
+labItemgoldnumber = UI_CreateCompent( frmInv, LABELEX_TYPE, "labItemgoldnumber", 91, 8, 70, 362 )
 UI_SetTextColor( labItemgoldnumber, COLOR_B1A58E )
 UI_SetLabelExFont( labItemgoldnumber, DEFAULT_FONT, FALSE, 4289901234 )
 
-labItemIMPnumber = UI_CreateCompent( frmInv, LABELEX_TYPE, "labItemIMPnumber", 91, 8, 232, 348+43 )
+labItemIMPnumber = UI_CreateCompent( frmInv, LABELEX_TYPE, "labItemIMPnumber", 91, 8, 70, 382 )
 UI_SetTextColor( labItemIMPnumber, COLOR_B1A58E )
 UI_SetLabelExFont( labItemIMPnumber, DEFAULT_FONT, FALSE, 4289901234 )
 
 ------
 -- Блокировка предмета
 ------
-btnLockItem = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnLockItem", 21, 21, 392, 334+43 )
+btnLockItem = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnLockItem", 21, 21, 210, 365 )
 UI_LoadImage( btnLockItem, "texture/gui/Inventory.png", 0, 21, 21, 129, 368 )
 UI_LoadImage( btnLockItem, "texture/gui/Inventory.png", 1, 21, 21, 129, 368 )
 UI_LoadImage( btnLockItem, "texture/gui/Inventory.png", 2, 21, 21, 129, 368 )
@@ -132,95 +37,58 @@ UI_SetHint( btnLockItem, "Lock Item" )
 ------
 -- Блокировака инвенторя
 ------
-btnLock = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnLock", 12, 15, 373, 337+43 )
+btnLock = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnLock", 18, 21, 240, 365 )
 UI_FormSetHotKey( btnLock, ALT_KEY, HOTKEY_B )
 
-imgLock = UI_CreateCompent( frmInv, IMAGE_TYPE, "imgLock", 12, 15, 373, 337+43 )
+imgLock = UI_CreateCompent( frmInv, IMAGE_TYPE, "imgLock", 18, 21, 240, 365 )
 UI_LoadImage( imgLock, "texture/gui/a001.tga",NORMAL, 12, 15, 72, 165, TRUE )
 
-imgUnLock = UI_CreateCompent( frmInv, IMAGE_TYPE, "imgUnLock", 12, 15, 373, 337+43 )
+imgUnLock = UI_CreateCompent( frmInv, IMAGE_TYPE, "imgUnLock", 18, 21, 240, 365 )
 UI_LoadImage( imgUnLock, "texture/gui/a001.tga",NORMAL, 12, 15, 84, 165, TRUE )
 UI_SetHint( imgUnLock, "Lock Inventory" )
 
 ------
 -- Корзина
 ------
-btnbrush = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnbrush", 16, 19, 418, 334+43 )
+btnbrush = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnbrush", 18, 21, 270, 365 )
 UI_LoadButtonImage( btnbrush, "texture/gui/SystemBotton3.tga", 16, 19, 151, 226, TRUE ) 
 
-cmdLost = UI_CreateCompent( frmInv, COMMAND_ONE_TYPE, "cmdLost", 16, 19, 418, 334+43 )
+cmdLost = UI_CreateCompent( frmInv, COMMAND_ONE_TYPE, "cmdLost", 18, 21, 270, 365 )
 UI_SetTag( cmdLost, 999 )
 UI_SetHint( cmdLost, "Delete" )
 
+
 ------
--- Хинты слотов под эквип
+-- Временный мешок
 ------
-UI_SetHint( cmdArmet, "Helm" )
-UI_SetHint( cmdBody, "Armor" )
-UI_SetHint( cmdNecklace, "Necklace" )
-UI_SetHint( cmdRightHand, "Weapon" )
-UI_SetHint( cmdLeftHand, "Shield" )
-UI_SetHint( cmdGlove, "Glove" )
-UI_SetHint( cmdCirclet1, "Ring 1" )
-UI_SetHint( cmdCirclet2, "Ring 2" )
-UI_SetHint( cmdShoes, "Shoes" )
-UI_SetHint( cmdJewelry1, "Bracelet 1" )
-UI_SetHint( cmdJewelry2, "Bracelet 2" )
-UI_SetHint( cmdJewelry3, "Belt" )
-UI_SetHint( cmdJewelry4, "Handguard" )
-UI_SetHint( cmdWing, "Wing" )
-UI_SetHint( cmdMount, "Mount" )
-UI_SetHint( cmdCloak, "Cloak" )
-UI_SetHint( cmdRearPet, "Hand pet" )
-UI_SetHint( cmdPet, "Fairy" )
-UI_SetTag( cmdArmet, enumEQUIP_HEAD )
-UI_SetTag( cmdBody, enumEQUIP_BODY )
-UI_SetTag( cmdNecklace, enumEQUIP_NECK )
-UI_SetTag( cmdRightHand, enumEQUIP_RHAND )
-UI_SetTag( cmdLeftHand, enumEQUIP_LHAND )
-UI_SetTag( cmdGlove, enumEQUIP_GLOVE )
-UI_SetTag( cmdCirclet1, enumEQUIP_HAND1 )
-UI_SetTag( cmdCirclet2, enumEQUIP_HAND2 )
-UI_SetTag( cmdShoes, enumEQUIP_SHOES )
-UI_SetTag( cmdJewelry1, enumEQUIP_Jewelry1 )
-UI_SetTag( cmdJewelry2, enumEQUIP_Jewelry2 )
-UI_SetTag( cmdJewelry3, enumEQUIP_Jewelry3 )
-UI_SetTag( cmdJewelry4, enumEQUIP_Jewelry4 )
-UI_SetTag( cmdWing, enumEQUIP_WING )
-UI_SetTag( cmdCloak, 15 )
-UI_SetTag( cmdPet, 16 )
-UI_SetTag( cmdRearPet, 17 )
-UI_SetTag( cmdMount, 18 )
-UI_SetHint( cmdPetApp, "Pet Apparel" )
-UI_SetTag( cmdPetApp, 24 ) 
-UI_SetHint( cmdDaggerApp, "Dagger Apparel" )
-UI_SetTag( cmdDaggerApp, 26 ) 
-UI_SetHint( cmdGunApp, "Gun Apparel" )
-UI_SetTag( cmdGunApp, 27 ) 
-UI_SetHint( cmdSword1App, "Sword Apparel" )
-UI_SetTag( cmdSword1App, 28 ) 
-UI_SetHint( cmdGreatSwordApp, "Greatsword Apparel" )
-UI_SetTag( cmdGreatSwordApp, 29 ) 
-UI_SetHint( cmdArmetApp, "Helm Apparel" )
-UI_SetTag( cmdArmetApp, 19 ) 
-UI_SetHint( cmdFaceApp, "Face Apparel" )
-UI_SetTag( cmdFaceApp, 20 ) 
-UI_SetHint( cmdBodyApp, "Armor Apparel" )
-UI_SetTag( cmdBodyApp, 21 ) 
-UI_SetHint( cmdGloveApp, "Glove Apparel" )
-UI_SetTag( cmdGloveApp, 22 )
-UI_SetHint( cmdShoesApp, "Shoes Apparel" )
-UI_SetTag( cmdShoesApp, 23 )
-UI_SetHint( cmdGlowApp, "Glow Apparel" )
-UI_SetTag( cmdGlowApp, 25 ) 
-UI_SetHint( cmdStaffApp, "Staff Apparel" )
-UI_SetTag( cmdStaffApp, 30 )
-UI_SetHint( cmdBowApp, "Bow Apparel" )
-UI_SetTag( cmdBowApp, 31 ) 
-UI_SetHint( cmdSword2App, "Sword Apparel" )
-UI_SetTag( cmdSword2App, 32 ) 
-UI_SetHint( cmdShieldApp, "Shield Apparel" )
-UI_SetTag( cmdShieldApp, 33 ) 
+frmTempBag = UI_CreateForm( "frmTempBag", FALSE, 208, 241, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmTempBag, FALSE )
+UI_AddFormToTemplete( frmTempBag, FORM_MAIN )
+UI_FormSetIsEscClose( frmTempBag, TRUE )
+UI_SetIsDrag( frmTempBag,FALSE)
+UI_SetFormStyle( frmTempBag,1)
+UI_FormSetHotKey( frmTempBag, ALT_KEY, HOTKEY_D )
+
+imgBackground = UI_CreateCompent(frmTempBag, IMAGE_TYPE, "imgBackground", 336, 265, 0, 0)
+UI_LoadImage(imgBackground, "texture/gui/p0w-frmInv.png", NORMAL, 336, 265, 332, 0)
+
+btnClose = UI_CreateCompent(frmTempBag, BUTTON_TYPE, "btnClose", 28, 26, 278, 23)
+UI_LoadButtonImage(btnClose, "texture/gui/btnServer.png", 28, 26, 0, 512, TRUE)
+UI_SetButtonModalResult(btnClose, BUTTON_CLOSE)
+
+grdTempBag = UI_CreateCompent(frmTempBag, GOODS_GRID_TYPE, "grdTempBag", 255, 165, 48, 72) 
+UI_SetGridSpace(grdTempBag, 9, 9)
+UI_SetGridContent(grdTempBag, 6, 6)
+UI_SetGridUnitSize(grdTempBag, 32, 32)
+UI_SetMargin(grdTempBag, 0, 0, 0, 0)
+
+scrollid = UI_GetScroll(grdTempBag)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
+UI_SetSize( id, 13, 43 )
 
 -----------------------------------------------------------------------
 -- 定义技能
