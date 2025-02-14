@@ -18422,7 +18422,7 @@ scripts\lua\forms\chat.clu	f22f527267da0e1cf7b26b70a6a1bee5
 scripts\lua\forms\coze.clu	d41d8cd98f00b204e9800998ecf8427e
 scripts\lua\forms\dialog.clu	bed50d9d9cc123fb28fada96c235f26c
 scripts\lua\forms\editor.clu	b99a72f7092e01bdd2cb4763df62312b
-scripts\lua\forms\Equip.clu	5293e0470c7b786aa223dd7a909b78dd
+scripts\lua\forms\Equip.clu	35895ed2ea189086ef38972c4d667bc5
 scripts\lua\forms\help.clu	70e21b1f8a4c80a39e01c66957fae7fd
 scripts\lua\forms\loading.clu	43c894d385b2897410fbbb826ce826de
 scripts\lua\forms\login.clu	e1026dc943450bced7dd723351f3ac6b
@@ -18561,7 +18561,7 @@ system\CaLua.dll	5c55c71cce36c5c85e5266dd01a1d2a5
 system\discord-rpc.dll	b6fd682381b825d2ceba5995c296dde3
 system\en_US.res	63de64711605ad29ff11301536052db3
 system\ErrorReport.exe	495f093d2902854332ad5c44e49a62db
-system\Game.exe	c0ae570ec55505f2b198f81fe55b585f
+system\Game.exe	9e0ab1f5e3d8668e541b6f26c51c8d7b
 system\icudt38.dll	9b5ac1badf16aea1a48dae77fca76670
 system\icuuc38.dll	395b5b053bc7505626e446f36b92d0c5
 system\libcurl.dll	b613b88a5a778361e570515c968c7350
@@ -31297,7 +31297,7 @@ texture\gui\old_gui\Word.dds	95d7926b5a1303b33fbb5aa279c64b05
 texture\gui\p0w-create-cha-bg.png	24d720c023615ef945e8a660fe8b81c0
 texture\gui\p0w-create-cha.png	10f4f73a0a691c1f18e15d0c54ac7884
 texture\gui\p0w-dialog-npc-state.png	9eaac8d3f1865a1e78225104b6ad19e3
-texture\gui\p0w-frmInv.png	f29a40409d2729a40757599f6f8aa1da
+texture\gui\p0w-frmInv.png	3e42b515997a45217d6680b2563cfcb0
 texture\gui\p0w-frmState.png	bd82ba8215329291b15edf81e74bc144
 texture\gui\p0w-quest.png	a8bbb7f70bcc6605ccc155c5f0638093
 texture\gui\p0w-wardrobe.png	9afe12463a6d028d7e8051338026e1c2
