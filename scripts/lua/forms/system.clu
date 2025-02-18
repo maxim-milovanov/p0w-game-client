@@ -623,7 +623,7 @@ btnNextPage = UI_CreateCompent( frmTickets, BUTTON_TYPE, "btnNextPage", 25, 46, 
 UI_LoadButtonImage( btnNextPage, "texture/gui/btnServer.png", 84, 154, 1369, 0, FALSE )
 
 ------
--- Mount Skins
+-- Wardrobe
 ------
 frmWardrobe = UI_CreateForm( "frmWardrobe", FALSE, 700, 550, 300, 100, TRUE, FALSE )
 UI_FormSetHotKey( frmWardrobe, ALT_KEY, HOTKEY_V )
@@ -636,22 +636,19 @@ UI_SetBackground(frmWardrobe)
 imgBackground = UI_CreateCompent( frmWardrobe, IMAGE_TYPE, "imgBackground", 700, 550, 0, 0 )
 UI_LoadImage( imgBackground, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0 )
 
-imgInputSearch = UI_CreateCompent( frmWardrobe, IMAGE_TYPE, "frmWardrobe", math.ceil(434*0.6), math.ceil(121*0.6), 13, 115 - 40 )
-UI_LoadImage( imgInputSearch, "texture/gui/btnServer.png", NORMAL, 434, 121, 0, 602 )
-UI_SetAlpha( imgInputSearch, 150 )
-
-editSearch = UI_CreateCompent( frmWardrobe, EDIT_TYPE, "editSearch", 300, 12, 40, 150 - 40 )
-UI_SetTextColor( editSearch, COLOR_B1A58E )
-UI_SetEditMaxNum( editSearch, 15 )
-UI_SetEditMaxNumVisible( editSearch, 15 )
-UI_SetEditCursorColor( editSearch, COLOR_WHITE )
-
-labSearchResult = UI_CreateCompent( frmWardrobe, LABELEX_TYPE, "labSearchResult", 40, 12, 195, 150 - 40 )
-UI_SetCaption(labSearchResult, "Search (0/0)" )
-UI_SetTextColor(labSearchResult, COLOR_FFEDCF )
-UI_SetLabelExFont(labSearchResult, DEFAULT_FONT, FALSE, COLOR_WHITE )
 
 d3dSkin = UI_CreateCompent( frmWardrobe, UI3D_COMPENT, "d3dSkin", 160, 300, 360, 140 )
+
+btnBuy = UI_CreateCompent( frmWardrobe, BUTTON_TYPE, "btnBuy", 98, 50, 350, 480 )
+UI_LoadButtonImage( btnBuy, "texture/gui/p0w-wardrobe.png", 98, 50, 408, 50, TRUE )
+
+labPrice = UI_CreateCompent( frmWardrobe, LABELEX_TYPE, "labPrice", 100, 11, 390, 498)
+UI_SetCaption(labPrice, "9,999")
+UI_SetTextColor(labPrice, 4285754198)
+UI_SetLabelExFont(labPrice, DEFAULT_FONT, FALSE, COLOR_WHITE)
+
+btnTry = UI_CreateCompent( frmWardrobe, BUTTON_TYPE, "btnTry", 98, 50, 480, 480 )
+UI_LoadButtonImage( btnTry, "texture/gui/p0w-wardrobe.png", 98, 50, 408, 0, TRUE )
 
 
 		

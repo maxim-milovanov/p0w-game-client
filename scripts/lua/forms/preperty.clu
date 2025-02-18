@@ -24,7 +24,7 @@ UI_LoadImage( ttlNum, "texture/gui/p0w-frmState.png", PAGE_ITEM_TITLE_ACTIVE, 12
 UI_SetPos( ttlNum, 60, 1)
 UI_SetSize( ttlNum, 129, 46)
 
-ui3dCha = UI_CreateCompent( frmState, UI3D_COMPENT, "ui3dCha", 159, 235, 130, 225)
+ui3dCha = UI_CreateCompent( frmState, UI3D_COMPENT, "ui3dCha", 130, 130, 135, 285)
 UI_AddCompent(skillid, ui3dCha)
 
 imgPROHP = UI_CreateCompent(frmState, IMAGE_TYPE, "imgPROHP", 211, 22, 101, 358)
@@ -137,7 +137,7 @@ UI_SetLabelExFont(labAgility, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, labAgility)
 
 lab_Accuracy = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Accuracy", 30, 14, 400, 130)
-UI_SetCaption(lab_Accuracy, "Agility")
+UI_SetCaption(lab_Accuracy, "Accuracy")
 UI_SetTextColor(lab_Accuracy, 4287330145 )
 UI_SetLabelExFont(lab_Accuracy, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, lab_Accuracy)
