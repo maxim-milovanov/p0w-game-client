@@ -18461,7 +18461,7 @@ scripts\table\ElfSkillInfo.bin	b7bc966e67c27da157c2d7b669986b79
 scripts\table\eventsound.bin	f36ee492da3753f8bc8fb13f966bd2a8
 scripts\table\forgeitem.bin	8b9273b3acd36ca3decf41d69be14a5a
 scripts\table\hairs.bin	49425087d555ffe71b3f768658da263c
-scripts\table\iteminfo.bin	2058701886279f1fe43a7e9751588062
+scripts\table\iteminfo.bin	2058701886279f1fe43a7e9751588063
 scripts\table\itempre.bin	b04247185a14fdbd307dab07321a4c91
 scripts\table\ItemRefineEffectInfo.bin	c7c3a89add7283df3f9132c9ec0a15c9
 scripts\table\ItemRefineInfo.bin	395bd69c0fdfe949ff61f165de822d8d
