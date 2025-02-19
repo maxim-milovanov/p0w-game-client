@@ -11,7 +11,7 @@ btnClose = UI_CreateCompent(frmInv, BUTTON_TYPE, "btnClose", 28, 26, 278, 23)
 UI_LoadButtonImage(btnClose, "texture/gui/btnServer.png", 28, 26, 0, 512, TRUE)
 UI_SetButtonModalResult(btnClose, BUTTON_CLOSE)
 
-grdItem = UI_CreateCompent( frmInv, GOODS_GRID_TYPE, "grdItem", 230, 360, 48, 72 ) 
+grdItem = UI_CreateCompent( frmInv, GOODS_GRID_TYPE, "grdItem", 230, 360, 42, 70 ) 
 UI_SetGridSpace( grdItem, 9, 9 )
 UI_SetGridContent( grdItem, 9, 6 )
 UI_SetGridUnitSize( grdItem, 32, 32 )
