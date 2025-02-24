@@ -88,9 +88,6 @@ UI_SetEditMaxNum( edtName, 16 )
 UI_SetEditMaxNumVisible( edtName, 16)
 UI_SetEditCursorColor(edtName, COLOR_WHITE)
 
-btnNo = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btnNo", 32, 32, 398, 54 )
-UI_LoadButtonImage( btnNo, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
-
 btnCreate = UI_CreateCompent(frmQuit, BUTTON_TYPE, "btnCreate", 288, 103, 300, 650)
 UI_LoadButtonImage(btnCreate, "texture/gui/p0w-create-cha.png", 288, 103, 353, 0, TRUE)
 
@@ -119,30 +116,29 @@ for id = 1, 4, 1 do
 	UI_LoadButtonImage( name, "texture/gui/p0w-create-cha.png", 85, 93, x, y, TRUE )
 end
 
-imgBackgroundJobs = UI_CreateCompent(frmQuit, IMAGE_TYPE, "imgBackgroundJobs", 270, 150, 0, 0)
+imgBackgroundJobs = UI_CreateCompent(frmQuit, IMAGE_TYPE, "imgBackgroundJobs", 270, 210, 0, 0)
 UI_LoadImage(imgBackgroundJobs, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0)
 
 imgJobsTitle = UI_CreateCompent(frmQuit, IMAGE_TYPE, "imgJobsTitle", 272, 25, 0, 0)
 UI_LoadImage(imgJobsTitle, "texture/gui/p0w-create-cha.png", NORMAL, 392, 35, 0, 149)
 
--- Формирование выбора профессии
-for id = 1, 4, 1 do
-	local x = 1094
-	local y = 103
-	if (id == 2) then
-		y = 196
-	elseif (id == 3) then
-		x = 0
-		y = 383
-	elseif (id == 4) then
-		x = 340
-		y = 383
-	end
+btn_job_8 = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btn_job_8", 59, 65, 0, 0)
+UI_LoadButtonImage(btn_job_8, "texture/gui/p0w-create-cha.png", 85, 93, 1094, 103, TRUE)
 	
-	local name = string.format("btn_job_%d", id)
-	name = UI_CreateCompent( frmQuit, BUTTON_TYPE, name, 59, 65, 0, 0)
-	UI_LoadButtonImage( name, "texture/gui/p0w-create-cha.png", 85, 93, x, y, TRUE )
-end
+btn_job_9 = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btn_job_9", 59, 65, 0, 0)
+UI_LoadButtonImage(btn_job_9, "texture/gui/p0w-create-cha.png", 85, 93, 1094, 196, TRUE)
+
+btn_job_12 = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btn_job_12", 59, 65, 0, 0)
+UI_LoadButtonImage(btn_job_12, "texture/gui/p0w-create-cha.png", 85, 93, 0, 383, TRUE)
+
+btn_job_13 = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btn_job_13", 59, 65, 0, 0)
+UI_LoadButtonImage(btn_job_13, "texture/gui/p0w-create-cha.png", 85, 93, 340, 383, TRUE)
+
+btn_job_14 = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btn_job_14", 59, 65, 0, 0)
+UI_LoadButtonImage(btn_job_14, "texture/gui/p0w-create-cha.png", 85, 93, 0, 476, TRUE)
+
+btn_job_16 = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btn_job_16", 59, 65, 0, 0)
+UI_LoadButtonImage(btn_job_16, "texture/gui/p0w-create-cha.png", 85, 93, 340, 476, TRUE)
 
 imgBackgroundHair = UI_CreateCompent(frmQuit, IMAGE_TYPE, "imgBackgroundHair", 270, 210, 0, 0)
 UI_LoadImage(imgBackgroundHair, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0)
@@ -169,6 +165,9 @@ for id = 1, 8, 1 do
 	name = UI_CreateCompent( frmQuit, BUTTON_TYPE, name, 59, 65, 0, 0)
 	UI_LoadButtonImage( name, "texture/gui/p0w-create-cha.png", 85, 93, 0, 0, TRUE )
 end
+
+btnNo = UI_CreateCompent( frmQuit, BUTTON_TYPE, "btnNo", 28, 26, 398, 54 )
+UI_LoadButtonImage( btnNo, "texture/gui/btnServer.png", 28, 26, 0, 512, TRUE )
 
 -----------------------------------------------------------------------
 -- Character Intro
