@@ -4050,6 +4050,9 @@ map\admin.rbo	d41d8cd98f00b204e9800998ecf8427e
 map\Agora.map	6716f21f97963a6a781080557cfc534f
 map\Agora.obj	53ce05692734128dae72a2bdf1ed1abc
 map\Agora.rbo	d41d8cd98f00b204e9800998ecf8427e
+map\archipelagos.map	e5fd5cd54e8231a7d81538ad8382276e
+map\archipelagos.obj	8c13b050cabc24f34bb518131b9bef86
+map\archipelagos.rbo	d41d8cd98f00b204e9800998ecf8427e
 map\bdlair.map	d4c48b6f5b3a9f90ad057e3bc76b4574
 map\bdlair.obj	a1ac0309c3a0f1bbb36876c3cc54a796
 map\bdlair.rbo	d41d8cd98f00b204e9800998ecf8427e
@@ -18468,7 +18471,7 @@ scripts\table\ItemRefineInfo.bin	395bd69c0fdfe949ff61f165de822d8d
 scripts\table\MagicGroupInfo.bin	71179b0f81f04b3fcc8a7172915ede36
 scripts\table\MagicSingleinfo.bin	83c9a7e91997dc23f8dfbcc143c2615b
 scripts\table\MapHelper.bin	631166a6a1472b6a3e9e161da4dcbccc
-scripts\table\mapinfo.bin	a4809b024abfd1c86ce31ddcea156afc
+scripts\table\mapinfo.bin	0816a4bd1e1bbb012f1bdf3be93dd6da
 scripts\table\MonsterInfo.bin	6ab619d17690282e59cda8a8a5c65e41
 scripts\table\MountInfo.bin	bce8731ff5b244d2ba9cdd6fdd3173d1
 scripts\table\musicinfo.bin	5fae901e7c93c69a517950e0c1480700
@@ -39665,6 +39668,7 @@ texture\minimap\abandonedcity2\abandonedcity2.pk	b2b1c131d5f863af7777d338e49b26a
 texture\minimap\abandonedcity3\abandonedcity3.pk	7fbc921f52665a817413e340e22e834e
 texture\minimap\admin\admin.pk	9f0e6045a4a1fd619d5dfa677c74e400
 texture\minimap\Agora\Agora.pk	cfec133caf674890541fa6f9fac044dd
+texture\minimap\archipelagos\archipelagos.pk	d897ffe394a741a1ae164af5825ed02d
 texture\minimap\bdlair\bdlair.pk	859f75ae75715c586abbe2033b939405
 texture\minimap\bdlair2\bdlair2.pk	e81c9b3bb2606dfd61dc6497c5814674
 texture\minimap\bdlair3\bdlair3.pk	e81c9b3bb2606dfd61dc6497c5814674
