@@ -4195,7 +4195,7 @@ map\magicsea2.rbo	d41d8cd98f00b204e9800998ecf8427e
 map\magicsea2mini.map	04415a5b815190c063cbc3c776400f16
 map\magicsea2mini.obj	d47bf3a5a06f59295b471a84d34f1e8d
 map\magicsea2mini.rbo	d41d8cd98f00b204e9800998ecf8427e
-map\mapinfo.bin	a4809b024abfd1c86ce31ddcea156afc
+map\mapinfo.bin	a4809b024abfd1c86ce31ddcea156afa
 map\mingyun.map	c5993943927140dd67586cfe03e9b26b
 map\mingyun.obj	46a25ace767e69a7e8f64854eccd5554
 map\mingyun.rbo	d41d8cd98f00b204e9800998ecf8427e
