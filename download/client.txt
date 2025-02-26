@@ -17472,7 +17472,7 @@ model\scene\Kyjj0501.dds	13d8e4c0fa8e56f1e41d028f81ca8dd0
 model\scene\Kyjj0521.dds	15481ca15964d2bf00b5e8dc9e045222
 model\scene\Kyjj0701.dds	cea5f63c68c689b6b27f13f38d3504dd
 model\scene\login.lmo	4338b83735c4ab4441e01a60b45b7c20
-model\scene\login02.lmo	a3f514d8819822d2efa7796886efe405
+model\scene\login02.lmo	4e07039f06ebe1c44e01ef9d2b10abdc
 model\scene\login02_.lmo	4e07039f06ebe1c44e01ef9d2b10abdc
 model\scene\login03.lxo	3d460ad0001789efb724fe7548cdc80d
 model\scene\long001.lmo	6f7330f63f0d4fc2e00767efe5d97f77
@@ -18680,7 +18680,7 @@ system\CaLua.dll	5c55c71cce36c5c85e5266dd01a1d2a5
 system\discord-rpc.dll	b6fd682381b825d2ceba5995c296dde3
 system\en_US.res	63de64711605ad29ff11301536052db3
 system\ErrorReport.exe	495f093d2902854332ad5c44e49a62db
-system\Game.exe	5bc116e55f7fa0523fab6a9279342691
+system\Game.exe	6e073d327506dba4601721a8caa71747
 system\icudt38.dll	9b5ac1badf16aea1a48dae77fca76670
 system\icuuc38.dll	395b5b053bc7505626e446f36b92d0c5
 system\libcurl.dll	b613b88a5a778361e570515c968c7350
