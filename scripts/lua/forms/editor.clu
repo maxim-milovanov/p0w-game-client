@@ -199,7 +199,7 @@ gridid3 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
 			
 itemid = UI_CreateTextItem( "Icicle Castle", TREE_TEXT_COLOR )
 gridid4 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
-			
+
 itemid = UI_CreateTextItem( "Style 5", TREE_TEXT_COLOR )
 gridid5 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
 			
@@ -214,6 +214,9 @@ gridid8 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
 
 itemid = UI_CreateTextItem( "Auras", TREE_TEXT_COLOR )
 gridid9 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
+
+itemid = UI_CreateTextItem( "Pirates Online", TREE_TEXT_COLOR )
+gridid10 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
 	
 itemid = UI_CreateTextItem( "Public", TREE_TEXT_COLOR )
 gridid100 = UI_CreateGridNode( trvEditor, itemid, 4, 32, 32, sndNode )
@@ -259,6 +262,9 @@ while 1 do
 		if type == 9 then
 			UI_GridNodeAddItem( gridid9, graphid )
 		end 
+		if type == 10 then
+			UI_GridNodeAddItem( gridid10, graphid )
+		end 
 		if type == 100 then
 			UI_GridNodeAddItem( gridid100, graphid )
 		end 
@@ -266,7 +272,7 @@ while 1 do
 			UI_GridNodeAddItem( gridid200, graphid )
 		end 			    	
 		
-		if (type > 9 and type ~= 100 and type ~= 200) then
+		if (type > 10 and type ~= 100 and type ~= 200) then
 			UI_GridNodeAddItem( gridid300, graphid )
 		end
 	end
