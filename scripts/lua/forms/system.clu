@@ -861,3 +861,10 @@ labPurchased = UI_CreateCompent( frmWardrobe, LABELEX_TYPE, "labPurchased", 100,
 UI_SetCaption(labPurchased, "Available")
 UI_SetTextColor(labPurchased, 4285754198)
 UI_SetLabelExFont(labPurchased, FONT_14, FALSE, COLOR_WHITE)
+
+------
+-- Play
+------
+chkPlay = UI_CreateCompent(frmWardrobe, CHECK_TYPE, "chkPlay", 35, 35, 480, 545)
+UI_LoadImage(chkPlay, "texture/gui/p0w-wardrobe.png", UNCHECKED, 35, 35, 1034, 168)
+UI_LoadImage(chkPlay, "texture/gui/p0w-wardrobe.png", CHECKED, 35, 35, 1034, 203)
