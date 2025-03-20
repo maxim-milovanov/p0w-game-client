@@ -11,7 +11,7 @@ btnClose = UI_CreateCompent(frmInv, BUTTON_TYPE, "btnClose", 28, 26, 278, 23)
 UI_LoadButtonImage(btnClose, "texture/gui/btnServer.png", 28, 26, 0, 512, TRUE)
 UI_SetButtonModalResult(btnClose, BUTTON_CLOSE)
 
-grdItem = UI_CreateCompent( frmInv, GOODS_GRID_TYPE, "grdItem", 230, 360, 42, 70 ) 
+grdItem = UI_CreateCompent( frmInv, GOODS_GRID_TYPE, "grdItem", 230, 360, 48, 71 ) 
 UI_SetGridSpace( grdItem, 9, 9 )
 UI_SetGridContent( grdItem, 9, 6 )
 UI_SetGridUnitSize( grdItem, 32, 32 )
@@ -28,39 +28,39 @@ UI_SetLabelExFont( labItemIMPnumber, DEFAULT_FONT, FALSE, 4289901234 )
 ------
 -- 
 ------
-btnTmpBag = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnTmpBag", 18, 21, 180, 365 + 41 )
-UI_LoadButtonImage(btnTmpBag, "texture/gui/SystemBotton3.tga", 16, 19, 151, 226, TRUE )
+btnTmpBag = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnTmpBag", 26, 26, 175, 405 )
+UI_LoadButtonImage(btnTmpBag, "texture/gui/p0w-frmInv.png", 59, 59, 479, 281, FALSE )
 UI_SetHint(btnTmpBag, "Temporary bag (ALT+D)" )
 
 ------
 -- §¢§Ý§à§Ü§Ú§â§à§Ó§Ü§Ñ §á§â§Ö§Õ§Þ§Ö§ä§Ñ
 ------
-btnLockItem = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnLockItem", 21, 21, 210, 365 + 41 )
-UI_LoadImage( btnLockItem, "texture/gui/Inventory.png", 0, 21, 21, 129, 368 )
-UI_LoadImage( btnLockItem, "texture/gui/Inventory.png", 1, 21, 21, 129, 368 )
-UI_LoadImage( btnLockItem, "texture/gui/Inventory.png", 2, 21, 21, 129, 368 )
+btnLockItem = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnLockItem", 26, 26, 206, 405 )
+UI_LoadImage( btnLockItem, "texture/gui/p0w-frmInv.png", 0, 59, 59, 550, 281)
+UI_LoadImage( btnLockItem, "texture/gui/p0w-frmInv.png", 1, 59, 59, 550, 281)
+UI_LoadImage( btnLockItem, "texture/gui/p0w-frmInv.png", 2, 59, 59, 550, 281)
 UI_SetHint( btnLockItem, "Lock Item" )
 
 ------
 -- §¢§Ý§à§Ü§Ú§â§à§Ó§Ñ§Ü§Ñ §Ú§ß§Ó§Ö§ß§ä§à§â§ñ
 ------
-btnLock = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnLock", 18, 21, 240, 365 + 41 )
+btnLock = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnLock", 22, 26, 237, 405 )
 UI_FormSetHotKey( btnLock, ALT_KEY, HOTKEY_B )
 
-imgLock = UI_CreateCompent( frmInv, IMAGE_TYPE, "imgLock", 18, 21, 240, 365 + 41 )
-UI_LoadImage( imgLock, "texture/gui/a001.tga",NORMAL, 12, 15, 72, 165, TRUE )
+imgLock = UI_CreateCompent( frmInv, IMAGE_TYPE, "imgLock", 22, 26, 237, 405 )
+UI_LoadImage( imgLock, "texture/gui/p0w-frmInv.png", NORMAL, 60, 61, 665, 281, FALSE )
+UI_SetHint( imgLock, "Lock Inventory" )
 
-imgUnLock = UI_CreateCompent( frmInv, IMAGE_TYPE, "imgUnLock", 18, 21, 240, 365 + 41 )
-UI_LoadImage( imgUnLock, "texture/gui/a001.tga",NORMAL, 12, 15, 84, 165, TRUE )
-UI_SetHint( imgUnLock, "Lock Inventory" )
+imgUnLock = UI_CreateCompent( frmInv, IMAGE_TYPE, "imgUnLock", 22, 26, 237, 405 )
+UI_LoadImage( imgUnLock, "texture/gui/p0w-frmInv.png", NORMAL, 49, 60, 613, 281, FALSE )
 
 ------
 -- §¬§à§â§Ù§Ú§ß§Ñ
 ------
-btnbrush = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnbrush", 18, 21, 270, 365 + 41 )
-UI_LoadButtonImage( btnbrush, "texture/gui/SystemBotton3.tga", 16, 19, 151, 226, TRUE )
+btnbrush = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnbrush", 20, 26, 237 + 31, 405 )
+UI_LoadButtonImage( btnbrush, "texture/gui/p0w-frmInv.png", 52, 62, 732, 281, FALSE )
 
-cmdLost = UI_CreateCompent( frmInv, COMMAND_ONE_TYPE, "cmdLost", 18, 21, 270, 365 + 41)
+cmdLost = UI_CreateCompent( frmInv, COMMAND_ONE_TYPE, "cmdLost", 20, 26, 237 + 31, 405)
 UI_SetTag( cmdLost, 999 )
 UI_SetHint( cmdLost, "Delete" )
 

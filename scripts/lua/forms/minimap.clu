@@ -70,9 +70,11 @@ btnOpenStore = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnOpenStore", 87, 23
 UI_LoadButtonImage( btnOpenStore, "texture/gui/minimap-background.png", 87, 23, 135, 188, FALSE )
 UI_SetHint( btnOpenStore, "Accessing Item Mall" )
 
-btnWikipedia = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnWikipedia", 87, 23, 62, 178+23+5 )
-UI_LoadButtonImage( btnWikipedia, "texture/gui/select-cha-panel.png", 87, 23, 508, 0, FALSE )
-UI_SetHint( btnWikipedia, "Server guides" )
+btnWardrobe = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnWardrobe", 87, 23, 62, 206)
+UI_LoadButtonImage( btnWardrobe, "texture/gui/minimap-background.png", 87, 23, 153, 0, FALSE )
+
+btnTeleports = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnTeleports", 87, 23, 62, 234 )
+UI_LoadButtonImage( btnTeleports, "texture/gui/minimap-background.png", 87, 23, 153, 70, FALSE )
 
 imgBackground = UI_CreateCompent( frmMinimap, IMAGE_TYPE, "imgBackground", 25, 25, 134, 50 )
 UI_LoadImage( imgBackground, "texture/gui/minimap-background.png", NORMAL, 25, 25, 0, 185 )
@@ -92,9 +94,6 @@ cbxShowGuildCircle = UI_CreateCompent( frmMinimap, CHECK_TYPE, "cbxShowGuildCirc
 UI_LoadImage( cbxShowGuildCircle, "texture/gui/old_gui//btnCircle.tga", UNCHECKED, 36, 36, 0, 0 )
 UI_LoadImage( cbxShowGuildCircle, "texture/gui/old_gui/btnCircle.tga", CHECKED, 36, 36, 36, 0 )
 
-btnMedalofhonor = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnMedalofhonor", 87, 23, 62, 178+23+5+30 )
-UI_LoadButtonImage( btnMedalofhonor, "texture/gui/minimap-background.png", 87, 23, 153, 0, FALSE )
-UI_SetHint( btnMedalofhonor, "Server guides" )
 
 --btnRating = UI_CreateCompent( frmMinimap, BUTTON_TYPE, "btnRating", 87, 23, 62, 178+23+5+30 )
 --UI_LoadButtonImage( btnRating, "texture/gui/select-cha-panel.png", 87, 23, 508, 0, FALSE )

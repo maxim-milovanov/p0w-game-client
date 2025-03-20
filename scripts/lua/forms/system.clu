@@ -520,7 +520,6 @@ UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
 -- Tickets system
 ------
 frmTickets = UI_CreateForm( "frmTickets", FALSE, 400, 420, 300, 100, TRUE, FALSE )
-UI_FormSetHotKey( frmTickets, ALT_KEY, HOTKEY_G )
 UI_ShowForm( frmTickets, TRUE )
 UI_SetIsDrag( frmTickets, TRUE )
 UI_AddFormToTemplete( frmTickets, FORM_MAIN )
@@ -626,12 +625,11 @@ UI_LoadButtonImage( btnNextPage, "texture/gui/btnServer.png", 84, 154, 1369, 0, 
 -- Wardrobe
 ------
 frmWardrobe = UI_CreateForm( "frmWardrobe", FALSE, 735, 630, 300, 100, TRUE, FALSE )
-UI_FormSetHotKey( frmWardrobe, ALT_KEY, HOTKEY_V )
-UI_ShowForm( frmWardrobe, TRUE )
-UI_SetIsDrag( frmWardrobe, TRUE )
+UI_ShowForm( frmWardrobe, FALSE )
 UI_AddFormToTemplete( frmWardrobe, FORM_MAIN )
 UI_FormSetIsEscClose( frmWardrobe, TRUE )
---UI_SetBackground(frmWardrobe)
+UI_SetIsDrag( frmWardrobe,FALSE)
+UI_SetFormStyle( frmWardrobe, 1)
 
 imgBackground = UI_CreateCompent( frmWardrobe, IMAGE_TYPE, "imgBackground", 735, 630, 0, 0 )
 UI_LoadImage( imgBackground, "texture/gui/p0w-wardrobe.png", NORMAL, 735, 630, 0, 0 )
@@ -640,12 +638,12 @@ btnClose = UI_CreateCompent(frmWardrobe, BUTTON_TYPE, "btnClose", 28, 26, 670, 4
 UI_LoadButtonImage(btnClose, "texture/gui/btnServer.png", 28, 26, 0, 512, TRUE)
 UI_SetButtonModalResult(btnClose, BUTTON_CLOSE)
 
-d3dSkin = UI_CreateCompent( frmWardrobe, UI3D_COMPENT, "d3dSkin", 160, 300, 420, 220 )
+d3dSkin = UI_CreateCompent( frmWardrobe, UI3D_COMPENT, "d3dSkin", 160, 300, 420, 210 )
 
 btnBuy = UI_CreateCompent( frmWardrobe, BUTTON_TYPE, "btnBuy", 139, 47, 330, 540 )
 UI_LoadButtonImage( btnBuy, "texture/gui/p0w-wardrobe.png", 139, 47, 743, 166, FALSE)
 
-labPrice = UI_CreateCompent( frmWardrobe, LABELEX_TYPE, "labPrice", 100, 11, 375, 556)
+labPrice = UI_CreateCompent( frmWardrobe, LABELEX_TYPE, "labPrice", 100, 11, 380, 555)
 UI_SetCaption(labPrice, "9,999")
 UI_SetTextColor(labPrice, 4285754198)
 UI_SetLabelExFont(labPrice, FONT016, FALSE, COLOR_WHITE)
@@ -653,12 +651,21 @@ UI_SetLabelExFont(labPrice, FONT016, FALSE, COLOR_WHITE)
 btnTry = UI_CreateCompent( frmWardrobe, BUTTON_TYPE, "btnTry", 139, 47, 530, 540 )
 UI_LoadButtonImage( btnTry, "texture/gui/p0w-wardrobe.png", 139, 47, 884, 166, FALSE )
 
+imgCrystals = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "imgCrystals", 25, 25, 58, 550)
+UI_LoadImage(imgCrystals, "texture/gui/p0w-frmInv.png", NORMAL, 57, 57, 416, 283)
 
-		
-		
+labCrystals = UI_CreateCompent( frmWardrobe, LABELEX_TYPE, "labCrystals", 100, 11, 90, 555)
+UI_SetCaption(labCrystals, "9,999")
+UI_SetTextColor(labCrystals, 4285754198)
+UI_SetLabelExFont(labCrystals, FONT18, FALSE, COLOR_WHITE)
+
+btnReset = UI_CreateCompent( frmWardrobe, BUTTON_TYPE, "btnReset", 116, 45, 175, 541 )
+UI_LoadButtonImage( btnReset, "texture/gui/p0w-wardrobe.png", 116, 47, 750, 362, FALSE)
+
+
 																	-- §°§ä§ã§ä§å§á §ã§Ý§Ö§Ó§Ñ (§Ó§Ö§ã§î §ã§á§Ú§ã§à§Ü)
 																		-- §°§ä§ã§ä§å§á §ã§Ó§Ö§â§ç§å (§Ó§Ö§ã§î §ã§á§Ú§ã§à§Ü)
-listItems = UI_CreateListView( frmWardrobe, "listItems", 250, 430, 50, 170, 50, 50 )
+listItems = UI_CreateListView( frmWardrobe, "listItems", 250, 350, 50, 170, 50, 50 )
 --UI_SetMargin( listItems, 30, 20, 15, 0 )
 UI_ListViewSetTitle(listItems, 0, 34, "", 0, 0, 0, 0)
 UI_ListViewSetTitle(listItems, 1, 145, "", 0, 0, 0, 0)
@@ -702,21 +709,21 @@ UI_LoadImage(ttlNum, "texture/gui/p0w-wardrobe.png", PAGE_ITEM_TITLE_ACTIVE, 51,
 UI_SetPos(ttlNum, 140, 0 )
 UI_SetSize(ttlNum, 51, 38)
 
-sltImgHead = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgHead", 36, 36, 385, 390)
+sltImgHead = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgHead", 36, 36, 385, 380)
 UI_LoadImage(sltImgHead, "texture/gui/eqform/cmdArmet.png", NORMAL, 36, 36, 0, 0 )
-sltHead = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltHead", 32, 32, 385, 390)
+sltHead = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltHead", 32, 32, 387, 382)
 
-sltImgBody = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgBody", 36, 36, 435, 390)
+sltImgBody = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgBody", 36, 36, 435, 380)
 UI_LoadImage(sltImgBody, "texture/gui/eqform/cmdBody.png", NORMAL, 36, 36, 0, 0 )
-sltBody = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltBody", 32, 32, 435, 390)
+sltBody = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltBody", 32, 32, 437, 382)
 
-sltImgGlove = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgGlove", 36, 36, 485, 390)
+sltImgGlove = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgGlove", 36, 36, 485, 380)
 UI_LoadImage(sltImgGlove, "texture/gui/eqform/cmdGlove.png", NORMAL, 36, 36, 0, 0 )
-sltGlove = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltGlove", 32, 32, 485, 390)
+sltGlove = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltGlove", 32, 32, 487, 382)
 
-sltImgShoes = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgShoes", 36, 36, 535, 390)
+sltImgShoes = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgShoes", 36, 36, 535, 380)
 UI_LoadImage(sltImgShoes, "texture/gui/eqform/cmdShoes.png", NORMAL, 36, 36, 0, 0 )
-sltShoes = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltShoes", 32, 32, 535, 390)
+sltShoes = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltShoes", 32, 32, 538, 382)
 
 UI_AddCompent(skillid, sltImgHead)
 UI_AddCompent(skillid, sltHead)
@@ -736,55 +743,6 @@ UI_LoadImage(ttlNum, "texture/gui/p0w-wardrobe.png", PAGE_ITEM_TITLE_NORMAL, 72,
 UI_LoadImage(ttlNum, "texture/gui/p0w-wardrobe.png", PAGE_ITEM_TITLE_ACTIVE, 72, 38, 183, 646)
 UI_SetPos(ttlNum, 221, 0 )
 UI_SetSize(ttlNum, 72, 38)
-
-sltImgSword1 = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgSword1", 36, 36, 290, 390)
-UI_LoadImage(sltImgSword1, "texture/gui/eqform/cmdSword1App.png", NORMAL, 36, 36, 0, 0 )
-sltSword1 = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltSword1", 32, 32, 290, 390)
-
-sltImgSword2 = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgSword2", 36, 36, 340, 390)
-UI_LoadImage(sltImgSword2, "texture/gui/eqform/cmdSword2App.png", NORMAL, 36, 36, 0, 0 )
-sltSword2 = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltSword2", 32, 32, 340, 390)
-
-sltImgGreatSword = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgGreatSword", 36, 36, 390, 390)
-UI_LoadImage(sltImgGreatSword, "texture/gui/eqform/cmdGreatSwordApp.png", NORMAL, 36, 36, 0, 0 )
-sltGreatSword = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltGreatSword", 32, 32, 390, 390)
-
-sltImgShield = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgShield", 36, 36, 440, 390)
-UI_LoadImage(sltImgShield, "texture/gui/eqform/cmdShieldApp.png", NORMAL, 36, 36, 0, 0 )
-sltShield = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltShield", 32, 32, 440, 390)
-
-sltImgGun = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgGun", 36, 36, 490, 390)
-UI_LoadImage(sltImgGun, "texture/gui/eqform/cmdGunApp.png", NORMAL, 36, 36, 0, 0 )
-sltGun = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltGun", 32, 32, 490, 390)
-
-sltImgBow = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgBow", 36, 36, 540, 390)
-UI_LoadImage(sltImgBow, "texture/gui/eqform/cmdBowApp.png", NORMAL, 36, 36, 0, 0 )
-sltBow = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltBow", 32, 32, 540, 390)
-
-sltImgDagger = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgDagger", 36, 36, 590, 390)
-UI_LoadImage(sltImgDagger, "texture/gui/eqform/cmdDaggerApp.png", NORMAL, 36, 36, 0, 0 )
-sltDagger = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltDagger", 32, 32, 590, 390)
-
-sltImgStaff = UI_CreateCompent(frmWardrobe, IMAGE_TYPE, "sltImgStaff", 36, 36, 640, 390)
-UI_LoadImage(sltImgStaff, "texture/gui/eqform/cmdStaffApp.png", NORMAL, 36, 36, 0, 0 )
-sltStaff = UI_CreateCompent(frmWardrobe, COMMAND_ONE_TYPE, "sltStaff", 32, 32, 640, 390)
-
-UI_AddCompent(skillid, sltImgSword1)
-UI_AddCompent(skillid, sltSword1)
-UI_AddCompent(skillid, sltImgSword2)
-UI_AddCompent(skillid, sltSword2)
-UI_AddCompent(skillid, sltImgGreatSword)
-UI_AddCompent(skillid, sltGreatSword)
-UI_AddCompent(skillid, sltImgShield)
-UI_AddCompent(skillid, sltShield)
-UI_AddCompent(skillid, sltImgGun)
-UI_AddCompent(skillid, sltGun)
-UI_AddCompent(skillid, sltImgBow)
-UI_AddCompent(skillid, sltBow)
-UI_AddCompent(skillid, sltImgDagger)
-UI_AddCompent(skillid, sltDagger)
-UI_AddCompent(skillid, sltImgStaff)
-UI_AddCompent(skillid, sltStaff)
 
 ------
 -- HAND PET
