@@ -895,17 +895,92 @@ UI_AddListText( lstHelpList,"Advancement II")
 -----------------------------------------------------------------------
 -- Store
 -----------------------------------------------------------------------
-frmStore = UI_CreateForm( "frmStore", FALSE, 727, 600, 0, 0, TRUE, FALSE )
+frmStore = UI_CreateForm( "frmStore", FALSE, 735, 560, 300, 100, TRUE, FALSE )
 UI_ShowForm( frmStore, FALSE )
 UI_AddFormToTemplete( frmStore, FORM_MAIN )
 UI_FormSetIsEscClose( frmStore, FALSE )
 UI_SetIsDrag( frmStore,FALSE)
 UI_SetFormStyle( frmStore, 1)
 
-imgBackGround = UI_CreateCompent( frmStore, IMAGE_TYPE, "imgBackGround", 727, 600, 0, 0 )
-UI_LoadImage( imgBackGround, "texture/gui/store.png", NORMAL, 727, 600, 0, 35 )
+imgBackground = UI_CreateCompent( frmStore, IMAGE_TYPE, "imgBackground", 735, 560, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/p0w-store.png", NORMAL, 735, 560, 0, 0 )
+--UI_SetAlpha(imgBackground, 210)
 
-trvStore = UI_CreateCompent( frmStore, TREE_TYPE, "trvStore", 142, 370, 60, 80)
+btnCloseall = UI_CreateCompent(frmStore, BUTTON_TYPE, "btnCloseall", 28, 26, 670, 40)
+UI_LoadButtonImage(btnCloseall, "texture/gui/btnServer.png", 28, 26, 0, 512, TRUE)
+UI_SetButtonModalResult(btnCloseall, BUTTON_CLOSE)
+
+
+
+-----------------------
+local crystal_x = 230
+local crystal_y = -7
+imgproCrystal = UI_CreateCompent(frmStore, IMAGE_TYPE, "imgproCrystal", 114, 19, 18 + crystal_x, 101 + crystal_y)
+UI_LoadImage(imgproCrystal, "texture/gui/p0w-frmState.png", NORMAL, 211, 22, 222, 792 )
+
+proCrystal = UI_CreateCompent(frmStore, PROGRESS_TYPE, "proCrystal", 110, 15, 20 + crystal_x, 103 + crystal_y )
+UI_LoadScaleImage( proCrystal, "texture/gui/p0w-frmState.png", PROGRESS_PROGRESS, 100, 15, 12, 795, 1.1, 1.0 )
+UI_SetHint( proCrystal, "Level up" )
+UI_SetProgressHintStyle( proCrystal, PROGRESS_HINT_NUM )
+
+imgCrystal = UI_CreateCompent(frmStore, IMAGE_TYPE, "imgCrystal", 32, 32, crystal_x, 100 + crystal_y)
+UI_LoadImage(imgCrystal, "texture/gui/p0w-frmInv.png", NORMAL, 57, 57, 416, 283)
+
+labCrystal = UI_CreateCompent( frmStore, LABELEX_TYPE, "labCrystal", 400, 150, 35 + crystal_x, 104+ crystal_y)
+UI_SetCaption( labCrystal, "99999")
+UI_SetTextColor( labCrystal, COLOR_C9C2B4 )
+UI_SetLabelExFont( labCrystal, FONT_14, FALSE, COLOR_WHITE )
+
+labPremiumLv = UI_CreateCompent(frmStore, LABELEX_TYPE, "labPremiumLv", 10, 10, 35 + crystal_x, 122 + crystal_y)
+UI_SetCaption(labPremiumLv, "Premium Lv1")
+UI_SetTextColor(labPremiumLv, COLOR_958273)
+UI_SetLabelExFont(labPremiumLv, DEFAULT_FONT, FALSE, COLOR_BLACK)
+
+btnPayment = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnPayment", 15, 15, 135 + crystal_x, 103 + crystal_y )
+UI_LoadButtonImage( btnPayment, "texture/gui/p0w-frmInv.png", 59, 59, 729, 0, FALSE )
+-------------------------
+
+-----------------------
+local reputation_x = 340
+local reputation_y = -7
+imgproCrystal = UI_CreateCompent(frmStore, IMAGE_TYPE, "imgproCrystal", 124, 19, 118 + reputation_x, 101 + reputation_y)
+UI_LoadImage(imgproCrystal, "texture/gui/p0w-frmState.png", NORMAL, 211, 22, 222, 792 )
+
+proReputation = UI_CreateCompent(frmStore, PROGRESS_TYPE, "proReputation", 120, 15, 120 + reputation_x, 103 + reputation_y )
+UI_LoadScaleImage( proReputation, "texture/gui/p0w-frmState.png", PROGRESS_PROGRESS, 100, 15, 12, 795, 1.2, 1.0 )
+UI_SetHint( proReputation, "Level up" )
+UI_SetProgressHintStyle( proReputation, PROGRESS_HINT_NUM )
+
+imgReputation = UI_CreateCompent(frmStore, IMAGE_TYPE, "imgReputation", 32, 32, 100 + reputation_x, 100 + reputation_y)
+UI_LoadImage(imgReputation, "texture/gui/p0w-frmInv.png", NORMAL, 59, 59, 415, 346)
+
+labFameLv = UI_CreateCompent(frmStore, LABELEX_TYPE, "labFameLv", 10, 10, 135 + reputation_x, 122 + reputation_y)
+UI_SetCaption(labFameLv, "Reputation Lv1")
+UI_SetTextColor(labFameLv, COLOR_958273)
+UI_SetLabelExFont(labFameLv, DEFAULT_FONT, FALSE, COLOR_BLACK)
+
+labReputation = UI_CreateCompent( frmStore, LABELEX_TYPE, "labReputation", 400, 150, 135 + reputation_x, 104+ reputation_y)
+UI_SetCaption( labReputation, "99999")
+UI_SetTextColor( labReputation, COLOR_C9C2B4 )
+UI_SetLabelExFont( labReputation, FONT_14, FALSE, COLOR_WHITE )
+-----------------------------------
+btnLeftPage = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnLeftPage", 15, 27, 600, 95)
+UI_LoadButtonImage( btnLeftPage, "texture/gui/p0w-frmInv.png", 22, 39, 672, 7, FALSE )
+UI_SetIsShow(btnLeftPage,FALSE)
+
+labListPage = UI_CreateCompent( frmStore, LABELEX_TYPE, "labListPage", 400, 150, 630, 101)
+UI_SetCaption( labListPage, "0\0")
+UI_SetTextColor( labListPage, COLOR_C9C2B4 )
+UI_SetLabelExFont( labListPage, FONT016, FALSE, COLOR_WHITE )
+UI_SetIsShow(labListPage,FALSE)
+
+btnRightPage = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnRightPage", 15, 27, 675, 95)
+UI_LoadButtonImage( btnRightPage, "texture/gui/p0w-frmInv.png", 22, 39, 695, 7, FALSE )
+UI_SetIsShow(btnRightPage,FALSE)
+
+-------------------------
+
+trvStore = UI_CreateCompent( frmStore, TREE_TYPE, "trvStore", 160, 370, 45, 100)
 itemid = UI_CreateNoteGraphItem( "texture/gui/old_gui/store6.tga", 127, 20, 30, 114, 0, "Item Mall", 5 , 2 )
 gridid = UI_CreateGridNode( trvStore, itemid, 1, 32, 32, -1 )
 UI_TreeLoadImage( trvStore, enumTreeAddImage, "texture/gui/store.png", 30, 20, 0, 634, 30, 20)
@@ -935,9 +1010,10 @@ local imgSquare = {}
 local cmdStore = {}
 local imgCutLine = {}
 local imgMoney = {}
+local btnBuy = {}
 
-local posx = 30
-local posy = 15
+local posx = 35
+local posy = 70
 for i = 0, 8, 1 do
 	imgCutLine[i] = UI_CreateCompent( frmStore, IMAGE_TYPE, "imgCutLine_"..i, 355, 2, 230+posx, i*42+78+posy )
 	UI_LoadImage( imgCutLine[i], "texture/gui/old_gui/store6.tga",NORMAL, 253 ,2, 0, 51 )
@@ -951,85 +1027,37 @@ for i = 0, 8, 1 do
 	
 	btnBlue[i] = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnBlue_"..i, 410, 40, 180+posx, i*42+80+posy )
 	--UI_LoadButtonImage( btnBlue[i], "texture/gui/old_gui/store7.tga", 256 ,51, 0, 0, FALSE )
-	UI_SetAlpha(btnBlue[i],0)
 	
-	--¡À§Ü§¬?§®§ç  ¦Ì§Ô?§é?§å§±§¶§¬?
 	imgBlue[i] = UI_CreateCompent( frmStore, IMAGE_TYPE, "imgBlue_"..i, 373, 40, 230+posx, i*42+80+posy )
 	UI_LoadImage( imgBlue[i], "texture/gui/store.png", NORMAL, 373, 40, 36, 644 )
 	UI_SetAlpha(imgBlue[i],200)
 	UI_SetIsShow(imgBlue[i],FALSE)
 	
-	labName[i] = UI_CreateCompent( frmStore, LABELEX_TYPE, "labName_"..i, 10, 150, 235+posx, i*42+84+posy )
+	labName[i] = UI_CreateCompent( frmStore, LABELEX_TYPE, "labName_"..i, 10, 150, 235+posx, i*42+95+posy )
 	UI_SetCaption( labName[i], "Item"..i)
 	UI_SetTextColor( labName[i], COLOR_C9C2B4 )
-	UI_SetLabelExFont( labName[i], DEFAULT_FONT, FALSE, COLOR_WHITE )
+	UI_SetLabelExFont( labName[i], FONT_14, FALSE, COLOR_WHITE )
 	UI_SetIsShow(labName[i],FALSE)
 	
-	labRemark[i] = UI_CreateCompent( frmStore, LABELEX_TYPE, "labRemark_"..i, 10, 150, 235+posx, i*42+98+posy )
-	UI_SetCaption( labRemark[i], "Remark"..i)
-	UI_SetTextColor( labRemark[i], COLOR_958273 )
-	UI_SetLabelExFont( labRemark[i], DEFAULT_FONT, FALSE, COLOR_WHITE )
+	btnBuy[i] = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnBuy_"..i, 90, 23, 570+posx, i*42+89+posy )
+	UI_LoadButtonImage( btnBuy[i], "texture/gui/p0w-store.png", 66, 23, 786, 4, FALSE)
+	UI_SetAlpha(btnBuy[i], 150)
 	
-	imgMoney = UI_CreateCompent( frmStore, IMAGE_TYPE, "imgMoney_"..i, 10, 150, 420+posx, i*42+84+5+posy )
+	imgMoney = UI_CreateCompent( frmStore, IMAGE_TYPE, "imgMoney_"..i, 25, 25, 560+posx, i*42+88+posy)
 	
-	labPrice[i] = UI_CreateCompent( frmStore, LABELEX_TYPE, "labPrice_"..i, 10, 150, 441+posx, i*42+98+posy)
-	UI_SetCaption( labPrice[i], "Price"..i)
-	UI_SetTextColor( labPrice[i], COLOR_FFEDCF)
-	UI_SetLabelExFont( labPrice[i], DEFAULT_FONT, FALSE, COLOR_WHITE )
-	UI_SetIsShow(labPrice[i],FALSE)
-
-	labLeftTime[i] = UI_CreateCompent( frmStore, LABELEX_TYPE, "labLeftTime_"..i, 10, 150, 440+posx, i*42+84+posy )
+	labLeftTime[i] = UI_CreateCompent( frmStore, LABELEX_TYPE, "labLeftTime_"..i, 10, 150, 410+posx, i*42+84+posy )
 	UI_SetCaption( labLeftTime[i], "Remaining time"..i)
 	UI_SetTextColor( labLeftTime[i], COLOR_958273 )
 	UI_SetLabelExFont( labLeftTime[i], DEFAULT_FONT, FALSE, COLOR_WHITE )
 	UI_SetIsShow(labLeftTime[i],FALSE)
 	
-	labLeftNum[i] = UI_CreateCompent( frmStore, LABELEX_TYPE, "labLeftNum_"..i, 10, 150, 535+posx, i*42+84+posy )
+	labLeftNum[i] = UI_CreateCompent( frmStore, LABELEX_TYPE, "labLeftNum_"..i, 10, 150, 410+posx, i*42+100+posy )
 	UI_SetCaption( labLeftNum[i], "Remaining amount"..i)
 	UI_SetTextColor( labLeftNum[i], COLOR_958273 )
 	UI_SetLabelExFont( labLeftNum[i], DEFAULT_FONT, FALSE, COLOR_WHITE )		
 	UI_SetIsShow(labLeftNum[i],FALSE)
+	
 end
-
-labMoneyLeft = UI_CreateCompent( frmStore, LABELEX_TYPE, "labMoneyLeft", 400, 150, 63, 470+19 )
-UI_SetCaption( labMoneyLeft, "99999")
-UI_SetTextColor( labMoneyLeft, COLOR_C9C2B4 )
-UI_SetLabelExFont( labMoneyLeft, FONT016, FALSE, COLOR_WHITE )
-
-labBeanLeft = UI_CreateCompent( frmStore, LABELEX_TYPE, "labBeanLeft", 400, 150, 63, 490+19 )
-UI_SetCaption( labBeanLeft, "0")
-UI_SetTextColor( labBeanLeft, COLOR_C9C2B4 )
-UI_SetLabelExFont( labBeanLeft, FONT016, FALSE, COLOR_WHITE )
-
-btnLeftPage = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnLeftPage", 32, 32, 449, 490 )
-UI_LoadButtonImage( btnLeftPage, "texture/gui/store.png", 32, 32, 372, 725, TRUE )
-UI_SetIsShow(btnLeftPage,FALSE)
-
-labListPage = UI_CreateCompent( frmStore, LABELEX_TYPE, "labListPage", 400, 150, 485, 499 )
-UI_SetCaption( labListPage, "0\0")
-UI_SetTextColor( labListPage, COLOR_C9C2B4 )
-UI_SetLabelExFont( labListPage, FONT016, FALSE, COLOR_WHITE )
-UI_SetIsShow(labListPage,FALSE)
-
-btnRightPage = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnRightPage", 32, 32, 520, 490 )
-UI_LoadButtonImage( btnRightPage, "texture/gui/store.png", 32, 32, 372, 693, TRUE )
-UI_SetIsShow(btnRightPage,FALSE)
-
-btnTrade = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnTrade", 63, 32, 240, 490 )
-UI_LoadButtonImage( btnTrade, "texture/gui/store.png", 63, 32, 0, 693, FALSE )
-
-btnTryon = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnTryon", 63, 32, 240+63+7, 490 )
-UI_LoadButtonImage( btnTryon, "texture/gui/store.png", 63, 32, 69, 693, FALSE )
-
-btnViewAll = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnViewAll", 63, 32, 240+63+7+63+7, 490 )
-UI_LoadButtonImage( btnViewAll, "texture/gui/store.png", 63, 32, 140, 693, FALSE )
-
-btnPayment = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnPayment", 63, 32, 559, 490 )
-UI_LoadButtonImage( btnPayment, "texture/gui/store.png", 63, 32, 210, 693, FALSE )
-
-btnCloseall = UI_CreateCompent( frmStore, BUTTON_TYPE, "btnCloseall", 32, 32, 559+63+7, 490 )
-UI_LoadButtonImage( btnCloseall, "texture/gui/Inventory.png", 32, 32, 0, 368, TRUE )
-UI_SetButtonModalResult( btnCloseall, BUTTON_CLOSE )
 
 -----------------------------------------------------------------------
 -- View packet from store
