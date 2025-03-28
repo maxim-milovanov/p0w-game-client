@@ -158,115 +158,127 @@ UI_SetTextColor(labSpirit, 4287151464 )
 UI_SetLabelExFont(labSpirit, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, labSpirit)
 
+lab_Spoint = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Spoint", 30, 14, 400, 175)
+UI_SetCaption(lab_Spoint, "Stat points")
+UI_SetTextColor(lab_Spoint, 4286409043 )
+UI_SetLabelExFont(lab_Spoint, FONT_14, FALSE, COLOR_WHITE )
+UI_AddCompent(skillid, lab_Spoint)
+
+labSpoint = UI_CreateCompent(frmState, LABELEX_TYPE, "labSpoint", 30, 14, 535, 175)
+UI_SetCaption(labSpoint, "0")
+UI_SetTextColor(labSpoint, 4294109040 )
+UI_SetLabelExFont(labSpoint, FONT_14, FALSE, COLOR_WHITE )
+UI_AddCompent(skillid, labSpoint)
+
 ------
 -- Характеристики персонажа
 ------
-lab_Attack = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Attack", 50, 14, 400, 190)
+lab_Attack = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Attack", 50, 14, 400, 190 + 15)
 UI_SetCaption(lab_Attack, "Attack")
 UI_SetTextColor(lab_Attack, 4287330145 )
 UI_SetLabelExFont(lab_Attack, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, lab_Attack)
 
-labAttack = UI_CreateCompent(frmState, LABELEX_TYPE, "labAttack", 30, 14, 535, 190)
+labAttack = UI_CreateCompent(frmState, LABELEX_TYPE, "labAttack", 30, 14, 535, 190 + 15)
 UI_SetTextColor(labAttack, 4286541410 )
 UI_SetLabelExFont(labAttack, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, labAttack)
 
-lab_Aspd = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Aspd", 50, 14, 400, 210)
+lab_Aspd = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Aspd", 50, 14, 400, 210 + 15)
 UI_SetCaption(lab_Aspd, "Attack speed")
 UI_SetTextColor(lab_Aspd, 4287330145 )
 UI_SetLabelExFont(lab_Aspd, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, lab_Aspd)
 
-labAspd = UI_CreateCompent(frmState, LABELEX_TYPE, "labAspd", 30, 14, 535, 210)
+labAspd = UI_CreateCompent(frmState, LABELEX_TYPE, "labAspd", 30, 14, 535, 210 + 15)
 UI_SetTextColor(labAspd, 4286541410 )
 UI_SetLabelExFont(labAspd, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, labAspd)
 
-lab_Defense = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Defense", 50, 14, 400, 230)
+lab_Defense = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Defense", 50, 14, 400, 230 + 15)
 UI_SetCaption(lab_Defense, "Defense")
 UI_SetTextColor(lab_Defense, 4287330145 )
 UI_SetLabelExFont(lab_Defense, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, lab_Defense)
 
-labDefense = UI_CreateCompent(frmState, LABELEX_TYPE, "labDefense", 30, 14, 535, 230)
+labDefense = UI_CreateCompent(frmState, LABELEX_TYPE, "labDefense", 30, 14, 535, 230 + 15)
 UI_SetTextColor(labDefense, 4286541410 )
 UI_SetLabelExFont(labDefense, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, labDefense)
 
-lab_Presist = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Presist", 50, 14, 400, 250)
+lab_Presist = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Presist", 50, 14, 400, 250 + 15)
 UI_SetCaption(lab_Presist, "Physical Resist")
 UI_SetTextColor(lab_Presist, 4287330145 )
 UI_SetLabelExFont(lab_Presist, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, lab_Presist)
 
-labPresist = UI_CreateCompent(frmState, LABELEX_TYPE, "labPresist", 30, 14, 535, 250)
+labPresist = UI_CreateCompent(frmState, LABELEX_TYPE, "labPresist", 30, 14, 535, 250 + 15)
 UI_SetTextColor(labPresist, 4286541410 )
 UI_SetLabelExFont(labPresist, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, labPresist)
 
-lab_HitRate = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_HitRate", 50, 14, 400, 270)
+lab_HitRate = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_HitRate", 50, 14, 400, 270 + 15)
 UI_SetCaption(lab_HitRate, "Hit Rate")
 UI_SetTextColor(lab_HitRate, 4287330145 )
 UI_SetLabelExFont(lab_HitRate, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, lab_HitRate)
 
-labHitRate = UI_CreateCompent(frmState, LABELEX_TYPE, "labHitRate", 30, 14, 535, 270)
+labHitRate = UI_CreateCompent(frmState, LABELEX_TYPE, "labHitRate", 30, 14, 535, 270 + 15)
 UI_SetTextColor(labHitRate, 4286541410 )
 UI_SetLabelExFont(labHitRate, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, labHitRate)
 
-lab_Dodge = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Dodge", 50, 14, 400, 290)
+lab_Dodge = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Dodge", 50, 14, 400, 290 + 15)
 UI_SetCaption(lab_Dodge, "Dodge")
 UI_SetTextColor(lab_Dodge, 4287330145 )
 UI_SetLabelExFont(lab_Dodge, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, lab_Dodge)
 
-labDodge = UI_CreateCompent(frmState, LABELEX_TYPE, "labDodge", 30, 14, 535, 290)
+labDodge = UI_CreateCompent(frmState, LABELEX_TYPE, "labDodge", 30, 14, 535, 290 + 15)
 UI_SetTextColor(labDodge, 4286541410 )
 UI_SetLabelExFont(labDodge, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, labDodge)
 
-lab_Movement = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Movement", 50, 14, 400, 310)
+lab_Movement = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_Movement", 50, 14, 400, 310 + 15)
 UI_SetCaption(lab_Movement, "Movement speed")
 UI_SetTextColor(lab_Movement, 4287330145 )
 UI_SetLabelExFont(lab_Movement, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, lab_Movement)
 
-labMovement = UI_CreateCompent(frmState, LABELEX_TYPE, "labMovement", 30, 14, 535, 310)
+labMovement = UI_CreateCompent(frmState, LABELEX_TYPE, "labMovement", 30, 14, 535, 310 + 15)
 UI_SetTextColor(labMovement, 4286541410 )
 UI_SetLabelExFont(labMovement, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, labMovement)
 
-lab_CriticalRate = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_CriticalRate", 50, 14, 400, 330)
+lab_CriticalRate = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_CriticalRate", 50, 14, 400, 330 + 15)
 UI_SetCaption(lab_CriticalRate, "Critical Rate")
 UI_SetTextColor(lab_CriticalRate, 4287330145 )
 UI_SetLabelExFont(lab_CriticalRate, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, lab_CriticalRate)
 
-labCriticalRate = UI_CreateCompent(frmState, LABELEX_TYPE, "labCriticalRate", 30, 14, 535, 330)
+labCriticalRate = UI_CreateCompent(frmState, LABELEX_TYPE, "labCriticalRate", 30, 14, 535, 330 + 15)
 UI_SetTextColor(labCriticalRate, 4286541410 )
 UI_SetLabelExFont(labCriticalRate, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, labCriticalRate)
 
-lab_HPRecovery = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_HPRecovery", 50, 14, 400, 350)
+lab_HPRecovery = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_HPRecovery", 50, 14, 400, 350 + 15)
 UI_SetCaption(lab_HPRecovery, "HP Recovery")
 UI_SetTextColor(lab_HPRecovery, 4287330145 )
 UI_SetLabelExFont(lab_HPRecovery, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, lab_HPRecovery)
 
-labHPRecovery = UI_CreateCompent(frmState, LABELEX_TYPE, "labHPRecovery", 30, 14, 535, 350)
+labHPRecovery = UI_CreateCompent(frmState, LABELEX_TYPE, "labHPRecovery", 30, 14, 535, 350 + 15)
 UI_SetTextColor(labHPRecovery, 4286541410 )
 UI_SetLabelExFont(labHPRecovery, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, labHPRecovery)
 
-lab_SPRecovery = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_SPRecovery", 50, 14, 400, 370)
+lab_SPRecovery = UI_CreateCompent(frmState, LABELEX_TYPE, "lab_SPRecovery", 50, 14, 400, 370 + 15)
 UI_SetCaption(lab_SPRecovery, "SP Recovery")
 UI_SetTextColor(lab_SPRecovery, 4287330145 )
 UI_SetLabelExFont(lab_SPRecovery, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, lab_SPRecovery)
 
-labSPRecovery = UI_CreateCompent(frmState, LABELEX_TYPE, "labSPRecovery", 30, 14, 535, 370)
+labSPRecovery = UI_CreateCompent(frmState, LABELEX_TYPE, "labSPRecovery", 30, 14, 535, 370 + 15)
 UI_SetTextColor(labSPRecovery, 4286541410 )
 UI_SetLabelExFont(labSPRecovery, FONT_14, FALSE, COLOR_WHITE )
 UI_AddCompent(skillid, labSPRecovery)
@@ -399,16 +411,29 @@ UI_AddCompent(skillid, cmdImgMount)
 UI_AddCompent(skillid, cmdMount)
 
 ------
--- Journal
+--[[ Journal
 ------
 skillid = UI_CreatePageItem(pgePublic)
-ttlNum = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
+ttlNum = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE)
 UI_LoadImage( ttlNum, "texture/gui/p0w-frmState.png", PAGE_ITEM_TITLE_NORMAL, 129, 46, 119, 690)
 UI_LoadImage( ttlNum, "texture/gui/p0w-frmState.png", PAGE_ITEM_TITLE_ACTIVE, 129, 46, 119, 736)
 UI_SetPos( ttlNum, 60 + 130, 1)
 UI_SetSize( ttlNum, 129, 46)
 
+trvJournal = UI_CreateCompent( frmState, TREE_TYPE, "trvJournal", 210, 400, 30, 80 )
+UI_SetIsDrag( trvEditor, TRUE )
+UI_TreeLoadImage( trvJournal, enumTreeAddImage, "texture/gui/old_gui/SystemBotton3.tga", 16, 16, 205, 120, 12, 12 )
+UI_TreeLoadImage( trvJournal, enumTreeSubImage, "texture/gui/old_gui/SystemBotton3.tga", 16, 16, 222, 120, 12, 12 )
 
+scrollid = UI_GetScroll( trvJournal)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/gui/skill-panel.png", COMPENT_BACK, 11, 1, 230, 80 )
+
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
+UI_SetSize( id, 13, 43 )
+
+UI_AddCompent(skillid, trvJournal)
 ------
 -- Medal
 ------
@@ -429,4 +454,4 @@ UI_LoadImage( ttlNum, "texture/gui/p0w-frmState.png", PAGE_ITEM_TITLE_ACTIVE, 12
 UI_SetPos( ttlNum, 60 + 130 + 130 + 130, 1)
 UI_SetSize( ttlNum, 129, 46)
 
-
+]]

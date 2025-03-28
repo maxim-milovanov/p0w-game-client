@@ -775,7 +775,7 @@ UI_SetPos(ttlNum, 513, 0 )
 UI_SetSize(ttlNum, 55, 38)
 
 ------
--- AURAS
+--[[ AURAS
 ------
 skillid = UI_CreatePageItem( pgePublic )
 ttlNum = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
@@ -783,6 +783,7 @@ UI_LoadImage(ttlNum, "texture/gui/p0w-wardrobe.png", PAGE_ITEM_TITLE_NORMAL, 55,
 UI_LoadImage(ttlNum, "texture/gui/p0w-wardrobe.png", PAGE_ITEM_TITLE_ACTIVE, 55, 38, 565, 646)
 UI_SetPos(ttlNum, 598, 0 )
 UI_SetSize(ttlNum, 55, 38)
+]]
 
 ------
 -- Select type record
