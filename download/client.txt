@@ -618,6 +618,7 @@ animation\0784.lab	bc414de2d2045becfa3f146092ad5f43
 animation\0785.lab	bc414de2d2045becfa3f146092ad5f43
 animation\0798.lab	6e9995386e65f473486bb31a2278750c
 animation\0800.lab	fa19651a55850e3e24f97a5d43f78eeb
+animation\0801.lab	23ea651c63b5b6cfc8f31b67599b9a28
 animation\0808.lab	4e67e5579936b3871588b64ccf40759f
 animation\0812.lab	54266cdc1c21ab2b651996e81d9a2080
 animation\0814.lab	b9f9cde5ab083aee54294f7a4125b94a
@@ -7278,6 +7279,7 @@ model\character\0785000001.lgo	177aa52e645d5c0811d6ac70928047f0
 model\character\0798000000.lgo	ec8fca6bbfd74ce781c7f3e2e8e8425b
 model\character\0798000001.lgo	4f3f5fbf11ab29c0702ceb86549a5fb2
 model\character\0800000000.lgo	6515b5be7c4251feedd422e0602070ec
+model\character\0801000000.lgo	46fb100624d14cc822fc246b42018215
 model\character\0806000000.lgo	bd0028f5c494dc83775d6c8ee869945b
 model\character\0807000000.lgo	2307ffce0cd06a3cd3266295c9143616
 model\character\0808000000.lgo	607915e8147374ac1d303b07a8b6144d
@@ -18574,7 +18576,7 @@ scripts\lua\table\stonehint.lua	692672a7cc288a407c31dc2650463a96
 scripts\ooo.lit	ff74dd67a8a0107b3fb1f86dea9f5ff6
 scripts\table\Arcana.bin	c07ce7e4a8fb73c138028df5154793a3
 scripts\table\AreaSet.bin	24f07d4149d4a788df81f1e12a44c9bd
-scripts\table\Characterinfo.bin	475c8590cd3b22d439dc83595aa2b628
+scripts\table\Characterinfo.bin	d586dbd604643904a1415d16be778ebf
 scripts\table\characterposeinfo.bin	ae8a3299480b3a28ee360edf96ade493
 scripts\table\chaticons.bin	2a254e653142bb7c7941605d50ad704e
 scripts\table\ElfSkillInfo.bin	b7bc966e67c27da157c2d7b669986b79
@@ -22118,6 +22120,8 @@ texture\character\0788000000.bmp	cad40103e6fa416cf42fd17862a4dddb
 texture\character\0789000000.bmp	09876b38e240c979af6095039b5d5b81
 texture\character\0798000000.bmp	47123274299e5735df69e3613f8976db
 texture\character\0800000000.bmp	fe1a711b9ac36446c179497ad191f197
+texture\character\0801000000.png	d4172428112cd33a6f5ba91247d9a0d0
+texture\character\0801000001.png	1e953f538096ee0195a512d22be6658e
 texture\character\0808000000.bmp	8b848699f8f5a8b5f1c1b6258e3fa20f
 texture\character\0812000000.bmp	8ba288a2c86df959cf8ad7f59cf53bcb
 texture\character\0814000000.bmp	dee90475da6358d5c4b49c3fb252abe8
