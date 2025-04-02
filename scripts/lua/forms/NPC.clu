@@ -202,45 +202,17 @@ UI_SetMargin( grdNPCstorage, 10, 8, 0, 0 )
 -----------------------------------------------------------------------
 -- NPC Quest view
 -----------------------------------------------------------------------
-frmNPCMission = UI_CreateForm( "frmNPCMission", FALSE, 270+30, 405, 269, 150, TRUE, FALSE )
+frmNPCMission = UI_CreateForm( "frmNPCMission", FALSE, 365, 400, 269, 150, TRUE, FALSE )
 UI_ShowForm( frmNPCMission, FALSE )
 UI_AddFormToTemplete( frmNPCMission, FORM_MAIN )
 UI_SetIsDrag( frmNPCMission, TRUE )
 
-for pos = 1, 18, 1 do
-	imgBackground = UI_CreateCompent( frmNPCMission, IMAGE_TYPE, "imgBackground", 15, 15, (pos*15), 0 )
-	UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15, 0 )
-	
-	for pos2 = 1, 25, 1 do
-		imgBackground = UI_CreateCompent( frmNPCMission, IMAGE_TYPE, "imgBackground", 15, 15, (pos*15), (pos2*15) )
-		UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15, 15 )
-	end
-	
-	imgBackground = UI_CreateCompent( frmNPCMission, IMAGE_TYPE, "imgBackground", 15, 15, (pos*15), 390 )
-	UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15, 30 )
-end
+imgBackground = UI_CreateCompent( frmNPCMission, IMAGE_TYPE, "imgBackground", 365, 400, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0 )
+imgBackground = UI_CreateCompent( frmNPCMission, IMAGE_TYPE, "imgBackground", 365, 400, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/frmBackground.png", NORMAL, 572, 572, 0, 0 )
 
-for pos = 1, 25, 1 do
-	imgBackground = UI_CreateCompent( frmNPCMission, IMAGE_TYPE, "imgBackground", 15, 15, 0, (15*pos) )
-	UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754, 15 )
-	
-	imgBackground = UI_CreateCompent( frmNPCMission, IMAGE_TYPE, "imgBackground", 15, 15, 255+30, (15*pos) )
-	UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15+15, 15 )
-end
-
-imgBackground = UI_CreateCompent( frmNPCMission, IMAGE_TYPE, "imgBackground", 15, 15, 255+30, 0 )
-UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15+15, 0 )
-
-imgBackground = UI_CreateCompent( frmNPCMission, IMAGE_TYPE, "imgBackground", 15, 15, 0, 0 )
-UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754, 0 )
-
-imgBackground = UI_CreateCompent( frmNPCMission, IMAGE_TYPE, "imgBackground", 15, 15, 0, 390 )
-UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754, 30 )
-
-imgBackground = UI_CreateCompent( frmNPCMission, IMAGE_TYPE, "imgBackground", 15, 15, 255+30, 390 )
-UI_LoadImage( imgBackground, "texture/gui/store.png", NORMAL, 15, 15, 754+15+15, 30 )
-
-memMission = UI_CreateCompent( frmNPCMission, MEMOEX_TYPE, "memMission", 270, 360, 17, 10 )
+memMission = UI_CreateCompent( frmNPCMission, MEMOEX_TYPE, "memMission", 330, 330, 17, 10 )
 UI_SetTextColor( memMission, COLOR_BLACK )
 UI_SetCaption( memMission, "" ) 
 UI_SetMemoMaxNumPerRow(memMission, 30 )
@@ -256,14 +228,14 @@ UI_LoadImage( id, "texture/gui/skill-panel.png", COMPENT_BACK, 13, 43, 243, 79 )
 UI_SetSize( id, 13, 43 )
 
 -- Accept
-btnYes = UI_CreateCompent( frmNPCMission, BUTTON_TYPE, "btnYes", 83, 42, 52, 383 )
+btnYes = UI_CreateCompent( frmNPCMission, BUTTON_TYPE, "btnYes", 83, 42, 80, 383 - 40  )
 UI_LoadButtonImage( btnYes, "texture/gui/botton.png", 104, 54, 22, 43, FALSE )
 
 -- Complete
-btnComplete = UI_CreateCompent( frmNPCMission, BUTTON_TYPE, "btnComplete", 83, 42, 52, 383 )
+btnComplete = UI_CreateCompent( frmNPCMission, BUTTON_TYPE, "btnComplete", 83, 42, 80, 383 - 40 )
 UI_LoadButtonImage( btnComplete, "texture/gui/botton.png", 104, 54, 127, 43, FALSE )
 
-btnNo = UI_CreateCompent( frmNPCMission, BUTTON_TYPE, "btnNo", 111, 43, 140, 383 )
+btnNo = UI_CreateCompent( frmNPCMission, BUTTON_TYPE, "btnNo", 111, 43, 140 + 28, 383 - 40 )
 UI_LoadButtonImage( btnNo, "texture/gui/botton.png", 139, 54, 232, 43, FALSE )
 
 -----------------------------------------------------------------------

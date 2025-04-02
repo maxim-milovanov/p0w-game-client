@@ -18545,7 +18545,7 @@ scripts\lua\forms\main.clu	cec07d4f660680593759f137a1189aee
 scripts\lua\forms\manage.clu	519ca29d67cc4d063fd3e38ed70207ec
 scripts\lua\forms\minimap.clu	f05b15841b30c38ca7f6efc4ccc65745
 scripts\lua\forms\mission.clu	5157ab103d61ef63e2382239dc422f94
-scripts\lua\forms\NPC.clu	8d59039d77658c1ebc75c288edb98d4d
+scripts\lua\forms\NPC.clu	46ec48b8611b12975e53f7cf20268f98
 scripts\lua\forms\player.clu	054595a7e5619b47233545a71b85fe5a
 scripts\lua\forms\preperty.clu	5b5da6dcfdf80f60d5c2e06d18f79393
 scripts\lua\forms\select.clu	576dd85c8c2e3438e7ec0f006668809f
