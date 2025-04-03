@@ -60,7 +60,7 @@ UI_LoadImage( imgUnLock, "texture/gui/p0w-frmInv.png", NORMAL, 49, 60, 613, 281,
 btnbrush = UI_CreateCompent( frmInv, BUTTON_TYPE, "btnbrush", 20, 26, 237 + 31, 405 )
 UI_LoadButtonImage( btnbrush, "texture/gui/p0w-frmInv.png", 52, 62, 732, 281, FALSE )
 
-cmdLost = UI_CreateCompent( frmInv, COMMAND_ONE_TYPE, "cmdLost", 20, 26, 237 + 31, 405)
+cmdLost = UI_CreateCompent( frmInv, COMMAND_ONE_TYPE, "cmdLost", 30, 30, 237 + 28, 402)
 UI_SetTag( cmdLost, 999 )
 UI_SetHint( cmdLost, "Delete" )
 
