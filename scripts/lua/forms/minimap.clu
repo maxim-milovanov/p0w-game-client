@@ -112,7 +112,7 @@ frmSearch = UI_CreateForm( "frmSearch", FALSE, 231, 109, 300, 200, TRUE, FALSE )
 UI_ShowForm( frmSearch, FALSE )
 UI_AddFormToTemplete( frmSearch, FORM_MAIN )
 UI_FormSetIsEscClose( frmSearch, FALSE )
-UI_FormSetHotKey( frmSearch, ALT_KEY, HOTKEY_R )
+UI_FormSetHotKey( frmSearch, ALT_KEY, HOTKEY_T )
 UI_SetIsDrag( frmSearch, FALSE )
 
 imgSearch = UI_CreateCompent( frmSearch, IMAGE_TYPE, "imgSearch", 231, 109, 0, 0 )
