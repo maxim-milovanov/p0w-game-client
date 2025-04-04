@@ -8,51 +8,20 @@ UI_ShowForm( frmLoading, TRUE )
 UI_AddFormToTemplete( frmLoading, FORM_SWITCH_SCENE )
 UI_FormSetIsEscClose( frmLoading, FALSE )
 
-imgLoading1 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading1", 300, 256, 0, 0 )
-UI_LoadImage( imgLoading1, "texture/gui/loading/l1.tga", NORMAL, 300, 256, 0, 0 )
+imgBackground = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgBackground", 2048, 2048, 0, 0 )
+UI_LoadImage( imgBackground, "texture/gui/login_scene.png", NORMAL, 2048, 2048, 0, 0 )
 
-imgLoading2 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading2", 300, 256, 300, 0 )
-UI_LoadImage( imgLoading2, "texture/gui/loading/l2.tga", NORMAL, 300, 256, 0, 0 )
+imgLogo = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLogo", 561, 353, 0, 0)
+UI_LoadImage( imgLogo, "texture/gui/logo.png", NORMAL, 561, 353, 0, 0)
 
-imgLoading3 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading3", 300, 256, 600, 0 )
-UI_LoadImage( imgLoading3, "texture/gui/loading/l3.tga", NORMAL, 300, 256, 0, 0 )
+imgLoading = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading", 1024, 29, 0, 0)
+UI_LoadImage( imgLoading, "texture/gui/p0w-loading.png", NORMAL, 1024, 29, 0, 0)
 
-imgLoading4 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading4", 300, 256, 900, 0 )
-UI_LoadImage( imgLoading4, "texture/gui/loading/l4.tga", NORMAL, 300, 256, 0, 0 )
+proLoading = UI_CreateCompent( frmLoading, PROGRESS_TYPE, "proLoading", 1024, 29, 0, 0)
+UI_LoadScaleImage( proLoading, "texture/gui/p0w-loading.png", PROGRESS_PROGRESS, 1725, 29, 0, 29, 1.0, 1.0 )
+UI_SetHint( proLoading, "SP" )
+UI_SetProgressHintStyle( proLoading, PROGRESS_HINT_NUM )
 
-imgLoading5 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading5", 300, 256, 0, 256 )
-UI_LoadImage( imgLoading5, "texture/gui/loading/l5.tga", NORMAL, 300, 256, 0, 0 )
-
-imgLoading6 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading6", 300, 256, 300, 256  )
-UI_LoadImage( imgLoading6, "texture/gui/loading/l6.tga", NORMAL, 300, 256, 0, 0 )
-
-imgLoading7 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading7", 300, 256, 600, 256 )
-UI_LoadImage( imgLoading7, "texture/gui/loading/l7.tga", NORMAL, 300, 256, 0, 0 )
-
-imgLoading8 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading8", 300, 256, 900, 256 )
-UI_LoadImage( imgLoading8, "texture/gui/loading/l8.tga", NORMAL, 300, 256, 0, 0 )
-
-imgLoading9 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading9", 300, 256, 0, 512 )
-UI_LoadImage( imgLoading9, "texture/gui/loading/l9.tga", NORMAL, 300, 256, 0, 0 )
-
-imgLoading10 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading10", 300, 256, 300, 512 )
-UI_LoadImage( imgLoading10, "texture/gui/loading/l10.tga", NORMAL, 300, 256, 0, 0 )
-
-imgLoading11 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading11", 300, 256, 600, 512 )
-UI_LoadImage( imgLoading11, "texture/gui/loading/l11.tga", NORMAL, 300, 256, 0, 0 )
-
-imgLoading12 = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading12", 300, 256, 900, 512 )
-UI_LoadImage( imgLoading12, "texture/gui/loading/l12.tga", NORMAL, 300, 256, 0, 0 )
-
---定义进度条
-imgLoading = UI_CreateCompent( frmLoading, IMAGE_TYPE, "imgLoading", 120,123, 132, 418)
-UI_LoadImage( imgLoading, "texture/gui/old_gui/LoadProgress.tga", NORMAL, 120,23, 0, 0 )
-
---定义说明
-labLoad= UI_CreateCompent( frmLoading, LABELEX_TYPE, "labLoad", 52, 13, 450, 523 )
-UI_SetCaption( labLoad, "Loading..." )
-UI_SetTextColor( labLoad, COLOR_WHITE )
---UI_SetLabelExFont( labLoad, DEFAULT_FONT, TRUE, COLOR_WHITE)
 -----------------------------------------------------------------------
 -- Loading
 -----------------------------------------------------------------------	
